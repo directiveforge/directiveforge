@@ -1,0 +1,11 @@
+{
+  "source_slug": "baml",
+  "url": "https://github.com/BoundaryML/baml/releases.atom",
+  "fetch_strategy": "rss",
+  "last_fetched_utc": "2026-07-03T04:02:00Z",
+  "last_seen_cursor": "2026-07-02T22:53:31Z",
+  "last_seen_item_hash": "baml-language-0.13.1-nightly.20260702.e",
+  "consecutive_empty_scans": 0,
+  "consecutive_failures": 0,
+  "notes": "0.13.1-nightly track continues. 3 more nightlies in 07-02 -> 07-03 window (.20260702.d + .e; .c was carried in prior scan window). Cadence-normal noise floor; no per-release notes per the BAML pattern."
+}

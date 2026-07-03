@@ -1,0 +1,11 @@
+{
+  "source_slug": "autogen",
+  "url": "https://github.com/microsoft/autogen/releases.atom",
+  "fetch_strategy": "rss",
+  "last_fetched_utc": "2026-07-03T04:02:00Z",
+  "last_seen_cursor": "2025-09-30T06:18:26Z",
+  "last_seen_item_hash": "python-v0.7.5",
+  "consecutive_empty_scans": 36,
+  "consecutive_failures": 0,
+  "notes": "9+ months stale. Drop-or-replace disposition landed in vigilance/feed/monthly/2026-07.md. Recommended replacement target: microsoft/agent-framework."
+}

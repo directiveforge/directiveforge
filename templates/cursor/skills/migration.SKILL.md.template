@@ -1,0 +1,70 @@
+# Database Migration Skill
+
+> **Trigger**: Use this skill when asked to create, apply, run, or roll back database migrations, or when schema changes are needed.
+
+## ORM & Database
+
+- ORM: {{ORM}}
+- Database: {{DB_TYPE}}
+- Schema location: `{{SCHEMA_DIR}}/`
+- Migrations directory: `{{MIGRATIONS_DIR}}/`
+
+## Create a Migration
+
+```bash
+# After editing schema file
+{{CMD_MIGRATE_GENERATE}} --name {{MIGRATION_NAME_CONVENTION}}
+```
+
+{{MIGRATION_NAMING_NOTE}}
+<!-- MIGRATION_NAMING_NOTE example: "Use snake_case descriptive names: add_user_stripe_id, drop_legacy_sessions" -->
+
+## Apply Migrations
+
+**Development:**
+```bash
+{{CMD_MIGRATE_DEV}}
+```
+
+**Production (CI/CD applies automatically on deploy):**
+```bash
+{{CMD_MIGRATE_PROD}}
+```
+
+**Check status:**
+```bash
+{{CMD_MIGRATE_STATUS}}
+```
+
+## Rollback
+
+```bash
+{{CMD_MIGRATE_ROLLBACK}}
+```
+
+{{ROLLBACK_LIMITATION}}
+<!-- ROLLBACK_LIMITATION example: "Prisma does not support automatic rollback — you must write a down migration manually" -->
+
+## After Applying Migrations
+
+```bash
+{{CMD_GENERATE_TYPES}}   # Regenerate ORM client types
+{{CMD_TYPECHECK}}         # Verify no type errors from schema change
+```
+
+## Gotchas
+
+- {{MIGRATION_GOTCHA_1}}
+<!-- Example: "NEVER edit a migration file that has been applied — create a new one instead" -->
+- {{MIGRATION_GOTCHA_2}}
+<!-- Example: "Adding a NOT NULL column without a default will fail on non-empty tables — always add default or make nullable first" -->
+- {{MIGRATION_GOTCHA_3}}
+<!-- Example: "Renaming a column is destructive — do expand-contract: add new column → backfill → update code → drop old column" -->
+- {{MIGRATION_GOTCHA_4}}
+<!-- Example: "Production migrations run during deploy with zero downtime — avoid locking statements (full table rewrites, exclusive locks)" -->
+
+## When NOT to Use This Skill
+
+- Seeding data — use `{{CMD_SEED}}` instead
+- Changing application code without schema changes — no migration needed
+- Emergency schema changes on prod without staging validation — escalate to DBA

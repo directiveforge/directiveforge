@@ -1,0 +1,154 @@
+{
+  "metric": "L1.4",
+  "pack": "naming",
+  "spec_version": "1.0",
+  "judge": "claude-opus-4-8",
+  "n": 6,
+  "per_dimension_mean": {
+    "actionability": 5,
+    "scope_calibration": 5,
+    "failure_content_quality": 5,
+    "constraint_explicitness": 5
+  },
+  "overall_mean": 5,
+  "artifacts": [
+    {
+      "artifact": "naming/naming-brief",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "2. **Force a target-SOUND answer (#6).** \"Imagine the sound of your brand before you start naming. Should it sound fast? full? reliable? soft? premium?\" (Placek). A brief without a sound target produces unsteerable generation. Do not let the user skip this."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "**Mandated founder/place names or existing brand equity** — when the name is already decided by ownership or heritage, skip generation and go straight to `linguistic-screen` + `trademark-clearance` on the chosen name."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **The JSON contract is load-bearing.** Downstream skills key off these field names — keep them stable. A renamed key silently breaks `linguistic-screen` (markets/scripts) and `trademark-clearance` (nice_classes)."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use\n\n- **Trivial internal/codename projects** where a throwaway label suffices — don't impose a 14-field brief on a feature-flag name."
+        }
+      },
+      "notes": "All four dimensions hit the 5-anchor: 7 concrete numbered DO steps with checkable outcomes, one job with clean route-out in When-NOT, both Anti-patterns and Gotchas naming specific failure+fix, and a numbered Procedure plus explicit When-NOT with named sibling routes. Substantive/domain-specific, not generic."
+    },
+    {
+      "artifact": "naming/name-generation",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "1. **Load the brief JSON.** Pull `target_sound`, `personality`, `name_types.in/out`, `connotations`, and `category`. Generation is steered by the sound target — not by what's \"available\"."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "Sibling skills:\n  - `naming-brief` — upstream; supplies the steering JSON.\n  - `linguistic-screen`, `trademark-clearance`, `availability-gate` — the mandatory downstream gates that turn ungated candidates into survivors."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **The model's \"I'm pretty sure that's available\" instinct is a hallucination, not knowledge.** Suppress it. Generation never touches a registry or TM database."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use\n\n- **Mandated founder/place/equity names** — there is nothing to generate; skip to screening + clearance on the fixed name."
+        }
+      },
+      "notes": "Actionability=5: six-step numbered Procedure, each a concrete DO/DON'T with checkable outcomes (load specific JSON keys; ≥5 techniques/≥3 metaphor domains; ≥200 target; dedupe+tag likely-collision; emit banner). Scope=5: does exactly one job (divergent generation), self-evaluation banned by design, explicit When-NOT routes-out to named siblings — NOT an orchestrator (it does the work, only hands OUTPUT to gates). Failure-content=5: 3 Gotchas + 3 Anti-patterns, each naming a specific failure (hallucinated availability instinct, affix-pattern crowding, judging-during-generation) with a fix/route. Constraint-explicitness=5: numbered Procedure + explicit When-NOT with two named cases and routes. No genericity/leniency inflation warranted — anchors for defect classes (orchestrator-style, skill-without-Gotchas) do not apply."
+    },
+    {
+      "artifact": "naming/linguistic-screen",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "6. **Pronounceability score** — can target-market speakers say it correctly on first sight?"
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- **As a substitute for a native speaker** in any non-Latin or slang-sensitive market — this skill *flags*, it does not *clear*, those cells."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **Sound-only transliteration into CJK.** The \"bite the wax tadpole\" trap — characters must carry acceptable meaning, not just sound. Never approve a Chinese rendering on phonetics alone."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use"
+        }
+      },
+      "notes": "All 4 dimensions hit the score-5 anchor: 8-step numbered Procedure with checkable outcomes, one job with clean When-NOT routing to native linguists and named sibling skills (name-generation/name-scorecard), and both Anti-patterns (4) + Gotchas (3) each naming a specific failure with fix."
+    },
+    {
+      "artifact": "naming/trademark-clearance",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "1. **Classify each candidate on the Abercrombie spectrum.** Generic → descriptive → suggestive → arbitrary → fanciful. Generic is never protectable; descriptive needs secondary meaning (likely §2(e)(1) refusal); suggestive/arbitrary/fanciful are inherently distinctive. Coined/arbitrary score lowest-risk."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- **For pure availability questions** (domains/handles) with no registration intent — route to `availability-gate` instead."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **Ignoring phonetic and translation equivalents.** Likelihood-of-confusion turns on sound and connotation, not spelling — a \"sound-alike\" in the same class is a real flag."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use\n\n- **As a replacement for legal counsel — ever.** This skill triages; the attorney opinion stage is always human."
+        }
+      },
+      "notes": "All four dimensions hit score-5 anchors: 6 concrete numbered DO steps, crisp one-job boundary with named route-out, 3 Anti-patterns + 3 Gotchas each naming a specific failure+fix, and a numbered Procedure plus explicit When-NOT with named sibling routes. Substantively specialized (legal-gate discipline), not a generic well-formed skill."
+    },
+    {
+      "artifact": "naming/availability-gate",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "1. **Domain check via RDAP / registrar API.** Check exact-match .com + the category-canonical TLD (.ai for AI, .io for dev tools, .shop/.store for retail) using a *live* tool. RDAP is the modern structured protocol (replacing WHOIS). PASS if a strong-fit TLD is available ≤ ~$50/yr OR aftermarket ≤ budget; CAUTION if only a compound/prefixed variant is open. **Do NOT auto-fail on bare-.com unavailability.**"
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "**No live RDAP/registrar tool available** — do not run a \"from memory\" availability check; flag that the gate requires live tooling and hand off to a surface (Cowork/Code) that has it."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **Registry-available ≠ legally safe.** A free .com can still infringe a live trademark — this skill runs alongside `trademark-clearance`, not instead of it."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use\n\n- **No live RDAP/registrar tool available** — do not run a \"from memory\" availability check; flag that the gate requires live tooling and hand off to a surface (Cowork/Code) that has it.\n- **Names with no digital presence requirement** (internal codenames, signage-only local brands) — a branded-SERP + handle sweep may be all that's warranted."
+        }
+      },
+      "notes": "Full numbered Procedure with thresholds, both Gotchas (4) and Anti-patterns (3) each naming specific failure+fix, and explicit When-NOT with named routes (hand off to Cowork/Code, sibling trademark-clearance). Two hard rules stated in frontmatter (never assert free without RDAP; never auto-fail on bare .com). Matches all four score-5 anchors — not generic."
+    },
+    {
+      "artifact": "naming/name-scorecard",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "2. **Score each survivor 0-100 across the seven criteria**, pulling component inputs from the upstream gates: legal defensibility from `trademark-clearance` (Abercrombie + knockout), cross-language safety from `linguistic-screen`, digital availability from `availability-gate`, and fluency/distinctiveness/fit/extendability from the name itself + brief."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- **Before gating is complete** — run `linguistic-screen`, `trademark-clearance`, and `availability-gate` first; the scorecard ranks survivors, not raw candidates."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **The weights are not empirical.** Confidence 0.65 — always expose the breakdown and invite re-weighting; don't present the total as objective truth."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use ... - **As an appeal poll** — if the user only wants \"which do people like most?\", that's the failure mode this skill is built to resist; reframe to fit/risk."
+        }
+      },
+      "notes": "All 4 dimensions match the score-5 anchor: 6 concrete numbered DO steps; single job with When-NOT routing to named siblings (consumes, not dispatches); Anti-patterns (4) + Gotchas (3) each naming a specific failure+fix; numbered Procedure plus explicit When-NOT. Not orchestrator-style, not skill-without-Gotchas."
+    }
+  ]
+}

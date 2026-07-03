@@ -1,0 +1,95 @@
+{
+ "spec_version": "1.1",
+ "layer": 1,
+ "pack": "naming",
+ "date": "2026-07-03",
+ "label": "delta",
+ "scope": "targeted re-measure (v0.19.0 W4) \u2014 L1.2 only (HD-3); L1.1/L1.4 not re-measured; L1.3 remains deferred (baseline spend-breaker adjudication ADJ-1 stands)",
+ "models": {
+  "author": "none (baseline prompt sets reused verbatim)",
+  "router": "claude-haiku-4-5",
+  "calibration": "claude-fable-5"
+ },
+ "metrics": {
+  "L1.2": {
+   "prompts_per_skill": 10,
+   "channel": "v1.1-batched-K15",
+   "pack_micro": {
+    "TP": 30,
+    "FP": 0,
+    "FN": 0,
+    "precision": 1,
+    "recall": 1,
+    "f1": 1
+   },
+   "per_skill": [
+    {
+     "skill": "naming-brief",
+     "TP": 5,
+     "FP": 0,
+     "FN": 0,
+     "positives": 5,
+     "precision": 1,
+     "recall": 1,
+     "f1": 1
+    },
+    {
+     "skill": "name-generation",
+     "TP": 5,
+     "FP": 0,
+     "FN": 0,
+     "positives": 5,
+     "precision": 1,
+     "recall": 1,
+     "f1": 1
+    },
+    {
+     "skill": "linguistic-screen",
+     "TP": 5,
+     "FP": 0,
+     "FN": 0,
+     "positives": 5,
+     "precision": 1,
+     "recall": 1,
+     "f1": 1
+    },
+    {
+     "skill": "trademark-clearance",
+     "TP": 5,
+     "FP": 0,
+     "FN": 0,
+     "positives": 5,
+     "precision": 1,
+     "recall": 1,
+     "f1": 1
+    },
+    {
+     "skill": "availability-gate",
+     "TP": 5,
+     "FP": 0,
+     "FN": 0,
+     "positives": 5,
+     "precision": 1,
+     "recall": 1,
+     "f1": 1
+    },
+    {
+     "skill": "name-scorecard",
+     "TP": 5,
+     "FP": 0,
+     "FN": 0,
+     "positives": 5,
+     "precision": 1,
+     "recall": 1,
+     "f1": 1
+    }
+   ],
+   "raw": "../runB-v1.1-batched.json"
+  }
+ },
+ "caveats": [
+  "Method note (spec v1.1, 2026-07-03): batched channel; equivalence block lives in ../decision/scorecard.json (same run, same channel, controls exact).",
+  "HD-3 movement (name-generation f1 0.8889->1.0) is measured on the batched channel only \u2014 per SPEC v1.1 rule 4b it ships alongside the run's equivalence block rather than a v1.0 re-measure; treat as strongly-supported directional.",
+  "single re-measure run; stochastic router."
+ ]
+}

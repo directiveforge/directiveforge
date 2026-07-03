@@ -1,0 +1,40 @@
+---
+description: "Test framework conventions, patterns, and mocking strategy"
+globs: ["**/*.test.*", "**/*.spec.*", "{{TEST_DIR}}/**"]
+alwaysApply: false
+---
+# Testing — {{TEST_FRAMEWORK}}
+
+## TEST STRUCTURE
+- Unit tests: colocated — `{{SOURCE_FILE}}.test.{{EXT}}` next to source
+- Integration tests: `{{INTEGRATION_TEST_DIR}}/`
+- E2E tests: `{{E2E_TEST_DIR}}/` using {{E2E_FRAMEWORK}}
+
+## COMMANDS
+- Run all: `{{CMD_TEST}}`
+- Watch: `{{CMD_TEST_WATCH}}`
+- Coverage: `{{CMD_TEST_COVERAGE}}`
+- Single file: `{{CMD_TEST}} {{TEST_FILE_FLAG}} path/to/file`
+
+## TEST PATTERNS
+- DO: Arrange-Act-Assert (AAA) structure — blank line between sections
+- DO: Descriptive names — `it('returns 404 when user not found')`
+- DO: Test behavior, not implementation — call public API, not internals
+- DO NOT: Share mutable state between tests — isolate in `beforeEach`
+
+## MOCKING STRATEGY
+- External APIs: {{MOCK_STRATEGY}}
+<!-- MOCK_STRATEGY example: "Mock at HTTP layer with msw — never mock individual fetch calls" -->
+- Database: {{DB_MOCK_STRATEGY}}
+<!-- DB_MOCK_STRATEGY example: "Real test database via Docker — no in-memory fakes (burned us before)" -->
+- Time: `{{TIME_MOCK_APPROACH}}`
+<!-- TIME_MOCK_APPROACH example: "vi.useFakeTimers() — never new Date() in tests" -->
+
+## COVERAGE TARGETS
+- Minimum: {{COVERAGE_THRESHOLD}}%
+- Enforce via: `{{COVERAGE_ENFORCEMENT}}`
+<!-- COVERAGE_ENFORCEMENT example: "vitest --coverage --coverage.thresholds.lines=80" -->
+
+## FACTORIES / FIXTURES
+- Test factories in: `{{TEST_FACTORIES_PATH}}`
+- DO: Use factories for complex objects — NEVER inline large object literals

@@ -1,0 +1,292 @@
+{
+  "metric": "L1.4",
+  "pack": "decision",
+  "spec_version": "1.0",
+  "judge": "claude-opus-4-8",
+  "n": 12,
+  "per_dimension_mean": {
+    "actionability": 5,
+    "scope_calibration": 4.583,
+    "failure_content_quality": 5,
+    "constraint_explicitness": 5
+  },
+  "overall_mean": 4.896,
+  "artifacts": [
+    {
+      "artifact": "decision/10-10-10",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "2. **Forecast user state at 10 minutes** — immediate cost/benefit. What does the user feel / pay / gain in the first few minutes after the decision lands? Concrete: \"10 minutes after sending the resignation email, you feel relief and your manager calendar-invites you for tomorrow.\""
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- **Decisions about timing specifically** (\"should I wait until Q3?\") — route to `cost-of-inaction`. 10-10-10 is about *whether* to act; cost-of-inaction is about *when*."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **False precision in the 10-year column.** \"In 10 years, the SaaS market will have consolidated and AI will have eaten 40% of analyst jobs\" is unfalsifiable speculation. Constrain 10-year forecasts to *path-dependencies the decision opens or closes*, not market predictions."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use\n\n- **Decisions where all three horizons converge.** If the answer is the same at 10 minutes and 10 years, the skill produces no useful output. Route to `disconfirming-evidence-first` for a quick review instead."
+        }
+      },
+      "notes": "6-step numbered Procedure with checkable concrete outputs; 5 Anti-patterns + 5 Gotchas each naming a specific failure and fix; explicit When-NOT with named sibling routes (cost-of-inaction, council-3-voice, disconfirming-evidence-first). Does one job (horizon forecasting) and cleanly routes timing/Type-1/emotional cases out — no orchestration, no sibling bleed."
+    },
+    {
+      "artifact": "decision/anti-sycophancy-meta",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "1. **Detect the ownership signal.** Scan the user message for trigger patterns:"
+        },
+        "scope_calibration": {
+          "score": 1,
+          "evidence": "The meta-skill itself produces no content evaluation; it routes."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **The model knows when it's being sycophantic.** Anthropic's *Protecting the well-being of users* (Dec 18 2025) documents this:"
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use"
+        }
+      },
+      "notes": "Scope=1 by the orchestrator-style anchor: line 18 (\"produces no content evaluation; it routes\") + step 5 (\"Hand off to the downstream skill's procedure. The meta-skill's job ends here\") show it dispatches ≥2 skills (pre-mortem/steelman/disconfirming-evidence-first) and does no work itself. Other 3 dims are strong: 6 concrete numbered steps, 6 sourced Gotchas + 6 Anti-patterns, numbered Procedure + explicit When-NOT with named routes."
+    },
+    {
+      "artifact": "decision/bayesian-update",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "5. **Report shift size; if shift < 10pp, flag as not action-worthy.** The percentage-point shift is the headline number."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- **First-time decisions with no prior.** If the user has no pre-existing belief, run `confidence-calibration` to set one, then return to this skill on the next evidence arrival."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **False precision in likelihood ratios.** `P(E|H) = 0.347` produced without a reference class is theatre. Round to 0.1 or 0.2 increments unless the user has a real frequency table behind the estimate."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use ... - **Tone checks, single-fact lookups, emotional-support framings.** Wrong tool, wrong cost. Route to `disconfirming-evidence-first` or `anti-sycophancy-meta`'s opt-out path."
+        }
+      },
+      "notes": "Numbered 5-step Procedure with checkable outputs + worked example AND counter-example; one crisp job routing out to named siblings; 5 anti-patterns + 4 gotchas each with specific failure+fix; explicit When-NOT with named routes. Non-generic — scores 5 across all four."
+    },
+    {
+      "artifact": "decision/confidence-calibration",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "6. **Optionally produce 80% confidence interval.** Lower + upper bound the answer would still fall within 4 times out of 5. The interval must exclude at least some plausible outcomes — a CI that contains \"everything\" has zero information."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- For tone checks or single-fact lookups (use `disconfirming-evidence-first` instead)."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **False precision (3 decimals on vibes)** — `P=0.873` produced without a reference class is theatre. Round to 0.05 or 0.10 increments unless the reference class actually supports the precision."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use"
+        }
+      },
+      "notes": "Every dimension matches the 5-anchor with specific, non-generic substance: 7-step concrete Procedure, crisp single-job scope with named When-NOT routes, 5 Anti-patterns + 4 Gotchas each naming failure+fix. Not generic-but-well-formed (which would cap at 3)."
+    },
+    {
+      "artifact": "decision/cost-of-inaction",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "3. **Compute breakeven horizon.** If acting now costs `$Y` and waiting costs `$X/period`, breakeven is `T = Y / X` periods. Beyond `T`, inaction costs more than action."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- For decisions already in flight — once execution has started, `pre-mortem` is the right tool, not `cost-of-inaction`."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **Spuriously precise dollar values.** `$3,247.50/month` produced from gut feel is theatre — same failure mode as `confidence-calibration` row's false-precision warning. Round to one significant figure unless the data supports the precision."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use\n\n- For decisions with no time-value dimension."
+        }
+      },
+      "notes": "Numbered Procedure (5 concrete DO steps with checkable outputs) + explicit When-NOT with named routes (pre-mortem, anti-sycophancy-meta); 4 Anti-patterns and 4 Gotchas each naming a specific failure + fix; does one job (cost-of-waiting) with clean route-outs. Scores 5 on all four, not 3 — substance is specific, not generic."
+    },
+    {
+      "artifact": "decision/council-3-voice",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "5. **Synthesizer reads both, produces verdict + dissent footnote.** The Synthesizer is required by spec to fill the `dissent` field with the Pessimist's strongest unaddressed point — **verbatim quoted from the Pessimist's JSON, not paraphrased**."
+        },
+        "scope_calibration": {
+          "score": 4,
+          "evidence": "[Coordinator agent — this skill] │ ├──── Task: spawn Optimist subagent  (≤500-token JSON)"
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "**Synthesis hallucination.** Synthesizer fabricates a \"compromise\" not in either input. Mitigation: dissent field is mandatory + verbatim-quoted from Pessimist JSON. If verbatim cannot be produced, the council failed."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to invoke (hard rules — KB-05 §6.6)"
+        }
+      },
+      "notes": "Orchestrates subagents (own role-prompts), not sibling skills, and does real synthesis work itself, so it evades the orchestrator-style score-1 defect; hard dependency on reversibility-check gate keeps scope at 4 not 5."
+    },
+    {
+      "artifact": "decision/disconfirming-evidence-first",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "1. **Restate the claim.** ... 2. **Search ONLY for evidence the claim is wrong (no balancing).** ... 3. **Rank disconfirming items by severity.** BLOCKER (the artifact fails its purpose if this is true) / HIGH (significantly degrades the outcome) / MEDIUM (worth fixing but the artifact still works). ... 4. **Force a verdict.** Ask explicitly: \"If I had only this evidence, would I still ship?\" Yes or no."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- Plan-shaped artifacts where the artifact does not yet exist — route to `pre-mortem` (you cannot disconfirm what hasn't been written).\n- Argument-shaped artifacts where the user wants a counter-position built — route to `steelman`."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **Treating disconfirmation as a balance exercise.** \"Here are 3 things that could go wrong AND here are 3 things you got right.\" This is the most common misuse and the entire reason the skill exists. [Anti-patterns] ... - **Severity tagging tends toward inflation.** If every item is BLOCKER, none is. Discipline: BLOCKER is reserved for items where the artifact fails its purpose if the item is true. [Gotchas]"
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use ... - Decisions involving ≥3 mutually-exclusive options or Type-1 reversibility — escalate via `reversibility-check` to `council-3-voice`."
+        }
+      },
+      "notes": "Strong non-generic skill: 6-step concrete Procedure, dedicated Anti-patterns (5) + Gotchas (5) each naming a specific failure+fix, and explicit When-NOT with named sibling routes. Every dimension meets the score-5 anchor with specifics, not filler."
+    },
+    {
+      "artifact": "decision/inversion",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "3. **List 5 mechanisms of guaranteed failure.** Each mechanism is a specific lever a saboteur (or reality) could pull. Vague (\"bad timing\") fails; specific (\"the price point is set above the threshold the second-largest segment will tolerate, so they walk on launch day\") passes."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- **Conflating with pre-mortem.** Pre-mortem asserts the plan failed and reverse-engineers narratives. Inversion asks how a saboteur would force failure and converts each lever to a constraint. Outputs differ; if the user wanted failure narratives ranked Tiger/Paper-Tiger/Elephant, route to `pre-mortem` instead."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **The 5-mechanism cap is a feature** — fewer than 5 underfits, more than 5 dilutes. Force exactly 5; if you can only think of 3, the proposal is probably too vague (back to step 1)."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use\n\n- **User wants brainstorming or option generation** — inversion pressure-tests a single proposal; it doesn't generate alternatives. Route to a brainstorming flow instead."
+        }
+      },
+      "notes": "Every Procedure step is a concrete DO with a checkable outcome; single job with crisp When-NOT routing to named siblings (pre-mortem, steelman, council-3-voice, 10-10-10); 5 Anti-patterns + 5 Gotchas each naming a specific failure and fix; numbered Procedure plus explicit When-NOT with named routes. No defect-class match — exceeds the generic-3 baseline on all four dimensions."
+    },
+    {
+      "artifact": "decision/pre-mortem",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "6. **Output top-3 mitigations** with owner + due date. Mitigations without owners are aspirations; aspirations don't ship. Force the user to name a person (or themselves) for each."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- **Vague proposals not yet committed to** — pre-mortem requires a concrete plan. For \"should I think about doing X eventually\", route to `10-10-10` or `cost-of-inaction` instead."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **Generic doom.** \"The market could shift\" / \"key personnel could leave\" — fails step 3. Force specificity to chain-of-events level."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use ... - **Tone checks or single-fact lookups** — wrong tool, wrong cost. Route to `disconfirming-evidence-first` instead."
+        }
+      },
+      "notes": "Every dimension matches the 5-anchor with concrete, non-generic evidence: 7-step numbered Procedure with checkable outcomes, one job with named route-outs in When-NOT, dedicated Anti-patterns (5) + Gotchas (5) each pairing a specific failure with a fix, and an explicit When-NOT section naming sibling routes. Not orchestrator-style (does its own work) and not skill-without-Gotchas."
+    },
+    {
+      "artifact": "decision/reversibility-check",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "1. **Classify the decision.** Type-1 (irreversible, one-way door) or Type-2 (reversible, two-way door). The decisive question is not \"can it be undone?\" — almost everything can be undone in some sense. The decisive question is \"what does undoing it cost?\""
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "This skill's job is the gate. When Type-1 fires, hand off to `council-3-voice` (Optimist + Pessimist + Synthesizer per KB-05 §6)."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **\"Reversible in theory\" is not reversible.** A schema migration can be rolled back, but if production data has accumulated under the new schema for two weeks, the rollback destroys data. Reversibility is about practical cost, not theoretical possibility."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use\n\n- For tone checks or single-fact lookups — these have no commitment dimension."
+        }
+      },
+      "notes": "Exemplary skill: 5 concrete numbered DO steps, single crisp job with named route-outs, both Anti-patterns (5) and Gotchas (4) each naming a specific failure+fix, and explicit When-NOT with named routes. Matches no defect anchor; earns 5 across all four dimensions."
+    },
+    {
+      "artifact": "decision/second-order-thinking",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "2. **Identify 3 second-order effects per stakeholder** across three buckets: us (the actor), them (whoever the action targets), market (the broader system — competitors, regulators, peers, supply chain). Nine effects total before pruning."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- **Don't use this skill to generate options.** It pressure-tests an option the user brings. If the user hasn't proposed an action yet, route to a brainstorming workflow first."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **Confidence inflation in third-order.** A 0.85-confidence second-order × 0.5-confidence third-order is 0.42 joint. Mark joint confidence on third-order nodes, not local."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use ... When the user explicitly wants validation of an emotional decision — route to `anti-sycophancy-meta`'s opt-out path instead. When the decision is project-scale and irreversible — escalate to KB-04"
+        }
+      },
+      "notes": "Exemplary skill: 6-step numbered Procedure with checkable outcomes, both Anti-patterns and Gotchas each pairing a named failure with a concrete fix, explicit When-NOT with 4 named sibling routes (steelman, pre-mortem, anti-sycophancy-meta, KB-04). No 1/3-anchor defect classes present; not orchestrator-style (does its own tree-building work, only reads siblings). Scores 5 across all four dimensions on substance, not form."
+    },
+    {
+      "artifact": "decision/steelman",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "1. **Restate user's position charitably (no straw-man).** Three sentences max. Quote the user verbatim where possible. The restatement must pass the \"would the user nod\" test."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- Plan-shaped questions (\"what could go wrong before we launch\") — route to `pre-mortem`."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **The Concession-Threshold Protocol reads combative on benign clarifications.** If the user is asking a clarifying question, not pushing back, the scoring is overkill. Detection: clarifying questions usually contain \"do you mean\", \"are you saying\", \"wait\", \"to be clear\". Skip the protocol on these."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use"
+        }
+      },
+      "notes": "Exemplary skill: 7-step numbered Procedure with checkable outcomes, distinct Gotchas + Anti-patterns each naming a specific failure and fix, and a named-route When-NOT — hits every 5-anchor; no defect class present."
+    }
+  ]
+}

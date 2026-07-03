@@ -1,0 +1,11 @@
+{
+  "source_slug": "anthropic-cookbook",
+  "url": "https://github.com/anthropics/anthropic-cookbook/commits/main.atom",
+  "fetch_strategy": "rss",
+  "last_fetched_utc": "2026-07-03T04:02:00Z",
+  "last_seen_cursor": "2026-07-02T15:45:30Z",
+  "last_seen_item_hash": "3393bdae-rag-classification-usage-tier-naming",
+  "consecutive_empty_scans": 0,
+  "consecutive_failures": 0,
+  "notes": "Commit 3393bdae fix(rag,classification): update rate-limit tier references to usage-tier naming (PR #752). Rename-only cleanup follow-on to Anthropic platform-side rename of 'rate-limit tier' to 'usage tier'. Not currently kit-named. Cadence-normal follow-on to 06-30 roadtrip_planner + agentic-search benchmark spike."
+}

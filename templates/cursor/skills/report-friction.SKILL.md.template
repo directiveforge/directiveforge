@@ -1,0 +1,51 @@
+---
+name: report-friction
+description: Turn friction with the AI-workflow kit into a sanitized, submittable GitHub issue against {{KIT_REPO_SLUG}}. Harvest defects (file:line, expected vs actual), redact anything project-identifying, gate on user review, then file the issue. Triggers on "report friction", "the kit got this wrong", "file a kit bug", "this template is wrong upstream".
+---
+
+<!--
+  Skill template — legacy flat Cursor convention (`.cursor/skills/<name>.SKILL.md`).
+  Placeholders {{KIT_REPO_SLUG}} and {{PROJECT_NAME}} are filled by the generator.
+  {{PROJECT_NAME}} is used ONLY so Step 3 knows what string to redact.
+-->
+
+# Report Friction Skill
+
+> **Trigger**: Use this skill when a kit template, rule, skill, command, or checklist item did the wrong thing and you want it fixed upstream — or right after a task where the workflow got in your way. READ-ONLY on the project; nothing is sent without an explicit "submit".
+
+## What this skill produces
+
+A clean, non-identifying friction report filed as a GitHub issue against `{{KIT_REPO_SLUG}}`, in the exact five-section feedback taxonomy. It enters the same disposition pipeline as operator-authored feedback: every Suggested-Changes row is answered `SHIPPED` / `DEFERRED` / `REJECTED` / `N-A` in the next release, zero silent drops.
+
+## Procedure
+
+Work through the steps in order. Steps 3 and 5 are gates — do not skip them.
+
+**Step 0 — Context harvest.** Read `.ai-kit-manifest.json` at the project root if present and record `kit_version`, `presets`, `packs`, `maturity_tier`, `ide_scope`. If absent, note "manifest absent — plugin-only install" and use plugin version **0.20.0** as the kit version.
+
+**Step 1 — Defect loop.** Repeat until the user says done. Per defect: repo-RELATIVE **artifact** path + line; **expected vs actual** (BOTH mandatory); **trigger** (prompt / skill / command / phase); **severity** BLOCKER / HIGH / MEDIUM / LOW; optional **suggested change** as `file:line` + proposed text.
+
+**Step 2 — Non-identifying project profile.** BUCKETS ONLY, never names/URLs: stack (frameworks / language / DB); size `<10k` / `10-100k` / `>100k` LOC; team `1` / `2-5` / `6+`; age `<6mo` / `6-24mo` / `>24mo`; presets / tier / surface from Step 0.
+
+**Step 3 — Mechanical sanitization pass (GATE, before rendering).** (1) Replace absolute paths with repo-relative. (2) Replace `{{PROJECT_NAME}}` and the repo directory name with `<project>`. (3) Strip git remotes, internal URLs, emails, `git config` `user.name` / `user.email`, `$USER`. Then RE-SCAN the assembled draft for residual hits and build a **redaction list** of exactly what was redacted.
+
+**Step 4 — Render in the feedback taxonomy.** EXACTLY these five sections, in order: (1) Project Profile; (2) What Worked Well; (3) What Didn't Work — each defect as a `file:line — expected vs actual` row; (4) Missing Patterns; (5) Suggested Changes — `file:line` + proposed-text rows. Defects land in both What Didn't Work and Suggested Changes, keyed by `file:line`.
+
+**Step 5 — User review gate (GATE).** Print the full output plus the redaction list. The user may edit any part. Require an explicit **"submit"** to proceed. On abort, offer to save to `./friction-report-YYYY-MM-DD.md` and send NOTHING.
+
+**Step 6 — Submit.** Preferred: `gh issue create --repo {{KIT_REPO_SLUG}} --title "Friction: <one-line> (kit vX.Y.Z)" --label friction-report --body-file <tmp>`. Fallback (no `gh`): print the body + `https://github.com/{{KIT_REPO_SLUG}}/issues/new?template=friction-report.yml` for manual paste.
+
+**Step 7 — Confirm & close out.** Print the issue URL. Suggest keeping the local copy until the disposition lands in the next `feedback/DISPOSITIONS-vX.Y.Z.md`; the issue is closed with a link to its rows.
+
+## When NOT to Use
+
+- For general impressions without a concrete `file:line` — the report needs actionable rows, not vibes.
+- For a project-local convention that will not generalize (that is a DECISIONS.md entry, not upstream friction).
+- For anything requiring the project name, a client name, or an absolute path to make sense — if it cannot be sanitized, it cannot be filed.
+
+## Constraints
+
+- READ-ONLY on the project; the only write is the optional local `friction-report-YYYY-MM-DD.md` on abort.
+- Steps 3 and 5 are mandatory gates.
+- Repo-relative paths only in the body — an absolute path in the output is a defect in this skill.
+- Expected AND actual are both required for every defect.

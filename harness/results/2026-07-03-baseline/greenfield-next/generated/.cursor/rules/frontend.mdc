@@ -1,0 +1,32 @@
+---
+description: "Next.js App Router component and styling conventions"
+globs: ["app/**/*.tsx", "app/**/*.ts", "components/**/*.tsx", "!**/*.test.*"]
+alwaysApply: false
+---
+# Frontend — Next.js 15.1 App Router / React 18.3
+
+## COMPONENT RULES
+- DO: Functional components with hooks only — NEVER class components
+- DO: Place components in `components/` — one component per file
+- DO: `export function ComponentName` (named) — route entry files (app/page.tsx, app/layout.tsx) also `export default`
+- DO NOT: Use `any` — define explicit prop types (see the `PracticeSession` type)
+
+## NEXT.JS APP ROUTER
+- Server components by default — async, no hooks, no event handlers
+- Add `'use client'` only for interactivity (state, events, browser APIs); keep its scope minimal
+- NEVER use useEffect for data that can be server-fetched
+- Do NOT add Server Actions / `'use server'` "because Next.js" — nothing here needs them yet
+- Export `generateMetadata()` / a `metadata` object from route files — no manual `<head>` tags
+
+## STYLING (Tailwind 3.4)
+- DO: Use Tailwind utility classes and the brand tokens from `tailwind.config.ts` (`beat`, `stage`, `accent`, `rounded-card`, `px-gutter`) — never raw hex
+- DO NOT: inline styles or CSS Modules for new components
+
+## IMAGES
+- If adding images: ALWAYS use `next/image` (never `<img>`) with `width` + `height` or `fill`
+
+## DATA
+- Pass typed props top-down (`PracticeSession`) — no fetching, no global state library at this stage
+
+## AFTER EVERY CHANGE
+Run: `npx tsc --noEmit` then `npm run lint`

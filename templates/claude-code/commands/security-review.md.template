@@ -1,0 +1,68 @@
+---
+allowed-tools: Bash(git diff:*), Bash(git status:*), Bash(git log:*), Bash(git show:*), Read, Glob, Grep
+description: Security review of pending changes on the current branch
+---
+
+Review the current branch's changes against `{{BASE_BRANCH}}` for security vulnerabilities.
+
+## Context
+
+GIT STATUS:
+```
+$ git status
+```
+
+DIFF:
+```
+$ git diff {{BASE_BRANCH}}...HEAD
+```
+
+## Review Focus
+
+Only flag issues where you are **>80% confident** of actual exploitability. Skip theoretical issues, style concerns, and low-impact findings.
+
+**Input Validation**
+- SQL/NoSQL injection via unsanitized input
+- Command injection in shell calls or subprocesses
+- Path traversal in file operations
+- Template injection (server-side or client-side)
+- {{VALIDATION_LIBRARY}} bypass (missing or incorrect schema)
+
+**Authentication & Authorization**
+- Missing auth checks on protected endpoints
+- Broken access control (horizontal/vertical privilege escalation)
+- Token/session management weaknesses
+- Hardcoded credentials or secrets
+
+**Data Exposure**
+- Credentials, API keys, or PII in logs, responses, or error messages
+- Sensitive data in client-side code or API responses
+- Missing encryption for data at rest or in transit
+- Overly permissive CORS configuration
+
+**Dependency Risks**
+- New dependencies with known vulnerabilities
+- Deprecated or unmaintained packages
+- Unexpected network calls from new dependencies
+
+**{{PROJECT_SPECIFIC_SECURITY_CATEGORY}}**
+{{PROJECT_SPECIFIC_SECURITY_CHECKS}}
+<!-- Examples:
+  "Payment Security: Stripe webhook signature verification, PCI-relevant data handling"
+  "File Upload: MIME type validation, file size limits, storage path sanitization"
+  "Multi-tenancy: tenant isolation in queries, cross-tenant data leakage"
+-->
+
+## Output Format
+
+### Critical (must fix before merge)
+- `file:line` -- vulnerability type -- exploitation scenario
+
+### Warning (should fix)
+- `file:line` -- issue -- risk level (high/medium)
+
+### Info
+- Observations that are not vulnerabilities but worth noting
+
+### Passed
+List security categories that look good in this diff.

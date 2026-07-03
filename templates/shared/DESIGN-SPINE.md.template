@@ -1,0 +1,62 @@
+# Design Decision Spine — {{PROJECT_NAME}}
+
+> START HERE before building or changing ANY designed element. This doc teaches how to CHOOSE,
+> not what to copy — "the homepage did X" is never a reason; *why* it did X is.
+> Boundary: project specifics live HERE and in the reference docs; the generalized discipline
+> lives in `{{AI_KIT_PATH}}/knowledge-base/KB-08-DESIGN-ELEVATION-ENGINEERING.md`.
+> This file is a template — the project AUTHORS it from its own concept; no elevation work
+> before the spine exists.
+
+## The concept
+
+**{{DESIGN_CONCEPT_SENTENCE}}**
+<!-- ONE sentence, statable in time + space — e.g. "things arrive, never shout". Everything below
+     is this sentence expressed in a different medium. If you can't compress the concept to a
+     sentence, you have a mood board, not a system. -->
+
+## Locks & budgets (the budget IS the design)
+
+- Motion budget: {{MOTION_BUDGET}}
+<!-- e.g. "one ceremonial motion per page; zero transition:all; no layout-prop animations" -->
+- Brand-color scope: {{BRAND_COLOR_SCOPE}}
+<!-- e.g. "accent color appears only on interactive affordances and the one ceremony" -->
+- Crown laws: {{CROWN_LAW_1}}; {{CROWN_LAW_2}}
+<!-- inviolable per-project invariants — e.g. "product pixels are always real photos" -->
+- Lock literals to grep every diff for: {{LOCK_LITERALS}}
+<!-- e.g. "transition:all, ease-in-out on hero elements, banned copy patterns" -->
+
+## The ordered decision sequence (walk it for every new element)
+
+1. **Job + emotional moment** — what must this element DO, and what should the user feel here? → {{RUBRIC_JOB}}
+2. **Archetype** — which of the CLOSED archetype set carries that job? (never invent a new shape per page) → {{RUBRIC_ARCHETYPE}}
+3. **Layout** — when the job is X, choose layout Y because Z → {{RUBRIC_LAYOUT}}
+4. **Motion or static** — does this moment earn ceremony under the budget? → {{RUBRIC_MOTION}}
+5. **Primitive** — compose from the vocabulary below; no primitive fits AND the job recurs ≥2× → extract, don't one-off → {{RUBRIC_PRIMITIVE}}
+6. **Type / color / a11y** — apply the token rules; contrast + focus + reduced-motion are non-negotiable → {{RUBRIC_TOKENS}}
+7. **Responsive** — breakpoint behavior + any locked-surface constraints → {{RUBRIC_RESPONSIVE}}
+8. **Verify by measurement** — every visual/motion claim measured in the real browser before merge (KB-08 §5; the `design-reviewer` skill is the gate) → {{VERIFICATION_RECIPE}}
+
+## Primitive vocabulary (closed set — compose, don't reinvent)
+
+| Primitive | Job | Where it lives | Locked behavior |
+|-----------|-----|----------------|-----------------|
+| {{PRIMITIVE_1_NAME}} | {{PRIMITIVE_1_JOB}} | {{PRIMITIVE_1_PATH}} | {{PRIMITIVE_1_LOCK}} |
+<!-- one row per shipped primitive; a new extraction isn't done until it has a row here -->
+
+## Section archetypes (closed set — richness comes from sequencing, not new shapes)
+
+| Archetype | Job | Locked behavior |
+|-----------|-----|-----------------|
+| {{ARCHETYPE_1_NAME}} | {{ARCHETYPE_1_JOB}} | {{ARCHETYPE_1_LOCK}} |
+
+## Gotchas / war stories (append per elevation pass — the next agent starts where you ended)
+
+- {{GOTCHA_1}}
+<!-- e.g. "the hero parallax measured 0 for two weeks — always read transform after rAF×2" -->
+
+## Verification recipe (the concrete commands for THIS project)
+
+```bash
+{{MEASUREMENT_COMMANDS}}
+# e.g. the project's production build + Lighthouse CI + axe run + the CLS scroll script
+```

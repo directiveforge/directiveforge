@@ -1,0 +1,13 @@
+{
+  "name": "directiveforge",
+  "owner": { "name": "Samvel Avagyan" },
+  "metadata": { "description": "Marketplace for the DirectiveForge kit — measured skills and commands." },
+  "plugins": [{
+    "name": "directiveforge",
+    "source": "./",
+    "description": "22 measured skills (decision / naming / design packs) + workflow commands incl. /report-friction.",
+    "category": "workflows",
+    "tags": ["decision-engineering", "anti-sycophancy", "naming", "design"],
+    "strict": true
+  }]
+}

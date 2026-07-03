@@ -1,0 +1,22 @@
+# Directories that Cursor should NOT index
+# Prevents context pollution from generated/vendored/binary content
+
+node_modules/
+.next/
+dist/
+build/
+out/
+coverage/
+.turbo/
+.vercel/
+.cache/
+
+# Large data/asset files
+*.min.js
+*.min.css
+*.map
+package-lock.json
+
+# Generated code
+*.generated.*
+next-env.d.ts

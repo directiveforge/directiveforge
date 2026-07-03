@@ -1,0 +1,11 @@
+{
+  "source_slug": "langchain",
+  "url": "https://github.com/langchain-ai/langchain/releases.atom",
+  "fetch_strategy": "rss",
+  "last_fetched_utc": "2026-07-03T04:02:00Z",
+  "last_seen_cursor": "2026-06-29T19:47:29Z",
+  "last_seen_item_hash": "langchain-openrouter-0.2.5-finish-meta-dedup",
+  "consecutive_empty_scans": 3,
+  "consecutive_failures": 0,
+  "notes": "4 days since langchain-openrouter 0.2.5 (06-29). Cadence-normal."
+}

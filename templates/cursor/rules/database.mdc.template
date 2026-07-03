@@ -1,0 +1,36 @@
+---
+description: "Database ORM usage, migration commands, and query patterns"
+globs: ["{{DB_GLOB}}"]
+alwaysApply: false
+---
+# Database — {{ORM}} + {{DB_TYPE}}
+
+## ORM CONVENTIONS
+- Schema/models in: `{{SCHEMA_DIR}}/`
+- Client instance in: `{{DB_CLIENT_PATH}}` — import from there, NEVER instantiate elsewhere
+- DO: `{{QUERY_PATTERN}}`
+<!-- QUERY_PATTERN example for Prisma: "Use prisma.user.findUnique() over raw SQL unless performance requires it" -->
+
+## MIGRATIONS
+- Generate: `{{CMD_MIGRATE_GENERATE}}`
+- Apply (dev): `{{CMD_MIGRATE_DEV}}`
+- Apply (prod): `{{CMD_MIGRATE_PROD}}`
+- NEVER edit migration files after applying — create a new migration instead
+
+## QUERY RULES
+- DO: Select only needed fields — NEVER `SELECT *` / `findMany()` without `select:`
+- DO: Use transactions for multi-step writes
+- DO NOT: Run queries in loops — use batch operations (`createMany`, `updateMany`)
+- DO NOT: Expose raw DB errors to API responses
+
+## SEEDING
+- Seed command: `{{CMD_SEED}}`
+- Seed files: `{{SEED_DIR}}/`
+
+## CONNECTIONS
+- Connection string from env: `{{DB_URL_ENV_VAR}}`
+- Connection pooling: {{POOL_CONFIG}}
+<!-- POOL_CONFIG example: "PgBouncer in transaction mode — max 10 connections per instance" -->
+
+## AFTER SCHEMA CHANGES
+Run: `{{CMD_MIGRATE_DEV}}` → `{{CMD_GENERATE_TYPES}}` → `{{CMD_TYPECHECK}}`

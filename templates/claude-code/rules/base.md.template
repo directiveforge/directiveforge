@@ -1,0 +1,36 @@
+# {{PROJECT_NAME}} — Base Rules
+
+## Execution Protocol
+
+1. **SEARCH FIRST** — `grep -r "term" {{SOURCE_DIR}}/` before implementing anything new
+2. **REUSE FIRST** — extend existing functions, patterns, and utilities before creating new
+3. **READ BEFORE EDIT** — always read a file's full content before modifying it
+4. **NO ASSUMPTIONS** — only use facts from files you've read, user messages, and tool results
+5. **VERIFY** — after every change: `{{CMD_TYPECHECK}}` → `{{CMD_LINT}}` → run affected tests
+6. **PLAN FIRST** — for multi-file changes, start in Plan mode; execute only after the plan accounts for all requirements
+7. **FEEDBACK LOOP** — build + lint + test after every change; self-correct before committing; never commit unverified work
+
+## Core Conventions
+
+- Package manager: `{{PACKAGE_MANAGER}}` — NEVER use `npm` if project uses pnpm/bun
+- Exports: {{EXPORT_STYLE}} — {{EXPORT_EXAMPLE}}
+- File naming: {{FILE_NAMING_CONVENTION}}
+- TypeScript: {{TS_STRICTNESS}}
+
+## Commands Reference
+
+| Task | Command |
+|------|---------|
+| Dev server | `{{CMD_DEV}}` |
+| Tests | `{{CMD_TEST}}` |
+| Lint + fix | `{{CMD_LINT}}` |
+| Type check | `{{CMD_TYPECHECK}}` |
+| Build | `{{CMD_BUILD}}` |
+
+## Hard Constraints
+
+- NEVER commit secrets, tokens, or .env values
+- NEVER add dependencies without confirming they don't already exist in `{{PACKAGE_FILE}}`
+- NEVER skip the verify step — type errors and lint failures in committed code are unacceptable
+- {{PROJECT_HARD_CONSTRAINT}}
+<!-- Example: "NEVER use any ORM other than Prisma — no raw SQL except in migration files" -->

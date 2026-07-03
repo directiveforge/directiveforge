@@ -1,0 +1,6 @@
+CLAUDE.md → CLAUDE.md.backup
+README.md → README.md.backup
+governance/DECISIONS.md → append-only (D7 appended; D1–D6 untouched)
+AUDIT-2026-05.md → moved to docs/archive/AUDIT-2026-05.md (content unchanged)
+VENDOR-COMPARISON-2026-04.md → moved to docs/archive/VENDOR-COMPARISON-2026-04.md (content unchanged)
+ONBOARDING-NOTES-2026-03.md → moved to docs/archive/ONBOARDING-NOTES-2026-03.md (content unchanged)

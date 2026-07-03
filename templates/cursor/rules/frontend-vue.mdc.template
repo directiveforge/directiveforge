@@ -1,0 +1,34 @@
+---
+description: "Vue/Nuxt component and styling conventions"
+globs: ["{{FRONTEND_GLOB}}", "!**/*.test.*", "!**/*.spec.*"]
+alwaysApply: false
+---
+# Frontend — Vue {{VUE_VERSION}} / {{FRAMEWORK}}
+
+## COMPONENT RULES
+- DO: Composition API with `<script setup>` — NEVER Options API for new components
+- DO: Single-file components (`.vue`) — template → script → style order
+- DO: Place components in `{{COMPONENTS_DIR}}/` — PascalCase filenames
+- DO NOT: Use `any` type — define explicit prop types with `defineProps<{...}>()`
+
+## ROUTING ({{ROUTING_PATTERN}})
+- Routes live in `{{ROUTES_DIR}}/`
+- {{ROUTING_NOTE}}
+<!-- ROUTING_NOTE example for Nuxt: "File-based routing; use definePageMeta() for route metadata" -->
+
+## COMPOSABLES
+- Place in `{{COMPOSABLES_DIR}}/` — prefix with `use` (e.g. `useAuth`, `useCart`)
+- NEVER duplicate logic available as a composable — search `{{COMPOSABLES_DIR}}/` first
+
+## STYLING ({{STYLING_SYSTEM}})
+- DO: {{STYLING_RULE}}
+<!-- STYLING_RULE example: "Scoped styles in <style scoped> using Tailwind utilities" -->
+- Shared styles live in `{{STYLES_DIR}}/`
+
+## STATE MANAGEMENT ({{STATE_LIBRARY}})
+- Store files in `{{STORES_DIR}}/`
+- {{STATE_PATTERN}}
+<!-- STATE_PATTERN example for Pinia: "Use defineStore with setup syntax; prefer composables over stores for component-local state" -->
+
+## AFTER EVERY CHANGE
+Run: `{{CMD_TYPECHECK}}` then `{{CMD_LINT}}`

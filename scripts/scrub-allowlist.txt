@@ -1,0 +1,55 @@
+# scrub-allowlist.txt — SHIPS PUBLICLY (auditable suppression list for scrub-check.py)
+#
+# Purpose: suppress a KNOWN, operator-approved scrub hit so the release gate can
+# reach 0 without deleting a string we deliberately keep. Every suppression is a
+# documented exception — auditable by anyone reading this file. Suppressed hits
+# are counted and summarized by scrub-check.py ("N hits suppressed by allowlist"),
+# never invisible.
+#
+# Format (tab-separated, three fields):
+#   PATH_GLOB<TAB>REGEX<TAB>REASON
+#
+#   PATH_GLOB  fnmatch glob against the file path RELATIVE to SNAPSHOT_DIR
+#              (e.g. SCRUB-TRANSFORM.md, docs/*.md, harness/**/*.txt)
+#   REGEX      Python regex; the MATCHED text (what a pattern flagged) must also
+#              match this for the hit to be suppressed. Both conditions (glob AND
+#              regex) must hold — a broad glob cannot suppress unrelated text.
+#   REASON     free text (may contain tabs); why this exception is approved.
+#
+# '#' comment lines and blank lines are ignored.
+#
+# DISCIPLINE: keep this list minimal. An allowlist entry is a hole in the gate —
+# add one only for a string that MUST ship and is provably not a leak. Prefer
+# scrubbing the string over allowlisting it.
+
+# W0 operator decision #1 (2026-07-03): the hash-bridge for generated harness
+# trees documents the exact original kit-root path as a transform constant so any
+# external person can recompute both directions with one command. That literal
+# path is the ONE approved path-string exception, scoped to this single file.
+SCRUB-TRANSFORM.md	^/Users/[^/]+/$	operator-approved transform constant — the documented original kit-root path string that makes the hash bridge externally reproducible (W0 operator decision #1, 2026-07-03). The regex matches the builtin PATH capture span (the home-dir prefix of that constant, username-agnostic so this file leaks no home path); the glob scopes this exception to SCRUB-TRANSFORM.md alone.
+
+# Same operator decision, same single file: the other disclosed transform-constant
+# families (kit-root as matched by the operator pattern list, and generation-time
+# scratchpad/workdir literals inside hash-anchored generated trees). All regexes
+# are username-agnostic — this shipped file itself discloses nothing; the constants
+# it permits appear only inside SCRUB-TRANSFORM.md by construction.
+SCRUB-TRANSFORM.md	^/Users/[A-Za-z0-9._-]+$	operator pattern-list PATH span for the disclosed kit-root constant (W0 operator decision #1)
+SCRUB-TRANSFORM.md	^/private/tmp/claude-[0-9]+/$	builtin PATH span of a disclosed generation-time workdir constant (W0 operator decision #1)
+SCRUB-TRANSFORM.md	^-Users-[A-Za-z0-9._-]+-Projects-$	builtin PATH span (session-slug encoding) of a disclosed workdir constant (W0 operator decision #1)
+
+# Synthetic-fixture / generated-tree content: localhost and loopback URLs are
+# definitionally non-identifying (dev-server examples inside invented projects,
+# frozen measured artifacts — cannot be edited without bridging).
+harness/*	^localhost:[0-9]+$	dev-server example inside synthetic fixtures / frozen generated artifacts — not private infrastructure
+harness/*	^127\.0\.0\.1$	loopback example inside synthetic fixtures / frozen generated artifacts
+
+# The kit templates historically used a FICTIONAL example username in doc
+# comments; frozen generated artifacts carry that example (hash-anchored, cannot
+# be edited without bridging). Fixed at template source in v0.20.0 W2.
+harness/results/*	^/Users/[j]ane/$	fictional example username in frozen generated artifacts (source templates fixed in v0.20.0)
+
+# Operator identity is public by choice (W0 operator decision #3: visible commit
+# author). The privacy rules protect CLIENTS, not the operator. Sanctioned spots:
+# the MIT copyright line and the plugin/marketplace author fields.
+LICENSE	^[Aa]vagyan$	operator copyright line — MIT requires naming the holder; operator name public by choice
+.claude-plugin/*	^[Aa]vagyan$	plugin author / marketplace owner fields — operator name public by choice

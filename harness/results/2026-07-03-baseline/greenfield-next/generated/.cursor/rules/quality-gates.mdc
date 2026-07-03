@@ -1,0 +1,27 @@
+---
+description: "Quality gates — typecheck/lint/build wiring; blocking, never bypassed"
+globs: []
+alwaysApply: true
+---
+# Tempo Deck — Quality Gates
+
+## Gate table
+| Gate | Command | Blocking |
+|------|---------|----------|
+| Typecheck | `npx tsc --noEmit` | Yes |
+| Lint | `npm run lint` | Yes |
+| Build | `npm run build` | Yes |
+
+No test gate — no test runner is installed. If you add one, add a `test` script and a Tests row, and update AGENTS.md + CLAUDE.md.
+
+## When to run
+- After every edit batch: typecheck + lint (fast gates)
+- Before every commit: typecheck + lint + build
+- Before deploy: the full table
+
+## Failure protocol
+- A failing gate BLOCKS the commit — fix forward or revert; never bypass (no `--no-verify`, no skipped CI)
+- Report the exact command + exit code — "should work" is not a verification
+
+## Content policy
+- Zero placeholder content in any shipped surface. `lib/email.ts` is a deliberate documented stub, not placeholder copy.

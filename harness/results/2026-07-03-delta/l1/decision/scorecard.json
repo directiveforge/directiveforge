@@ -1,0 +1,288 @@
+{
+ "spec_version": "1.1",
+ "layer": 1,
+ "pack": "decision",
+ "date": "2026-07-03",
+ "label": "delta",
+ "scope": "targeted re-measure (v0.19.0 W4) \u2014 L1.2 + L1.3 only; L1.1/L1.4 not re-measured (absent, not zero); baseline for comparison: results/2026-07-03-baseline/l1/decision/",
+ "models": {
+  "author": "none (baseline prompt/variant sets reused verbatim)",
+  "router": "claude-haiku-4-5",
+  "calibration": "claude-fable-5"
+ },
+ "metrics": {
+  "L1.2": {
+   "prompts_per_skill": 10,
+   "channel_v1.0-single_claim_rows": {
+    "note": "HEADLINE for HD-1/HD-2 movement claims (SPEC v1.1 rule 4a: same instrument as baseline).",
+    "per_skill": [
+     {
+      "skill": "anti-sycophancy-meta",
+      "TP": 4,
+      "FP": 0,
+      "FN": 1,
+      "positives": 5,
+      "precision": 1,
+      "recall": 0.8,
+      "f1": 0.8889,
+      "confusion": [
+       {
+        "prompt": "anti-sycophancy-meta-p3",
+        "expected": "target",
+        "fired": "steelman"
+       }
+      ]
+     },
+     {
+      "skill": "inversion",
+      "TP": 3,
+      "FP": 0,
+      "FN": 2,
+      "positives": 5,
+      "precision": 1,
+      "recall": 0.6,
+      "f1": 0.75,
+      "confusion": [
+       {
+        "prompt": "inversion-p1",
+        "expected": "target",
+        "fired": "pre-mortem"
+       },
+       {
+        "prompt": "inversion-p2",
+        "expected": "target",
+        "fired": "steelman"
+       }
+      ]
+     }
+    ],
+    "raw": "runA-v1.0-single.json"
+   },
+   "channel_v1.1-batched-K15_full_pack": {
+    "note": "Pack-wide context after 5 description edits (catalog-relativity requires full re-run); batched channel per SPEC v1.1; ships with equivalence block.",
+    "pack_micro": {
+     "TP": 57,
+     "FP": 1,
+     "FN": 3,
+     "precision": 0.9828,
+     "recall": 0.95,
+     "f1": 0.9661
+    },
+    "per_skill": [
+     {
+      "skill": "10-10-10",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+     },
+     {
+      "skill": "anti-sycophancy-meta",
+      "TP": 4,
+      "FP": 0,
+      "FN": 1,
+      "positives": 5,
+      "precision": 1,
+      "recall": 0.8,
+      "f1": 0.8889
+     },
+     {
+      "skill": "bayesian-update",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+     },
+     {
+      "skill": "confidence-calibration",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+     },
+     {
+      "skill": "cost-of-inaction",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+     },
+     {
+      "skill": "council-3-voice",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+     },
+     {
+      "skill": "disconfirming-evidence-first",
+      "TP": 4,
+      "FP": 0,
+      "FN": 1,
+      "positives": 5,
+      "precision": 1,
+      "recall": 0.8,
+      "f1": 0.8889
+     },
+     {
+      "skill": "inversion",
+      "TP": 4,
+      "FP": 1,
+      "FN": 1,
+      "positives": 5,
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1": 0.8
+     },
+     {
+      "skill": "pre-mortem",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+     },
+     {
+      "skill": "reversibility-check",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+     },
+     {
+      "skill": "second-order-thinking",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+     },
+     {
+      "skill": "steelman",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+     }
+    ],
+    "raw": "runB-v1.1-batched.json"
+   }
+  },
+  "L1.3": {
+   "schedule": "batch5-min10-target20-max30-halfwidth0.08",
+   "channel": "v1.1-batched-K15 (interleaved across skills; variants = baseline sets verbatim)",
+   "scope_note": "measured ONLY for the two HD-fixed skills; other 10 skills' baseline L1.3 values stand un-re-measured",
+   "per_skill": [
+    {
+     "skill": "inversion",
+     "n": 30,
+     "activations": 25,
+     "proportion": 0.8333,
+     "wilson_ci": [
+      0.6644,
+      0.9266
+     ],
+     "wilson_ci_nominal": true,
+     "stopped_early": false
+    },
+    {
+     "skill": "anti-sycophancy-meta",
+     "n": 30,
+     "activations": 25,
+     "proportion": 0.8333,
+     "wilson_ci": [
+      0.6644,
+      0.9266
+     ],
+     "wilson_ci_nominal": true,
+     "stopped_early": false
+    }
+   ],
+   "wilson_ci_note": "NOMINAL \u2014 trial independence weakened by batching even with cross-skill interleave (SPEC v1.1 rule 5)."
+  }
+ },
+ "equivalence": {
+  "rule": "SPEC v1.1 rule 3",
+  "controls_pinned_catalog": {
+   "catalog_sha": "2a5c3f0",
+   "per_skill": [
+    {
+     "skill": "10-10-10",
+     "TP": 5,
+     "FP": 0,
+     "FN": 0,
+     "precision": 1,
+     "recall": 1,
+     "f1": 1
+    },
+    {
+     "skill": "pre-mortem",
+     "TP": 5,
+     "FP": 0,
+     "FN": 0,
+     "precision": 1,
+     "recall": 1,
+     "f1": 1
+    }
+   ],
+   "baseline_reference": {
+    "10-10-10": {
+     "f1": 1.0
+    },
+    "pre-mortem": {
+     "f1": 1.0
+    }
+   },
+   "verdict": "EXACT reproduction (both controls F1 1.0 = baseline 1.0) \u2014 channel is the only variable; no drift detected."
+  },
+  "paired_rows_same_catalog": {
+   "n": 20,
+   "agree": 18,
+   "disagreements": [
+    {
+     "id": "inversion-p1",
+     "v1.0": "pre-mortem",
+     "v1.1": "inversion"
+    },
+    {
+     "id": "inversion-n1",
+     "v1.0": "pre-mortem",
+     "v1.1": "inversion"
+    }
+   ],
+   "note": "anti-sycophancy-meta rows 10/10 identical across channels; both disagreements are inversion rows in opposite directions (one miss->hit, one clean->FP) \u2014 Haiku sampling noise at the inversion/pre-mortem boundary, not a systematic channel bias."
+  }
+ },
+ "caveats": [
+  "Method note (spec v1.1, 2026-07-03): batched trials 15/call, independent-judgment instruction, JSON-array return, vs v1.0 one-prompt channel (ADJ-3 cost fix). Metric definitions unchanged.",
+  "HD-1/HD-2 L1.2 movement claims rest on the v1.0-single channel rows (same instrument as baseline).",
+  "L1.3 movement (0.3333->0.8333, 0.2667->0.8333) measured on the batched channel; baseline vs delta Wilson CIs do not overlap ([0.1923,0.5122] vs [0.6644,0.9266]; [0.1418,0.4445] vs [0.6644,0.9266]) \u2014 the movement is an order of magnitude larger than any plausible channel effect bounded by the equivalence block.",
+  "single re-measure run per channel; stochastic router (Haiku); L1.2 per-skill numbers move within ~\u00b11 prompt granularity (0.2 recall steps at n=5 positives).",
+  "baseline prompt-set id typo preserved verbatim ('disconfirming-effidence-first-p4') \u2014 ids are opaque keys; scoring unaffected (reuse-verbatim rule)."
+ ]
+}

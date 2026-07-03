@@ -1,0 +1,183 @@
+# Architecture Decisions — {{PROJECT_NAME}}
+
+> The canonical project ledger of locked architectural and strategic calls. One file per project, root-level, version-controlled.
+> AI agents: read this before proposing changes. Never re-open a settled question without writing a *new* numbered entry that explicitly supersedes the old one.
+
+## What goes here (and what doesn't)
+
+In: non-obvious calls with cross-cutting impact, evidence-backed enough to defend for ≥90 days, with a reversal trigger that is decidable from observable facts.
+
+Out: changelog entries (what was *built* — that's git history), one-PR-and-done decisions (commit messages handle those), preferences enforceable by linter/typecheck (rules handle those), temporary calls (code comments handle those).
+
+Background discipline + entry anatomy + reversal/re-verify mechanics: see [KB-04 §2](../../../knowledge-base/KB-04-DECISION-ENGINEERING.md#2-pillar-1--decision-lock-discipline-decisionsmd).
+
+---
+
+## Pick your tier
+
+This template carries all three maturity tiers from KB-04 §8. Use the lightest one that fits — graduate when the warning signs at the bottom fire.
+
+- **Tier 1 — Starter.** Solo developer, side project, <10 cross-cutting decisions total. One-line entries.
+- **Tier 2 — Intermediate.** Multi-week project, multiple consequential decisions, single-pass synthesis. Full entry structure with reversal triggers and re-verification cadence.
+- **Tier 3 — Advanced.** Multi-orchestrator, multi-month, strategic stakes. Full discipline: TL;DR + Master Synthesis 400w + Full Body + Reversal + Re-verify + Cross-DECISIONS Reconciliation.
+
+Delete the tiers you don't use. Keep the one you do, then add entries below it.
+
+---
+
+## Tier 1 — Starter format
+
+Single-line entries. Date + decision + one-sentence reason. Cap at ~15-20 entries before graduating to Tier 2.
+
+### Active Decisions
+
+- **{{DATE_1}}** — {{DECISION_1}}
+  <!-- example: "2026-03-15 — Named exports only, no defaults. Reason: barrel exports and tree-shaking work better." -->
+
+- **{{DATE_2}}** — {{DECISION_2}}
+  <!-- example: "2026-03-20 — Zod schemas colocated with route handlers, not in shared schemas/. Reason: easier to find and change together." -->
+
+- **{{DATE_3}}** — {{DECISION_3}}
+  <!-- example: "2026-03-22 — Tests colocated next to source files, not in __tests__/. Reason: easier to find, less directory switching." -->
+
+Graduation signal: a decision starts getting re-debated despite being in the ledger. Move to Tier 2.
+
+---
+
+## Tier 2 — Intermediate format
+
+Full entry structure per decision, but synthesis remains single-pass (no Layer 2 protocols). Apply the [8-gate framework](../../../knowledge-base/KB-04-DECISION-ENGINEERING.md#31-layer-1--the-8-gate-input-filter) to any research dossier that backs a Tier 2 entry.
+
+### Implementation #{{N}} — {{TITLE}} ({{DATE}})
+
+**Decision** — {{CHOSEN_PATH_AND_KEY_TRADEOFFS}}
+<!-- example: "Adopt next-intl v4 over react-intl. Trade lower bundle size + native App Router support for less mature plugin ecosystem." -->
+
+**Rationale** — {{WHY_THIS_PATH_VS_ALTERNATIVES}}
+<!-- example: "react-intl required wrapper hacks for server components; next-intl ships first-class App Router support. Bundle delta ~12KB gz. Plugin ecosystem gap mitigated by 4 existing in-house ICU helpers." -->
+
+**Reversal triggers** — {{2_TO_4_DECIDABLE_TRIGGERS_WITH_ALTERNATIVE_PATHS}}
+<!-- example: "(1) next-intl drops App Router support → migrate to FormatJS direct. (2) Bundle parity disappears (>20KB delta) → reassess. (3) Project needs ICU MessageFormat features next-intl lacks → fork or migrate." -->
+
+**Re-verify** — {{CADENCE}} via {{MONITORING_CHANNEL}}
+<!-- example: "Quarterly: next-intl release notes + GitHub issue tracker for App Router status. Annual: full library re-evaluation." -->
+
+**Cross-references** — {{LINKED_ENTRIES_OR_RULES}}
+<!-- example: "Preserves Implementation #4 (locale URL structure). Touches `.claude/rules/cms-i18n.md`." -->
+
+Graduation signal: a decision requires >4 research dossiers, OR your single-pass synthesis missed a cross-dossier contradiction that downstream work surfaced. Move to Tier 3.
+
+---
+
+## Tier 3 — Advanced format
+
+Full discipline. Layer 1 (8 gates) per dossier, Layer 2 (8 analytical protocols) at synthesis time, Layer 3 (forward construction) for the locked entry. Universal Blocks A/B/C in every dossier. See [KB-04 §3](../../../knowledge-base/KB-04-DECISION-ENGINEERING.md#3-pillar-2--the-3-layer-research-architecture) for the architecture.
+
+The TL;DR + Master Synthesis are the canonical Layer 2 Protocol 8 + Protocol 6 outputs, verbatim. Don't re-derive them — paste them in.
+
+### Implementation #{{N}} — {{TITLE}} ({{DATE}})
+
+#### TL;DR (Protocol 8 — smart non-expert, 3 numbered points)
+
+1. **What has been proven** — {{≤3_SENTENCES}}
+   <!-- example: "Battle-tested 8-gate input filter delivers ~85-95% accuracy across 12 dossiers. Adding 8 synthesis protocols on top closes 5 specific gaps (concept tracing, TL;DR, 400w consensus, methodology audit, formal assumption surfacing) that the input filter alone cannot address." -->
+
+2. **What is still unknown** — {{≤3_SENTENCES}}
+   <!-- example: "Whether all 8 synthesis protocols add net value across peer orchestrators in different domains, or whether 2-3 prove redundant outside the original context. Forward-apply on the next orchestrator is the experiment." -->
+
+3. **Why it matters** — {{≤3_SENTENCES}}
+   <!-- example: "Research mis-allocation is the most expensive error class in the project (6-figure equivalent at stake across reserves + opportunity cost). 30-40% improvement in synthesis quality compounds over every future locked decision." -->
+
+#### Master Synthesis (Protocol 6 — ≤400 words, 4 sections)
+
+**Established Consensus (~100w)** — {{CLAIMS_CROSS_DOSSIER_ANALYSIS_CONFIRMED}}
+<!-- example: "Project operates 3 peer orchestrators with 12+ shipped dossiers and 9 locked entries. The 8-gate per-dossier input filter (Source / Version / Stack / Cost / Implementation / Cross-reference / Existing-knowledge / Quote-extraction) has battle-tested accuracy. Severity tagging, numeric confidence, verbatim quote extraction, freshness gates, stack-fit overrides, TCO discipline, re-verification cadences, cross-DECISIONS reconciliation are project-wide disciplines that work." -->
+
+**Active Debates (~100w)** — {{WHERE_EVIDENCE_IS_SPLIT_OR_EVOLVING}}
+<!-- example: "Two synthesis stances coexist — post-hoc analytical (the cross-dossier protocols) vs forward decision-construction (the ranked-roadmap pattern). Earlier framings positioned them as competitors; correct framing treats them as different epistemic layers. Whether to adopt third-party protocols verbatim or wrapped with project discipline overrides remains the central question." -->
+
+**Strongest Evidence (~100w)** — {{TWO_TO_THREE_VERBATIM_QUOTES_OR_STUDIES}}
+<!-- example: "Our tiered tension-resolution table is richer than the 5-column Contradiction Finder it could be replaced with — proving framework depth on at least one dimension. Reversal triggers per stage + re-verification schedule + cross-DECISIONS reconciliation are forward-decision disciplines absent from any third-party synthesis protocol. The 12 shipped dossiers passed 8-gate verification with zero rework — direct evidence Layer 1 works at scale." -->
+
+**Key Open Question (~80w)** — {{SINGLE_QUESTION_THAT_WOULD_MOST_CHANGE_THE_RECOMMENDATION}}
+<!-- example: "Will the 5 newly adopted protocols deliver the projected ~30-40% synthesis quality uplift in a different orchestrator domain, or will 2-3 prove redundant outside the original context? The next orchestrator dispatch is the experiment; signal at first deliverable." -->
+
+#### Full Decision Body
+
+**Decision** — {{CHOSEN_PATH_WITH_LAYER_BOUNDARIES}}
+<!-- example: "Adopt 3-layer research methodology architecture. Layer 1 = unchanged 8-gate framework (battle-tested). Layer 2 = NEW 8 cross-dossier analytical protocols (inherits 14 Layer 1 disciplines). Layer 3 = unchanged forward construction, selectively enhanced with 5 new prefix sections. DECISIONS template extension: every new entry starts with TL;DR + Master Synthesis 400w before dense lock body." -->
+
+**Forward-only** — {{WHAT_REMAINS_CANONICAL_BASELINE}}
+<!-- example: "Closed corpora (12 prior dossiers + framework synthesis + earlier locked entries) are canonical baseline. Layer 2 applies starting next orchestrator onwards. No retroactive supplement, no rewrite of any prior artifact." -->
+
+**Rationale** — {{AUDIT_FINDINGS_AND_HOW_THIS_RESOLVES_THEM}}
+<!-- example: "Audit of incoming protocols found ~60% blended new value (some 100% new, some 30% overlap). Naive bolt-on would have created 10 anti-patterns (W1-W10) — pejorative methodology framing, fixed assumption counts, padding when no concept lineage exists. Deep analysis surfaced 14 strengths in the existing framework that must be preserved. Optimal architecture: 3 distinct layers, neither replacing the other." -->
+
+**Critical issues uncovered** (independent of the central question; fixed by this lock):
+- {{ISSUE_1}} — {{FIX_1}}
+- {{ISSUE_2}} — {{FIX_2}}
+<!-- example: "🚨 Cursor mirror was MISSING (rule-sync violation). Created. 🟡 8-gate methodology lived in skill, not rule — every session reasoned from different mental model. Fixed: rule extended with §Methodology pointing to all 3 layers." -->
+
+**Files created / modified** — {{ARTIFACT_INVENTORY}}
+<!-- example: "Created: `docs/reference/synthesis-protocols.md`, `.cursor/rules/research.mdc`, `.claude/skills/research-synthesizer/SKILL.md`. Modified: `.claude/rules/research.md` (+§Methodology), `docs/prompts/NEXT_ORCHESTRATOR.md` (synthesis section mandates 3-layer structure)." -->
+
+#### Reversal triggers
+
+Per stage of the staged roadmap, what would unwind the lock. Each trigger: decidable from observable facts + severity-ranked + points to a specific alternative path.
+
+- **Stage 1 ({{TRIGGER_CONDITION}})** — {{IF_OBSERVABLE_FACT_X_FIRES}} → {{ALTERNATIVE_PATH_Y}}
+  <!-- example: "Forward-apply experiment: if 2+ Layer 2 protocols add zero net value in the new orchestrator domain (judged by reviewer subagent on first dispatch) → drop those protocols from the canonical doc + skill for future deliverables." -->
+- **Stage 2 ({{TRIGGER_CONDITION}})** — {{IF_OBSERVABLE_FACT_X_FIRES}} → {{ALTERNATIVE_PATH_Y}}
+  <!-- example: "Cross-orchestrator scaling: if protocols feel forced on a third+ orchestrator (different domain character), revisit and prune." -->
+
+#### Re-verification schedule
+
+| Cadence | Items | Monitoring channel |
+|---|---|---|
+| Quarterly | {{ITEM}} | {{WHERE_TO_LOOK}} |
+| Semiannual | {{ITEM}} | {{WHERE_TO_LOOK}} |
+| Annual | {{ITEM}} | {{WHERE_TO_LOOK}} |
+| Event-triggered | {{EXTERNAL_EVENT}} | {{HOW_DETECTED}} |
+<!-- example row: "Quarterly | check for protocol drift in dispatched deliverables; verify all 14 inheritance disciplines applied | review next orchestrator's outputs against checklist" -->
+
+#### Cross-DECISIONS Reconciliation
+
+For each prior numbered entry this entry interacts with: explicit "preserves" or "supersedes" with one-sentence reason. No silent overrides.
+
+- **Preserves Implementation #{{M}}** — {{ONE_SENTENCE_REASON}}
+  <!-- example: "Preserves Implementation #4 (FTC artisan-crafted lock) — brand filter discipline carries through all Layer 2 outputs." -->
+- **Supersedes Implementation #{{M}}** — {{ONE_SENTENCE_REASON}} ({{TRIGGER_THAT_FIRED}})
+  <!-- example: "(none in this entry — additive)" -->
+
+---
+
+## Numbering protocol
+
+```bash
+grep -c "^## Implementation #" DECISIONS.md
+```
+
+Result + 1 = next free number. Cross-check against any reservation comments in recent commits (`git log --since='2 weeks ago' --grep='reserve'`).
+
+If two orchestrators race for the same number, escalate to a human — never silently mutate. Re-numbering a locked entry breaks every architect prompt, rule file, and commit message that references it.
+
+---
+
+## When to graduate tiers
+
+Warning signs from [KB-04 §8](../../../knowledge-base/KB-04-DECISION-ENGINEERING.md#8-the-maturity-gradient):
+
+- **Starter → Intermediate**: a decision gets re-debated despite being in the ledger; the one-liner format isn't enough to defend the choice.
+- **Intermediate → Advanced**: a decision needs >4 research dossiers, OR your single-pass synthesis missed a cross-dossier contradiction that downstream work surfaced, OR you're running multi-orchestrator dispatch.
+- **Don't graduate without trigger.** Overhead exceeds benefit at the wrong scale. The forcing function is cost-of-a-bad-decision, not project age.
+
+---
+
+## Anti-patterns (condensed from KB-04 §2.6)
+
+1. **Silent rewrite.** Editing a locked entry in place. Breaks every downstream reference; obliterates audit trail. Reverse with a new numbered entry instead.
+2. **Premature lock.** Locking before evidence supports a 90-day commitment. Trains the team to ignore the ledger.
+3. **Lock without reversal triggers.** Re-verification becomes guesswork; the entry fossilizes.
+4. **Lock without numeric confidence.** "We're pretty sure" is not a confidence interval — Master Synthesis needs a numeric anchor.
+5. **Ledger as changelog.** Recording what was *built* instead of what was *decided* — different artifact, different audience.
+6. **Decision in commit message only.** Future agents will not find it. If it crosses the locking bar above, write the entry.

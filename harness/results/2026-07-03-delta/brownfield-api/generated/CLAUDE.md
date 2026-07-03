@@ -1,0 +1,92 @@
+# SlotHarbor
+
+Internal dock-slot scheduling service for Cratewell Logistics — FastAPI 0.115.6 + SQLAlchemy 2.0 (sync) + Alembic, Postgres in prod / SQLite in dev.
+
+## Critical Constraints (read first)
+
+- This codebase is **fully synchronous** — `sqlalchemy.orm.Session` + sync `def` handlers. NEVER introduce `AsyncSession` / `async def` route handlers or `await session.execute(...)`. Match `app/db.py` and the existing routers.
+- Pydantic **v2** only: `model_dump()` not `.dict()`, `field_validator` not `@validator`, `model_config = ConfigDict(...)` not inner `class Config`.
+- NEVER return a SQLAlchemy model without a Pydantic `response_model` — every route maps to a `BaseModel` with `ConfigDict(from_attributes=True)`.
+- Schemas live **inline in the router file** (e.g. `BookingCreate`/`BookingOut` in `app/routers/items.py`) — there is no `schemas/` package. Do not create one.
+
+## Build & Test Commands
+
+<!-- Command quirks only — full stack + command table lives in AGENTS.md. -->
+```bash
+uvicorn app.main:app --reload             # dev server (auto-reload)
+alembic upgrade head                      # apply migrations
+alembic revision --autogenerate -m "msg"  # generate a migration from model changes
+```
+No lint / typecheck / test / build tooling exists in this project — do not fabricate commands.
+
+## Architecture
+
+- **Entry**: `app/main.py` — builds the FastAPI app, includes `items` + `reports` routers, defines `/healthz`.
+- **Routing**: `app/routers/` — one file per domain; `APIRouter(prefix=..., tags=[...])`. Handlers query models directly via the `get_session()` dependency — there is **no service/repository layer**.
+- **Models**: `app/models.py` — SQLAlchemy 2.0 declarative (`Mapped`/`mapped_column`): `Carrier`, `Dock`, `SlotBooking`.
+- **DB**: `app/db.py` — one `Engine` + `sessionmaker`; `get_session()` yields a per-request `Session`. `pool_pre_ping=True`; SQLite gets `check_same_thread=False`.
+- **Config**: `app/config.py` — flat `Settings` reading `os.getenv` at import time (NOT `pydantic-settings`).
+- **Migrations**: Alembic; `migrations/env.py` injects `settings.DATABASE_URL` and targets `Base.metadata`.
+
+## Key Conventions
+
+- Validate booking windows in the handler (`window_end > window_start`) and raise `HTTPException` for expected errors — never return error dicts.
+- List endpoints are bounded: `limit` is capped at `settings.MAX_PAGE_SIZE` via `Query(le=...)`. Keep new list endpoints bounded the same way.
+- `app/routers/legacy_export.py` is a **dead router** — kept from the v0.x line, NOT included in `main.py`. Do not wire it in without an explicit decision (see DECISIONS.md).
+- Env-driven config: `DATABASE_URL`, `SECRET_KEY`, `WAREHOUSE_CODE`, `MAX_PAGE_SIZE`. Add new config to `app/config.py`, document the NAME in `.env.example`.
+
+## Common Pitfalls
+
+- SQLAlchemy 2.0 **sync** style: use `session.execute(select(...))` / `session.scalars(select(...))` and `session.get(Model, id)` — never the legacy `session.query()` API, never async.
+- Alembic autogenerate misses some column-type changes and constraint renames — read every generated migration before applying; migrations are the schema source of truth.
+- `app/config.py` reads env at **import time** — a missing var falls back to a dev default (e.g. `SECRET_KEY="dev-secret-change-me"`); in production every var MUST be set in the environment.
+- `SlotBooking` has `UniqueConstraint(dock_id, window_start)` — double-booking the same dock/start collides at the DB layer; handle the integrity error, don't assume the insert always succeeds.
+
+## Search Before Implementing
+
+Run `grep -rn "def " app/routers/` and check `app/models.py` before adding endpoints or models — reuse the existing `get_session` dependency and model relationships rather than re-deriving them.
+
+## Session Protocol
+
+- Start each session: `git log --oneline -20` to understand recent changes (if the repo is under version control).
+- Fresh session per task — don't chain unrelated work in one session.
+- If context feels exhausted (repetitive errors, forgetting prior instructions): start a new session.
+- Before complex tasks: use Plan mode to align on approach before writing code.
+
+## Definition of Done
+
+Task is complete ONLY when: the app imports and boots (`uvicorn app.main:app`), any new/changed migration applies cleanly (`alembic upgrade head` on a scratch DB), and the change matches the sync + Pydantic-v2 conventions above. No automated lint/typecheck/test gate exists — verify by running the service and the migration.
+
+## Commit Format
+
+```
+type(scope): description
+
+# Examples:
+feat(bookings): reject overlapping windows on the same dock
+fix(reports): include docks with zero bookings in utilization
+```
+
+## Corrections Become Rules
+
+When you make a mistake and get corrected: remember the correction and apply it to all future work this session. If the correction is project-wide, add it to Common Pitfalls above.
+
+## AI Workflow Kit Reference
+
+Generated by the AI Workflow Engineering Kit at `<KIT_ROOT>`. Consult for deeper guidance:
+- **MCP server catalog**: `<KIT_ROOT>/knowledge-base/MCP-SERVER-REGISTRY.md`
+- **Rules engineering**: `<KIT_ROOT>/knowledge-base/KB-02-AI-PROJECT-INFRASTRUCTURE.md` §2
+- **Anti-hallucination**: `<KIT_ROOT>/knowledge-base/KB-01-AI-WORKFLOW-ENGINEERING.md` §6
+- **Domain patterns**: `<KIT_ROOT>/knowledge-base/KB-02-AI-PROJECT-INFRASTRUCTURE.md` §9.2 (backend API)
+- **Validation checklist**: `<KIT_ROOT>/generator/VALIDATION_CHECKLIST.md`
+- **Stack preset**: `<KIT_ROOT>/generator/presets/fastapi.md`
+- **Decision skills router**: `.claude/rules/decision-skills.md`
+
+## MCP Awareness
+
+When struggling with an external service API:
+1. Check `<KIT_ROOT>/knowledge-base/MCP-SERVER-REGISTRY.md` first (vetted servers + security postures).
+2. If not in registry: `npm search mcp-server-{service}` / `pip index versions {service}-mcp`.
+3. Run the quality check (maintained? >100 downloads? `uvx snyk-agent-scan@latest` passes? — full verdict needs `SNYK_TOKEN`).
+4. If it passes, add to `.mcp.json` with a pinned version + a security annotation in `.mcp.annotations.md`.
+5. Run `/discover-mcp` for a full dependency scan.

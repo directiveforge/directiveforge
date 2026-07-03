@@ -1,0 +1,82 @@
+{
+  "spec_version": "1.0",
+  "layer": 2,
+  "fixture": "brownfield-api",
+  "fixture_sha": "853c653",
+  "date": "2026-07-03",
+  "label": "baseline",
+  "models": {
+    "runner": "claude-opus-4-8",
+    "scorers": "claude-opus-4-8",
+    "collector": "claude-sonnet-5",
+    "calibration": "claude-fable-5"
+  },
+  "metrics": {
+    "L2.1": {
+      "pass": 14,
+      "applicable": 14,
+      "na_sections": [
+        "14-pending-operator",
+        "15-tier",
+        "16-tier"
+      ],
+      "caveat": "single-run, directional"
+    },
+    "L2.2": {
+      "detected": 9,
+      "partial": 0,
+      "total": 10,
+      "recall": 0.9,
+      "per_signal": {
+        "S1": "DETECTED",
+        "S2": "DETECTED",
+        "S3": "DETECTED",
+        "S4": "MISSED",
+        "S5": "DETECTED",
+        "S6": "DETECTED",
+        "S7": "DETECTED",
+        "S8": "DETECTED",
+        "S9": "DETECTED",
+        "S10": "DETECTED"
+      },
+      "source_ambiguity": "S10 is borderline per l2.2-signals.md: scored DETECTED on the strict positive criterion (docker build present = real artifact reflected), but the same command also emits an invented Heroku deploy path (the S10 FAIL clause). A literal reading of the FAIL clause would flip S10 to MISSED, giving recall = 8/10 (0.80) instead of the reported 9/10 (0.90). Headline uses the strict positive-criterion reading per the artifact."
+    },
+    "L2.3": {
+      "count": 0,
+      "source_integrity": "clean"
+    },
+    "L2.4": {
+      "count": 4,
+      "traps_checked": 4
+    },
+    "L2.5": {
+      "tokens": 328446,
+      "duration_s": 1137,
+      "turns": null,
+      "caveat": "single-run, directional; injected post-run from harness report"
+    },
+    "L2.6": {
+      "total": 2,
+      "by_class": {
+        "a": 0,
+        "b": 1,
+        "c": 0,
+        "d": 1,
+        "e": 0,
+        "f": 0,
+        "g": 0,
+        "h": 0
+      },
+      "by_severity": {
+        "critical": 0,
+        "warn": 0,
+        "minor": 2
+      }
+    }
+  },
+  "calibration": {
+    "l2_4_agreement": "2/2 (independent verification; scorer reasoning visible pre-check — verification-grade, not blind)",
+    "l2_6_agreement": "2/2 (findings re-derived by re-executing quoted evidence commands)",
+    "record": "../calibration-fable.md"
+  }
+}

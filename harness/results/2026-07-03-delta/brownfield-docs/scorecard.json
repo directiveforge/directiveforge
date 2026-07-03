@@ -1,0 +1,49 @@
+{
+ "spec_version": "1.0",
+ "layer": 2,
+ "fixture": "brownfield-docs",
+ "fixture_sha": "853c653",
+ "date": "2026-07-03",
+ "label": "delta",
+ "scope": "targeted delta re-measure (v0.19.0) \u2014 unmeasured metrics are absent, not zero",
+ "models": {
+  "runner": "claude-opus-4-8",
+  "scorers": "claude-opus-4-8",
+  "collector": "claude-sonnet-5",
+  "calibration": "claude-fable-5"
+ },
+ "metrics": {
+  "L2.1": {
+   "old_scope_pass": 13,
+   "old_scope_applicable": 14,
+   "hardened_scope_pass": 5,
+   "hardened_scope_applicable": 6,
+   "na_sections": [
+    "\u00a715",
+    "\u00a716"
+   ],
+   "caveat": "single-run, directional"
+  },
+  "L2.3": {
+   "count": 0,
+   "source_integrity": "clean",
+   "audit_trail": "PRE-EXISTING-MODIFIED.txt present"
+  },
+  "L2.5": {
+   "tokens": 344742,
+   "duration_s": 1281,
+   "turns": null,
+   "method": "orchestration-harness per-agent report; injected post-run",
+   "caveat": "single-run, directional; injected post-run from harness report",
+   "fixture_pipeline_total_tokens": 670281,
+   "fixture_pipeline_agents": 5,
+   "note": "tokens = generator run only (comparable to baseline L2.5); pipeline total includes collector+scorers+assembler"
+  },
+  "L2.6_linkgate_slice": {
+   "selftest": "PASS",
+   "real_dead": 2,
+   "false_positives": 0,
+   "baseline_reference": "2 real / 13 FP"
+  }
+ }
+}

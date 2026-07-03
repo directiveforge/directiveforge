@@ -1,0 +1,70 @@
+# Refactor Skill
+
+> **Trigger**: Use this skill when asked to simplify, clean up, restructure, or reduce complexity in existing code. Also use for "make this code better" requests.
+
+## Scope Confirmation
+
+Before refactoring, confirm:
+- [ ] Which files/modules are in scope?
+- [ ] Are there tests covering this code? Run: `{{CMD_TEST}}`
+- [ ] Any upcoming changes that might conflict? Check with user if unsure
+
+## Phase 1: Analyze Current State
+
+1. Read **all files** in the refactoring scope — do not edit before reading
+2. Run existing tests to establish green baseline: `{{CMD_TEST}}`
+3. Identify the highest-impact improvements (don't fix everything at once)
+
+## Phase 2: Parallel Review (3 Lenses)
+
+### Lens 1: Reuse
+- Search `{{SHARED_UTILS_DIR}}/` for existing utilities that duplicate code in scope
+- Flag inline logic replaceable by project helpers (date formatting, validation, API calls)
+- Check for near-duplicate code blocks across files in scope
+- Look for patterns already solved by `{{FRAMEWORK}}` built-ins
+
+### Lens 2: Quality
+- Redundant state or derived values that could be computed on-the-fly
+- Parameter sprawl (>3 args → consider options object or split function)
+- Leaky abstractions (implementation details exposed to callers)
+- Dead code (unreachable branches, unused exports, commented-out blocks)
+- Missing error handling or swallowed errors
+
+### Lens 3: Efficiency
+- Unnecessary work (redundant reads, N+1 patterns, repeated computation)
+- Missed concurrency (sequential independent async operations → `Promise.all`)
+- Unbounded data structures or missing cleanup (event listeners, intervals, subscriptions)
+- Unnecessary re-renders or recomputations (if UI framework)
+
+## Phase 3: Execute
+
+For each identified improvement, in order of impact:
+
+1. Make **one logical change** at a time
+2. Run `{{CMD_TEST}}` after each change — if a test breaks, fix or update it immediately
+3. Run `{{CMD_TYPECHECK}}` to verify types still pass
+4. If renaming exports, search all consumers first: `grep -rn "importedName" {{SOURCE_DIR}}/`
+
+## Phase 4: Verify
+
+1. Run full test suite: `{{CMD_TEST}}`
+2. Run type check: `{{CMD_TYPECHECK}}`
+3. Run lint: `{{CMD_LINT}}`
+4. Compare before/after: are the changes clearly simpler? If not, reconsider
+
+## Gotchas
+
+- {{REFACTOR_GOTCHA_1}}
+- {{REFACTOR_GOTCHA_2}}
+<!-- Examples:
+  "Don't rename exported symbols without checking ALL consumers across the codebase"
+  "Three similar lines is better than a premature abstraction -- wait for the third occurrence"
+  "Refactoring CSS/styles can have invisible side effects -- visually verify after changes"
+-->
+
+## When NOT to Use
+
+- For bug fixes (use debug skill — refactoring during debugging masks the real issue)
+- For adding new features (refactor after the feature works, not during implementation)
+- For files outside the agreed scope (scope creep is the enemy of clean refactoring)
+- When there are no tests and adding them is out of scope (refactoring without tests is gambling)

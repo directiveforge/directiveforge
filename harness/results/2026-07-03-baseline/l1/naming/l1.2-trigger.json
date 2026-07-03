@@ -1,0 +1,520 @@
+{
+  "metric": "L1.2",
+  "pack": "naming",
+  "spec_version": "1.0",
+  "models": {
+    "author": "claude-opus-4-8",
+    "router": "claude-haiku-4-5"
+  },
+  "prompts_per_skill": 10,
+  "per_skill": [
+    {
+      "skill": "naming-brief",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "name-generation",
+      "TP": 4,
+      "FP": 0,
+      "FN": 1,
+      "positives": 5,
+      "precision": 1,
+      "recall": 0.8,
+      "f1": 0.8889,
+      "confusion": [
+        {
+          "prompt": "name-generation-p3",
+          "expected": "target",
+          "fired": "naming-brief"
+        }
+      ]
+    },
+    {
+      "skill": "linguistic-screen",
+      "TP": 5,
+      "FP": 1,
+      "FN": 0,
+      "positives": 5,
+      "precision": 0.8333,
+      "recall": 1,
+      "f1": 0.9091,
+      "confusion": [
+        {
+          "prompt": "linguistic-screen-n5",
+          "expected": "none",
+          "fired": "linguistic-screen"
+        }
+      ]
+    },
+    {
+      "skill": "trademark-clearance",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "availability-gate",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "name-scorecard",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    }
+  ],
+  "pack_micro": {
+    "TP": 29,
+    "FP": 1,
+    "FN": 1,
+    "precision": 0.9667,
+    "recall": 0.9667,
+    "f1": 0.9667
+  },
+  "raw_router_outputs": [
+    {
+      "skill": "naming-brief",
+      "id": "naming-brief-p1",
+      "text": "I'm launching a coffee subscription business next quarter and I have zero clue what to call it. Can we work through this properly from the top instead of me just throwing random words at a wall?",
+      "expected": "target",
+      "fired": "naming-brief"
+    },
+    {
+      "skill": "naming-brief",
+      "id": "naming-brief-p2",
+      "text": "We're rebranding our whole fintech app and honestly nothing about the direction is written down anywhere. Before anyone comes up with candidates, what do we actually need to pin down?",
+      "expected": "target",
+      "fired": "naming-brief"
+    },
+    {
+      "skill": "naming-brief",
+      "id": "naming-brief-p3",
+      "text": "All I've got is a one-sentence pitch for my new plant-care gadget. I was about to start firing off name ideas but a friend said I'm skipping a step — what's the step?",
+      "expected": "target",
+      "fired": "naming-brief"
+    },
+    {
+      "skill": "naming-brief",
+      "id": "naming-brief-p4",
+      "text": "How should I set up a naming effort so it doesn't fall apart later? I want to capture the strategy, who it's for, the feel it should have, and which countries matter — all before we invent anything.",
+      "expected": "target",
+      "fired": "naming-brief"
+    },
+    {
+      "skill": "naming-brief",
+      "id": "naming-brief-p5",
+      "text": "I need a name for a B2B analytics tool that'll sell in Germany and Japan as well as the US. Nobody's documented what sound or personality we're going for yet. Where do we begin?",
+      "expected": "target",
+      "fired": "naming-brief"
+    },
+    {
+      "skill": "naming-brief",
+      "id": "naming-brief-n1",
+      "text": "The brief is signed off and locked. Now just hit me with a huge pile of candidate names across as many word-formation tricks and metaphor angles as you can — I'll filter later.",
+      "expected": "other",
+      "fired": "name-generation"
+    },
+    {
+      "skill": "naming-brief",
+      "id": "naming-brief-n2",
+      "text": "We've narrowed it to six names that already cleared the language, trademark, and domain passes. Which one should we actually go with?",
+      "expected": "other",
+      "fired": "name-scorecard"
+    },
+    {
+      "skill": "naming-brief",
+      "id": "naming-brief-n3",
+      "text": "My GitHub Actions pipeline keeps failing on the build step after I bumped the Node version. Can you look at the workflow file and figure out what broke?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "naming-brief",
+      "id": "naming-brief-n4",
+      "text": "Can you take this 40-page quarterly PDF and pull out the revenue figures into a clean spreadsheet for me?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "naming-brief",
+      "id": "naming-brief-n5",
+      "text": "The name is already settled — the company carries the founder's surname and that's non-negotiable. I just need to make sure it doesn't mean anything embarrassing abroad and that we can register it.",
+      "expected": "other",
+      "fired": "linguistic-screen"
+    },
+    {
+      "skill": "name-generation",
+      "id": "name-generation-p1",
+      "text": "Okay, the brief is locked — target sound is punchy and short, fintech for Gen-Z. Hit me with a big pile of candidate coinages, blends, whatever. I want volume, not a curated five.",
+      "expected": "target",
+      "fired": "name-generation"
+    },
+    {
+      "skill": "name-generation",
+      "id": "name-generation-p2",
+      "text": "We finished intake yesterday. Can you spin up a few hundred possible product names using different word-building methods and metaphor angles? Don't filter them yet, just churn.",
+      "expected": "target",
+      "fired": "name-generation"
+    },
+    {
+      "skill": "name-generation",
+      "id": "name-generation-p3",
+      "text": "I've got my positioning doc ready. Throw a huge list of invented and real-word repurposed options at me for the coffee subscription — cast the net as wide as you can.",
+      "expected": "target",
+      "fired": "naming-brief"
+    },
+    {
+      "skill": "name-generation",
+      "id": "name-generation-p4",
+      "text": "Brief's done. Now flood me with raw candidates — mix classical roots, portmanteaus, and some evocative metaphor picks. No judging, no shortlist, just quantity for the divergent pass.",
+      "expected": "target",
+      "fired": "name-generation"
+    },
+    {
+      "skill": "name-generation",
+      "id": "name-generation-p5",
+      "text": "Sound target is soft and airy for a wellness app, per the intake we wrapped. Produce as many raw name ideas as you can across a bunch of approaches — I'll handle screening downstream.",
+      "expected": "target",
+      "fired": "name-generation"
+    },
+    {
+      "skill": "name-generation",
+      "id": "name-generation-n1",
+      "text": "We haven't started properly yet. Before any ideas get thrown around, walk me through setting up the strategy, audience, and the sound we're aiming for so the whole thing is grounded.",
+      "expected": "other",
+      "fired": "naming-brief"
+    },
+    {
+      "skill": "name-generation",
+      "id": "name-generation-n2",
+      "text": "Here are the eight names that made it through language, trademark, and domain gating. Rank them on a weighted rubric and tell me which one we should actually go with.",
+      "expected": "other",
+      "fired": "name-scorecard"
+    },
+    {
+      "skill": "name-generation",
+      "id": "name-generation-n3",
+      "text": "My basil keeps wilting even though I water it every other day and it sits on a bright windowsill. What am I doing wrong with this plant?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "name-generation",
+      "id": "name-generation-n4",
+      "text": "Can you help me draft a polite email to my landlord asking to fix the leaking radiator before winter? I want it firm but not aggressive.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "name-generation",
+      "id": "name-generation-n5",
+      "text": "The company will just carry my grandfather's surname, that part's already decided. Given the name is fixed, what should I do next to make sure it's usable?",
+      "expected": "other",
+      "fired": "availability-gate"
+    },
+    {
+      "skill": "linguistic-screen",
+      "id": "linguistic-screen-p1",
+      "text": "We've narrowed it down to six candidate names and we're taking the product into Sweden, Spain, and Japan next quarter. Before we commit, can you go through each one and tell me if any of them mean something embarrassing or rude in those languages?",
+      "expected": "target",
+      "fired": "linguistic-screen"
+    },
+    {
+      "skill": "linguistic-screen",
+      "id": "linguistic-screen-p2",
+      "text": "Here are our five finalist brand names. We're expanding into Russia and China. I'm worried one of them sounds like a swear word or has a bad connotation once it's written in Cyrillic or Chinese characters — can you vet them?",
+      "expected": "target",
+      "fired": "linguistic-screen"
+    },
+    {
+      "skill": "linguistic-screen",
+      "id": "linguistic-screen-p3",
+      "text": "Our shortlist is Lumio, Vantor, and Kestra. We're going global. Could any of these accidentally offend someone on religious or cultural grounds, or trip over a taboo number, color, or animal in a particular region?",
+      "expected": "target",
+      "fired": "linguistic-screen"
+    },
+    {
+      "skill": "linguistic-screen",
+      "id": "linguistic-screen-p4",
+      "text": "Before we launch these three names in Germany and Armenia, I want to know how a local would actually pronounce them and whether the pronunciation makes them sound like anything unfortunate. Can you transcribe them and flag any phonetic landmines?",
+      "expected": "target",
+      "fired": "linguistic-screen"
+    },
+    {
+      "skill": "linguistic-screen",
+      "id": "linguistic-screen-p5",
+      "text": "I have a list of eight names that survived our internal review. We ship in EN, AR, and ZH. Can you build me a name-by-language grid showing which ones are safe, which need a second look, and which are hard no-gos — and mark anything a native speaker should double-check?",
+      "expected": "target",
+      "fired": "linguistic-screen"
+    },
+    {
+      "skill": "linguistic-screen",
+      "id": "linguistic-screen-n1",
+      "text": "We finished vetting the names and three cleared. Now I need to know if the .com and .ai are open for each, plus whether the Instagram and X handles are grabbable. Can you check what's actually available?",
+      "expected": "other",
+      "fired": "availability-gate"
+    },
+    {
+      "skill": "linguistic-screen",
+      "id": "linguistic-screen-n2",
+      "text": "For our final three candidates, can you tell me whether we'd hit any existing registered marks? I want to know the risk of a confusion refusal before we pay a lawyer, roughly which classes we're in, and whether any of these read as too descriptive.",
+      "expected": "other",
+      "fired": "trademark-clearance"
+    },
+    {
+      "skill": "linguistic-screen",
+      "id": "linguistic-screen-n3",
+      "text": "My sourdough starter has gone weirdly grey on top and smells like nail polish remover. Is it dead, or can I revive it? What should the feeding ratio be to bring it back?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "linguistic-screen",
+      "id": "linguistic-screen-n4",
+      "text": "Can you help me put together a workout split for building strength? I train four days a week and want to prioritize compound lifts without frying my lower back.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "linguistic-screen",
+      "id": "linguistic-screen-n5",
+      "text": "We showed the Chinese character rendering of our name to your first pass and it came back clean. That's enough for us to lock it and print packaging, right? Just confirm it's officially safe so we can skip hiring a Mandarin consultant.",
+      "expected": "none",
+      "fired": "linguistic-screen"
+    },
+    {
+      "skill": "trademark-clearance",
+      "id": "trademark-clearance-p1",
+      "text": "We narrowed it down to four brand names for our fintech app. Before we spend anything, can you run a knockout pass — search the USPTO and EU registers for identical or sound-alike marks in the financial-software classes and tell me how risky each one is to register?",
+      "expected": "target",
+      "fired": "trademark-clearance"
+    },
+    {
+      "skill": "trademark-clearance",
+      "id": "trademark-clearance-p2",
+      "text": "Is the name 'Lumora' going to have problems if we try to file it as a mark for a skincare line? I'm worried it might be too close to something already out there.",
+      "expected": "target",
+      "fired": "trademark-clearance"
+    },
+    {
+      "skill": "trademark-clearance",
+      "id": "trademark-clearance-p3",
+      "text": "One of my shortlisted candidates is basically a plain-English description of what the product does. Would an examiner reject it for being merely descriptive, and where does it sit on the distinctiveness scale versus my made-up options?",
+      "expected": "target",
+      "fired": "trademark-clearance"
+    },
+    {
+      "skill": "trademark-clearance",
+      "id": "trademark-clearance-p4",
+      "text": "We sell both physical apparel and a companion mobile app. For our top two name candidates, which international classes do we actually need to cover, and are there any conflicting registrations already sitting in those classes that would block us?",
+      "expected": "target",
+      "fired": "trademark-clearance"
+    },
+    {
+      "skill": "trademark-clearance",
+      "id": "trademark-clearance-p5",
+      "text": "Before we commit the budget to a filing, I need a first-pass legal sanity check on these five candidate marks — coined ones versus the more literal ones — including any phonetic near-neighbors that could trip up a confusion analysis.",
+      "expected": "target",
+      "fired": "trademark-clearance"
+    },
+    {
+      "skill": "trademark-clearance",
+      "id": "trademark-clearance-n1",
+      "text": "I've got my three finalists and every legal box is checked. Now walk me through which one we should actually pick — weigh them on the full rubric and give me a ranked recommendation with a clear number one.",
+      "expected": "other",
+      "fired": "name-scorecard"
+    },
+    {
+      "skill": "trademark-clearance",
+      "id": "trademark-clearance-n2",
+      "text": "Can you find out whether the matching web address and the usernames on the main social platforms are still up for grabs for these three names? Not planning to register any mark, I just want to lock the handles.",
+      "expected": "other",
+      "fired": "availability-gate"
+    },
+    {
+      "skill": "trademark-clearance",
+      "id": "trademark-clearance-n3",
+      "text": "My React build keeps throwing a hydration mismatch warning on the homepage after I moved the theme toggle into a client component. Can you help me figure out what's causing it?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "trademark-clearance",
+      "id": "trademark-clearance-n4",
+      "text": "I need a healthy weeknight dinner plan for four people that stays under 30 minutes and uses stuff I probably already have in the pantry. Any ideas?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "trademark-clearance",
+      "id": "trademark-clearance-n5",
+      "text": "I don't care about ever registering a trademark — this is just an internal codename for a project. I only want to know if the dot-com and a couple of handles are open so I can grab them.",
+      "expected": "other",
+      "fired": "availability-gate"
+    },
+    {
+      "skill": "availability-gate",
+      "id": "availability-gate-p1",
+      "text": "We've narrowed it down to four company names. Can you find out which of these still have an open .com or a matching .ai I could register, and roughly what each would run me per year?",
+      "expected": "target",
+      "fired": "availability-gate"
+    },
+    {
+      "skill": "availability-gate",
+      "id": "availability-gate-p2",
+      "text": "Before we commit to a favorite, I want to know if the Instagram, TikTok, and X usernames are grabbable for each of these three finalists, and whether one of them already owns all the good handles.",
+      "expected": "target",
+      "fired": "availability-gate"
+    },
+    {
+      "skill": "availability-gate",
+      "id": "availability-gate-p3",
+      "text": "The exact dot-com for 'Verdant' looks like it's already registered by somebody. Is there any way to buy it on the secondary market, and what would a fair price be — or should we look at getverdant.com or a different extension instead?",
+      "expected": "target",
+      "fired": "availability-gate"
+    },
+    {
+      "skill": "availability-gate",
+      "id": "availability-gate-p4",
+      "text": "Can you actually look up, with a real tool not a guess, whether nimbusflow.com and nimbusflow.io are free right now? I don't want you inventing an answer.",
+      "expected": "target",
+      "fired": "availability-gate"
+    },
+    {
+      "skill": "availability-gate",
+      "id": "availability-gate-p5",
+      "text": "If someone googles our proposed name 'Halcyon', does a big established company already own the whole first page? And if I ask an AI assistant what Halcyon is, will it confuse us with something that already exists?",
+      "expected": "target",
+      "fired": "availability-gate"
+    },
+    {
+      "skill": "availability-gate",
+      "id": "availability-gate-n1",
+      "text": "For each of our five finalists, can you tell me how legally defensible it is to register as a trademark — like where it sits on the distinctive-vs-generic scale, and whether there's an existing mark that would collide in our category?",
+      "expected": "other",
+      "fired": "trademark-clearance"
+    },
+    {
+      "skill": "availability-gate",
+      "id": "availability-gate-n2",
+      "text": "Okay, the shortlist has cleared all the checks. Can you now weigh them against each other on a scoring rubric and tell me which one I should actually go with?",
+      "expected": "other",
+      "fired": "name-scorecard"
+    },
+    {
+      "skill": "availability-gate",
+      "id": "availability-gate-n3",
+      "text": "My sourdough starter smells really sharp and vinegary and there's a grey liquid on top. Is it dead, or can I revive it before baking this weekend?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "availability-gate",
+      "id": "availability-gate-n4",
+      "text": "Can you help me draft a polite email to my landlord asking to get the broken heater fixed before the inspection next week?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "availability-gate",
+      "id": "availability-gate-n5",
+      "text": "There's no way for me to run any live domain or registry lookups from here — I just need a from-memory best guess on whether 'Cobalt Loom' is probably taken as a website. Just estimate it for me.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "name-scorecard",
+      "id": "name-scorecard-p1",
+      "text": "Okay, all four finalists cleared trademark, the linguistic pass, and domains are sorted. Now I need you to rate each one on a weighted point system and tell me the top three so we can commit.",
+      "expected": "target",
+      "fired": "name-scorecard"
+    },
+    {
+      "skill": "name-scorecard",
+      "id": "name-scorecard-p2",
+      "text": "We've got five survivors that passed every check. My cofounder and I keep going back and forth — can you help us land on the final choice with some structured reasoning instead of just voting?",
+      "expected": "target",
+      "fired": "name-scorecard"
+    },
+    {
+      "skill": "name-scorecard",
+      "id": "name-scorecard-p3",
+      "text": "For a premium B2B SaaS positioning, which weighting preset should govern how I evaluate my three cleared name candidates, and can you produce the component breakdown per name?",
+      "expected": "target",
+      "fired": "name-scorecard"
+    },
+    {
+      "skill": "name-scorecard",
+      "id": "name-scorecard-p4",
+      "text": "The committee is leaning toward the safest, most inoffensive option and I'm worried we're smoothing away the one bold name everyone reacted strongly to. Can you build me a defensible ranking that keeps the polarizing-but-strong candidate on the table?",
+      "expected": "target",
+      "fired": "name-scorecard"
+    },
+    {
+      "skill": "name-scorecard",
+      "id": "name-scorecard-p5",
+      "text": "All the gated finalists are in a spreadsheet. Give each a numeric total across defensibility, distinctiveness, fluency, fit and the rest, then write me a short recommendation memo for the leaders.",
+      "expected": "target",
+      "fired": "name-scorecard"
+    },
+    {
+      "skill": "name-scorecard",
+      "id": "name-scorecard-n1",
+      "text": "Before we generate or judge anything, I want to nail down our audience, the markets we're launching in, the sound we're going for, and which trademark classes matter. Walk me through that setup.",
+      "expected": "other",
+      "fired": "naming-brief"
+    },
+    {
+      "skill": "name-scorecard",
+      "id": "name-scorecard-n2",
+      "text": "Here's my shortlist of six names. I need to know whether any of them collide with existing registered marks and whether they'd survive a distinctiveness objection before I go further.",
+      "expected": "other",
+      "fired": "trademark-clearance"
+    },
+    {
+      "skill": "name-scorecard",
+      "id": "name-scorecard-n3",
+      "text": "Can you help me put together a weekly meal plan for a family of four on a tight grocery budget, with a shopping list I can reuse?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "name-scorecard",
+      "id": "name-scorecard-n4",
+      "text": "My Postgres query keeps timing out on a table with about 40 million rows. Can you look at the plan and suggest indexes or a rewrite to speed it up?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "name-scorecard",
+      "id": "name-scorecard-n5",
+      "text": "I've got a bunch of raw name ideas but haven't checked trademarks or domains yet. Just tell me which one is the crowd favorite so I can pick whatever people like best.",
+      "expected": "other",
+      "fired": "naming-brief"
+    }
+  ]
+}

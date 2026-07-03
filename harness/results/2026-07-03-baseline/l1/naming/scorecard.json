@@ -1,0 +1,161 @@
+{
+  "spec_version": "1.0",
+  "layer": 1,
+  "pack": "naming",
+  "date": "2026-07-03",
+  "label": "baseline",
+  "models": {
+    "static": "claude-sonnet-5",
+    "author": "claude-opus-4-8",
+    "router": "claude-haiku-4-5",
+    "judge": "claude-opus-4-8",
+    "calibration": "claude-fable-5"
+  },
+  "metrics": {
+    "L1.1": {
+      "target": "templates/skills/naming/",
+      "na_families": [
+        "S6 (template source, all 6 skills)"
+      ],
+      "pack": {
+        "passed": 30,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "artifacts": [
+        {
+          "path": "name-generation/SKILL.md",
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "naming-brief/SKILL.md",
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "name-scorecard/SKILL.md",
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "linguistic-screen/SKILL.md",
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "availability-gate/SKILL.md",
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "trademark-clearance/SKILL.md",
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        }
+      ]
+    },
+    "L1.2": {
+      "prompts_per_skill": 10,
+      "pack_micro": {
+        "TP": 29,
+        "FP": 1,
+        "FN": 1,
+        "precision": 0.9667,
+        "recall": 0.9667,
+        "f1": 0.9667
+      },
+      "per_skill": [
+        {
+          "skill": "naming-brief",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "name-generation",
+          "TP": 4,
+          "FP": 0,
+          "FN": 1,
+          "positives": 5,
+          "precision": 1,
+          "recall": 0.8,
+          "f1": 0.8889
+        },
+        {
+          "skill": "linguistic-screen",
+          "TP": 5,
+          "FP": 1,
+          "FN": 0,
+          "positives": 5,
+          "precision": 0.8333,
+          "recall": 1,
+          "f1": 0.9091
+        },
+        {
+          "skill": "trademark-clearance",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "availability-gate",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "name-scorecard",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        }
+      ]
+    },
+    "L1.3": {
+      "status": "deferred",
+      "caveat": "L1.3 measured on the decision pack only in this baseline; deferred for this pack per spend circuit-breaker adjudication (HARNESS-SPEC §7.5) — see DISPOSITIONS-v0.18.0"
+    },
+    "L1.4": {
+      "n": 6,
+      "per_dimension_mean": {
+        "actionability": 5,
+        "scope_calibration": 5,
+        "failure_content_quality": 5,
+        "constraint_explicitness": 5
+      },
+      "overall_mean": 5
+    }
+  },
+  "calibration": {
+    "l1_4_exact": "18/20 (0.90)",
+    "l1_4_within_1": "20/20 (1.00)",
+    "l1_2_random": "2/2",
+    "l1_2_adversarial_probe": "vs router 1/4; vs author labels 4/4 (deliberately stratified toward weak skills)",
+    "items_total": 15,
+    "record": "../calibration-fable.md",
+    "judge_agreement_note": "pack-level; global calibration record covers all packs"
+  }
+}

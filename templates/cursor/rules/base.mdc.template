@@ -1,0 +1,34 @@
+---
+description: "Core project conventions — always loaded"
+globs: []
+alwaysApply: true
+---
+# {{PROJECT_NAME}} — Base Conventions
+
+## EXECUTION PROTOCOL
+1. SEARCH FIRST — grep/find similar functionality before implementing anything
+2. REUSE FIRST — extend existing functions, patterns, and structure
+3. READ BEFORE EDIT — always read a file's current content before modifying
+4. NO ASSUMPTIONS — only use facts from read files, user messages, tool results
+5. VERIFY — run typecheck + lint + tests after every change
+6. PLAN FIRST — multi-file changes start in Plan mode; execute after the plan holds
+7. FEEDBACK LOOP — self-correct on failures before committing; never commit unverified work
+
+## CORE CONVENTIONS
+- Language: {{LANGUAGE}} ({{LANGUAGE_VERSION}})
+- Package manager: {{PACKAGE_MANAGER}}
+- Module system: {{MODULE_SYSTEM}}
+- Exports: {{EXPORT_STYLE}} ({{EXPORT_EXAMPLE}})
+- File naming: {{FILE_NAMING_CONVENTION}}
+
+## COMMANDS
+- Dev: `{{CMD_DEV}}`
+- Test: `{{CMD_TEST}}`
+- Lint: `{{CMD_LINT}}`
+- Typecheck: `{{CMD_TYPECHECK}}`
+- Build: `{{CMD_BUILD}}`
+
+## NEVER
+- NEVER assume a function or import exists — search first
+- NEVER add packages without checking {{PACKAGE_MANAGER}} scripts first
+- NEVER use "think step by step" with reasoning models — they reason internally

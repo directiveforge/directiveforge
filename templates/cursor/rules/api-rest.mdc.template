@@ -1,0 +1,40 @@
+---
+description: "REST API route handlers, validation, and response conventions"
+globs: ["{{API_GLOB}}"]
+alwaysApply: false
+---
+# API — {{API_FRAMEWORK}} REST Routes
+
+## ROUTE STRUCTURE
+- Routes live in `{{API_DIR}}/`
+- Pattern: {{ROUTE_PATTERN}}
+<!-- ROUTE_PATTERN example: "app/api/[resource]/route.ts for Next.js App Router" -->
+- DO: One file per resource — group CRUD handlers together
+
+## REQUEST VALIDATION
+- ALWAYS validate with {{VALIDATION_LIBRARY}} before processing
+- Schema files live in `{{SCHEMAS_DIR}}/` (or colocated — match existing pattern)
+- Return 400 with structured error on validation failure:
+```
+{ error: "Validation failed", details: [...] }
+```
+
+## RESPONSE FORMAT
+- Success: `{{ '{' }} data: T, meta?: {...} {{ '}' }}`
+- Error: `{{ '{' }} error: string, code?: string {{ '}' }}`
+- Use {{HTTP_STATUS_PATTERN}} status codes — no 200 for errors
+
+## AUTH
+- Auth middleware: {{AUTH_MIDDLEWARE}}
+- Protect routes via: {{AUTH_PATTERN}}
+<!-- AUTH_PATTERN example: "export const middleware = withAuth(handler)" -->
+- NEVER trust client-supplied user IDs — read from session/JWT
+
+## ERROR HANDLING
+- Pattern: {{ERROR_PATTERN}}
+<!-- ERROR_PATTERN example: "try/catch with centralized error handler; log with structured logger" -->
+- NEVER expose stack traces or internal errors to clients
+- Log errors with: `{{LOGGER}}.error({ err, route, userId })`
+
+## AFTER EVERY CHANGE
+Run: `{{CMD_TYPECHECK}}` then `{{CMD_TEST}} {{TEST_FILTER_FLAG}} api`

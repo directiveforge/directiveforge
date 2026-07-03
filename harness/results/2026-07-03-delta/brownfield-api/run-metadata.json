@@ -1,0 +1,26 @@
+{
+ "spec_version": "1.0",
+ "fixture": "brownfield-api",
+ "fixture_sha": "853c653",
+ "models": {
+  "runner": "claude-opus-4-8",
+  "scorers": "claude-opus-4-8",
+  "collector": "claude-sonnet-5",
+  "calibration": "claude-fable-5"
+ },
+ "date": "2026-07-03",
+ "label": "delta",
+ "workdir": "<RUN_WORKDIR_2>/l2-delta-runs/brownfield-api",
+ "pre_files": 18,
+ "post_files": 60,
+ "l2_5": {
+  "tokens": 320118,
+  "duration_s": 1429,
+  "turns": null,
+  "method": "orchestration-harness per-agent report; injected post-run",
+  "caveat": "single-run, directional; injected post-run from harness report",
+  "fixture_pipeline_total_tokens": 686501,
+  "fixture_pipeline_agents": 5,
+  "note": "tokens = generator run only (comparable to baseline L2.5); pipeline total includes collector+scorers+assembler"
+ }
+}

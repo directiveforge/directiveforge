@@ -1,0 +1,78 @@
+---
+allowed-tools: Read, Glob, Grep, Bash(git log:*), Bash(wc:*), Bash({{PACKAGE_MANAGER}} outdated:*), Bash({{PACKAGE_MANAGER}} audit:*)
+description: Analyze and prioritize technical debt in the codebase
+---
+
+Analyze {{PROJECT_NAME}} for technical debt and produce a prioritized remediation plan.
+
+## Scan Areas
+
+### 1. Dependency Health
+
+Check `{{PACKAGE_FILE}}` for:
+- Outdated major versions: `{{CMD_OUTDATED}}`
+- Known vulnerabilities: `{{CMD_AUDIT}}`
+- Unused dependencies (declared but not imported)
+- Duplicate dependencies (same lib at different versions)
+
+### 2. Code Complexity
+
+Search for:
+- Files over 300 lines: check `{{SOURCE_DIR}}/` for oversized files
+- TODO/FIXME/HACK comments: `grep -rn "TODO\|FIXME\|HACK\|XXX" {{SOURCE_DIR}}/`
+- Deeply nested logic (>3 levels of indentation in conditionals)
+- Functions with excessive parameters (>5 arguments)
+- Duplicated code blocks (near-identical logic in multiple files)
+
+### 3. Test Coverage Gaps
+
+- Source files in `{{SOURCE_DIR}}/` without corresponding test files
+- Critical paths (auth, payments, data mutations) with no test coverage
+- Test files with only smoke/snapshot tests and no behavioral assertions
+
+### 4. Architecture Drift
+
+- Circular dependencies between modules
+- Convention violations (files in wrong directories per project structure)
+- Inconsistent patterns (some modules use pattern X, others use pattern Y)
+- Deprecated APIs still in use (check framework migration guides)
+
+### 5. Configuration & Infrastructure
+
+- Outdated CI/CD configuration
+- Missing or stale environment variable documentation (.env.example drift)
+- Build warnings that are suppressed but not resolved
+
+## Categorization
+
+Rate each finding:
+
+| Priority | Criteria | Action |
+|----------|----------|--------|
+| **P0 — Critical** | Security risk, data loss potential, or production instability | Fix this sprint |
+| **P1 — High** | Blocks feature development or causes recurring bugs | Fix within 2 sprints |
+| **P2 — Medium** | Slows development but has workarounds | Schedule when adjacent work |
+| **P3 — Low** | Cosmetic, minor improvement, or nice-to-have | Track, fix opportunistically |
+
+## Output
+
+### Tech Debt Report: {{PROJECT_NAME}}
+
+**Summary**: X findings (Y critical, Z high, W medium, V low)
+
+#### P0 — Critical
+- [finding] — [file/location] — [estimated effort] — [why now]
+
+#### P1 — High
+- [finding] — [file/location] — [estimated effort] — [impact if deferred]
+
+#### P2 — Medium
+- [finding] — [file/location] — [estimated effort]
+
+#### P3 — Low
+- [finding] — [file/location]
+
+#### Recommended Action Plan
+1. **Immediate** (this week): [P0 items]
+2. **Next sprint**: [P1 items, grouped by area]
+3. **Opportunistic**: [P2 items to tackle when working in adjacent code]

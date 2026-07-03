@@ -1,0 +1,53 @@
+# Review PR
+
+Review the current branch's changes against `{{BASE_BRANCH}}` for correctness, security, and {{PROJECT_NAME}} conventions.
+
+## Steps
+
+1. Get the diff: `git diff {{BASE_BRANCH}}...HEAD`
+2. List changed files: `git diff --name-only {{BASE_BRANCH}}...HEAD`
+3. For each changed file: read the full file (not just the diff)
+4. Search for related tests — note if new code lacks coverage
+5. Apply the checklist below
+
+## Checklist
+
+**Correctness**
+- [ ] Logic matches stated intent
+- [ ] Edge cases handled (null, empty, concurrent)
+- [ ] Error paths return correct status codes
+
+**Security**
+- [ ] No unsanitized user input in queries or shell commands
+- [ ] No credentials or PII in logs, responses, or error messages
+- [ ] Auth checks on all protected endpoints
+- [ ] {{PROJECT_SPECIFIC_SECURITY_CHECK}}
+
+**{{PROJECT_NAME}} Conventions**
+- [ ] Follows {{FILE_NAMING_CONVENTION}} file naming
+- [ ] Uses {{VALIDATION_LIBRARY}} for input validation
+- [ ] Commands pass: `{{CMD_TYPECHECK}}` and `{{CMD_LINT}}`
+- [ ] {{CONVENTION_CHECK}}
+<!-- Example: "No direct DB imports in route handlers" -->
+
+**Tests**
+- [ ] New behavior has test coverage
+- [ ] Tests are behavioral (not testing implementation details)
+
+## Output Format
+
+```
+## PR Review
+
+### Critical (must fix)
+- file.ts:42 — description — why it matters
+
+### Warning (should fix)
+- file.ts:17 — description
+
+### Passed
+✓ [list items that look good]
+
+### Verdict
+APPROVE / REQUEST CHANGES
+```

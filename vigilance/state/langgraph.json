@@ -1,0 +1,11 @@
+{
+  "source_slug": "langgraph",
+  "url": "https://github.com/langchain-ai/langgraph/releases.atom",
+  "fetch_strategy": "rss",
+  "last_fetched_utc": "2026-07-03T04:02:00Z",
+  "last_seen_cursor": "2026-06-30T01:24:26Z",
+  "last_seen_item_hash": "1.2.7-deltachannel-snapshot-overwrite-supersteps",
+  "consecutive_empty_scans": 3,
+  "consecutive_failures": 0,
+  "notes": "3 days since 1.2.7 (06-30). Cadence-normal."
+}

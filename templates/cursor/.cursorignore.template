@@ -1,0 +1,20 @@
+# Files that Cursor should NEVER read or include in context
+# Use for secrets, credentials, and sensitive data
+
+.env
+.env.local
+.env.production
+.env.*.local
+*.pem
+*.key
+*.cert
+*.p12
+
+# Credentials and tokens
+credentials.json
+serviceAccountKey.json
+**/secrets/
+.aws/
+.gcloud/
+
+# {{CURSORIGNORE_EXTRA}}

@@ -1,0 +1,35 @@
+---
+description: "Core project conventions — always loaded"
+globs: []
+alwaysApply: true
+---
+# Tempo Deck — Base Conventions
+
+## EXECUTION PROTOCOL
+1. SEARCH FIRST — grep/find similar functionality before implementing anything
+2. REUSE FIRST — extend existing components/helpers (reuse BeatCounter / TempoBadge / SessionList)
+3. READ BEFORE EDIT — always read a file's current content before modifying
+4. NO ASSUMPTIONS — only use facts from read files, user messages, tool results
+5. VERIFY — run `npx tsc --noEmit` + `npm run lint` after every change
+6. PLAN FIRST — multi-file changes start in Plan mode; execute after the plan holds
+7. FEEDBACK LOOP — self-correct on failures before committing; never commit unverified work
+
+## CORE CONVENTIONS
+- Language: TypeScript 5 (strict)
+- Package manager: npm (package-lock.json)
+- Module system: ESM
+- Exports: named for components; route entry files (app/page.tsx, app/layout.tsx) also export default
+- File naming: kebab-case files, PascalCase components
+
+## COMMANDS
+- Dev: `npm run dev`
+- Lint: `npm run lint`
+- Typecheck: `npx tsc --noEmit`
+- Build: `npm run build`
+- (no test command — no test runner installed)
+
+## NEVER
+- NEVER assume a function or import exists — search first
+- NEVER add packages without checking package.json first
+- NEVER reference paths that don't exist — no src/, no app/api/, no middleware.ts, no database; `@/` resolves to the project root
+- NEVER use "think step by step" with reasoning models — they reason internally

@@ -1,0 +1,71 @@
+# Deployment Skill
+
+> **Trigger**: Use this skill when asked to deploy, release, ship, or promote the application to any environment. Also use when asked about rollback procedures.
+
+## Environments
+
+| Environment | URL | Branch | Auto-deploy |
+|------------|-----|--------|-------------|
+| Development | {{DEV_URL}} | `{{DEV_BRANCH}}` | {{DEV_AUTO_DEPLOY}} |
+| Staging | {{STAGING_URL}} | `{{STAGING_BRANCH}}` | {{STAGING_AUTO_DEPLOY}} |
+| Production | {{PROD_URL}} | `{{PROD_BRANCH}}` | {{PROD_AUTO_DEPLOY}} |
+
+## Pre-Deployment Checklist
+
+1. All tests pass: `{{CMD_TEST}}`
+2. No type errors: `{{CMD_TYPECHECK}}`
+3. No lint errors: `{{CMD_LINT}}`
+4. Build succeeds: `{{CMD_BUILD}}`
+5. {{EXTRA_PRE_DEPLOY_CHECK}}
+<!-- EXTRA_PRE_DEPLOY_CHECK example: "Database migrations reviewed and tested on staging first" -->
+
+## Deploy to Staging
+
+```bash
+{{CMD_DEPLOY_STAGING}}
+```
+
+{{STAGING_NOTES}}
+<!-- STAGING_NOTES example: "Staging shares the production database replica — destructive migrations need DBA approval" -->
+
+## Deploy to Production
+
+```bash
+{{CMD_DEPLOY_PROD}}
+```
+
+**Requires**: {{PROD_DEPLOY_REQUIREMENTS}}
+<!-- PROD_DEPLOY_REQUIREMENTS example: "PR merged to main + CI green + one peer approval" -->
+
+## Verify Deployment
+
+```bash
+{{CMD_VERIFY_DEPLOY}}
+```
+
+Check: {{HEALTH_CHECK_URL}}
+
+## Rollback
+
+```bash
+{{CMD_ROLLBACK}}
+```
+
+{{ROLLBACK_NOTES}}
+<!-- ROLLBACK_NOTES example: "Rollback reverts code only — run down migrations separately if schema changed" -->
+
+## Gotchas
+
+- {{DEPLOY_GOTCHA_1}}
+<!-- Example: "Environment variables must be set in the platform dashboard BEFORE deploying — they are not picked up from .env" -->
+- {{DEPLOY_GOTCHA_2}}
+<!-- Example: "Cache is NOT automatically invalidated on deploy — purge manually via dashboard if serving stale assets" -->
+- {{DEPLOY_GOTCHA_3}}
+<!-- Example: "Build takes 4-8 minutes — do not cancel mid-build as it leaves partial assets" -->
+
+## When NOT to Use This Skill
+
+- Deploying database migrations alone — use the migration skill instead
+- Hotfixes to production without staging validation — escalate to tech lead
+- {{DEPLOY_EXCLUDED_SCENARIO}}
+<!-- Example: "Deploying during the weekly maintenance window (Fri 22:00–Sat 02:00 UTC)" -->

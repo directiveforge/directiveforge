@@ -1,0 +1,80 @@
+# {{PROJECT_NAME}}
+
+{{PROJECT_DESCRIPTION}}
+<!-- One sentence: what the project does + who uses it -->
+
+## Stack
+
+- **Language**: {{LANGUAGE}} {{LANGUAGE_VERSION}}
+- **Framework**: {{FRAMEWORK}} {{FRAMEWORK_VERSION}}
+- **Database**: {{DB_TYPE}} via {{ORM}}
+- **Auth**: {{AUTH_SYSTEM}}
+- **Styling**: {{STYLING_SYSTEM}}
+- **Testing**: {{TEST_FRAMEWORK}}
+- **Package manager**: {{PACKAGE_MANAGER}}
+- **Deployment**: {{DEPLOYMENT_PLATFORM}}
+
+## Dev Commands
+
+```bash
+{{CMD_DEV}}           # Start dev server ({{DEV_URL}})
+{{CMD_BUILD}}         # Production build
+{{CMD_TEST}}          # Run test suite
+{{CMD_LINT}}          # Lint + auto-fix
+{{CMD_TYPECHECK}}     # TypeScript check
+{{CMD_MIGRATE_DEV}}   # Apply DB migrations (dev)
+{{CMD_SEED}}          # Seed database
+```
+
+## Directory Structure
+
+```
+{{SOURCE_DIR}}/
+  {{APP_DIR}}/        # {{APP_DIR_DESC}}
+  {{COMPONENTS_DIR}}/ # {{COMPONENTS_DIR_DESC}}
+  {{LIB_DIR}}/        # {{LIB_DIR_DESC}}
+  {{SERVICES_DIR}}/   # {{SERVICES_DIR_DESC}}
+  {{DB_DIR}}/         # {{DB_DIR_DESC}}
+{{TEST_DIR}}/         # {{TEST_DIR_DESC}}
+```
+
+## Architecture
+
+- {{ARCH_POINT_1}}
+<!-- Example: "App Router: server components by default — use 'use client' only for interactivity" -->
+- {{ARCH_POINT_2}}
+<!-- Example: "API routes → service layer → db layer — never skip layers" -->
+- {{ARCH_POINT_3}}
+<!-- Example: "Monorepo: apps/ imports from packages/ only — never cross-app imports" -->
+
+## Key Constraints
+
+- {{CONSTRAINT_1}}
+<!-- Example: "NEVER import db client outside src/db/ — use service layer" -->
+- {{CONSTRAINT_2}}
+<!-- Example: "NEVER store secrets in code — use environment variables only" -->
+- {{CONSTRAINT_3}}
+<!-- Example: "All user input validated with Zod at API boundary before reaching services" -->
+- {{CONSTRAINT_4}}
+<!-- Example: "Run typecheck + lint + tests after every change — do not report done without green CI" -->
+
+## DirectiveForge Kit
+
+Engineering standards, MCP server catalog, and validation checklists are at `{{AI_KIT_PATH}}`. Consult when:
+- Discovering or evaluating MCP servers → `{{AI_KIT_PATH}}/knowledge-base/MCP-SERVER-REGISTRY.md`
+- Writing or updating rules/agents → `{{AI_KIT_PATH}}/knowledge-base/KB-02-AI-PROJECT-INFRASTRUCTURE.md`
+- Verifying generated output quality → `{{AI_KIT_PATH}}/generator/VALIDATION_CHECKLIST.md`
+
+## Environment Variables
+
+See `.env.example` for required variables. Never read `.env` directly.
+
+## File Location Reference
+
+| Type | Location |
+|------|----------|
+| {{FILE_TYPE_1}} | `{{FILE_LOC_1}}` |
+| {{FILE_TYPE_2}} | `{{FILE_LOC_2}}` |
+| {{FILE_TYPE_3}} | `{{FILE_LOC_3}}` |
+| {{FILE_TYPE_4}} | `{{FILE_LOC_4}}` |
+<!-- Examples: "API routes → app/api/", "DB schema → prisma/schema.prisma", "Tests → src/**/*.test.ts" -->

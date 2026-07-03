@@ -1,0 +1,11 @@
+{
+  "source_slug": "anthropic-sdk-python",
+  "url": "https://github.com/anthropics/anthropic-sdk-python/releases.atom",
+  "fetch_strategy": "rss",
+  "last_fetched_utc": "2026-07-03T04:02:00Z",
+  "last_seen_cursor": "2026-07-02T19:07:55Z",
+  "last_seen_item_hash": "v0.116.0-agent-memory-2026-07-22-beta-header",
+  "consecutive_empty_scans": 0,
+  "consecutive_failures": 0,
+  "notes": "v0.116.0 adds agent-memory-2026-07-22 beta header for API opt-in — thin SDK add (just the header); actual behavior lives on the platform side. Signals a new Managed-Agents memory primitive that folds naturally with KB-06 §Managed-Agents-primitives (opened 07-01 via v0.115.0 event-delta-streaming/agent-overrides/reverse-pagination/vault-credential-injection-scoping/agent+deployment-webhook-events). Kit-recommended pin: anthropic>=0.116.0 for memory-beta consumers; anthropic>=0.115.0 still fine for non-memory paths. Five releases in five days (v0.113 06-29, v0.114+v0.115 06-30, v0.115.1 07-01, v0.116.0 07-02) — extends prior 'fastest anthropic-sdk cadence in the vigilance window' streak."
+}

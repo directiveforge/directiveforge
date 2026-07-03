@@ -1,0 +1,118 @@
+---
+name: research-prompt-writer
+description: Generate research or implementation prompts using the 8-gate anti-hallucination framework. Routes guardrails, blueprints, and context per task type. Triggers on phrases like "write a research prompt", "draft an implementation prompt", "compose a dispatch prompt for Chat Research".
+---
+
+<!--
+  Skill template — works for both Cursor (`.cursor/skills/<name>/SKILL.md`)
+  and Claude Code (`.claude/skills/<name>/SKILL.md`). The format is identical
+  between the two systems; copy this file into whichever directory your
+  project uses (or both — keep them in sync).
+-->
+
+# Research Prompt Writer Skill
+
+> **Trigger**: Use this skill when asked to write a research prompt for dispatch to Chat Research mode (or equivalent citation-grounded surface), OR an implementation prompt that requires evidence-grounded decisions. This is Layer 1 of the 3-Layer Research Architecture — per-dossier input quality enforcement.
+
+## What this skill produces
+
+Two prompt types, both Layer-1-disciplined:
+
+1. **Research prompts** — dispatched to Chat Research / a citation-rendering surface. Output: a dossier that passes the 8-gate framework.
+2. **Implementation prompts** — handed to a coding agent (Claude Code, Cursor, etc.). Output: a knowledge-routed work brief with a verification checklist.
+
+Both inherit the 8-gate framework and the cross-cutting Layer 1 disciplines from KB-04 §3.1-§3.2.
+
+## Before writing any prompt
+
+Mandatory reads (in this order):
+
+1. a per-task-type routing doc (none exists in this project yet — improvise the routing from CLAUDE.md + DECISIONS.md, or create `docs/reference/knowledge-routing.md` first) — the project's per-task-type routing table (which guardrails / blueprints / voice / context apply per domain). <!-- example: `docs/reference/knowledge-routing.md` -->
+2. `DECISIONS.md` (this project's locked decisions serve as the anti-pattern source; no separate anti-patterns doc exists) — the project's locked anti-patterns the prompt must enforce. <!-- example: `docs/reference/anti-patterns.md` -->
+3. `DECISIONS.md` — verify the prompt does not silently contradict a locked entry. <!-- example: `DECISIONS.md` -->
+4. KB-04 §3.1 (the 8 gates) and §3.2 (the 9 cross-cutting disciplines) from the kit.
+
+If any of these are missing for the project, surface that gap before writing — do not improvise the routing.
+
+## For implementation prompts
+
+1. **Identify the task type** — UI / API / data-model / i18n / integration / SEO / analytics / launch / compliance (or your project's taxonomy). Look it up in a per-task-type routing doc (none exists in this project yet — improvise the routing from CLAUDE.md + DECISIONS.md, or create `docs/reference/knowledge-routing.md` first).
+2. **Build a Knowledge Manifest** (hard cap 5-7 files, grouped by reading order):
+   - **Guardrails** (read FIRST) — what NOT to do; locked anti-patterns
+   - **Blueprint** (read SECOND) — the exact spec from component-library / page-blueprints / API contract / schema
+   - **Voice** (read THIRD) — locked strings, naming conventions, brand register for user-facing copy
+   - **Context** (read LAST, only if a BLOCKER question remains) — supporting research dossiers
+3. Reference sections, not whole files (`§Section 3` or `lines N-M`) — never full-file dumps.
+4. **Extract a Verification Checklist** from the blueprint — every spec requirement becomes a `grep` / `Read` check the agent runs before declaring done. Format: `[ ] N of M requirements verified`.
+5. Include: anti-patterns inline, branch / coordination rules (`branch off main; do not commit prompts and code in the same commit`), reading order, "what NOT to drift into" boundary.
+
+## For research prompts (the 8-Gate Anti-Hallucination Framework — paste verbatim into the prompt)
+
+1. **Source gate** — every claim cites a primary source (vendor docs, published papers, official release notes, government registries). Section + line range for long sources. No paraphrased commentary as load-bearing evidence.
+2. **Version gate** — every cited library, SaaS, framework, regulation includes its version + effective date. Pre-2026 sources require explicit re-verification ("still current as of {date}").
+3. **Stack fit gate** — every recommendation must be implementable in `FastAPI 0.115.6 + Pydantic 2.7.4 + SQLAlchemy 2.0.31 (sync) + Alembic + Postgres/SQLite, Python >=3.12`. <!-- example: "Next.js 16 + TypeScript + Postgres" --> A library that does not exist in the project's package manager is research-only, not a recommendation.
+4. **Cost-benefit gate** — every cost claim spans both horizons: at launch AND at 10× scale. Hidden costs (audit fees, compliance overhead, monitoring subscriptions) surfaced explicitly.
+5. **Implementation gate** — every technique is implementable as a concrete artifact (skill, rule, code snippet, prompt template). Abstract advice ("apply best practice") fails this gate.
+6. **Cross-reference gate** — every load-bearing claim is corroborated by ≥2 independent sources OR explicitly flagged as single-source-uncorroborated.
+7. **Existing knowledge gate** — every claim is checked against `DECISIONS.md` + existing dossiers. If the question is already answered, the prompt points to the existing doc rather than re-deriving.
+8. **Quote extraction gate** — where source wording is definitional (a regulation's exact text, a vendor's exact capability claim), embed the verbatim quote with citation. Paraphrase of load-bearing definitions fails this gate.
+
+**Severity tags** (every finding): 🚨 BLOCKER / ⚠ HIGH / 🟡 MEDIUM / 🟢 LOW. Calibration is cross-cutting, not local.
+
+**Numeric confidence** (every load-bearing claim): 0.0-1.0 scale. No prose hedges ("most consistent", "settled") without a numeric anchor.
+
+## Universal Blocks A / B / C (mandatory in every dossier — KB-04 §6)
+
+Every research prompt explicitly requires the dossier to include:
+
+- **Block A — Context Envelope** (8-15 lines): the project's binding constraints (budget, team capacity, locked technology, regulatory posture, market constraints). Without it, the dossier produces generic recommendations that ignore project reality.
+- **Block B — Common Pitfalls** (3-5 quantified examples): "what do smart operators get wrong in this domain?" Each pitfall: wrong move + cost + primary-source evidence + corrective.
+- **Block C — Freshness Log** (one row per load-bearing citation): claim × effective-date × verification-date × status (✅ verified / ⚠ stale-but-load-bearing / ❓ unverifiable). This is the audit artifact.
+
+## Output
+
+Save the written prompt to `<RUN_WORKDIR_2>/l2-delta-runs/brownfield-api/docs/prompts/<SLUG>.md`. <!-- example slug: `R3_payment_processing` or `IMPL_07_checkout` -->
+
+Commit the prompt separately from any code changes:
+
+```
+docs(prompts): write <topic> prompt — research|implementation / <wave/scope>
+```
+
+<!-- example: docs(prompts): write payment-processing prompt — research / Wave 1 -->
+
+## Quality checks (run before declaring the prompt complete)
+
+- [ ] Knowledge Manifest ≤ 7 files, section-specific references (never whole-file dumps)
+- [ ] Reading order explicit: guardrails → blueprint → voice → context
+- [ ] Verification checklist extracted from the actual blueprint (implementation prompts only)
+- [ ] 8-gate framework included verbatim (research prompts only)
+- [ ] Universal Blocks A / B / C required in the dossier output (research prompts only)
+- [ ] Severity tags + numeric confidence requirements stated
+- [ ] No silent contradiction of any entry in `DECISIONS.md` — cross-reference noted where applicable
+- [ ] Out-of-scope boundary explicit (what the dispatched agent must NOT drift into)
+
+## Gotchas
+
+- Knowledge manifests over 7 files degrade RAG retrieval and bloat per-dispatch token cost — cut the weakest file rather than expand the cap.
+<!-- example: "Knowledge manifests over 7 files degrade RAG retrieval and bloat per-dispatch token cost — cut the weakest file rather than expand the cap" -->
+- Implementation prompts without a verification checklist drift into 'agent says done' without machine-checkable evidence — always extract the checklist from the blueprint.
+<!-- example: "Implementation prompts without a verification checklist drift into 'agent says done' without machine-checkable evidence — always extract the checklist from the blueprint" -->
+- This project has no test/lint tooling — verification checklists must lean on the real gates (app boots via `python -c "import app.main"`, migrations apply via `alembic upgrade head`) rather than a phantom `pytest`/`ruff` command.
+<!-- example: "Research prompts that omit Block A produce stack-fit failures: the dossier returns a perfect answer that ignores the project's budget/team/regulatory envelope" -->
+
+## When NOT to use this skill
+
+- For a single-PR coding task — write a regular Code-handoff prompt instead (see `prompts/code-handoff-prompts.md`)
+- For Layer 2 / Layer 3 synthesis work — use the `research-synthesizer` sibling skill instead
+- For end-user copy in regulated languages — delegate to the project's locked copy workflow, not this skill
+- For ad-hoc "explain this concept" prompts — those do not need the 8-gate discipline
+
+## References
+
+- KB-04 §3.1 — the 8-gate framework (canonical)
+- KB-04 §3.2 — the 9 cross-cutting Layer 1 disciplines
+- KB-04 §6 — Universal Blocks A / B / C
+- Sibling skill: `research-synthesizer` — Layer 2 + Layer 3 enhancement pattern
+- a per-task-type routing doc (none exists in this project yet — improvise the routing from CLAUDE.md + DECISIONS.md, or create `docs/reference/knowledge-routing.md` first) — per-task-type routing table
+- `DECISIONS.md` — locked decisions to cross-reference against

@@ -1,0 +1,51 @@
+# Discover MCP Servers
+
+Scan project dependencies for MCP servers not yet configured. Run this after adding new dependencies or when you suspect an MCP could help with a service you're working with.
+
+## Steps
+
+1. Read `{{PACKAGE_FILE}}` — extract all dependencies that reference external services
+2. Read `.env.example` — identify services from API key variable names
+3. Read current `.cursor/mcp.json` and `.mcp.json` — note what's already configured
+4. **Check the curated registry first**: read `{{AI_KIT_PATH}}/knowledge-base/MCP-SERVER-REGISTRY.md` — if the service has a vetted entry there, use it (already security-reviewed with config examples)
+5. For services NOT in the registry, search npm:
+   ```bash
+   npm search "mcp-server-{service}"
+   npm search "@{service}/mcp"
+   npm search "{service}-mcp-server"
+   ```
+6. Also check the registry's "Recommended Stacks" section — it has pre-built server sets for common project types (Luxury E-Commerce, Education, etc.)
+7. Run Quality Check on each candidate found outside the registry (ALL 5 gates must pass):
+   - **EXISTS**: `npm info <package>` succeeds
+   - **MAINTAINED**: last publish < 6 months, not deprecated
+   - **TRUSTED**: official (by service provider) OR >1000 weekly downloads OR >50 GitHub stars
+   - **SECURE**: `uvx snyk-agent-scan@latest` passes after adding (Snyk Agent Scan, PyPI via `uvx`; full verdict needs `SNYK_TOKEN`)
+   - **USEFUL**: project actually uses this service enough to justify MCP
+8. For servers that pass: add to both `.cursor/mcp.json` and `.mcp.json` with:
+   - Pinned version (`@x.y.z`)
+   - Security posture comment (read-only / read-write)
+   - `${ENV_VAR}` for credentials
+9. Run `uvx snyk-agent-scan@latest` on the updated config
+
+## Output
+
+```
+## MCP Discovery Report
+
+Servers added:
+- [package@version] — [service] — [security posture] — requires: [ENV_VARS]
+
+Servers found but rejected:
+- [package] — reason: [failed gate N: details]
+
+Services without MCP:
+- [service] — no MCP server found (using Context7 for docs)
+
+New environment variables needed:
+- [VAR_NAME] — [description]
+```
+
+## When NOT to Use
+
+- Right after initial project setup (the generator already runs MCP discovery)
+- If no new dependencies have been added since last run

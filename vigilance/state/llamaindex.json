@@ -1,0 +1,11 @@
+{
+  "source_slug": "llamaindex",
+  "url": "https://github.com/run-llama/llama_index/releases.atom",
+  "fetch_strategy": "rss",
+  "last_fetched_utc": "2026-07-03T04:02:00Z",
+  "last_seen_cursor": "2026-06-24T23:59:59Z",
+  "last_seen_item_hash": "v0.14.23-multimodal-qe",
+  "consecutive_empty_scans": 8,
+  "consecutive_failures": 0,
+  "notes": "9 days since v0.14.23 (06-24). Cadence-normal. Fable 5 model-line-reference in v0.14.23 integrations remains live post-07-01 Fable 5 redeploy."
+}

@@ -1,0 +1,523 @@
+{
+  "spec_version": "1.0",
+  "layer": 1,
+  "pack": "decision",
+  "date": "2026-07-03",
+  "label": "baseline",
+  "models": {
+    "static": "claude-sonnet-5",
+    "author": "claude-opus-4-8",
+    "router": "claude-haiku-4-5",
+    "judge": "claude-opus-4-8",
+    "calibration": "claude-fable-5"
+  },
+  "metrics": {
+    "L1.1": {
+      "target": "templates/skills/decision/",
+      "na_families": [
+        "S6 (template source, {{PLACEHOLDER}} expected under templates/)"
+      ],
+      "empty_dirs": [],
+      "artifacts": [
+        {
+          "path": "10-10-10/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "anti-sycophancy-meta/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "bayesian-update/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "confidence-calibration/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "cost-of-inaction/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "council-3-voice/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "disconfirming-evidence-first/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "inversion/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "pre-mortem/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "reversibility-check/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "second-order-thinking/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        },
+        {
+          "path": "steelman/SKILL.md",
+          "class": "skill",
+          "checks": {
+            "S1": "PASS",
+            "S2": "PASS",
+            "S3": "PASS",
+            "S4": "PASS",
+            "S5": "PASS"
+          },
+          "na": [
+            "S6"
+          ],
+          "passed": 5,
+          "failed": 0,
+          "pass_rate": 1.0
+        }
+      ],
+      "pack": {
+        "passed": 60,
+        "failed": 0,
+        "pass_rate": 1.0
+      }
+    },
+    "L1.2": {
+      "prompts_per_skill": 10,
+      "pack_micro": {
+        "TP": 53,
+        "FP": 1,
+        "FN": 7,
+        "precision": 0.9815,
+        "recall": 0.8833,
+        "f1": 0.9298
+      },
+      "per_skill": [
+        {
+          "skill": "10-10-10",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "anti-sycophancy-meta",
+          "TP": 2,
+          "FP": 0,
+          "FN": 3,
+          "positives": 5,
+          "precision": 1,
+          "recall": 0.4,
+          "f1": 0.5714
+        },
+        {
+          "skill": "bayesian-update",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "confidence-calibration",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "cost-of-inaction",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "council-3-voice",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "disconfirming-evidence-first",
+          "TP": 5,
+          "FP": 1,
+          "FN": 0,
+          "positives": 5,
+          "precision": 0.8333,
+          "recall": 1,
+          "f1": 0.9091
+        },
+        {
+          "skill": "inversion",
+          "TP": 1,
+          "FP": 0,
+          "FN": 4,
+          "positives": 5,
+          "precision": 1,
+          "recall": 0.2,
+          "f1": 0.3333
+        },
+        {
+          "skill": "pre-mortem",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "reversibility-check",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "second-order-thinking",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        {
+          "skill": "steelman",
+          "TP": 5,
+          "FP": 0,
+          "FN": 0,
+          "positives": 5,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        }
+      ]
+    },
+    "L1.3": {
+      "schedule": "batch5-min10-target20-max30-halfwidth0.08",
+      "per_skill": [
+        {
+          "skill": "10-10-10",
+          "n": 25,
+          "activations": 25,
+          "proportion": 1,
+          "wilson_ci": [
+            0.8668,
+            1
+          ],
+          "stopped_early": true
+        },
+        {
+          "skill": "anti-sycophancy-meta",
+          "n": 30,
+          "activations": 8,
+          "proportion": 0.2667,
+          "wilson_ci": [
+            0.1418,
+            0.4445
+          ],
+          "stopped_early": false
+        },
+        {
+          "skill": "bayesian-update",
+          "n": 25,
+          "activations": 25,
+          "proportion": 1,
+          "wilson_ci": [
+            0.8668,
+            1
+          ],
+          "stopped_early": true
+        },
+        {
+          "skill": "confidence-calibration",
+          "n": 25,
+          "activations": 25,
+          "proportion": 1,
+          "wilson_ci": [
+            0.8668,
+            1
+          ],
+          "stopped_early": true
+        },
+        {
+          "skill": "cost-of-inaction",
+          "n": 25,
+          "activations": 25,
+          "proportion": 1,
+          "wilson_ci": [
+            0.8668,
+            1
+          ],
+          "stopped_early": true
+        },
+        {
+          "skill": "council-3-voice",
+          "n": 30,
+          "activations": 29,
+          "proportion": 0.9667,
+          "wilson_ci": [
+            0.8333,
+            0.9941
+          ],
+          "stopped_early": false
+        },
+        {
+          "skill": "disconfirming-evidence-first",
+          "n": 25,
+          "activations": 25,
+          "proportion": 1,
+          "wilson_ci": [
+            0.8668,
+            1
+          ],
+          "stopped_early": true
+        },
+        {
+          "skill": "inversion",
+          "n": 30,
+          "activations": 10,
+          "proportion": 0.3333,
+          "wilson_ci": [
+            0.1923,
+            0.5122
+          ],
+          "stopped_early": false
+        },
+        {
+          "skill": "pre-mortem",
+          "n": 30,
+          "activations": 29,
+          "proportion": 0.9667,
+          "wilson_ci": [
+            0.8333,
+            0.9941
+          ],
+          "stopped_early": false
+        },
+        {
+          "skill": "reversibility-check",
+          "n": 25,
+          "activations": 25,
+          "proportion": 1,
+          "wilson_ci": [
+            0.8668,
+            1
+          ],
+          "stopped_early": true
+        },
+        {
+          "skill": "second-order-thinking",
+          "n": 25,
+          "activations": 25,
+          "proportion": 1,
+          "wilson_ci": [
+            0.8668,
+            1
+          ],
+          "stopped_early": true
+        },
+        {
+          "skill": "steelman",
+          "n": 25,
+          "activations": 25,
+          "proportion": 1,
+          "wilson_ci": [
+            0.8668,
+            1
+          ],
+          "stopped_early": true
+        }
+      ]
+    },
+    "L1.4": {
+      "n": 12,
+      "per_dimension_mean": {
+        "actionability": 5,
+        "scope_calibration": 4.583,
+        "failure_content_quality": 5,
+        "constraint_explicitness": 5
+      },
+      "overall_mean": 4.896
+    }
+  },
+  "calibration": {
+    "l1_4_exact": "18/20 (0.90)",
+    "l1_4_within_1": "20/20 (1.00)",
+    "l1_2_random": "2/2",
+    "l1_2_adversarial_probe": "vs router 1/4; vs author labels 4/4 (deliberately stratified toward weak skills)",
+    "items_total": 15,
+    "record": "../calibration-fable.md",
+    "judge_agreement_note": "pack-level; global calibration record covers all packs"
+  }
+}

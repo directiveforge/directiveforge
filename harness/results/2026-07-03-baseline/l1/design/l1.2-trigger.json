@@ -1,0 +1,346 @@
+{
+  "metric": "L1.2",
+  "pack": "design",
+  "spec_version": "1.0",
+  "models": {
+    "author": "claude-opus-4-8",
+    "router": "claude-haiku-4-5"
+  },
+  "prompts_per_skill": 10,
+  "per_skill": [
+    {
+      "skill": "design-architect",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "design-engineer",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "design-reviewer",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "elevation-workflow",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    }
+  ],
+  "pack_micro": {
+    "TP": 20,
+    "FP": 0,
+    "FN": 0,
+    "precision": 1,
+    "recall": 1,
+    "f1": 1
+  },
+  "raw_router_outputs": [
+    {
+      "skill": "design-architect",
+      "id": "design-architect-p1",
+      "text": "The pricing page technically works but it just feels dull and lifeless to me. Can you dig into why it reads so flat and put together a prioritized set of concrete fixes I can hand to someone to build?",
+      "expected": "target",
+      "fired": "design-architect"
+    },
+    {
+      "skill": "design-architect",
+      "id": "design-architect-p2",
+      "text": "Before we start building, I want an honest read on how far our landing hero is from the caliber of the top product sites in our space — name one you'd benchmark against and tell me exactly what techniques they use that we're missing.",
+      "expected": "target",
+      "fired": "design-architect"
+    },
+    {
+      "skill": "design-architect",
+      "id": "design-architect-p3",
+      "text": "I keep hearing our checkout screen looks noisy and overloaded. I don't want a rewrite yet — first give me an evidence-backed teardown of what's causing the visual overload and an ordered list of what to address, ranked by payoff versus effort.",
+      "expected": "target",
+      "fired": "design-architect"
+    },
+    {
+      "skill": "design-architect",
+      "id": "design-architect-p4",
+      "text": "Take a hard adversarial look at our marketing homepage as it actually renders in the browser, cross-reference the components in the repo, and come back with a critique plus the specific changes worth making — respecting our locked spacing and motion budgets.",
+      "expected": "target",
+      "fired": "design-architect"
+    },
+    {
+      "skill": "design-architect",
+      "id": "design-architect-p5",
+      "text": "Our dashboard feels amateur-hour next to the polished competitors. I need a critical assessment of where the design falls short and a shortlist of high-leverage improvements — no code changes, just the plan I can act on.",
+      "expected": "target",
+      "fired": "design-architect"
+    },
+    {
+      "skill": "design-architect",
+      "id": "design-architect-n1",
+      "text": "The elevation plan for the settings page is already written and signed off. Go ahead and apply every item on that list exactly as specified, reusing our existing components and keeping the locks intact.",
+      "expected": "other",
+      "fired": "design-engineer"
+    },
+    {
+      "skill": "design-architect",
+      "id": "design-architect-n2",
+      "text": "I'm about to merge a motion tweak on the nav. Can you measure the actual transforms and computed styles across breakpoints, run the accessibility and Lighthouse checks on the built version, and tell me yes or no on whether this ships?",
+      "expected": "other",
+      "fired": "design-reviewer"
+    },
+    {
+      "skill": "design-architect",
+      "id": "design-architect-n3",
+      "text": "Our Postgres query that aggregates monthly order totals has gotten really slow. Can you look at the execution plan and suggest indexes or a rewrite to speed it up?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "design-architect",
+      "id": "design-architect-n4",
+      "text": "Draft a polite email to our vendor asking them to extend the invoice payment terms from net-30 to net-60, and keep the tone professional but firm.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "design-architect",
+      "id": "design-architect-n5",
+      "text": "The account page layout is broken — on mobile the sidebar overlaps the main content and a button is completely cut off. Can you track down what's wrong and fix the layout?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "design-engineer",
+      "id": "design-engineer-p1",
+      "text": "The architect already handed me the ranked findings for the pricing page. Can you go ahead and put them into the code now, exactly as listed?",
+      "expected": "target",
+      "fired": "design-engineer"
+    },
+    {
+      "skill": "design-engineer",
+      "id": "design-engineer-p2",
+      "text": "I've got the elevation plan for our hero section written up. Ship each item on it, reusing our existing components wherever you can and don't touch anything the plan doesn't mention.",
+      "expected": "target",
+      "fired": "design-engineer"
+    },
+    {
+      "skill": "design-engineer",
+      "id": "design-engineer-p3",
+      "text": "Here's the finalized to-do from the critique for the checkout flow. Work through it top to bottom, keeping our motion budget and brand-color rules untouched.",
+      "expected": "target",
+      "fired": "design-engineer"
+    },
+    {
+      "skill": "design-engineer",
+      "id": "design-engineer-p4",
+      "text": "Take the prioritized fix list the design pass produced and actually make the changes in the repo — compose from our primitives, and if something recurs pull it into a shared piece.",
+      "expected": "target",
+      "fired": "design-engineer"
+    },
+    {
+      "skill": "design-engineer",
+      "id": "design-engineer-p5",
+      "text": "We agreed on the elevation items for the dashboard cards last week. Time to build them out — leave the surrounding code tidier than you found it while you're in there.",
+      "expected": "target",
+      "fired": "design-engineer"
+    },
+    {
+      "skill": "design-engineer",
+      "id": "design-engineer-n1",
+      "text": "This landing page feels visually flat and I can't tell why. Can you do a read-only teardown and give me a ranked plan of what to fix to get it closer to best-in-world?",
+      "expected": "other",
+      "fired": "design-architect"
+    },
+    {
+      "skill": "design-engineer",
+      "id": "design-engineer-n2",
+      "text": "I just finished tweaking the card hover animations and want to know if it's safe to merge — measure the actual transforms and check CLS and reduced-motion parity for me.",
+      "expected": "other",
+      "fired": "design-reviewer"
+    },
+    {
+      "skill": "design-engineer",
+      "id": "design-engineer-n3",
+      "text": "Can you help me set up a cron job that emails our team a summary of open GitHub issues every Monday morning?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "design-engineer",
+      "id": "design-engineer-n4",
+      "text": "I need to write a GROQ query that pulls all published product documents from our Sanity dataset and sorts them by price.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "design-engineer",
+      "id": "design-engineer-n5",
+      "text": "The only change here is fixing a few typos and rewording two paragraphs of body text on the about page — no layout or styling involved. Can you just make those edits?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "design-reviewer",
+      "id": "design-reviewer-p1",
+      "text": "I finished the hero parallax and I want to check whether it's actually safe to land on main. Can you run the gate on it?",
+      "expected": "target",
+      "fired": "design-reviewer"
+    },
+    {
+      "skill": "design-reviewer",
+      "id": "design-reviewer-p2",
+      "text": "Before I push this animation PR, I need someone to actually measure the scroll transforms and computed styles in a real browser instead of trusting my 'works locally'.",
+      "expected": "target",
+      "fired": "design-reviewer"
+    },
+    {
+      "skill": "design-reviewer",
+      "id": "design-reviewer-p3",
+      "text": "The owner locked the desktop layout for this component. I tweaked the mobile card spacing — prove the locked width didn't shift a single pixel before this goes in.",
+      "expected": "target",
+      "fired": "design-reviewer"
+    },
+    {
+      "skill": "design-reviewer",
+      "id": "design-reviewer-p4",
+      "text": "Can you sign off on the elevation I just built? I want CLS across the full scroll, an axe run, and Lighthouse on the prod build before it merges.",
+      "expected": "target",
+      "fired": "design-reviewer"
+    },
+    {
+      "skill": "design-reviewer",
+      "id": "design-reviewer-p5",
+      "text": "Gate check please: does my reduced-motion fallback actually degrade the way the spine says, and is the diff free of any banned easing literals?",
+      "expected": "target",
+      "fired": "design-reviewer"
+    },
+    {
+      "skill": "design-reviewer",
+      "id": "design-reviewer-n1",
+      "text": "This landing page feels flat and I can't tell why. Give me a read-only critique against a best-in-class reference and a ranked plan for what to change.",
+      "expected": "other",
+      "fired": "design-architect"
+    },
+    {
+      "skill": "design-reviewer",
+      "id": "design-reviewer-n2",
+      "text": "There's already an approved elevation plan with an implementNow list. Just apply it exactly as written, reusing existing components — don't add scope.",
+      "expected": "other",
+      "fired": "design-engineer"
+    },
+    {
+      "skill": "design-reviewer",
+      "id": "design-reviewer-n3",
+      "text": "My Postgres query that aggregates monthly revenue is timing out on large date ranges. Can you help me add the right indexes and rewrite it?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "design-reviewer",
+      "id": "design-reviewer-n4",
+      "text": "Draft a friendly follow-up email to a client who hasn't paid an invoice that's three weeks overdue.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "design-reviewer",
+      "id": "design-reviewer-n5",
+      "text": "I refactored a pure data-fetching helper and updated a couple of markdown docs — no UI touched at all. Can you review it before I merge?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "elevation-workflow",
+      "id": "elevation-workflow-p1",
+      "text": "Our pricing page feels tired. I want the whole thing taken from where it is now up to something genuinely world-class — run the full loop for me, not just a list of ideas to react to.",
+      "expected": "target",
+      "fired": "elevation-workflow"
+    },
+    {
+      "skill": "elevation-workflow",
+      "id": "elevation-workflow-p2",
+      "text": "Can you take our marketing homepage through the entire design-lift process end to end? Critique it, decide what to actually build, ship the changes, then prove the result held up — I just want to approve the finished thing.",
+      "expected": "target",
+      "fired": "elevation-workflow"
+    },
+    {
+      "skill": "elevation-workflow",
+      "id": "elevation-workflow-p3",
+      "text": "I need the checkout flow brought up to a top-tier standard. Please handle the whole pass yourself rather than coming back to me with choices at each step.",
+      "expected": "target",
+      "fired": "elevation-workflow"
+    },
+    {
+      "skill": "elevation-workflow",
+      "id": "elevation-workflow-p4",
+      "text": "Give the dashboard the full treatment — adversarial critiques from a few angles, synthesize them into a real build plan, get it implemented, and gate it on measurements before I look at it.",
+      "expected": "target",
+      "fired": "elevation-workflow"
+    },
+    {
+      "skill": "elevation-workflow",
+      "id": "elevation-workflow-p5",
+      "text": "The onboarding screens are stuck at 'fine'. I want them elevated all the way, running the complete critique-to-shipped-and-verified sequence in one go.",
+      "expected": "target",
+      "fired": "elevation-workflow"
+    },
+    {
+      "skill": "elevation-workflow",
+      "id": "elevation-workflow-n1",
+      "text": "Just tear apart the visual design of our landing page and hand me a prioritized plan for what to fix — I don't need anything built yet, only the read-only critique and the ranked findings.",
+      "expected": "other",
+      "fired": "design-architect"
+    },
+    {
+      "skill": "elevation-workflow",
+      "id": "elevation-workflow-n2",
+      "text": "The elevation plan is already written and signed off. Just build every item on that implementNow list exactly as specified, reuse-first, don't touch the locks.",
+      "expected": "other",
+      "fired": "design-engineer"
+    },
+    {
+      "skill": "elevation-workflow",
+      "id": "elevation-workflow-n3",
+      "text": "Our Postgres queries on the orders endpoint are timing out under load. Can you profile the slow queries and add the right indexes?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "elevation-workflow",
+      "id": "elevation-workflow-n4",
+      "text": "Draft a cold outreach email to a supplier asking about bulk pricing and lead times for our raw materials.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "elevation-workflow",
+      "id": "elevation-workflow-n5",
+      "text": "There's one hover state on a button where the transition stutters. Can you just fix that single glitch — no need for a big process around it.",
+      "expected": "other",
+      "fired": "none"
+    }
+  ]
+}

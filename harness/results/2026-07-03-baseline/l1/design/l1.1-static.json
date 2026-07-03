@@ -1,0 +1,22 @@
+{
+  "metric": "L1.1",
+  "target": "templates/skills/design/",
+  "spec_version": "1.0",
+  "na_families": ["S6 (template source)", "R (no rule files present)", "A (no agent files present)", "C (no command files present)", "J (no JSON artifacts present)"],
+  "empty_dirs": [],
+  "artifacts": [
+    {"path": "design-reviewer/SKILL.md", "class": "skill",
+     "checks": {"S1":"PASS","S2":"PASS","S3":"PASS","S4":"PASS","S5":"PASS"},
+     "na": ["S6"], "passed": 5, "failed": 0, "pass_rate": 1.0},
+    {"path": "elevation-workflow/SKILL.md", "class": "skill",
+     "checks": {"S1":"PASS","S2":"PASS","S3":"PASS","S4":"PASS","S5":"PASS"},
+     "na": ["S6"], "passed": 5, "failed": 0, "pass_rate": 1.0},
+    {"path": "design-engineer/SKILL.md", "class": "skill",
+     "checks": {"S1":"PASS","S2":"PASS","S3":"PASS","S4":"PASS","S5":"PASS"},
+     "na": ["S6"], "passed": 5, "failed": 0, "pass_rate": 1.0},
+    {"path": "design-architect/SKILL.md", "class": "skill",
+     "checks": {"S1":"PASS","S2":"PASS","S3":"PASS","S4":"PASS","S5":"PASS"},
+     "na": ["S6"], "passed": 5, "failed": 0, "pass_rate": 1.0}
+  ],
+  "pack": {"passed": 20, "failed": 0, "pass_rate": 1.0}
+}

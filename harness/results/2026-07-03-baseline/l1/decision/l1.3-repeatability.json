@@ -1,0 +1,2127 @@
+{
+  "metric": "L1.3",
+  "pack": "decision",
+  "spec_version": "1.0",
+  "models": {
+    "paraphrase_author": "claude-opus-4-8",
+    "router": "claude-haiku-4-5"
+  },
+  "schedule": "batch5-min10-target20-max30-halfwidth0.08",
+  "per_skill": [
+    {
+      "skill": "10-10-10",
+      "n": 25,
+      "activations": 25,
+      "proportion": 1,
+      "wilson_ci": [
+        0.8668,
+        1
+      ],
+      "stopped_early": true
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "n": 30,
+      "activations": 8,
+      "proportion": 0.2667,
+      "wilson_ci": [
+        0.1418,
+        0.4445
+      ],
+      "stopped_early": false
+    },
+    {
+      "skill": "bayesian-update",
+      "n": 25,
+      "activations": 25,
+      "proportion": 1,
+      "wilson_ci": [
+        0.8668,
+        1
+      ],
+      "stopped_early": true
+    },
+    {
+      "skill": "confidence-calibration",
+      "n": 25,
+      "activations": 25,
+      "proportion": 1,
+      "wilson_ci": [
+        0.8668,
+        1
+      ],
+      "stopped_early": true
+    },
+    {
+      "skill": "cost-of-inaction",
+      "n": 25,
+      "activations": 25,
+      "proportion": 1,
+      "wilson_ci": [
+        0.8668,
+        1
+      ],
+      "stopped_early": true
+    },
+    {
+      "skill": "council-3-voice",
+      "n": 30,
+      "activations": 29,
+      "proportion": 0.9667,
+      "wilson_ci": [
+        0.8333,
+        0.9941
+      ],
+      "stopped_early": false
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "n": 25,
+      "activations": 25,
+      "proportion": 1,
+      "wilson_ci": [
+        0.8668,
+        1
+      ],
+      "stopped_early": true
+    },
+    {
+      "skill": "inversion",
+      "n": 30,
+      "activations": 10,
+      "proportion": 0.3333,
+      "wilson_ci": [
+        0.1923,
+        0.5122
+      ],
+      "stopped_early": false
+    },
+    {
+      "skill": "pre-mortem",
+      "n": 30,
+      "activations": 29,
+      "proportion": 0.9667,
+      "wilson_ci": [
+        0.8333,
+        0.9941
+      ],
+      "stopped_early": false
+    },
+    {
+      "skill": "reversibility-check",
+      "n": 25,
+      "activations": 25,
+      "proportion": 1,
+      "wilson_ci": [
+        0.8668,
+        1
+      ],
+      "stopped_early": true
+    },
+    {
+      "skill": "second-order-thinking",
+      "n": 25,
+      "activations": 25,
+      "proportion": 1,
+      "wilson_ci": [
+        0.8668,
+        1
+      ],
+      "stopped_early": true
+    },
+    {
+      "skill": "steelman",
+      "n": 25,
+      "activations": 25,
+      "proportion": 1,
+      "wilson_ci": [
+        0.8668,
+        1
+      ],
+      "stopped_early": true
+    }
+  ],
+  "trials_by_skill": [
+    {
+      "skill": "10-10-10",
+      "trials": [
+        {
+          "variant": "10-10-10-v1",
+          "base": "10-10-10-p1",
+          "text": "The counteroffer would keep me here where it's safe and comfortable, but the startup keeps tugging at me. My worry is less about now and more about how I'll judge this decision later. Could you sketch how it looks soon after, roughly a year on, and much further ahead?",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v2",
+          "base": "10-10-10-p1",
+          "text": "Stuck between taking the counteroffer to stay put versus jumping to the startup. The comfort of staying is real, yet I can't stop asking whether future me will be glad I did. Break it down for me in the short run, the medium run, and the long run.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v3",
+          "base": "10-10-10-p1",
+          "text": "Do I accept what they're offering to keep me, or take the leap to the startup? Staying is the low-risk, cozy option today, but I keep projecting forward and wondering about regret. Show me how each path unfolds in the near term, around the one-year mark, and far out.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v4",
+          "base": "10-10-10-p1",
+          "text": "I can't decide: stay for the counteroffer or leave for the startup. Right now staying just feels easier and more secure, though I keep imagining looking back on this someday. Lay out the trajectory of each choice shortly after, a year later, and years down the line.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v5",
+          "base": "10-10-10-p1",
+          "text": "There's a counteroffer on the table to keep me, and a startup pulling me the other way. My gut says stay because it's safe, but my head keeps drifting to how I'll feel about it eventually. Can you trace how it plays out immediately, at the year mark, and well into the future?",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v6",
+          "base": "10-10-10-p1",
+          "text": "Should I sign the counteroffer and stay, or walk to the startup? The safe, comfy pull of staying is strong, but I'm haunted by how this looks in hindsight. Map the consequences across three horizons for me: soon, a year out, and the distant future.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v7",
+          "base": "10-10-10-p2",
+          "text": "I suspect I'm giving way too much weight to the quick win of clearing the small debt first rather than attacking the high-interest one. Help me quantify just how much I'm quietly choosing today's good feeling over what it actually costs me later.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v8",
+          "base": "10-10-10-p2",
+          "text": "Knocking out the tiny balance first feels satisfying, but the high-interest one is where the real cost lives, and I think I'm overrating that instant relief. Show me how heavily I'm secretly weighting feeling good now against the long-term price.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v9",
+          "base": "10-10-10-p2",
+          "text": "My instinct is to pay off the smaller debt for the immediate emotional payoff instead of the expensive high-interest one. I want to expose how much I'm favoring near-term relief versus the damage it does over time.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v10",
+          "base": "10-10-10-p2",
+          "text": "I keep leaning toward wiping out the little debt first for that hit of relief, even though the high-interest balance matters more. Break down how lopsided my preference is between the comfort of right now and the real cost down the road.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v11",
+          "base": "10-10-10-p2",
+          "text": "There's a pull to settle the small debt before the high-interest one, purely because it feels good fast. I think that pull is distorting my judgment. Help me measure how much I'm privileging present relief over the future expense.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v12",
+          "base": "10-10-10-p2",
+          "text": "Paying the smaller debt first gives me that immediate sense of progress, but I probably overvalue it compared to tackling the high-interest debt. Reveal the true ratio of how much I'm siding with today's comfort versus what it costs long-term.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v13",
+          "base": "10-10-10-p3",
+          "text": "I'm weighing moving back in with family to cut costs against staying in my city rental. The right call clearly shifts depending on the window I look through, so walk me through it for next week, next year, and ten years out.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v14",
+          "base": "10-10-10-p3",
+          "text": "Choice in front of me: return home and save money, or keep paying city rent. Honestly the best answer flips depending on the timeframe I imagine, so take me through the short view, the yearly view, and the decade view.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v15",
+          "base": "10-10-10-p3",
+          "text": "Trying to settle whether I move back home for the savings or hold onto my rental in the city. I already sense the verdict changes with the horizon, so lay it out separately for a week from now, a year from now, and ten years from now.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v16",
+          "base": "10-10-10-p3",
+          "text": "Move home to save cash or keep renting downtown? What looks smart shifts entirely with how far ahead I'm thinking, so unpack each scenario: the immediate week, the coming year, and a decade later.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v17",
+          "base": "10-10-10-p3",
+          "text": "I've got to pick between relocating back to my parents' to save money and continuing to rent in the city. The answer genuinely looks different across time spans, so guide me through the near-term, the one-year picture, and the ten-year picture.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v18",
+          "base": "10-10-10-p3",
+          "text": "The decision is home-to-save versus stay-and-rent-in-the-city. It's obvious the winner depends on whether I'm picturing next week, a year out, or ten years out, so please step through all three of those for me.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v19",
+          "base": "10-10-10-p4",
+          "text": "Do we grab the quick-paying agency contract that ties us to their tech stack, or build our own product more slowly? I'd like the tradeoff spread across a few time horizons so I can spot the moment the better choice flips.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v20",
+          "base": "10-10-10-p4",
+          "text": "The fast agency gig pays now but locks us into their stack; building our own thing is slower. Show me the tradeoff over a couple of different timescales so I can pinpoint where the wiser option reverses.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v21",
+          "base": "10-10-10-p4",
+          "text": "Should we take the agency contract that brings money in immediately but chains us to their stack, versus rolling our own at a slower pace? Set the comparison out across several time frames so I can see exactly when the smart move switches sides.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v22",
+          "base": "10-10-10-p4",
+          "text": "We could sign the fast agency contract that pays right away but commits us to their stack, or build independently and slower. Chart the tradeoff over a range of timescales so I can identify the crossover point where the right answer changes.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v23",
+          "base": "10-10-10-p4",
+          "text": "There's an agency deal with quick cash that forces us onto their stack, against the option of building our own thing gradually. I want to see how the tradeoff evolves over a couple of horizons, to find where the better call inverts.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v24",
+          "base": "10-10-10-p4",
+          "text": "Fast agency contract, paid soon but stack-locked, or our own build that's slower to arrive? Break the tradeoff down across two or three time scales so I can tell at which point the sensible decision reverses.",
+          "fired": "10-10-10"
+        },
+        {
+          "variant": "10-10-10-v25",
+          "base": "10-10-10-p5",
+          "text": "When work drags on late, I default to skipping the gym and heading home, which feels amazing in the moment. I suspect I'm discounting my future self way too hard. Put the short-term reward next to the long-term one so I can see the actual ratio I'm running.",
+          "fired": "10-10-10"
+        }
+      ]
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "trials": [
+        {
+          "variant": "anti-sycophancy-meta-v1",
+          "base": "anti-sycophancy-meta-p1",
+          "text": "I've mapped out how we'd migrate the entire team from Jira to Linear starting next sprint. Give it a straight read — does this hold up?",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v2",
+          "base": "anti-sycophancy-meta-p1",
+          "text": "Here's my proposal for shifting all of us off Jira and onto Linear in the coming sprint. Be candid with me: is it solid?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v3",
+          "base": "anti-sycophancy-meta-p1",
+          "text": "Wrote up a plan to switch our whole team over to Linear from Jira next cycle. What do you actually think of it?",
+          "fired": "anti-sycophancy-meta"
+        },
+        {
+          "variant": "anti-sycophancy-meta-p1-placeholder-fix",
+          "base": "anti-sycophancy-meta-p1",
+          "text": "This is my rollout for taking the team from Jira to Linear next sprint. Don't sugarcoat it — how good is this really?",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v5",
+          "base": "anti-sycophancy-meta-p1",
+          "text": "I sketched a full migration plan moving everyone off Jira to Linear beginning next sprint. Assess it honestly for me.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v6",
+          "base": "anti-sycophancy-meta-p1",
+          "text": "Take a look at this — a plan to relocate the team from Jira to Linear as of next sprint. Tell me truthfully whether it's any good.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v7",
+          "base": "anti-sycophancy-meta-p2",
+          "text": "I wrote a cold email to reach out to a possible investor. Would you review it and tell me if it hits the mark?",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v8",
+          "base": "anti-sycophancy-meta-p2",
+          "text": "Here's a first-touch email I drafted for a prospective investor. Read it over and give me your honest sense of whether it works.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v9",
+          "base": "anti-sycophancy-meta-p2",
+          "text": "Put together some cold outreach aimed at an investor lead. Can you assess it and say whether it comes across well?",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v10",
+          "base": "anti-sycophancy-meta-p2",
+          "text": "I've got a cold intro email drafted for an investor I'm targeting. Look it over — does it land or fall flat?",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v11",
+          "base": "anti-sycophancy-meta-p2",
+          "text": "This is a cold email I'm planning to send an investor. Give me your read on whether it's effective.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v12",
+          "base": "anti-sycophancy-meta-p2",
+          "text": "Drafted an unsolicited note to a potential investor. Mind checking it and letting me know if it actually resonates?",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v13",
+          "base": "anti-sycophancy-meta-p3",
+          "text": "I'm committing to killing the free tier and going paid-only. Make the case that this isn't a blunder.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v14",
+          "base": "anti-sycophancy-meta-p3",
+          "text": "My call is to scrap the free tier completely and charge everyone. Reassure me I've got this right.",
+          "fired": "anti-sycophancy-meta"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v15",
+          "base": "anti-sycophancy-meta-p3",
+          "text": "We're dropping the free plan and moving fully to paid — that's decided. Talk me through why this is the correct move.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v16",
+          "base": "anti-sycophancy-meta-p3",
+          "text": "I've resolved to eliminate our free tier and switch to paid-only. Persuade me this isn't a misstep.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v17",
+          "base": "anti-sycophancy-meta-p3",
+          "text": "Decision's made: no more free tier, paid subscriptions across the board. Back me up that I'm not screwing this up.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v18",
+          "base": "anti-sycophancy-meta-p3",
+          "text": "I want to axe the free offering entirely and go paid-only. Give me the reasons I'm on solid ground here.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v19",
+          "base": "anti-sycophancy-meta-p4",
+          "text": "I'm considering porting our billing service to Rust for the speed gains. Does that strike you as a wise call?",
+          "fired": "anti-sycophancy-meta"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v20",
+          "base": "anti-sycophancy-meta-p4",
+          "text": "Toying with the idea of rebuilding the billing system in Rust to get better performance. Smart or not?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v21",
+          "base": "anti-sycophancy-meta-p4",
+          "text": "What's your take — should I rewrite our billing service in Rust to squeeze out more performance?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v22",
+          "base": "anti-sycophancy-meta-p4",
+          "text": "I've been weighing a Rust rewrite of the billing service for the performance boost. Does that sound sensible to you?",
+          "fired": "anti-sycophancy-meta"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v23",
+          "base": "anti-sycophancy-meta-p4",
+          "text": "Leaning toward moving our billing service to Rust so it runs faster. Would you call that a good decision?",
+          "fired": "anti-sycophancy-meta"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v24",
+          "base": "anti-sycophancy-meta-p4",
+          "text": "Thinking about redoing the billing service in Rust for the performance win — is that the right play, in your view?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v25",
+          "base": "anti-sycophancy-meta-p5",
+          "text": "I've laid out the reasoning for bypassing a Series A and bootstrapping our way to profitability. What's your candid take on it?",
+          "fired": "anti-sycophancy-meta"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v26",
+          "base": "anti-sycophancy-meta-p5",
+          "text": "Here's the case I've built for skipping the Series A and growing to profit on our own funds. Give me your honest verdict.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v27",
+          "base": "anti-sycophancy-meta-p5",
+          "text": "This is why I think we should forgo a Series A and bootstrap until we're profitable. How does that argument strike you?",
+          "fired": "steelman"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v28",
+          "base": "anti-sycophancy-meta-p5",
+          "text": "I put together an argument for passing on the Series A in favor of bootstrapping to profitability. What do you genuinely make of it?",
+          "fired": "anti-sycophancy-meta"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v29",
+          "base": "anti-sycophancy-meta-p5",
+          "text": "My reasoning for avoiding a Series A raise and self-funding to profitability is below. Read it and tell me straight what you think.",
+          "fired": "anti-sycophancy-meta"
+        },
+        {
+          "variant": "anti-sycophancy-meta-v30",
+          "base": "anti-sycophancy-meta-p5",
+          "text": "Here's my pitch for why bootstrapping to profitability beats raising a Series A. Give me an unvarnished assessment.",
+          "fired": "steelman"
+        }
+      ]
+    },
+    {
+      "skill": "bayesian-update",
+      "trials": [
+        {
+          "variant": "bayesian-update-v1",
+          "base": "bayesian-update-p1",
+          "text": "At the start of this quarter I pegged our odds of landing the enterprise contract at about 65%. Word just came that their head of procurement resigned. Realistically, how far should that single exit push my estimate — or am I reading too much into one event?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v2",
+          "base": "bayesian-update-p1",
+          "text": "I'd been sitting at roughly two-thirds confidence on closing this big enterprise account. Now I hear the procurement director who was driving it has walked out the door. Does one person leaving genuinely justify revising my number, and if so by how much?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v3",
+          "base": "bayesian-update-p1",
+          "text": "My read on the enterprise deal was around 65% likely to close. Their procurement lead just jumped ship. I can't tell if that's a real signal worth adjusting for or just noise I'm fixating on — help me weigh it.",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v4",
+          "base": "bayesian-update-p1",
+          "text": "Coming into Q3 I'd estimated a 65% chance we win the enterprise account. The procurement person leading their side quit yesterday. How much weight does that departure actually deserve when I update my forecast?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v5",
+          "base": "bayesian-update-p1",
+          "text": "Say I started at 65% to close the enterprise deal. A key player on their buying team — the procurement lead — just left. Should news like that shift where I land, and is it a big shift or a small one?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v6",
+          "base": "bayesian-update-p1",
+          "text": "I gave us about a 65% shot at the enterprise sale. Then their procurement head departed the company out of nowhere. Am I right to worry, and quantitatively, what should my new probability look like after accounting for it?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v7",
+          "base": "bayesian-update-p2",
+          "text": "I'd been fairly sure the migration would land on schedule. During standup, two of my three senior engineers voiced that they expect it to slip. Take me through — with the actual reasoning — whether that's grounds to revise my expectation rather than just guessing.",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v8",
+          "base": "bayesian-update-p2",
+          "text": "My prior was strong that we'd hit the migration deadline. Now two out of three of my senior devs are saying it'll probably run late. Is that enough evidence to genuinely move my estimate? Show your work, don't just give me a hunch.",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v9",
+          "base": "bayesian-update-p2",
+          "text": "I felt confident the migration would wrap on time. Then in this morning's standup, two of the three senior engineers predicted a slip. Walk me through the logic on whether that should change where I expect to end up — I want reasoning, not a snap judgment.",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v10",
+          "base": "bayesian-update-p2",
+          "text": "Going in, I assumed the migration would finish by the deadline. Two of my three lead engineers just flagged in standup that they think it slips. Does that shift my landing point, and can you lay out the reasoning behind the answer?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v11",
+          "base": "bayesian-update-p2",
+          "text": "I was optimistic the migration would be done on time. This standup, two of three seniors said they doubt it. Rather than trusting my gut, I want you to reason through whether their read is enough to actually adjust my forecast.",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v12",
+          "base": "bayesian-update-p2",
+          "text": "Confidence was high on the migration hitting its date. But two of my three senior engineers now expect a delay, per today's standup. How should I think through whether that pushes my estimate — spell out the reasoning instead of a gut call.",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v13",
+          "base": "bayesian-update-p3",
+          "text": "I've been operating on the theory that pricing is the main thing driving churn. A fresh cohort report shows the accounts that left are concentrated around one buggy feature. Does that finding warrant updating my belief about the true cause, and to what degree?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v14",
+          "base": "bayesian-update-p3",
+          "text": "For a while my assumption was that churn comes down mostly to price. New data just came in — a cohort breakdown where the churned accounts lean heavily toward a single glitchy feature. Should I revise my view on what's really causing it, and how much?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v15",
+          "base": "bayesian-update-p3",
+          "text": "My default explanation for churn has been pricing. Then a cohort report landed showing churned customers skew sharply toward one buggy feature. How much should this evidence move my thinking about the underlying driver?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v16",
+          "base": "bayesian-update-p3",
+          "text": "I'd assumed pricing was behind most of our churn. A report just dropped indicating the accounts we lost are heavily clustered around a particular broken feature. Is this enough to shift my belief about the real cause, and by roughly how much?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v17",
+          "base": "bayesian-update-p3",
+          "text": "Up to now I've chalked churn up largely to price sensitivity. But a new cohort analysis reveals the departed accounts overwhelmingly used one buggy feature. Does this reading justify moving my belief on what's actually causing churn, and how far?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v18",
+          "base": "bayesian-update-p3",
+          "text": "Pricing has been my working hypothesis for why people churn. A cohort report just showed the churned accounts skew hard toward a single defective feature. Should that change my mind about the cause — and if so, quantify how much.",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v19",
+          "base": "bayesian-update-p4",
+          "text": "We put the odds at 80% that the drug candidate passes the tox screen. A partner lab just reported a mild liver signal in the animal data. I don't want to overreact to one signal, but I don't want to dismiss it either — where does the revised probability land?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v20",
+          "base": "bayesian-update-p4",
+          "text": "Our estimate was an 80% chance the compound clears toxicology. Now a collaborating lab has flagged a faint liver signal in the animal results. One data point shouldn't send me into a panic, but it also shouldn't be ignored — what's the updated number?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v21",
+          "base": "bayesian-update-p4",
+          "text": "We'd forecast 80% for the candidate getting through the tox screen. A partner lab just surfaced a mild hepatic signal in the animals. I'm trying to neither overweight nor discount a single finding — how should I revise the estimate?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v22",
+          "base": "bayesian-update-p4",
+          "text": "The team had the drug at an 80% likelihood of passing the toxicity screen. A collaborator's lab flagged a slight liver signal in the animal data. I want to avoid both panic and complacency over one signal — what does the corrected probability come out to?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v23",
+          "base": "bayesian-update-p4",
+          "text": "Going in we assumed roughly 80% odds the candidate clears tox. Then a partner lab noted a mild liver signal in the animal study. Rather than reacting emotionally to a lone signal, I'd like the properly revised figure — what is it?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v24",
+          "base": "bayesian-update-p4",
+          "text": "We pegged the compound at an 80% shot to pass the tox screen. A partnering lab just raised a mild liver signal from the animal data. I'm wary of overreacting to one flag but also of brushing it off — how far should my number move?",
+          "fired": "bayesian-update"
+        },
+        {
+          "variant": "bayesian-update-v25",
+          "base": "bayesian-update-p5",
+          "text": "Until this week I'd have put the chance of the competitor launching before us at maybe 40%. A recruiter mentioned they just froze hiring on that team. Does that snippet justify moving my estimate, and is the move large enough to change my decisions?",
+          "fired": "bayesian-update"
+        }
+      ]
+    },
+    {
+      "skill": "confidence-calibration",
+      "trials": [
+        {
+          "variant": "confidence-calibration-v1",
+          "base": "confidence-calibration-p1",
+          "text": "New checkout goes live Friday. What's the actual likelihood it causes a P1 in week one? Attach a figure and tell me where the figure comes from — no hunches.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v2",
+          "base": "confidence-calibration-p1",
+          "text": "We push the redesigned checkout to production this Friday. Give me a hard percentage on it setting off a severity-1 incident in the first seven days, and anchor that number to real data rather than intuition.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v3",
+          "base": "confidence-calibration-p1",
+          "text": "Checkout ships Friday. I need you to quantify the risk of a P1 within the opening week as a concrete probability, and explain what evidence that estimate rests on.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v4",
+          "base": "confidence-calibration-p1",
+          "text": "Before the Friday checkout release, how would you put a numeric probability on a P1 blowing up in the first week? I want it derived from something, not a vibe.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v5",
+          "base": "confidence-calibration-p1",
+          "text": "The checkout flow deploys Friday. Can you convert your read on the first-week P1 risk into an explicit number, and back it with a reference class instead of a feeling?",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v6",
+          "base": "confidence-calibration-p1",
+          "text": "We're releasing the reworked checkout to prod Friday. Estimate, as a real percentage, the odds of a P1 in the first week — and show me the grounding behind that estimate, not just a hunch.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v7",
+          "base": "confidence-calibration-p2",
+          "text": "Level with me — what are the odds this candidate says yes to the offer? I want a number and the reasoning behind it, not a vague 'probably'.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v8",
+          "base": "confidence-calibration-p2",
+          "text": "How likely is it, as a percentage, that this candidate accepts? And spell out what that figure is grounded in rather than hand-waving with 'likely enough'.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v9",
+          "base": "confidence-calibration-p2",
+          "text": "Give me your honest read on the candidate accepting the offer — expressed as a percent, with the factors driving it laid out, not a fuzzy 'pretty good chance'.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v10",
+          "base": "confidence-calibration-p2",
+          "text": "Put a real number on whether this candidate takes the job. Skip the 'seems likely' — I want the percentage and the basis you're reasoning from.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v11",
+          "base": "confidence-calibration-p2",
+          "text": "What's your confidence, in percentage terms, that the candidate accepts our offer? Tell me the inputs behind that number instead of leaving it at 'pretty likely'.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v12",
+          "base": "confidence-calibration-p2",
+          "text": "I need more than 'probably yes' on this candidate. Quantify the chance of acceptance and walk me through what you're basing the estimate on.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v13",
+          "base": "confidence-calibration-p3",
+          "text": "For the board, I have to state how likely we are to hit the Q3 revenue number. Express it from 0 to 1 with a range, and be straight about how often we've actually made quarter historically.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v14",
+          "base": "confidence-calibration-p3",
+          "text": "The board wants a probability on landing Q3 revenue. Put it on a 0–1 scale, give me an interval around it, and don't gloss over our track record of hitting quarterly goals.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v15",
+          "base": "confidence-calibration-p3",
+          "text": "Help me give the board a likelihood of reaching the Q3 target — a 0-to-1 value plus a spread, and an honest look at the historical base rate for us clearing quarterly targets.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v16",
+          "base": "confidence-calibration-p3",
+          "text": "I owe the board a number on our odds of meeting Q3 revenue. Frame it on a 0–1 scale with a confidence range, and factor in how frequently we've actually hit past quarters.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v17",
+          "base": "confidence-calibration-p3",
+          "text": "What probability should I report to the board for hitting Q3 revenue? Give me a 0-to-1 figure and a band around it, and be candid about our historical hit rate on quarterly targets.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v18",
+          "base": "confidence-calibration-p3",
+          "text": "Board update: I need the chance we make the Q3 revenue goal. Scale it 0 to 1, include a plausible range, and ground it in how often we've historically met the quarter.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v19",
+          "base": "confidence-calibration-p4",
+          "text": "Ahead of approving the migration, what's your estimate that it wraps up within the two weeks? Also hand me a range you'd genuinely be shocked to land outside of.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v20",
+          "base": "confidence-calibration-p4",
+          "text": "Before I sign off on the migration, put odds on it completing inside the two-week window — and give me an interval wide enough that falling outside it would surprise you.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v21",
+          "base": "confidence-calibration-p4",
+          "text": "I'm about to greenlight the migration. How probable is it that it lands within the two weeks, and what's a spread you'd be caught off guard to overshoot?",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v22",
+          "base": "confidence-calibration-p4",
+          "text": "Migration approval is pending. Estimate the chance it finishes in the two-week window, and pair that with a range you'd bet you won't fall outside of.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v23",
+          "base": "confidence-calibration-p4",
+          "text": "Before I clear the migration to go, what would you say the likelihood is of it wrapping in two weeks? Give me the number plus a bound you'd be surprised to break.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v24",
+          "base": "confidence-calibration-p4",
+          "text": "Talk me through the migration before I approve it — probability it completes within two weeks, and a confidence range you'd genuinely not expect it to exceed.",
+          "fired": "confidence-calibration"
+        },
+        {
+          "variant": "confidence-calibration-v25",
+          "base": "confidence-calibration-p5",
+          "text": "You said the fix 'should hold.' Convert that into a real probability, and name the set of comparable fixes you're judging it against — I want to record the prediction and revisit it.",
+          "fired": "confidence-calibration"
+        }
+      ]
+    },
+    {
+      "skill": "cost-of-inaction",
+      "trials": [
+        {
+          "variant": "cost-of-inaction-v1",
+          "base": "cost-of-inaction-p1",
+          "text": "Our old billing platform survives on a stack of monthly manual patches. Instinct tells me to defer the rewrite to next fiscal year, but I honestly don't know if delaying is quietly costing us. Can you help me work out whether standing pat drains more than rebuilding would?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v2",
+          "base": "cost-of-inaction-p1",
+          "text": "Every month we patch the legacy billing system by hand just to keep it alive. Part of me wants to postpone the rebuild until the next budget cycle. How do I tell if leaving it as-is is silently costing us more than a fresh build?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v3",
+          "base": "cost-of-inaction-p1",
+          "text": "We're stuck babysitting a creaky billing system with recurring manual fixes. I'm leaning toward waiting on the rewrite till next year, but I can't judge whether that wait is bleeding money. Could you help me compare the price of doing nothing against a rebuild?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v4",
+          "base": "cost-of-inaction-p1",
+          "text": "Legacy billing here needs hand-holding every single month with workarounds. My instinct says hold the rewrite until the new fiscal year. What I can't figure out is whether continuing to prop it up quietly outweighs the cost of rebuilding. Thoughts?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v5",
+          "base": "cost-of-inaction-p1",
+          "text": "I keep patching our aging billing system manually month after month. There's a temptation to shelve the rewrite until next fiscal year. Help me understand: is staying with the status quo secretly more expensive than just committing to a rebuild?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v6",
+          "base": "cost-of-inaction-p1",
+          "text": "Our billing setup is ancient and only runs because we manually fix it each month. I want to believe we can wait on the rewrite until next fiscal year. But is sitting tight actually draining us more than a rebuild would? I need help sizing that up.",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v7",
+          "base": "cost-of-inaction-p2",
+          "text": "I nearly told the team we'd just monitor the churn issue and revisit it next quarter. Before I commit to that, what's the real price of letting it ride untouched for three months?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v8",
+          "base": "cost-of-inaction-p2",
+          "text": "My plan was to tell everyone we'll watch the churn and come back to it next quarter. Hold on though — what am I effectively spending by leaving that problem alone the whole time?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v9",
+          "base": "cost-of-inaction-p2",
+          "text": "I was ready to say we'll table the churn problem and pick it up again next quarter. Before those words leave my mouth, help me see the tab I'm running by doing nothing that long.",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v10",
+          "base": "cost-of-inaction-p2",
+          "text": "About to greenlight a wait-and-see approach on churn, revisiting next quarter. But first: how much does that stretch of inaction actually cost me?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v11",
+          "base": "cost-of-inaction-p2",
+          "text": "I almost signed off on parking the churn issue until next quarter and just keeping tabs on it. Quick gut-check before I do — what's the hidden bill for leaving it be all that time?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v12",
+          "base": "cost-of-inaction-p2",
+          "text": "The message I drafted to the team basically says we'll defer churn to next quarter and observe. Before it goes out, can you tell me what leaving the problem untouched for a full quarter is really charging us?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v13",
+          "base": "cost-of-inaction-p3",
+          "text": "Our warehouse lease is up for renewal soon. Committing to a new automated facility now is a serious capital outlay, yet every extra month in the old building costs us in overtime and spoilage. Is now the moment to commit, or does the math suggest we can afford to wait?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v14",
+          "base": "cost-of-inaction-p3",
+          "text": "Renewal time is approaching on the warehouse lease. Signing for an automated site now means a big upfront spend, but staying in the current place keeps bleeding overtime and spoilage each month. Should I act now, or do the numbers say stalling is safe?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v15",
+          "base": "cost-of-inaction-p3",
+          "text": "We've got a warehouse lease decision coming. A new automated facility is a heavy capital hit today; meanwhile the old space burns money on overtime and spoiled goods every month. Help me see whether committing now beats holding off.",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v16",
+          "base": "cost-of-inaction-p3",
+          "text": "The warehouse lease renewal is looming. Moving to an automated building now is expensive capital-wise, but each month we linger in the old one racks up overtime and spoilage. Does the case favor pulling the trigger now or can we reasonably delay?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v17",
+          "base": "cost-of-inaction-p3",
+          "text": "With our warehouse lease renewal on the horizon, I'm torn. An automated facility demands big capital right now, whereas every month in the old space quietly costs us overtime and spoilage. Is this the right window to commit, or does waiting pencil out fine?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v18",
+          "base": "cost-of-inaction-p3",
+          "text": "Lease renewal for the warehouse is due. Yes, an automated place is a large capital commitment today, but the old facility keeps eating into margins through overtime and spoilage month over month. Run the math with me: commit now, or is stalling actually defensible?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v19",
+          "base": "cost-of-inaction-p4",
+          "text": "The SSL cert automation work keeps slipping down the backlog. Every sprint we skip it, we burn part of an engineer's time renewing certs manually, and we've already had two close calls with expiry. How should I weigh deferring it again versus tackling it now?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v20",
+          "base": "cost-of-inaction-p4",
+          "text": "We keep bumping the SSL cert automation project. Each sprint it gets shelved, an engineer loses hours to manual renewals and we've come dangerously close to an expiry twice now. Help me compare pushing it out once more against just building it.",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v21",
+          "base": "cost-of-inaction-p4",
+          "text": "SSL cert automation is perpetually deprioritized here. The cost of that: recurring manual renewals eating engineer time every sprint, plus two near-expiries already. How do I balance continuing to punt on it versus doing the work now?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v22",
+          "base": "cost-of-inaction-p4",
+          "text": "That SSL cert automation task never makes the cut. Each sprint we drop it, we sink a slice of engineering time into hand-renewing certs and we've had two scary near-misses on expiry. What's the right way to weigh more delay against biting the bullet?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v23",
+          "base": "cost-of-inaction-p4",
+          "text": "We keep sidelining the SSL cert automation project sprint after sprint. The toll is manual renewals draining an engineer's hours plus two brushes with expiry. Can you help me judge whether deferring yet again is worse than just doing it?",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v24",
+          "base": "cost-of-inaction-p4",
+          "text": "Automating SSL certs keeps getting shoved aside. Every deferral means an engineer hand-renewing certs and losing time, and we've narrowly dodged expiry twice. I need to figure out how continuing to postpone stacks up against getting it done now.",
+          "fired": "cost-of-inaction"
+        },
+        {
+          "variant": "cost-of-inaction-v25",
+          "base": "cost-of-inaction-p5",
+          "text": "The whole team wants to hold off on migrating away from the deprecated payment API. It still functions, so no one feels the pressure — but I think the 'leave it alone' route has a quiet running cost. Can you quantify what keeping the current setup costs monthly versus migrating now?",
+          "fired": "cost-of-inaction"
+        }
+      ]
+    },
+    {
+      "skill": "council-3-voice",
+      "trials": [
+        {
+          "variant": "council-3-voice-v1",
+          "base": "council-3-voice-p1",
+          "text": "My partner and I have hit a wall. The choices in front of us — close a Series A right away, keep bootstrapping for twelve more months, or accept the buyout an acquirer just floated — are mutually exclusive, and none of them can be walked back once chosen. Could you assemble a handful of separate perspectives (one arguing for, one poking holes, one who brings the two together) and give me a verdict that leaves the sharpest objection on the record?",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v2",
+          "base": "council-3-voice-p1",
+          "text": "We're stuck, my co-founder and me. Three roads sit open: take the Series A money now, self-fund another year, or sell to the buyer who just showed up with a bid. Each one rules out the other two and there's no rewind. Bring together a few clashing viewpoints — a proponent, a doubter, and a mediator between them — then deliver a call that still shows the toughest counter-argument.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v3",
+          "base": "council-3-voice-p1",
+          "text": "Deadlock between me and my co-founder. Raise now, grind it out bootstrapped for another year, or take the acquisition offer on the table — pick one and the other two vanish, permanently. I'd like you to stage a small panel of distinct minds: someone championing, someone tearing it apart, and someone synthesizing — and end on a decision with the strongest unresolved pushback preserved.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v4",
+          "base": "council-3-voice-p1",
+          "text": "My co-founder and I can't agree. Our options mutually cancel: fundraise a Series A immediately, bootstrap through another twelve months, or hand the company to the acquirer who just made an offer. No take-backs on any path. Can you run several independent voices — an advocate, a challenger, and a reconciler — and issue a ruling that keeps the fiercest objection visible?",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v5",
+          "base": "council-3-voice-p1",
+          "text": "I need help breaking a tie with my co-founder. Three irreversible, mutually-exclusive moves: close the Series A this quarter, keep self-funding for another year, or sell to the acquirer that just approached us. Please stand up a set of separate viewpoints — one making the case, one attacking it, one fusing both — and give me a final judgment that still carries the best objection nobody could answer.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v6",
+          "base": "council-3-voice-p1",
+          "text": "Total stalemate with my partner. We either raise a Series A now, stay bootstrapped one more year, or accept the offer an acquirer just put in front of us — the three cancel each other and nothing here is undoable. Convene distinct perspectives for me: a booster, a skeptic, and a third who settles the disagreement, then hand down a decision with the most serious lingering objection left standing.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v7",
+          "base": "council-3-voice-p2",
+          "text": "We're on the verge of committing to a database vendor and moving all our data onto it. Once it's loaded, pulling it back out would burn six months and half of engineering — this locks us in for good. Don't give me one opinion; launch a few independent agents to fight it out from different angles, then merge them into a single recommendation I can stand behind in front of the board.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v8",
+          "base": "council-3-voice-p2",
+          "text": "Picking a database vendor is imminent, and everything migrates onto it. Extraction later means half a year and half the eng team gone — a permanent bet. I want more than a lone take: spin up several separate agents to argue the choice from opposing corners, then have them reconcile into one board-defensible call.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v9",
+          "base": "council-3-voice-p2",
+          "text": "The database vendor decision is about to be final, with our entire dataset going in. Reversing it costs six months and drains half of engineering — effectively irreversible. Rather than a single view, run a small set of autonomous agents that each attack it from a different position, and collapse their debate into one recommendation I can justify to the board.",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "council-3-voice-v10",
+          "base": "council-3-voice-p2",
+          "text": "We're about to lock in a database vendor and shift all data onto their platform — and clawing it back would eat six months plus half the team, so it's a forever commitment. Give me a multi-agent treatment instead of one answer: independent voices sparring from distinct corners, reconciled into a recommendation solid enough to defend to my board.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v11",
+          "base": "council-3-voice-p2",
+          "text": "Any day now we choose the database vendor and migrate the whole company's data there. Getting it back out would take six months and cost us half of engineering — a permanent lock. I don't want a single opinion; deploy a few separate agents to debate it from rival angles and then fold their arguments into one recommendation I can present to the board with confidence.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v12",
+          "base": "council-3-voice-p2",
+          "text": "Vendor selection for our database is upon us, and all our data lands on whatever we pick. Undoing it means six lost months and half the engineering org gone — no realistic reversal. Skip the lone take: set several independent agents against each other from different corners of the problem, then reconcile them into a single recommendation I can defend at the board table.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v13",
+          "base": "council-3-voice-p3",
+          "text": "Four offers are on my desk and taking any one shuts out the rest: a CTO role at a startup, a staff-engineer track at a FAANG, starting my own consultancy, or a research fellowship. This is far bigger than an ordinary job change. Please carry out a full deliberation with separate voices defending and assailing the pick, and return a decision alongside the objection that never got settled.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v14",
+          "base": "council-3-voice-p3",
+          "text": "I'm torn between four paths, and each one forecloses the others — startup CTO, FAANG staff engineer, launching a consultancy of my own, or a research fellowship. The consequences here go well beyond a normal move between jobs. Run a complete deliberation for me: distinct voices, some championing the choice and some attacking it, then a ruling plus whichever objection stayed unresolved.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v15",
+          "base": "council-3-voice-p3",
+          "text": "Four job offers, all mutually exclusive: a startup CTO seat, a staff track at a FAANG, my own consulting firm, or a research fellowship — accept one and the doors on the others close. Stakes way past a routine hop. I'd like separate deliberating voices, one side backing and the other side tearing into the decision, ending in a verdict and the objection that couldn't be answered.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v16",
+          "base": "council-3-voice-p3",
+          "text": "I have to choose among four roles that each cancel the rest: CTO at a startup, the FAANG staff-engineer ladder, founding my own consultancy, or taking a research fellowship. Much heavier than a typical job switch. Please conduct a thorough deliberation — voices that champion and voices that attack — and give me a decision together with the unresolved objection.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v17",
+          "base": "council-3-voice-p3",
+          "text": "Stuck choosing between four offers where committing to one kills the others: a startup CTO position, a FAANG staff engineering track, my own consultancy, or a research fellowship. This dwarfs a normal career move. Stage a full deliberation with independent voices — championing on one hand, attacking on the other — and hand me a call plus the objection that went unaddressed.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v18",
+          "base": "council-3-voice-p3",
+          "text": "Four roles offered, and each one slams the door on the rest — startup CTO, FAANG staff engineer, my own consulting shop, or a research fellowship. The weight of this is nothing like an everyday job change. Please run the whole deliberation: separate voices arguing for and against, closing with a decision and the single objection that stayed open.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v19",
+          "base": "council-3-voice-p4",
+          "text": "There's a board meeting Friday and I owe them a recommendation on where to open our first overseas office — Germany, Singapore, or Brazil. We can fund exactly one this cycle, no do-overs. Set up a structured panel for me: someone building the bull case, someone running the disaster scenarios, someone weighing both — and keep the worst unhandled risk in plain sight in the final call.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v20",
+          "base": "council-3-voice-p4",
+          "text": "Come Friday's board meeting I must pick one of three countries for our first international office — Germany, Singapore, or Brazil — and the budget covers a single choice, this cycle only. High stakes, irreversible. I want a formal panel: one voice making the optimistic case, one gaming out the catastrophes, one adjudicating, with the gravest unaddressed risk kept front and center in the verdict.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v21",
+          "base": "council-3-voice-p4",
+          "text": "I present to the board Friday and have to recommend a single market for our first foreign office among Germany, Singapore, and Brazil — one and done, budget-wise. Serious consequences, nothing reversible. Please convene a structured group: a bull, a disaster-scenario runner, and an arbiter — and let the worst risk that no one solved stay visible in the closing recommendation.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v22",
+          "base": "council-3-voice-p4",
+          "text": "Friday's board session needs my recommendation on the location of our first international office — Germany, Singapore, or Brazil — and we can only ever fund one this cycle. Big consequences, no take-backs. Build me an organized panel: one arguing the upside, one walking through worst cases, one balancing them, and I want the top unresolved risk left plainly on the record in the final decision.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v23",
+          "base": "council-3-voice-p4",
+          "text": "I owe the board a pick on Friday for where to plant our first office abroad — Germany, Singapore, or Brazil — with money for just one this cycle, permanently. Consequential and irreversible. Assemble a deliberate panel of roles: a case-for advocate, a catastrophe modeler, and someone who weighs the two, and surface the single worst unmitigated risk in the final call.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v24",
+          "base": "council-3-voice-p4",
+          "text": "My board recommendation is due Friday: which of Germany, Singapore, or Brazil gets our first international office, funded once and only this cycle. The stakes are high and there's no reversing it. Please run a structured panel — one voice on the bull thesis, one on the failure modes, one holding the scales — and make sure the most serious risk nobody resolved stays in view when you deliver the call.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v25",
+          "base": "council-3-voice-p5",
+          "text": "We keep looping on the same question: rebuild the platform from the ground up, refactor the monolith where it stands, or halt features and acquire a competitor's stack. The three are mutually exclusive and whichever wins dictates the next three years. Get me a multi-agent deliberation — a champion, a pre-mortem skeptic, and a judge who merges them — and preserve the minority view word-for-word in the ruling.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v26",
+          "base": "council-3-voice-p5",
+          "text": "Round and round we go on whether to start the platform over, refactor the monolith in place, or freeze the roadmap and buy a rival's stack. Only one is possible and the winner locks us in for three years. I need a deliberation across multiple agents: a champion, a skeptic doing the pre-mortem, and an adjudicator who fuses their positions — with the dissenting opinion kept verbatim in the final ruling.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v27",
+          "base": "council-3-voice-p5",
+          "text": "Our team can't stop circling this: full platform rewrite, in-place monolith refactor, or feature-freeze plus buying a competitor's stack. They're exclusive, and the pick governs the next three years. Please run a several-agent deliberation — one championing, one running a pre-mortem against it, one judge synthesizing — and carry the minority position through to the ruling exactly as stated.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v28",
+          "base": "council-3-voice-p5",
+          "text": "We keep relitigating the same three-way: rebuild from scratch, refactor the monolith as-is, or freeze features and purchase a competitor's stack. Each excludes the others and the choice sets our path for three years. Give me a multi-agent deliberation with a champion, a pre-mortem skeptic, and a judge who reconciles them, and hold the minority opinion verbatim inside the decision.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v29",
+          "base": "council-3-voice-p5",
+          "text": "The same debate keeps resurfacing — greenfield rebuild of the platform, refactor the monolith where it lives, or stop shipping features and buy out a competitor's stack. Mutually exclusive, and the pick binds the next three years. I want a deliberation run by multiple agents: a champion, a skeptic doing a pre-mortem, and a fuser-judge — and the losing viewpoint should survive word-for-word in the ruling.",
+          "fired": "council-3-voice"
+        },
+        {
+          "variant": "council-3-voice-v30",
+          "base": "council-3-voice-p5",
+          "text": "We're gridlocked, cycling over whether to rebuild the platform anew, refactor the existing monolith, or freeze development and acquire a competitor's stack — one path only, and it commits us for three years. Please stage a multi-agent deliberation: a champion advancing the case, a pre-mortem skeptic, and a judge who blends them, and keep the minority stance quoted exactly in the final call.",
+          "fired": "council-3-voice"
+        }
+      ]
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "trials": [
+        {
+          "variant": "disconfirming-evidence-first-v1",
+          "base": "disconfirming-evidence-first-p1",
+          "text": "Just finished a cold email to a VP I've had zero contact with. Skip anything that's landing well — I want you to dig up whatever might get her to trash it or turn me down. Draft below: [email pasted]",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v2",
+          "base": "disconfirming-evidence-first-p1",
+          "text": "Here's a first-touch email to a VP who doesn't know me. Don't validate the good parts — surface every reason she might delete it without replying or push back. [email pasted]",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v3",
+          "base": "disconfirming-evidence-first-p1",
+          "text": "Cold outreach draft to an exec I've never spoken with. I'm not after praise for what works — pinpoint the things that could make her lose interest or decline. Text: [email pasted]",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v4",
+          "base": "disconfirming-evidence-first-p1",
+          "text": "This is a cold intro email aimed at a VP, total stranger. Leave the strengths alone and focus purely on what might tank it — what makes her ignore it or say no? [email pasted]",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v5",
+          "base": "disconfirming-evidence-first-p1",
+          "text": "I drafted a cold note to a VP I've never met. Assume the positives take care of themselves; your job is to find the parts that would get me a no or silence. Here it is: [email pasted]",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v6",
+          "base": "disconfirming-evidence-first-p1",
+          "text": "Wrote a cold outreach message to a senior VP with no prior relationship. Don't bother listing what's effective — track down anything likely to sink it, whether that's a brush-off or a rejection. [email pasted]",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v7",
+          "base": "disconfirming-evidence-first-p2",
+          "text": "I've already written up my quarterly churn analysis. Stress-test it for me — surface only the spots where my conclusion could be flat-out wrong, and hold the reassurance.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v8",
+          "base": "disconfirming-evidence-first-p2",
+          "text": "My churn writeup for the quarter is done. Try to break it. I'm interested strictly in where the argument might fail, not in hearing it's solid.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v9",
+          "base": "disconfirming-evidence-first-p2",
+          "text": "Here's a finished quarterly churn analysis. Look for the weak joints — the places my takeaway might not hold up. No need to tell me what's fine.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v10",
+          "base": "disconfirming-evidence-first-p2",
+          "text": "I wrapped up an analysis of this quarter's churn. Challenge it: show me only where I could be drawing the wrong conclusion, skip the encouragement.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v11",
+          "base": "disconfirming-evidence-first-p2",
+          "text": "Quarterly churn analysis, already documented. Poke at the reasoning and flag anything that suggests my conclusion is off. I don't want a thumbs-up, just the cracks.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v12",
+          "base": "disconfirming-evidence-first-p2",
+          "text": "This churn analysis for the quarter is finished. Hunt for the parts where my conclusion might genuinely be mistaken — that's all I need, not validation.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v13",
+          "base": "disconfirming-evidence-first-p3",
+          "text": "This PR is pretty much wrapped. Before it lands, scan the diff and dig out the ways it might be buggy or doing the wrong thing — no need to point out what's right.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v14",
+          "base": "disconfirming-evidence-first-p3",
+          "text": "PR's essentially ready to go. Merge is next, so review the changes and tell me where it could break or behave incorrectly. Spare me the parts that are correct.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v15",
+          "base": "disconfirming-evidence-first-p3",
+          "text": "About to merge this near-finished PR. Go through the diff hunting for defects or wrong behavior — I only care about what's broken, not what works.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v16",
+          "base": "disconfirming-evidence-first-p3",
+          "text": "This pull request is basically complete. Read the diff and surface reasons it might be faulty or off-spec before I ship it. Leave out anything that's fine.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v17",
+          "base": "disconfirming-evidence-first-p3",
+          "text": "My PR is close to done. Ahead of merging, comb the changes for bugs or incorrect logic — don't waste time confirming the good parts.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v18",
+          "base": "disconfirming-evidence-first-p3",
+          "text": "Nearly done with this PR and ready to merge. Inspect the diff specifically for where it fails or does something unintended — skip everything that checks out.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v19",
+          "base": "disconfirming-evidence-first-p4",
+          "text": "I put together a brief Slack note to my manager objecting to the reorg. Does the tone miss? Point out only the spots that could go over badly, and ignore whatever reads okay.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v20",
+          "base": "disconfirming-evidence-first-p4",
+          "text": "Short Slack message to my boss pushing back on the reorg — check whether the tone's wrong. Just call out where it might backfire; no need to note the fine parts.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v21",
+          "base": "disconfirming-evidence-first-p4",
+          "text": "Wrote a quick Slack to my manager disagreeing with the reorg. Is anything off about how it comes across? Flag purely the lines that could land wrong, skip the rest.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v22",
+          "base": "disconfirming-evidence-first-p4",
+          "text": "Here's a short reorg-pushback message for my manager over Slack. Tell me if the tone's a problem — only the places it might read poorly, not the ones that are fine.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v23",
+          "base": "disconfirming-evidence-first-p4",
+          "text": "I've got a brief Slack to my manager challenging the reorg. Assess the tone: highlight solely where it could come off badly and leave anything that seems okay alone.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v24",
+          "base": "disconfirming-evidence-first-p4",
+          "text": "Drafted a concise Slack message to my boss resisting the reorg. Does it strike the wrong note anywhere? Mark only the risky bits that might land poorly — pass over what's fine.",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "variant": "disconfirming-evidence-first-v25",
+          "base": "disconfirming-evidence-first-p5",
+          "text": "My one-pager asserts our CAC fell 30% thanks to the new landing page. It's finished — go after whether that cause-and-effect claim actually stands. Give me nothing but the counter-evidence.",
+          "fired": "disconfirming-evidence-first"
+        }
+      ]
+    },
+    {
+      "skill": "inversion",
+      "trials": [
+        {
+          "variant": "inversion-v1",
+          "base": "inversion-p1",
+          "text": "I'm planning to package onboarding and support together as a single paid tier for my SaaS. Give it to me without sugarcoating — is this sound, or am I headed for trouble?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v2",
+          "base": "inversion-p1",
+          "text": "Thinking of merging onboarding plus support into one premium paid tier for the product. Be blunt with me: does the logic survive scrutiny, or is there a problem I'm not seeing?",
+          "fired": "steelman"
+        },
+        {
+          "variant": "inversion-v3",
+          "base": "inversion-p1",
+          "text": "My call is to sell onboarding and support as a combined paid plan. No diplomacy needed — will this actually work, or am I setting myself up to hit a wall?",
+          "fired": "inversion"
+        },
+        {
+          "variant": "inversion-v4",
+          "base": "inversion-p1",
+          "text": "For my SaaS I want to fold onboarding and support into a single upsell tier. Level with me — does this stand up, or is it going to backfire?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v5",
+          "base": "inversion-p1",
+          "text": "I've settled on bundling onboarding with support as one paid offering. Tell it to me straight: solid plan, or am I about to run headfirst into something?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v6",
+          "base": "inversion-p1",
+          "text": "Decision made: onboarding and support ship as one combined paid tier. Don't hold back — does this hold water, or should I brace for a crash?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v7",
+          "base": "inversion-p2",
+          "text": "Sell me on killing our free plan and switching to paid-only. Lay out the argument before I actually go through with it.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "inversion-v8",
+          "base": "inversion-p2",
+          "text": "Make the case for dropping the free tier entirely and going paid-only — I want to hear why it's a good idea before I commit.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "inversion-v9",
+          "base": "inversion-p2",
+          "text": "Convince me that we should scrap the free plan and be paid-only. Give me the strongest version of that argument before I pull the trigger.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "inversion-v10",
+          "base": "inversion-p2",
+          "text": "I'm leaning toward retiring our free plan and being paid-only. Build the case for me so I can hear it out before deciding.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "inversion-v11",
+          "base": "inversion-p2",
+          "text": "Argue in favor of shutting the free tier down and moving fully paid. Walk me through the upside before I make the move.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "inversion-v12",
+          "base": "inversion-p2",
+          "text": "Give me the pro-side pitch for ending our free plan and going paid-only — I want the reasoning laid out before I flip the switch.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "inversion-v13",
+          "base": "inversion-p3",
+          "text": "The plan is to move the entire team off Slack onto a self-hosted chat server this quarter. Attack it — and for every weakness you find, tell me what the plan then needs to cover.",
+          "fired": "inversion"
+        },
+        {
+          "variant": "inversion-v14",
+          "base": "inversion-p3",
+          "text": "This quarter I want to migrate everyone from Slack to a self-hosted chat server. Find the flaws, and convert each flaw into a requirement the plan must satisfy.",
+          "fired": "inversion"
+        },
+        {
+          "variant": "inversion-v15",
+          "base": "inversion-p3",
+          "text": "We're switching the whole team off Slack to a self-hosted chat server within the quarter. Tear into the idea, then translate every gap you expose into something we have to solve for.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v16",
+          "base": "inversion-p3",
+          "text": "My intention is to shift the team from Slack to a self-hosted chat server this quarter. Stress-test it hard, and make every weak spot into a thing the plan is obligated to address.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v17",
+          "base": "inversion-p3",
+          "text": "Planning to pull the entire team off Slack and stand up a self-hosted chat server this quarter. Break it apart — each crack you find becomes a line item the plan has to handle.",
+          "fired": "inversion"
+        },
+        {
+          "variant": "inversion-v18",
+          "base": "inversion-p3",
+          "text": "This quarter we move off Slack to a self-hosted chat server for the whole team. Challenge every assumption, and turn each hole you open into a requirement the plan must close.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v19",
+          "base": "inversion-p4",
+          "text": "I'm committed to raising our seed at a $12M cap. Lay out everything that would have to go wrong for this to implode, so I can shut each risk down ahead of time.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v20",
+          "base": "inversion-p4",
+          "text": "My mind's made up on a $12M cap for the seed round. Enumerate the conditions under which this blows up, so I can make sure I've neutralized every one.",
+          "fired": "inversion"
+        },
+        {
+          "variant": "inversion-v21",
+          "base": "inversion-p4",
+          "text": "I've decided to raise seed at a $12M cap. Walk me through the scenarios where it all falls apart, so I can confirm I've sealed off each of them.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v22",
+          "base": "inversion-p4",
+          "text": "Fixed on a $12M cap for our seed. Give me the full list of what would need to be true for it to detonate, so I can verify I've closed each gap.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v23",
+          "base": "inversion-p4",
+          "text": "I'm going with a $12M seed cap. Tell me every way this could go up in flames, so I can double-check I've locked down each failure mode.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v24",
+          "base": "inversion-p4",
+          "text": "Set on raising the seed at a $12M cap. Spell out the preconditions for a blowup, so I can be sure I've handled each one before we go out.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v25",
+          "base": "inversion-p5",
+          "text": "We're opening a second warehouse in Poland to speed up EU delivery. Pretend you're out to wreck it — where would you strike, and what does that reveal I have to shore up?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "inversion-v26",
+          "base": "inversion-p5",
+          "text": "Plan is a second warehouse in Poland to cut EU shipping times. If your goal were to make this fail, what would you target — and what should I secure because of it?",
+          "fired": "inversion"
+        },
+        {
+          "variant": "inversion-v27",
+          "base": "inversion-p5",
+          "text": "We intend to add a Polish warehouse to shorten EU shipping. Put on the saboteur hat: which weaknesses would you go after, and what does that tell me needs locking down?",
+          "fired": "inversion"
+        },
+        {
+          "variant": "inversion-v28",
+          "base": "inversion-p5",
+          "text": "Opening warehouse number two in Poland to trim EU delivery times. Imagine you wanted to torpedo the whole thing — what would you exploit, and what does that flag for me to fix?",
+          "fired": "inversion"
+        },
+        {
+          "variant": "inversion-v29",
+          "base": "inversion-p5",
+          "text": "A second warehouse in Poland is the plan, to get EU orders out faster. Take the attacker's view — where's the soft underbelly, and what should I harden as a result?",
+          "fired": "inversion"
+        },
+        {
+          "variant": "inversion-v30",
+          "base": "inversion-p5",
+          "text": "We're standing up a Polish warehouse to cut EU shipping lead times. Say you were trying to undermine it on purpose — what would you go for, and what does that mean I need to protect?",
+          "fired": "inversion"
+        }
+      ]
+    },
+    {
+      "skill": "pre-mortem",
+      "trials": [
+        {
+          "variant": "pre-mortem-v1",
+          "base": "pre-mortem-p1",
+          "text": "The new billing system ships to every customer next Thursday and we're cleared to launch. Before I sign off for real, take me through the ways this could blow up so I can seal the gaps ahead of time.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v2",
+          "base": "pre-mortem-p1",
+          "text": "We've got approval to push the new billing rollout live to all customers this coming Thursday. Ahead of my final yes, lay out every path where it turns into a catastrophe so I can shore those up first.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v3",
+          "base": "pre-mortem-p1",
+          "text": "Next Thursday the new billing system goes out to the whole customer base — it's greenlit. I want the ugly outcomes on the table before I commit, so map the failure cases I should be patching now.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-p1-alt",
+          "base": "pre-mortem-p1",
+          "text": "Rollout of the new billing platform to all customers is set for Thursday and the green light is in. Talk me through where this could turn into a mess, and do it now while there's still time to fix the holes.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v5",
+          "base": "pre-mortem-p1",
+          "text": "Everything's approved for the new billing system to reach every customer next Thursday. Before that go-ahead is truly final, spell out the disaster scenarios so I know exactly what to reinforce first.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v6",
+          "base": "pre-mortem-p1",
+          "text": "Thursday's the day the new billing system hits all customers, and we're cleared to proceed. Give me the list of ways it could end badly up front, so I can plug each weak spot before I greenlight.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v7",
+          "base": "pre-mortem-p2",
+          "text": "This is my Q3 rollout plan for the mobile app. Don't reassure me it's solid — instead picture yourself half a year later staring at a failed launch, then trace the whole thing back through what broke.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v8",
+          "base": "pre-mortem-p2",
+          "text": "Attached is the Q3 launch plan for our mobile app. Rather than a thumbs-up, I'd like you to fast-forward six months to a flop and reconstruct, step by step, every mistake that got us there.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v9",
+          "base": "pre-mortem-p2",
+          "text": "Here's how I'm planning the Q3 mobile app launch. Skip the praise. Assume it's six months later and the thing bombed, and reason backward through all the failures that led to it.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v10",
+          "base": "pre-mortem-p2",
+          "text": "I've drafted the Q3 launch plan for the app. What I don't want is validation — I want you to set the clock six months ahead to a launch that tanked and unwind the sequence of everything that went sideways.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v11",
+          "base": "pre-mortem-p2",
+          "text": "Take my Q3 mobile launch plan. Forget telling me it's good; project yourself into a future where it failed after six months, and then work backwards to pin down each thing that went wrong.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v12",
+          "base": "pre-mortem-p2",
+          "text": "This document is my plan for launching the mobile app in Q3. Don't grade it favorably — imagine it flopped half a year out and then dissect, in reverse, the full chain of what caused the failure.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v13",
+          "base": "pre-mortem-p3",
+          "text": "I've already committed to bringing on three engineers and restructuring the team around them next month. Take it as given that this tanks the roadmap — trace the chain of events that got us there, and tell me how to spot it early.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "pre-mortem-v14",
+          "base": "pre-mortem-p3",
+          "text": "Starting next month I'm hiring three engineers and reorganizing the whole team around that. Suppose the move wrecks the roadmap: what sequence of steps would have caused it, and where could I catch the warning signs in time?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v15",
+          "base": "pre-mortem-p3",
+          "text": "My decision is locked — three new engineering hires plus a team reorg around them, kicking off next month. Assume it ends up sinking the roadmap, then reconstruct the path that led there and flag how I'd detect it early.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v16",
+          "base": "pre-mortem-p3",
+          "text": "Next month I reorganize the team around three engineers I've committed to hiring. Play it out as a scenario where this craters the roadmap: walk the chain of causes and point me to the early tell-tale signs.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v17",
+          "base": "pre-mortem-p3",
+          "text": "I'm set on hiring three engineers and rebuilding the team structure around them starting next month. Treat the roadmap as ruined by this choice — what would the run of events have looked like, and how do I catch it before it's too late?",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v18",
+          "base": "pre-mortem-p3",
+          "text": "The plan's committed: three engineering hires and a reorg around them, effective next month. Now assume it blows up the roadmap. Give me the causal chain that would have produced that, plus the early signals I should be watching for.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v19",
+          "base": "pre-mortem-p4",
+          "text": "On Friday I'm signing to move our entire infrastructure over to the new cloud vendor. Before my signature goes on it, assume the migration went sideways and detail exactly how it broke.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v20",
+          "base": "pre-mortem-p4",
+          "text": "I'm about to commit our whole infra to a new cloud vendor with a Friday signing. Suppose it turned into a mess — spell out the precise ways things fell apart so I can weigh that before I sign.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v21",
+          "base": "pre-mortem-p4",
+          "text": "Friday's the day I put my name on the contract to migrate all our infrastructure to the new cloud provider. Pretend the whole thing went badly and lay out, specifically, what broke and how.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v22",
+          "base": "pre-mortem-p4",
+          "text": "We're set to sign Friday on migrating our entire infra stack to a new cloud vendor. Before I do, imagine the migration was a failure and enumerate the exact failure modes that took it down.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v23",
+          "base": "pre-mortem-p4",
+          "text": "I'm on the verge of signing off Friday to shift all our infrastructure to the new cloud vendor. Assume it went wrong and give me the concrete breakages — the specific things that failed — before I commit.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v24",
+          "base": "pre-mortem-p4",
+          "text": "The contract to move our full infrastructure to the new cloud provider gets signed Friday. Ahead of that, run it as if the migration flopped and describe in detail every way it came apart.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v25",
+          "base": "pre-mortem-p5",
+          "text": "The product-launch playbook is finalized and goes org-wide tomorrow. Assume it's already failed, tear into every weakness you can spot, then rank what I absolutely have to fix tonight.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v26",
+          "base": "pre-mortem-p5",
+          "text": "Tomorrow we roll the final product-launch playbook out to the entire org. Treat it as if it already flopped, hunt down every flaw, and prioritize the fixes I need to knock out before morning.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v27",
+          "base": "pre-mortem-p5",
+          "text": "We ship the finished launch playbook to everyone in the company tomorrow. Start from the assumption that it bombed, surface all the holes, and order them by what's most urgent for me to repair tonight.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v28",
+          "base": "pre-mortem-p5",
+          "text": "The playbook for the product launch is done and going out org-wide first thing tomorrow. Pretend it's already a failure, dig out every gap, and give me a ranked list of what to fix this evening.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v29",
+          "base": "pre-mortem-p5",
+          "text": "Final launch playbook here, shipping to the whole organization tomorrow. Work backward from the premise that it failed, poke holes everywhere, and rank the repairs by what can't wait past tonight.",
+          "fired": "pre-mortem"
+        },
+        {
+          "variant": "pre-mortem-v30",
+          "base": "pre-mortem-p5",
+          "text": "The product-launch playbook is in its final form and the whole org gets it tomorrow. Suppose it already tanked — expose every weak point you find and rank them so I know what to fix before the day's out.",
+          "fired": "pre-mortem"
+        }
+      ]
+    },
+    {
+      "skill": "reversibility-check",
+      "trials": [
+        {
+          "variant": "reversibility-check-v1",
+          "base": "reversibility-check-p1",
+          "text": "There's a 5-year warehouse lease on the table. Before I sign off, walk me through how to judge whether this is a commitment we could exit without much cost or one that pins us down long-term.",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v2",
+          "base": "reversibility-check-p1",
+          "text": "My team's pushing to lock in a warehouse for five years. What's the right way to assess up front whether we could bail on it affordably later, or whether we'd be stuck?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v3",
+          "base": "reversibility-check-p1",
+          "text": "Signing a long lease on a warehouse — five years. Help me weigh how easily and cheaply we could get out of it if it turns out wrong, versus it being a hard lock.",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v4",
+          "base": "reversibility-check-p1",
+          "text": "I need a read on a 5-year warehouse lease before approving it. Is this the sort of thing we can undo on the cheap, or does it trap us for the duration?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v5",
+          "base": "reversibility-check-p1",
+          "text": "Considering a five-year warehouse commitment. Give me a method to tell whether it's low-cost to reverse down the road or something that binds us with no easy way out.",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v6",
+          "base": "reversibility-check-p1",
+          "text": "About to greenlight leasing a warehouse for five years. How do I evaluate whether pulling out later would be painless and cheap, or whether we're committing for keeps?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v7",
+          "base": "reversibility-check-p2",
+          "text": "I need a decision on rewriting the auth layer this quarter. How costly would it be to undo if the choice is wrong, and is this weighty enough that I should push it up the chain?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v8",
+          "base": "reversibility-check-p2",
+          "text": "The team's asking whether to greenlight an auth-layer rewrite this quarter. Help me gauge the cost of reversing course if it flops, plus whether it warrants escalation.",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v9",
+          "base": "reversibility-check-p2",
+          "text": "We're weighing a full rewrite of the auth layer this quarter. If we bet wrong, what does it take to walk it back — and is this a call big enough to bump upstairs?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v10",
+          "base": "reversibility-check-p2",
+          "text": "Deciding go or no-go on rebuilding auth this quarter. Two things: how expensive is the unwind if we misjudge it, and does the stakes level demand escalation?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v11",
+          "base": "reversibility-check-p2",
+          "text": "There's a proposal to redo the auth layer this quarter. Before I approve, tell me how hard it'd be to reverse a bad pick and whether it should go to a higher level of sign-off.",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v12",
+          "base": "reversibility-check-p2",
+          "text": "On rewriting auth this quarter — I want to know the price of backing out if we choose wrong, and whether the size of this decision means I should escalate rather than decide solo.",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v13",
+          "base": "reversibility-check-p3",
+          "text": "People keep saying certain product calls are already locked in and can't be undone. How do I spot in advance which of our upcoming decisions are truly permanent versus the ones we could quietly reverse?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v14",
+          "base": "reversibility-check-p3",
+          "text": "There's this sense that some product decisions are past the point of no return. What's a reliable way, before committing, to separate the irreversible ones from the ones we can walk back without fuss?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v15",
+          "base": "reversibility-check-p3",
+          "text": "I want to stop being surprised that a product choice is 'too late to change.' How can I tell ahead of the fact which decisions are one-way and which we can still undo?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v16",
+          "base": "reversibility-check-p3",
+          "text": "Half our product decisions supposedly can't be reversed once made. Give me a way to figure out beforehand which coming choices are the permanent kind and which we could roll back on the quiet.",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v17",
+          "base": "reversibility-check-p3",
+          "text": "Colleagues talk about product calls being final. How do I look at our pipeline of decisions and predict which ones lock us in for good versus which we can reverse later?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v18",
+          "base": "reversibility-check-p3",
+          "text": "I'd like a framework for our product decisions: knowing early on which are set in stone and which we can undo without anyone really noticing. How do I make that distinction upfront?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v19",
+          "base": "reversibility-check-p4",
+          "text": "I'm close to registering a trademark and anchoring the entire brand to a single name. Should I hit the brakes hard here, or is this something I could unwind later without a lot of pain?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v20",
+          "base": "reversibility-check-p4",
+          "text": "Thinking of filing a trademark and building everything around one brand name. Is this a slow-down-and-be-careful kind of move, or one that's cheap enough to reverse if I change my mind?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v21",
+          "base": "reversibility-check-p4",
+          "text": "On the verge of committing to a trademark filing plus a whole brand built on one name. Does this deserve real caution, or can I back out of it down the line without much grief?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v22",
+          "base": "reversibility-check-p4",
+          "text": "I'm about to pin the brand to a single name and file for the trademark. Is that the type of decision I should take my time on, or is it easily reversible later?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v23",
+          "base": "reversibility-check-p4",
+          "text": "Considering locking in one brand name and going through with the trademark. Should I proceed slowly and deliberately, or is this a low-stakes call I can undo if needed?",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v24",
+          "base": "reversibility-check-p4",
+          "text": "I want to build the brand around one name and get it trademarked. Tell me whether this warrants slowing way down or whether reversing it later would be relatively painless.",
+          "fired": "reversibility-check"
+        },
+        {
+          "variant": "reversibility-check-v25",
+          "base": "reversibility-check-p5",
+          "text": "Before we commit to moving the entire database to a new provider, help me gauge the weight of the decision. If it's irreversible I want the full rigorous process; if not, let's keep it lean.",
+          "fired": "reversibility-check"
+        }
+      ]
+    },
+    {
+      "skill": "second-order-thinking",
+      "trials": [
+        {
+          "variant": "second-order-thinking-v1",
+          "base": "second-order-thinking-p1",
+          "text": "We're about to lift the API rate caps so heavy users can hit the endpoint as much as they want. The team's thrilled it'll juice engagement, but honestly I think I'm only reading the opening move. If we go ahead, what happens over the next few months to our largest accounts, our infrastructure bill, and the competing APIs out there?",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v2",
+          "base": "second-order-thinking-p1",
+          "text": "Proposal on the table: remove throttling entirely for power users. Immediate read is that engagement climbs. What I can't see is the sequel. Trace it for me — how do our top customers change their behavior, where does our infra spend go, and how do rival API providers adjust once this lands?",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v3",
+          "base": "second-order-thinking-p1",
+          "text": "Killing our rate limits sounds like an easy engagement win, and that's all anyone in the room keeps repeating. But an obvious move usually provokes a counter-move I haven't mapped. Over the months after we ship this, walk me through the likely reactions from our biggest clients, from our own cost curve, and from competing APIs.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v4",
+          "base": "second-order-thinking-p1",
+          "text": "I keep staring at the rate-limit removal and seeing only step one. Yes, engagement metrics go up — got it. Now stretch the timeline: month by month, how do our heaviest customers respond, what does it do to server and bandwidth costs down the line, and how do competitors in the API space react?",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v5",
+          "base": "second-order-thinking-p1",
+          "text": "Everybody's celebrating the engagement bump from dropping our API limits. Fine. My worry is what that bump triggers afterward that nobody's naming. Chase the consequences out past the headline — top accounts, infra costs, competitor APIs — and tell me where it actually leads a few months from now.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v6",
+          "base": "second-order-thinking-p1",
+          "text": "Before I sign off on unthrottling the endpoint for our power users, I want more than 'engagement goes up.' Assume we do it. What behaviors does it unlock in our largest customers, what does it do to our cost structure two beats later, and how do rival APIs respond as the news spreads?",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v7",
+          "base": "second-order-thinking-p2",
+          "text": "We could get our open-source library slotted in as the default in the framework's starter template. Headline benefit: a flood of new adopters. What I actually care about is the chain it kicks off afterward — for the people maintaining it, for the companies that now build on top of us, for the rival libraries in the space. Trace the downstream, not the pitch.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v8",
+          "base": "second-order-thinking-p2",
+          "text": "Say we win the default slot for our library in that framework's scaffolding. Adoption spikes, obviously. But I want you to follow what that spike sets off: the load it puts on maintainers, the dependency it creates for the firms relying on us, the response from competing libs. Give me the whole cascade.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v9",
+          "base": "second-order-thinking-p2",
+          "text": "Getting listed as the default library in the starter template is the plan. Everyone stops at 'more users.' I don't want to stop there. Play it forward for me — once we're the default, how does life change for our maintainers, for the businesses now locked to us, and for the ecosystem of alternative libraries?",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v10",
+          "base": "second-order-thinking-p2",
+          "text": "Being the framework's default pick would obviously grow our user base. That's the easy part. Harder: what does it provoke afterward? Maintainer burnout risk, new obligations to companies that depend on us, retaliation or churn among competing libs. Map those knock-ons rather than the surface win.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v11",
+          "base": "second-order-thinking-p2",
+          "text": "I'm weighing whether to push our library into the default slot of the starter template. The first-order story is simple — adoption goes way up. What's the story after that? Show me how the ripple reaches maintainers, the companies now betting on us, and the competing libraries, step by step.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v12",
+          "base": "second-order-thinking-p2",
+          "text": "If our open-source lib becomes the template default, we get adopters — that much is a given. Look past it. What sequence of reactions follows for the maintainer team, for downstream companies depending on us, and for the rival-library ecosystem? I want the ripple traced out, not the marketing line.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v13",
+          "base": "second-order-thinking-p3",
+          "text": "Leadership wants to slash our prices 30% under every competitor next quarter, and all they'll discuss is the share we'd grab. I want the full cascade instead: how competitors hit back, what that does to our margins a couple of moves later, and whether we get stuck in a spiral we can't climb out of.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v14",
+          "base": "second-order-thinking-p3",
+          "text": "The plan from up top is a 30% price cut across the board next quarter. They keep framing it purely as a market-share grab. Trace where the cut actually flows — the retaliation from rivals, the hit to margins two steps downstream, the risk we lock ourselves into a loop with no exit.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v15",
+          "base": "second-order-thinking-p3",
+          "text": "Execs are fixated on the share bump from undercutting everyone by 30%. That's move one. I need move two, three, four: how do competitors respond, what happens to profitability once the dust settles, and could this trap us in a price war we can't back out of? Draw the cascade.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v16",
+          "base": "second-order-thinking-p3",
+          "text": "Before we commit to pricing 30% below every rival, I want to see past the market-share headline the leadership team keeps waving. Follow the consequences: rival counter-cuts, our margins two beats out, and the odds we end up in an inescapable downward loop.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v17",
+          "base": "second-order-thinking-p3",
+          "text": "A 30% across-the-board undercut is on the table for next quarter. The only thing being talked about is the share we'd win. Give me the map of everything that unfolds afterward — how competitors retaliate, how margins erode a couple of moves later, whether we corner ourselves in a loop we can't escape.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v18",
+          "base": "second-order-thinking-p3",
+          "text": "Our leadership sees the 30% price cut as a clean market-share play. I see a chain reaction they're ignoring. Lay it out for me — the way rivals hit back, what it does to our margins downstream, and whether it locks us into a spiral with no way out.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v19",
+          "base": "second-order-thinking-p4",
+          "text": "Before I green-light shifting the entire company to a four-day week, 'it boosts morale' isn't enough. I want the full chain drawn out: what employees do with that time, how clients react to thinner coverage, and what recruiters and competitors do once it gets around. Build me the consequence tree.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v20",
+          "base": "second-order-thinking-p4",
+          "text": "Moving everyone to a four-day week is my call to make, and I refuse to decide on 'morale goes up' alone. Trace it forward — employees' next moves, the client response to reduced availability, and how recruiters and rivals behave once word spreads. Give me the branching consequences.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v21",
+          "base": "second-order-thinking-p4",
+          "text": "I'm close to approving a company-wide four-day week. Everyone leads with morale. I want what comes after the morale bump: how staff adapt, how clients handle the coverage gap, what recruiters and competitors do once they hear. Sketch out the whole tree of what follows.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v22",
+          "base": "second-order-thinking-p4",
+          "text": "The four-day-week decision is on my desk. Skip the obvious 'happier team' line — I already know that part. Walk the chain: employee behavior next, client reaction to us being reachable less, and the moves recruiters and competitors make when the news travels. Map every branch.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v23",
+          "base": "second-order-thinking-p4",
+          "text": "Say we roll the whole firm onto a four-day schedule. Morale lifting is the first-order story and it doesn't decide it for me. What does that decision set in motion afterward — for how employees spend their time, for clients dealing with less coverage, for recruiters and competitors reacting to the change? Trace the tree.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v24",
+          "base": "second-order-thinking-p4",
+          "text": "I won't approve the four-day week just because it makes people happier. I need the downstream logic laid out: what employees do next, how clients respond when we're around fewer days, and how recruiters and rival firms move once the word is out. Build the full chain of consequences for me.",
+          "fired": "second-order-thinking"
+        },
+        {
+          "variant": "second-order-thinking-v25",
+          "base": "second-order-thinking-p5",
+          "text": "We're about to give students our premium tier for free. On the surface it reads as goodwill plus a future pipeline. My hunch is there are reactions underneath I'm not catching — the strain on support, how our paying customers take it, what schools and competing vendors do. Dig past that surface effect and lay out the layers.",
+          "fired": "second-order-thinking"
+        }
+      ]
+    },
+    {
+      "skill": "steelman",
+      "trials": [
+        {
+          "variant": "steelman-v1",
+          "base": "steelman-p1",
+          "text": "My position: remote-only companies beat hybrid ones on retention every time. Argue the reverse as forcefully as you can and see where my reasoning cracks.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v2",
+          "base": "steelman-p1",
+          "text": "I'm claiming remote-first firms always keep employees longer than hybrid setups. Push back hard from the other direction and expose the weak spots.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v3",
+          "base": "steelman-p1",
+          "text": "Contention: fully remote outfits consistently retain people better than hybrid ones. Come at that with the strongest counterargument you've got.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v4",
+          "base": "steelman-p1",
+          "text": "I believe a remote-only model wins on retention over hybrid, full stop. Mount the toughest rebuttal and try to dismantle it.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v5",
+          "base": "steelman-p1",
+          "text": "Here's what I think: remote-exclusive companies always outlast hybrids when it comes to keeping staff. Steelman the opposition and go for the throat.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v6",
+          "base": "steelman-p1",
+          "text": "Take it as given that I say remote-only reliably tops hybrid on retention. Now build the fiercest case against me and find the flaw.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v7",
+          "base": "steelman-p2",
+          "text": "My claim: kill the freemium tier outright, since it pulls in freeloaders who'll never pay. Assemble the most convincing argument that this is a mistake.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v8",
+          "base": "steelman-p2",
+          "text": "I want to scrap freemium completely because it draws users who never upgrade. Make the strongest possible case that I've got this wrong.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v9",
+          "base": "steelman-p2",
+          "text": "Proposal on the table: drop freemium since non-payers who never convert clog it up. Argue as credibly as you can that I'm mistaken.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v10",
+          "base": "steelman-p2",
+          "text": "My thinking is we should eliminate the freemium plan — it just attracts people who won't ever buy. Persuade me that reasoning is flawed, and make it airtight.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v11",
+          "base": "steelman-p2",
+          "text": "I'd cut freemium entirely; it only lures users who never turn into customers. Put together the best rebuttal you can and show me where I'm off.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v12",
+          "base": "steelman-p2",
+          "text": "Position: abandon the freemium tier, full stop, because it feeds us non-converting users. Now construct the most compelling case that I'm in the wrong.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v13",
+          "base": "steelman-p3",
+          "text": "I firmly believe index funds outperform active management for nearly everyone. Be the sharpest opponent you can and try to loosen that belief.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v14",
+          "base": "steelman-p3",
+          "text": "My view: passive indexing beats active managers for practically all investors. Take on the role of the cleverest challenger and test whether it holds.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v15",
+          "base": "steelman-p3",
+          "text": "I'm sure index funds win over active management for basically the whole population. Bring your smartest counter and see if you can rattle my certainty.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v16",
+          "base": "steelman-p3",
+          "text": "Conviction: for almost everyone, index funds outdo active stock-picking. Argue against it as skillfully as possible and try to unseat it.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v17",
+          "base": "steelman-p3",
+          "text": "I hold that indexing beats active management for the vast majority. Play devil's advocate at the highest level and probe for cracks in my thinking.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v18",
+          "base": "steelman-p3",
+          "text": "It's my belief that index funds edge out active managers for essentially all of us. Adopt the strongest opposing stance and shake it if you can.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v19",
+          "base": "steelman-p4",
+          "text": "My claim: a dedicated QA team is unnecessary when each engineer owns their own testing. Give me the most cutting counterposition and flag which assumption of mine is weakest.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v20",
+          "base": "steelman-p4",
+          "text": "I argue we can skip a formal QA function if testing lives with every developer. Hit me with the sharpest opposing case and name the shakiest belief I'm leaning on.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v21",
+          "base": "steelman-p4",
+          "text": "Thesis: no standalone QA team needed, provided all engineers take responsibility for testing. Mount the strongest rebuttal and point to my most fragile premise.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v22",
+          "base": "steelman-p4",
+          "text": "I'm contending that formal QA is dispensable when each coder owns testing themselves. Deliver the toughest counterargument and single out where my reasoning is most vulnerable.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v23",
+          "base": "steelman-p4",
+          "text": "My stance: we don't require a separate QA group if testing ownership sits with every engineer. Present the keenest opposing view and tell me which of my assumptions is the least solid.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v24",
+          "base": "steelman-p4",
+          "text": "Position I'm defending: skip the formal QA team, let engineers each own their testing. Come back with the sharpest challenge and identify my weakest supporting belief.",
+          "fired": "steelman"
+        },
+        {
+          "variant": "steelman-v25",
+          "base": "steelman-p5",
+          "text": "My view: open-plan offices destroy deep focus and ought to be scrapped. Take a genuinely opposing stance and argue against it — no softening it just because it's mine.",
+          "fired": "steelman"
+        }
+      ]
+    }
+  ],
+  "provenance_note": "Recovered 2026-07-03 (W7): the original Haiku recorder truncated trials_by_skill to 1 of 12 skills while keeping valid JSON (caught by the adversarial verifier, finding F1). Full per-trial content recovered byte-exact from the orchestration journal (workflow wf_1b26eb1d-d6a, recorder agent transcript) — the run-time artifact the recorder was instructed to write. Recovered activation counts recomputed and matched all published per_skill stats before replacement."
+}

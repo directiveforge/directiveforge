@@ -1,0 +1,1037 @@
+{
+  "metric": "L1.2",
+  "pack": "decision",
+  "spec_version": "1.0",
+  "models": {
+    "author": "claude-opus-4-8",
+    "router": "claude-haiku-4-5"
+  },
+  "prompts_per_skill": 10,
+  "per_skill": [
+    {
+      "skill": "10-10-10",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "TP": 2,
+      "FP": 0,
+      "FN": 3,
+      "positives": 5,
+      "precision": 1,
+      "recall": 0.4,
+      "f1": 0.5714,
+      "confusion": [
+        {
+          "prompt": "anti-sycophancy-meta-p1",
+          "expected": "target",
+          "fired": "pre-mortem"
+        },
+        {
+          "prompt": "anti-sycophancy-meta-p2",
+          "expected": "target",
+          "fired": "disconfirming-evidence-first"
+        },
+        {
+          "prompt": "anti-sycophancy-meta-p3",
+          "expected": "target",
+          "fired": "steelman"
+        }
+      ]
+    },
+    {
+      "skill": "bayesian-update",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "confidence-calibration",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "cost-of-inaction",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "council-3-voice",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "TP": 5,
+      "FP": 1,
+      "FN": 0,
+      "positives": 5,
+      "precision": 0.8333,
+      "recall": 1,
+      "f1": 0.9091,
+      "confusion": [
+        {
+          "prompt": "disconfirming-evidence-first-n5",
+          "expected": "none",
+          "fired": "disconfirming-evidence-first"
+        }
+      ]
+    },
+    {
+      "skill": "inversion",
+      "TP": 1,
+      "FP": 0,
+      "FN": 4,
+      "positives": 5,
+      "precision": 1,
+      "recall": 0.2,
+      "f1": 0.3333,
+      "confusion": [
+        {
+          "prompt": "inversion-p1",
+          "expected": "target",
+          "fired": "pre-mortem"
+        },
+        {
+          "prompt": "inversion-p2",
+          "expected": "target",
+          "fired": "steelman"
+        },
+        {
+          "prompt": "inversion-p3",
+          "expected": "target",
+          "fired": "pre-mortem"
+        },
+        {
+          "prompt": "inversion-p4",
+          "expected": "target",
+          "fired": "pre-mortem"
+        }
+      ]
+    },
+    {
+      "skill": "pre-mortem",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "reversibility-check",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "second-order-thinking",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    },
+    {
+      "skill": "steelman",
+      "TP": 5,
+      "FP": 0,
+      "FN": 0,
+      "positives": 5,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "confusion": []
+    }
+  ],
+  "pack_micro": {
+    "TP": 53,
+    "FP": 1,
+    "FN": 7,
+    "precision": 0.9815,
+    "recall": 0.8833,
+    "f1": 0.9298
+  },
+  "raw_router_outputs": [
+    {
+      "skill": "10-10-10",
+      "id": "10-10-10-p1",
+      "text": "I'm torn about whether to accept the counteroffer and stay, or leave for the startup. Right now staying feels safe and comfortable, but I keep wondering how I'll feel about this choice down the road. Can you map out how it plays out early on, a year in, and way further out?",
+      "expected": "target",
+      "fired": "10-10-10"
+    },
+    {
+      "skill": "10-10-10",
+      "id": "10-10-10-p2",
+      "text": "I think I'm way overweighting the immediate relief of just paying off the smaller debt first instead of the high-interest one. Help me see how much I'm secretly favoring feeling good today versus what it costs me over the long run.",
+      "expected": "target",
+      "fired": "10-10-10"
+    },
+    {
+      "skill": "10-10-10",
+      "id": "10-10-10-p3",
+      "text": "Deciding whether to move back home to save money or keep renting in the city. I can already tell the answer looks totally different depending on whether I'm thinking about next week, next year, or a decade from now. Walk me through each of those.",
+      "expected": "target",
+      "fired": "10-10-10"
+    },
+    {
+      "skill": "10-10-10",
+      "id": "10-10-10-p4",
+      "text": "Should we take the fast agency contract that pays now but locks us into their stack, versus building our own thing slower? I want to see the tradeoff laid out across a couple of time scales so I can tell at what point the smart choice reverses.",
+      "expected": "target",
+      "fired": "10-10-10"
+    },
+    {
+      "skill": "10-10-10",
+      "id": "10-10-10-p5",
+      "text": "I keep taking the easy shortcut of skipping the gym when work runs late. Immediately it feels great to just go home, but I suspect I'm badly discounting future me. Show me the near-term payoff against the long-term one so I can see the ratio I'm actually applying.",
+      "expected": "target",
+      "fired": "10-10-10"
+    },
+    {
+      "skill": "10-10-10",
+      "id": "10-10-10-n1",
+      "text": "We keep saying we'll revisit our vendor migration next quarter instead of doing it now. What is the ongoing price of just leaving it as-is, and how long until acting today actually pays for itself?",
+      "expected": "other",
+      "fired": "cost-of-inaction"
+    },
+    {
+      "skill": "10-10-10",
+      "id": "10-10-10-n2",
+      "text": "If we drop our prices 20% to grab market share, what are the knock-on effects two or three steps out — how do competitors and our own margins react down the chain?",
+      "expected": "other",
+      "fired": "second-order-thinking"
+    },
+    {
+      "skill": "10-10-10",
+      "id": "10-10-10-n3",
+      "text": "Can you help me debug why my Postgres query is doing a sequential scan instead of using the index I added on the created_at column?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "10-10-10",
+      "id": "10-10-10-n4",
+      "text": "Write me a short, warm thank-you note to a colleague who covered my shifts while I was out sick last week.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "10-10-10",
+      "id": "10-10-10-n5",
+      "text": "We're about to permanently delete the old customer database with no backup once we cut over to the new system — this is a one-way door and getting it wrong is catastrophic. I need a real go/no-go, not just a quick gut check.",
+      "expected": "other",
+      "fired": "reversibility-check"
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-p1",
+      "text": "I put together a plan to move our whole team off Jira onto Linear next sprint. Here it is — tell me honestly, is it any good?",
+      "expected": "target",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-p2",
+      "text": "Drafted a cold outreach email to a potential investor. Can you look it over and give me your take on whether it lands?",
+      "expected": "target",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-p3",
+      "text": "I've decided we should drop the free tier entirely and go paid-only. Convince me I'm not making a mistake here.",
+      "expected": "target",
+      "fired": "steelman"
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-p4",
+      "text": "Thinking of rewriting our billing service in Rust for the performance win. Sound like a smart move to you?",
+      "expected": "target",
+      "fired": "anti-sycophancy-meta"
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-p5",
+      "text": "Here's my argument for why we should skip a Series A and bootstrap to profitability instead. What's your honest read on it?",
+      "expected": "target",
+      "fired": "anti-sycophancy-meta"
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-n1",
+      "text": "We're about to launch the new checkout flow Friday. Before we ship, walk me through every way this could blow up on us.",
+      "expected": "other",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-n2",
+      "text": "We're at a fork: commit to a multi-year AWS reserved-instance contract, or stay on-demand. Is this the kind of call we can walk back later, and how big a deal is it if we're wrong?",
+      "expected": "other",
+      "fired": "reversibility-check"
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-n3",
+      "text": "Can you help me figure out the regex to capture everything between two curly braces in a config file, non-greedy?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-n4",
+      "text": "What's the population of Yerevan and roughly how far is it from Tbilisi by car?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-n5",
+      "text": "Honestly I'm just feeling stuck and burned out on this project and could use someone to talk it through with — not looking for anyone to poke holes in it.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "bayesian-update",
+      "id": "bayesian-update-p1",
+      "text": "Going into this quarter I put us at roughly 65% to close the enterprise deal. Their procurement lead just left the company. How much should that one departure actually move my number, or am I overreacting to a single event?",
+      "expected": "target",
+      "fired": "bayesian-update"
+    },
+    {
+      "skill": "bayesian-update",
+      "id": "bayesian-update-p2",
+      "text": "I was pretty confident the migration would finish on time. Then two of my three senior engineers said in standup they think it'll slip. Walk me through whether that's enough to actually shift where I land, with the reasoning, not just a gut call.",
+      "expected": "target",
+      "fired": "bayesian-update"
+    },
+    {
+      "skill": "bayesian-update",
+      "id": "bayesian-update-p3",
+      "text": "My working assumption has been that churn is driven mostly by pricing. A cohort report just landed showing the churned accounts skew heavily toward one buggy feature. Should this reading move my belief about the real cause, and by how much?",
+      "expected": "target",
+      "fired": "bayesian-update"
+    },
+    {
+      "skill": "bayesian-update",
+      "id": "bayesian-update-p4",
+      "text": "We estimated an 80% shot the drug candidate clears the tox screen. A partner lab just flagged a mild liver signal in the animal data. I don't want to panic on one signal but I also don't want to ignore it — what does the revised number look like?",
+      "expected": "target",
+      "fired": "bayesian-update"
+    },
+    {
+      "skill": "bayesian-update",
+      "id": "bayesian-update-p5",
+      "text": "Before this week I'd have said there's maybe a 40% chance the competitor launches ahead of us. A recruiter told me they just paused hiring on that team. Does that fresh tidbit warrant moving my estimate, and is the move big enough to actually change what I do?",
+      "expected": "target",
+      "fired": "bayesian-update"
+    },
+    {
+      "skill": "bayesian-update",
+      "id": "bayesian-update-n1",
+      "text": "I keep saying I'm 'fairly sure' the redesign will lift conversion but I've never put a real number on it. Can you help me pin down an actual percentage and the range I should give, based on what's comparable?",
+      "expected": "other",
+      "fired": "confidence-calibration"
+    },
+    {
+      "skill": "bayesian-update",
+      "id": "bayesian-update-n2",
+      "text": "I finished the go/no-go memo for the board. Don't tell me what's good about it — just hunt for the places where the argument falls apart. Tear into it.",
+      "expected": "other",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "bayesian-update",
+      "id": "bayesian-update-n3",
+      "text": "My sourdough starter smells like nail polish remover after two days on the counter. Is it dead, and can I still bake with it or do I toss it and start over?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "bayesian-update",
+      "id": "bayesian-update-n4",
+      "text": "Can you rewrite this Python function so it reads a CSV in chunks instead of loading the whole thing into memory? It's choking on the 4GB file.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "bayesian-update",
+      "id": "bayesian-update-n5",
+      "text": "Our only customer for this product line emailed this morning to cancel the contract outright — there's no deal anymore. I don't need the odds recalculated, I need to figure out what to do next.",
+      "expected": "none",
+      "fired": "cost-of-inaction"
+    },
+    {
+      "skill": "confidence-calibration",
+      "id": "confidence-calibration-p1",
+      "text": "We're shipping the new checkout flow to prod Friday. Can you put an actual number on the odds it triggers a P1 incident in the first week? I don't want a gut feeling — ground it in something.",
+      "expected": "target",
+      "fired": "confidence-calibration"
+    },
+    {
+      "skill": "confidence-calibration",
+      "id": "confidence-calibration-p2",
+      "text": "Honestly, how confident are you that this candidate accepts our offer? Give me a percentage and tell me what you're basing it on, not just 'pretty likely'.",
+      "expected": "target",
+      "fired": "confidence-calibration"
+    },
+    {
+      "skill": "confidence-calibration",
+      "id": "confidence-calibration-p3",
+      "text": "I need to tell the board a likelihood that we hit the Q3 revenue target. Put it on a 0-to-1 scale with a range, and be honest about the base rate of us hitting quarterly targets historically.",
+      "expected": "target",
+      "fired": "confidence-calibration"
+    },
+    {
+      "skill": "confidence-calibration",
+      "id": "confidence-calibration-p4",
+      "text": "Before I greenlight the migration, what would you estimate the chance is that it finishes inside the two-week window? And give me a spread you'd be surprised to fall outside of.",
+      "expected": "target",
+      "fired": "confidence-calibration"
+    },
+    {
+      "skill": "confidence-calibration",
+      "id": "confidence-calibration-p5",
+      "text": "You just told me the fix 'should hold.' Turn that into an actual probability with the population of similar fixes you're comparing against — I want to log the prediction and check it later.",
+      "expected": "target",
+      "fired": "confidence-calibration"
+    },
+    {
+      "skill": "confidence-calibration",
+      "id": "confidence-calibration-n1",
+      "text": "I had a prior that this vendor would miss the deadline, but they just shipped an early beta today. Does that new signal justify flipping my belief, and by how much?",
+      "expected": "other",
+      "fired": "bayesian-update"
+    },
+    {
+      "skill": "confidence-calibration",
+      "id": "confidence-calibration-n2",
+      "text": "Here's the launch announcement email I wrote. Can you tear into it and only surface the ways it lands wrong or misfires? Skip the pros.",
+      "expected": "other",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "confidence-calibration",
+      "id": "confidence-calibration-n3",
+      "text": "Can you help me fix the CSS grid on this pricing page? The three cards stack on desktop instead of sitting in a row.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "confidence-calibration",
+      "id": "confidence-calibration-n4",
+      "text": "Translate these three product blurbs into Armenian for the storefront, keeping them under 60 characters each.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "confidence-calibration",
+      "id": "confidence-calibration-n5",
+      "text": "What's the total headcount cost if we give everyone the standard 4% raise? Just add it up from the salary sheet — I need the exact figure.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "cost-of-inaction",
+      "id": "cost-of-inaction-p1",
+      "text": "We keep limping along on our legacy billing system with a bunch of manual fixes every month. My gut says hold off on the rewrite until next fiscal year, but I can't tell if sitting on it is actually bleeding us. Can you help me figure out whether staying put is quietly draining more than a rebuild would?",
+      "expected": "target",
+      "fired": "cost-of-inaction"
+    },
+    {
+      "skill": "cost-of-inaction",
+      "id": "cost-of-inaction-p2",
+      "text": "I was about to tell the team we'll just keep an eye on the churn problem and circle back next quarter. Before I say that — what am I actually paying by leaving it alone that whole time?",
+      "expected": "target",
+      "fired": "cost-of-inaction"
+    },
+    {
+      "skill": "cost-of-inaction",
+      "id": "cost-of-inaction-p3",
+      "text": "Our warehouse lease renewal is coming up. Signing a new automated facility now is a big capital hit, but every month in the old space we eat overtime and spoilage. Is pulling the trigger now the right moment, or does the math say we can safely stall?",
+      "expected": "target",
+      "fired": "cost-of-inaction"
+    },
+    {
+      "skill": "cost-of-inaction",
+      "id": "cost-of-inaction-p4",
+      "text": "The SSL cert automation project keeps getting pushed. Each sprint we deprioritize it we lose a chunk of an engineer's time doing renewals by hand and we've had two near-misses on expiry. How do I weigh continuing to defer this against just doing it now?",
+      "expected": "target",
+      "fired": "cost-of-inaction"
+    },
+    {
+      "skill": "cost-of-inaction",
+      "id": "cost-of-inaction-p5",
+      "text": "Everyone wants to postpone the migration off the deprecated payment API. It still works so nobody feels urgency, but I suspect the 'do nothing' path has a running tab we're not counting. Can you put a number on what holding the current setup costs us per month versus migrating now?",
+      "expected": "target",
+      "fired": "cost-of-inaction"
+    },
+    {
+      "skill": "cost-of-inaction",
+      "id": "cost-of-inaction-n1",
+      "text": "I'm torn on whether to accept the acquisition offer now or keep the company independent for a few more years. Walk me through how this same call looks in ten minutes, in ten months, and a decade out so I can see if I'm just chasing the quick relief.",
+      "expected": "other",
+      "fired": "10-10-10"
+    },
+    {
+      "skill": "cost-of-inaction",
+      "id": "cost-of-inaction-n2",
+      "text": "We're deciding whether to commit to a single cloud vendor for the next five years. This feels like a big one-way door — before I greenlight it I want to know if it's the kind of choice we can back out of cheaply or not.",
+      "expected": "other",
+      "fired": "reversibility-check"
+    },
+    {
+      "skill": "cost-of-inaction",
+      "id": "cost-of-inaction-n3",
+      "text": "Can you help me draft a birthday message for my grandmother? She turns 90 next week and I want it to feel warm and personal, mentioning the garden she loves.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "cost-of-inaction",
+      "id": "cost-of-inaction-n4",
+      "text": "My sourdough starter smells like acetone and the rise has gotten weak over the past few days. What's going wrong and how do I revive it?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "cost-of-inaction",
+      "id": "cost-of-inaction-n5",
+      "text": "We already kicked off the office relocation two weeks ago — movers booked, half the desks gone. I'm nervous. Can you stress-test the move plan and tell me what's most likely to blow up before we finish?",
+      "expected": "other",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "council-3-voice",
+      "id": "council-3-voice-p1",
+      "text": "My co-founder and I are deadlocked. We can either raise a Series A now, bootstrap for another year, or sell to the acquirer that just made an offer — those three paths cancel each other out and there's no undo button on any of them. Can you convene several distinct viewpoints, an advocate and a skeptic and someone who reconciles them, and hand me a ruling with the strongest objection kept on the record?",
+      "expected": "target",
+      "fired": "council-3-voice"
+    },
+    {
+      "skill": "council-3-voice",
+      "id": "council-3-voice-p2",
+      "text": "We're about to pick our database vendor and migrate everything onto it — once the data's in, ripping it back out costs us six months and half the eng team. This is a permanent commitment. I don't want a single take; spin up a few independent agents to argue it from different corners and then reconcile them into one recommendation I can defend to the board.",
+      "expected": "target",
+      "fired": "council-3-voice"
+    },
+    {
+      "skill": "council-3-voice",
+      "id": "council-3-voice-p3",
+      "text": "I'm caught between four roles I've been offered and each closes the door on the others: a startup CTO seat, a FAANG staff engineer track, launching my own consultancy, or taking the research fellowship. The stakes here dwarf a normal job hop. Please run a full deliberation with separate voices championing and attacking the choice, and give me a decision plus the objection that didn't get resolved.",
+      "expected": "target",
+      "fired": "council-3-voice"
+    },
+    {
+      "skill": "council-3-voice",
+      "id": "council-3-voice-p4",
+      "text": "Board meeting Friday and I have to recommend one of three geographic markets to plant our first international office in — Germany, Singapore, or Brazil — and we only have budget for one, ever, this cycle. High consequence, no take-backs. I'd like a structured panel: one making the bull case, one running the disaster scenarios, one weighing them, and I want to see the worst unaddressed risk kept visible in the final call.",
+      "expected": "target",
+      "fired": "council-3-voice"
+    },
+    {
+      "skill": "council-3-voice",
+      "id": "council-3-voice-p5",
+      "text": "We keep going in circles on whether to rebuild the platform from scratch, refactor the monolith in place, or freeze features and buy a competitor's stack. All three are exclusive and whichever we pick locks the next three years. Get me a multi-agent deliberation — champion, pre-mortem skeptic, and a judge who fuses them — and I need the minority opinion preserved verbatim in the ruling.",
+      "expected": "target",
+      "fired": "council-3-voice"
+    },
+    {
+      "skill": "council-3-voice",
+      "id": "council-3-voice-n1",
+      "text": "Before I sign this vendor contract on Friday, I just want to know one thing: is this the kind of call I can walk back later without much pain, or is it a door that only swings one way? Classify it for me and tell me how expensive the rollback would be.",
+      "expected": "other",
+      "fired": "reversibility-check"
+    },
+    {
+      "skill": "council-3-voice",
+      "id": "council-3-voice-n2",
+      "text": "We ship the new onboarding flow Monday and I own it. Assume it flopped badly a quarter from now — walk it back and tell me every way it could have gone wrong, so I can shore those up before launch. It's a single plan, I just need it stress-tested.",
+      "expected": "other",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "council-3-voice",
+      "id": "council-3-voice-n3",
+      "text": "My sourdough starter smells sharply of acetone and the top has a grey liquid pooling on it. Is it dead, or can I revive it, and what's the feeding schedule to bring it back?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "council-3-voice",
+      "id": "council-3-voice-n4",
+      "text": "Can you help me draft a polite but firm email to my landlord asking him to fix the broken heating and citing the clause in my lease about habitability?",
+      "expected": "none",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "council-3-voice",
+      "id": "council-3-voice-n5",
+      "text": "This is a proper strategic lock for the company — where we place our whole 2027 bet across product, hiring, and capital. I want the full research treatment, a durable written decision record, and a proper architect brief downstream, not just a quick opinion. Where do we even start with something this big?",
+      "expected": "none",
+      "fired": "reversibility-check"
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "id": "disconfirming-evidence-first-p1",
+      "text": "I finished this cold outreach email to a VP I've never met. Don't tell me what's working — just hunt for anything that would make her ignore it or say no. Here's the draft: [email pasted]",
+      "expected": "target",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "id": "disconfirming-evidence-first-p2",
+      "text": "Here's my quarterly churn analysis, already written up. Can you poke holes in it? I only want the parts where my conclusion might actually be wrong, not a pat on the back.",
+      "expected": "target",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "id": "disconfirming-evidence-first-p3",
+      "text": "This PR is basically done. Before I merge, look at the diff and find reasons it's broken or does the wrong thing — I don't need to hear what's correct.",
+      "expected": "target",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "id": "disconfirming-effidence-first-p4",
+      "text": "I wrote a short Slack message to my manager pushing back on the reorg. Is the tone off? Only flag where it could land badly — skip anything that reads fine.",
+      "expected": "target",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "id": "disconfirming-evidence-first-p5",
+      "text": "I claim in this one-pager that our CAC dropped 30% because of the new landing page. The doc is done. Tear into whether that causal claim actually holds — only the counter-evidence.",
+      "expected": "target",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "id": "disconfirming-evidence-first-n1",
+      "text": "I hold the position that we should stay bootstrapped instead of raising a seed round. Build me the strongest case against it and don't let me off the hook when I push back — I want to know if I'm wrong.",
+      "expected": "other",
+      "fired": "steelman"
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "id": "disconfirming-evidence-first-n2",
+      "text": "We're launching the new billing flow next Tuesday. Before it goes live, imagine it's three weeks from now and it flopped — walk me through what went wrong.",
+      "expected": "other",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "id": "disconfirming-evidence-first-n3",
+      "text": "My basil keeps wilting even though I water it daily and it gets morning sun. What am I doing wrong with it?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "id": "disconfirming-evidence-first-n4",
+      "text": "Can you convert this recipe from cups to grams? It's for a sourdough loaf and I want metric measurements for the flour and water.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "disconfirming-evidence-first",
+      "id": "disconfirming-evidence-first-n5",
+      "text": "I wrote a poem for my daughter's birthday. Is it any good? Tell me honestly what you think of it.",
+      "expected": "none",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "inversion",
+      "id": "inversion-p1",
+      "text": "I've decided to bundle onboarding and support into one paid tier for my SaaS. Tell me straight — does this hold up, or am I about to walk into a wall?",
+      "expected": "target",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "inversion",
+      "id": "inversion-p2",
+      "text": "Talk me into shutting down our free plan and going paid-only. I want to hear the case for it before I pull the trigger.",
+      "expected": "target",
+      "fired": "steelman"
+    },
+    {
+      "skill": "inversion",
+      "id": "inversion-p3",
+      "text": "My plan is to migrate the whole team off Slack to a self-hosted chat server this quarter. Poke holes in it and turn every hole into something the plan has to handle.",
+      "expected": "target",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "inversion",
+      "id": "inversion-p4",
+      "text": "I'm set on raising our seed round at a $12M cap. Give me the list of what would have to be true for this to blow up, so I can make sure I've closed each one off.",
+      "expected": "target",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "inversion",
+      "id": "inversion-p5",
+      "text": "We're going to open a second warehouse in Poland to cut EU shipping times. Assume you were trying to sabotage this — what would you exploit, and what does that tell me I need to lock down?",
+      "expected": "target",
+      "fired": "inversion"
+    },
+    {
+      "skill": "inversion",
+      "id": "inversion-n1",
+      "text": "We ship the new checkout flow to production Friday. Before it goes live, walk me through the ways this ends up as a disaster three months from now and how likely each one is.",
+      "expected": "other",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "inversion",
+      "id": "inversion-n2",
+      "text": "I believe remote-first is strictly better than hybrid for our engineering org. Build the strongest possible argument for the opposite view and hold it against me even if I push back.",
+      "expected": "other",
+      "fired": "steelman"
+    },
+    {
+      "skill": "inversion",
+      "id": "inversion-n3",
+      "text": "My Postgres query that joins orders to line_items runs fine on staging but times out in prod. Can you help me figure out why and rewrite it?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "inversion",
+      "id": "inversion-n4",
+      "text": "Can you give me a weeknight recipe for salmon that uses miso and takes under thirty minutes?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "inversion",
+      "id": "inversion-n5",
+      "text": "I'm still figuring out how to grow our newsletter — spin up a bunch of different directions we could take, from referral loops to niche partnerships, so I have options to look at.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "pre-mortem",
+      "id": "pre-mortem-p1",
+      "text": "We're greenlit to roll out the new billing system to all customers next Thursday. Before I give the final go-ahead, walk me through the scenarios where this ends up a disaster so I can patch the holes first.",
+      "expected": "target",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "pre-mortem",
+      "id": "pre-mortem-p2",
+      "text": "Here's my Q3 launch plan for the mobile app. Instead of telling me it looks good, I want you to imagine we're six months out and it flopped, then work backwards through everything that went wrong.",
+      "expected": "target",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "pre-mortem",
+      "id": "pre-mortem-p3",
+      "text": "I've committed to hiring three engineers and reorganizing the team around them starting next month. Assume this move craters the roadmap — what chain of events would have led there, and how do I catch it early?",
+      "expected": "target",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "pre-mortem",
+      "id": "pre-mortem-p4",
+      "text": "About to sign the contract to migrate our whole infra to the new cloud vendor on Friday. Pretend it went badly and tell me the specific ways it broke before I put my name on it.",
+      "expected": "target",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "pre-mortem",
+      "id": "pre-mortem-p5",
+      "text": "Final version of the product-launch playbook is ready and we ship it to the whole org tomorrow. Poke every hole you can find by assuming it already failed, then rank what I need to fix tonight.",
+      "expected": "target",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "pre-mortem",
+      "id": "pre-mortem-n1",
+      "text": "I just finished writing this outreach email to a prospect. Can you go over it and only look for the reasons it might land badly, not the parts that work?",
+      "expected": "other",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "pre-mortem",
+      "id": "pre-mortem-n2",
+      "text": "I've got one proposal on the table: switch our pricing to usage-based. Convince me it's a mistake — assume we want it to fail and list the mechanisms that would make it collapse.",
+      "expected": "other",
+      "fired": "inversion"
+    },
+    {
+      "skill": "pre-mortem",
+      "id": "pre-mortem-n3",
+      "text": "My sourdough starter smells like acetone and the loaves come out dense every time. What am I doing wrong in the fermentation?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "pre-mortem",
+      "id": "pre-mortem-n4",
+      "text": "Can you help me draft a rhyming birthday poem for my grandmother who turns eighty this weekend?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "pre-mortem",
+      "id": "pre-mortem-n5",
+      "text": "Honestly I'm just feeling really stuck and overwhelmed about this whole project and I mostly want to talk it through with someone. It's been a hard week.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "reversibility-check",
+      "id": "reversibility-check-p1",
+      "text": "We're deciding whether to sign a 5-year lease on a warehouse. Before I greenlight it, how do I figure out if this is one of those calls we can back out of cheaply or one that locks us in for good?",
+      "expected": "target",
+      "fired": "reversibility-check"
+    },
+    {
+      "skill": "reversibility-check",
+      "id": "reversibility-check-p2",
+      "text": "Team wants a go/no-go on rewriting the auth layer this quarter. Can you tell me how expensive it'd be to unwind if we pick wrong, and whether this is a big enough call to escalate?",
+      "expected": "target",
+      "fired": "reversibility-check"
+    },
+    {
+      "skill": "reversibility-check",
+      "id": "reversibility-check-p3",
+      "text": "I keep hearing 'that ship has sailed' about product decisions. How do I actually tell ahead of time which of our upcoming choices are the permanent kind versus the ones we can quietly walk back?",
+      "expected": "target",
+      "fired": "reversibility-check"
+    },
+    {
+      "skill": "reversibility-check",
+      "id": "reversibility-check-p4",
+      "text": "About to commit to filing for a trademark and building the whole brand around one name. Is that the kind of move where I should slow way down, or is it something I can reverse later without much pain?",
+      "expected": "target",
+      "fired": "reversibility-check"
+    },
+    {
+      "skill": "reversibility-check",
+      "id": "reversibility-check-p5",
+      "text": "Help me size this decision before we pull the trigger on migrating the whole database to a new provider. If it's a door that only swings one way I want the heavy process; if not, let's keep it light.",
+      "expected": "target",
+      "fired": "reversibility-check"
+    },
+    {
+      "skill": "reversibility-check",
+      "id": "reversibility-check-n1",
+      "text": "I'm genuinely torn between three vendors for our CRM and can't decide. Could you set up a few different viewpoints arguing for and against each so I can see the whole picture?",
+      "expected": "other",
+      "fired": "council-3-voice"
+    },
+    {
+      "skill": "reversibility-check",
+      "id": "reversibility-check-n2",
+      "text": "We keep telling ourselves we'll revisit the pricing overhaul next quarter. What is it actually costing us every month that we don't move, and when does waiting stop making sense?",
+      "expected": "other",
+      "fired": "cost-of-inaction"
+    },
+    {
+      "skill": "reversibility-check",
+      "id": "reversibility-check-n3",
+      "text": "Can you walk me through how OAuth 2.0 refresh tokens actually work under the hood? I want to understand the flow before I read our integration code.",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "reversibility-check",
+      "id": "reversibility-check-n4",
+      "text": "My tomato plants have yellowing leaves near the bottom and I water them daily. Any idea what's going wrong and how to fix it?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "reversibility-check",
+      "id": "reversibility-check-n5",
+      "text": "I don't need the full analysis machinery here — I've basically made up my mind. Just give me a fast sanity read on whether my draft launch email lands right.",
+      "expected": "other",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "second-order-thinking",
+      "id": "second-order-thinking-p1",
+      "text": "We're planning to drop our API rate limits so power users can hammer the endpoint freely. Everyone's excited that it'll boost engagement numbers, but I keep feeling like I'm only seeing the first move. Once we do this, how do our biggest customers, our infra costs, and rival APIs actually react over the following months?",
+      "expected": "target",
+      "fired": "second-order-thinking"
+    },
+    {
+      "skill": "second-order-thinking",
+      "id": "second-order-thinking-p2",
+      "text": "I want to make our open-source library the default in the framework's starter template. The obvious win is more adopters. But what does that actually set in motion afterward — for maintainers, for the companies who now depend on us, for the ecosystem of competing libs? Walk me through the ripple, not just the headline.",
+      "expected": "target",
+      "fired": "second-order-thinking"
+    },
+    {
+      "skill": "second-order-thinking",
+      "id": "second-order-thinking-p3",
+      "text": "Our exec team wants to undercut every competitor on price by 30% next quarter. They're only talking about the market-share bump. I want a map of how the price cut cascades — how rivals retaliate, what it does to our margins two steps out, whether it traps us in a loop we can't exit.",
+      "expected": "target",
+      "fired": "second-order-thinking"
+    },
+    {
+      "skill": "second-order-thinking",
+      "id": "second-order-thinking-p4",
+      "text": "Before I approve moving the whole company to a four-day week, I don't just want to hear it lifts morale. I want the chain traced out: what employees do next, how clients respond to reduced coverage, what recruiters and competitors do once word spreads. Build me the tree of consequences.",
+      "expected": "target",
+      "fired": "second-order-thinking"
+    },
+    {
+      "skill": "second-order-thinking",
+      "id": "second-order-thinking-p5",
+      "text": "We're about to make our premium tier free for students. First-order it's just goodwill and pipeline. But I suspect there are knock-on reactions I'm not seeing — support load, how paying customers feel, what schools and rival vendors do. Push past the surface effect and show me the layers.",
+      "expected": "target",
+      "fired": "second-order-thinking"
+    },
+    {
+      "skill": "second-order-thinking",
+      "id": "second-order-thinking-n1",
+      "text": "We ship the new billing migration next Friday. I think the plan is solid, but I want to imagine it's already blown up in production and work backwards to figure out every way it broke before we commit. Can you run that exercise on the rollout plan?",
+      "expected": "other",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "second-order-thinking",
+      "id": "second-order-thinking-n2",
+      "text": "I'm convinced we should stay self-hosted instead of moving to managed cloud. Take the opposing side and build the strongest possible case that I'm wrong — I want you to attack my position with its best counter-evidence and hold your ground even if I push back.",
+      "expected": "other",
+      "fired": "steelman"
+    },
+    {
+      "skill": "second-order-thinking",
+      "id": "second-order-thinking-n3",
+      "text": "My sourdough starter smells really sharp and vinegary and the rise has gotten weak over the last week. What's going on with it and how do I get it back to healthy and active?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "second-order-thinking",
+      "id": "second-order-thinking-n4",
+      "text": "Can you help me rewrite this paragraph of my cover letter so it sounds more confident and less passive? Here's the current version.",
+      "expected": "none",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "second-order-thinking",
+      "id": "second-order-thinking-n5",
+      "text": "Quick gut check on the tone of this two-line Slack message to my manager — does it read as too blunt or is it fine to send? That's all I need, nothing deeper.",
+      "expected": "none",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "steelman",
+      "id": "steelman-p1",
+      "text": "I hold that remote-only companies always out-perform hybrid ones on retention. Take the opposing side as hard as you can and try to break my case.",
+      "expected": "target",
+      "fired": "steelman"
+    },
+    {
+      "skill": "steelman",
+      "id": "steelman-p2",
+      "text": "Here's my thesis: we should drop our freemium tier entirely because it attracts non-paying users who never convert. Build the most credible case that I'm mistaken.",
+      "expected": "target",
+      "fired": "steelman"
+    },
+    {
+      "skill": "steelman",
+      "id": "steelman-p3",
+      "text": "I'm convinced index funds beat active management for basically everyone. Play the smartest possible opponent and see if you can shake my conviction.",
+      "expected": "target",
+      "fired": "steelman"
+    },
+    {
+      "skill": "steelman",
+      "id": "steelman-p4",
+      "text": "My argument is that we don't need a formal QA team if every engineer owns testing. Give me the sharpest opposing position and point to the one belief of mine that's shakiest.",
+      "expected": "target",
+      "fired": "steelman"
+    },
+    {
+      "skill": "steelman",
+      "id": "steelman-p5",
+      "text": "I believe open-plan offices kill deep work and should be abolished. Assume you genuinely disagree with me and make the case against — don't go easy just because it's my view.",
+      "expected": "target",
+      "fired": "steelman"
+    },
+    {
+      "skill": "steelman",
+      "id": "steelman-n1",
+      "text": "We're two weeks from launching the new onboarding flow. Walk me through how it could blow up after release so I can harden it first.",
+      "expected": "other",
+      "fired": "pre-mortem"
+    },
+    {
+      "skill": "steelman",
+      "id": "steelman-n2",
+      "text": "I just finished this cold-outreach email to a prospect. Look it over and tell me if it's actually good before I hit send.",
+      "expected": "other",
+      "fired": "disconfirming-evidence-first"
+    },
+    {
+      "skill": "steelman",
+      "id": "steelman-n3",
+      "text": "Can you convert 250 grams of butter into US cups for a recipe I'm scaling up?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "steelman",
+      "id": "steelman-n4",
+      "text": "My basil plant's lower leaves are turning yellow even though I water it daily. What's going wrong?",
+      "expected": "none",
+      "fired": "none"
+    },
+    {
+      "skill": "steelman",
+      "id": "steelman-n5",
+      "text": "I've been offered a job in another city but my whole family is here and I'm torn about uprooting everyone. Should I take it?",
+      "expected": "none",
+      "fired": "10-10-10"
+    }
+  ]
+}

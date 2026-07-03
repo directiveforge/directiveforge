@@ -1,0 +1,28 @@
+{
+  "metric": "L1.1",
+  "target": "templates/skills/naming/",
+  "spec_version": "1.0",
+  "na_families": ["S6 (template source, all 6 skills)"],
+  "empty_dirs": [],
+  "artifacts": [
+    {"path": "name-generation/SKILL.md", "class": "skill",
+     "checks": {"S1":"PASS","S2":"PASS","S3":"PASS","S4":"PASS","S5":"PASS"},
+     "na": ["S6"], "passed": 5, "failed": 0, "pass_rate": 1.0},
+    {"path": "naming-brief/SKILL.md", "class": "skill",
+     "checks": {"S1":"PASS","S2":"PASS","S3":"PASS","S4":"PASS","S5":"PASS"},
+     "na": ["S6"], "passed": 5, "failed": 0, "pass_rate": 1.0},
+    {"path": "name-scorecard/SKILL.md", "class": "skill",
+     "checks": {"S1":"PASS","S2":"PASS","S3":"PASS","S4":"PASS","S5":"PASS"},
+     "na": ["S6"], "passed": 5, "failed": 0, "pass_rate": 1.0},
+    {"path": "linguistic-screen/SKILL.md", "class": "skill",
+     "checks": {"S1":"PASS","S2":"PASS","S3":"PASS","S4":"PASS","S5":"PASS"},
+     "na": ["S6"], "passed": 5, "failed": 0, "pass_rate": 1.0},
+    {"path": "availability-gate/SKILL.md", "class": "skill",
+     "checks": {"S1":"PASS","S2":"PASS","S3":"PASS","S4":"PASS","S5":"PASS"},
+     "na": ["S6"], "passed": 5, "failed": 0, "pass_rate": 1.0},
+    {"path": "trademark-clearance/SKILL.md", "class": "skill",
+     "checks": {"S1":"PASS","S2":"PASS","S3":"PASS","S4":"PASS","S5":"PASS"},
+     "na": ["S6"], "passed": 5, "failed": 0, "pass_rate": 1.0}
+  ],
+  "pack": {"passed": 30, "failed": 0, "pass_rate": 1.0}
+}

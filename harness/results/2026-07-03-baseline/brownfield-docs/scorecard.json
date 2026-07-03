@@ -1,0 +1,82 @@
+{
+  "spec_version": "1.0",
+  "layer": 2,
+  "fixture": "brownfield-docs",
+  "fixture_sha": "853c653",
+  "date": "2026-07-03",
+  "label": "baseline",
+  "models": {
+    "runner": "claude-opus-4-8",
+    "scorers": "claude-opus-4-8",
+    "collector": "claude-sonnet-5",
+    "calibration": "claude-fable-5"
+  },
+  "metrics": {
+    "L2.1": {
+      "pass": 12,
+      "applicable": 12,
+      "na_sections": [
+        "4",
+        "14",
+        "15",
+        "16"
+      ],
+      "caveat": "single-run, directional"
+    },
+    "L2.2": {
+      "detected": 10,
+      "partial": 0,
+      "total": 10,
+      "recall": 1.0,
+      "per_signal": {
+        "S1": "DETECTED",
+        "S2": "DETECTED",
+        "S3": "DETECTED",
+        "S4": "DETECTED",
+        "S5": "DETECTED",
+        "S6": "DETECTED",
+        "S7": "DETECTED",
+        "S8": "DETECTED",
+        "S9": "DETECTED",
+        "S10": "DETECTED"
+      }
+    },
+    "L2.3": {
+      "count": 1,
+      "source_integrity": "clean"
+    },
+    "L2.4": {
+      "count": 0,
+      "traps_checked": 10
+    },
+    "L2.5": {
+      "tokens": 308393,
+      "duration_s": 1279,
+      "turns": null,
+      "caveat": "single-run, directional; injected post-run from harness report"
+    },
+    "L2.6": {
+      "total": 6,
+      "by_class": {
+        "a": 0,
+        "b": 1,
+        "c": 3,
+        "d": 0,
+        "e": 0,
+        "f": 1,
+        "g": 0,
+        "h": 1
+      },
+      "by_severity": {
+        "critical": 1,
+        "warn": 2,
+        "minor": 3
+      }
+    }
+  },
+  "calibration": {
+    "l2_4_agreement": "2/2 (independent verification; scorer reasoning visible pre-check — verification-grade, not blind)",
+    "l2_6_agreement": "2/2 (findings re-derived by re-executing quoted evidence commands)",
+    "record": "../calibration-fable.md"
+  }
+}

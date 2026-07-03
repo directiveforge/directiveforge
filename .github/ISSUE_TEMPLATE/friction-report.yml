@@ -1,0 +1,109 @@
+name: Friction report
+description: Report where the DirectiveForge kit fought you, so it gets fixed upstream. Prefer running /report-friction — it produces a sanitized, taxonomy-compliant body for this form.
+title: "Friction: "
+labels: [friction-report]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before you submit — privacy
+
+        This is a **public** issue. Do **not** paste project names, client names, personal
+        data, or absolute filesystem paths. Use repo-relative paths (`templates/…:18`) and
+        the bucketed profile below.
+
+        The `/report-friction` command (plugin or generated workflow) produces a body that
+        is already sanitized and matches these sections exactly — running it is the
+        recommended path. This manual form is the fallback.
+  - type: input
+    id: kit-version
+    attributes:
+      label: Kit version
+      description: From `.ai-kit-manifest.json` (`kit_version`) or the installed plugin version.
+      placeholder: "0.20.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      description: Where you hit the friction.
+      options:
+        - claude-code
+        - cursor
+        - both
+    validations:
+      required: true
+  - type: dropdown
+    id: install-channel
+    attributes:
+      label: Install channel
+      description: How the kit got into the project.
+      options:
+        - plugin
+        - generator
+        - both
+    validations:
+      required: true
+  - type: input
+    id: tier-presets-packs
+    attributes:
+      label: Tier + presets + packs
+      description: e.g. "Intermediate; nextjs; decision+design". From `.ai-kit-manifest.json` if present.
+      placeholder: "Intermediate; nextjs; decision"
+    validations:
+      required: false
+  - type: textarea
+    id: project-profile
+    attributes:
+      label: Project profile (sanitized buckets)
+      description: Buckets ONLY — never names or URLs.
+      placeholder: |
+        Stack: Next.js 16 / TypeScript / Postgres
+        Size: 10-100k LOC
+        Team: 2-5
+        Age: 6-24mo
+        Presets/tier/surface: nextjs / Intermediate / claude-code
+    validations:
+      required: true
+  - type: textarea
+    id: what-worked-well
+    attributes:
+      label: What worked well
+      description: Templates / rules / skills that needed zero or minimal edits.
+    validations:
+      required: false
+  - type: textarea
+    id: what-didnt-work
+    attributes:
+      label: What didn't work
+      description: One row per defect. Each row is a repo-relative file:line plus expected vs actual.
+      placeholder: |
+        templates/cursor/rules/frontend-react.mdc.template:18 — expected a CSS-Modules branch; actual assumed Tailwind and emitted a broken class rule
+        .claude/commands/review-pr.md:— expected an auth-middleware check; actual review missed 2 unprotected routes
+    validations:
+      required: true
+  - type: textarea
+    id: missing-patterns
+    attributes:
+      label: Missing patterns
+      description: Conventions the kit didn't capture that you had to add by hand.
+    validations:
+      required: false
+  - type: textarea
+    id: suggested-changes
+    attributes:
+      label: Suggested changes
+      description: Concrete fix per defect — the template path + line + the proposed replacement text.
+      placeholder: |
+        templates/cursor/rules/frontend-react.mdc.template:18 — add a {{STYLING_SYSTEM}} branch that handles CSS Modules + Sass
+        generator/presets/nextjs.md — add a Clerk + middleware.ts edge-runtime pitfall
+    validations:
+      required: false
+  - type: checkboxes
+    id: sanitization-confirm
+    attributes:
+      label: Sanitization confirmation
+      options:
+        - label: I reviewed this report and it contains no project names, client names, personal data, or absolute paths.
+          required: true

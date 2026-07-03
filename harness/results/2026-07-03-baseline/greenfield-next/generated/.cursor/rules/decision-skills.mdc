@@ -1,0 +1,32 @@
+---
+description: "Router for the 5 conversational decision skills — fire on decision-shaped questions"
+globs: []
+alwaysApply: false
+---
+# Decision Skills — When to Fire Which
+
+> KB-05 ships 5 decision skills under `.cursor/skills/decision/` (Starter set). Doctrine: <KIT_ROOT>/knowledge-base/KB-05-CONVERSATIONAL-DECISION-ENGINEERING.md.
+
+## Anti-sycophancy meta-skill (auto-fires FIRST)
+
+On any user message matching these patterns, fire `decision/anti-sycophancy-meta` BEFORE evaluating content:
+- "what do you think of my X" / "is my idea good" / "review my plan"
+- "is this a good idea?" / "should I do X?"
+
+It detects the ownership signal, re-frames as pressure-test (not validation), then routes downstream. Skip ONLY for emotional-support framings ("feeling stuck", "vent", hedging present + ownership absent).
+
+## Phrase-mapping router (after meta-skill clears)
+
+| User says | Route to |
+|---|---|
+| "what could go wrong" / "before we launch" | `decision/pre-mortem` |
+| "should we commit" / "go/no-go" / "is this reversible" | `decision/reversibility-check` |
+| "argue against this" / "steelman it" | `decision/steelman` |
+| "how confident are you" / "probability" | `decision/confidence-calibration` |
+| Type-1 verdict from `reversibility-check` (no council at this tier) | `decision/steelman` + `decision/pre-mortem`, then recommend a DECISIONS entry |
+
+LLM fallback is NOT enabled at Starter tier — use the phrase table only.
+
+## References
+- Catalog: <KIT_ROOT>/knowledge-base/KB-05-CONVERSATIONAL-DECISION-ENGINEERING.md §3
+- Per-skill spec: `.cursor/skills/decision/<name>/SKILL.md`

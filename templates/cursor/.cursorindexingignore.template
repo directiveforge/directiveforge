@@ -1,0 +1,35 @@
+# Directories that Cursor should NOT index
+# Prevents context pollution from generated/vendored/binary content
+
+node_modules/
+.next/
+dist/
+build/
+out/
+coverage/
+.turbo/
+.vercel/
+.cache/
+__pycache__/
+.pytest_cache/
+*.pyc
+venv/
+.venv/
+env/
+
+# Large data/asset files
+*.min.js
+*.min.css
+*.map
+*.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Generated code
+*.generated.*
+*.g.dart
+prisma/migrations/
+
+# Research/docs (add project-specific paths below)
+# {{INDEXING_IGNORE_EXTRA}}

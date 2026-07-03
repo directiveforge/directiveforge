@@ -1,0 +1,61 @@
+# Debug Skill
+
+> **Trigger**: Use this skill when encountering a bug, unexpected behavior, test failure, or error that needs systematic investigation.
+
+## Problem Classification
+
+| Type | Approach |
+|------|----------|
+| Runtime error with stack trace | Start at the error, trace upward through call stack |
+| Silent wrong behavior | Add logging, bisect the problem space |
+| Intermittent / flaky | Check for race conditions, stale state, timing dependencies |
+| Performance regression | Profile first, identify hot path, compare before/after |
+| Type error / build failure | Read the full error, check recent changes to involved files |
+
+## Phase 1: Reproduce
+
+1. Get the exact reproduction steps from user or error log
+2. Run: `{{CMD_TEST}}` to confirm failing test (if applicable)
+3. Isolate: can you reproduce with a minimal input or scenario?
+4. Record the exact error message, stack trace, or wrong output
+
+## Phase 2: Investigate
+
+1. Read the failing code and its **direct dependencies** (imports, called functions)
+2. Search for similar patterns: look for the same function/variable across `{{SOURCE_DIR}}/`
+3. Check recent changes: `git log --oneline -10 -- <relevant-path>`
+4. Check `git diff HEAD~3 -- <relevant-path>` for recent modifications
+5. If runtime error: check {{LOG_LOCATION}} for additional context
+
+## Phase 3: Diagnose
+
+1. Form a hypothesis about the root cause (state it explicitly)
+2. Verify with **one** targeted test: add a focused assertion or log statement
+3. If hypothesis is wrong, return to Phase 2 with new information
+4. Check for the same bug pattern in adjacent code (copy-paste bugs, shared utilities)
+
+## Phase 4: Fix
+
+1. Make the **minimal fix** that addresses the root cause — not symptoms
+2. Run: `{{CMD_TEST}}` to confirm the fix resolves the original issue
+3. Run: `{{CMD_TYPECHECK}}` to verify no type regressions
+4. Run: `{{CMD_LINT}}` to verify no lint violations introduced
+5. Search for other occurrences of the same bug pattern across the codebase
+6. If the bug was in a shared utility, check all callers
+
+## Gotchas
+
+- {{DEBUG_GOTCHA_1}}
+- {{DEBUG_GOTCHA_2}}
+<!-- Examples:
+  "State management bugs often have multiple mutation sources -- check all writers, not just the obvious one"
+  "API errors may be masked by catch blocks -- check error boundaries and fallback logic"
+  "Environment-dependent bugs: check .env.local vs .env vs CI environment differences"
+-->
+
+## When NOT to Use
+
+- For feature requests or new functionality (use implementation workflow instead)
+- For performance optimization without a specific regression or measurable problem
+- For code review (use the reviewer agent instead)
+- For refactoring (use refactor skill — refactoring during debugging masks the real issue)

@@ -1,0 +1,13 @@
+{
+  "name": "directiveforge",
+  "displayName": "DirectiveForge",
+  "version": "0.20.0",
+  "description": "Measured decision, naming, and design-elevation skills plus workflow commands from the DirectiveForge kit. Every capability is benchmark-scored — see harness/results/2026-07-03-delta/DELTA.md.",
+  "author": { "name": "Samvel Avagyan", "url": "https://github.com/directiveforge" },
+  "homepage": "https://directiveforge.com",
+  "repository": "https://github.com/directiveforge/directiveforge",
+  "license": "MIT",
+  "keywords": ["decision-engineering", "skills", "workflow", "anti-sycophancy", "naming", "design-review"],
+  "skills": ["./templates/skills/decision", "./templates/skills/naming", "./templates/skills/design"],
+  "commands": ["./plugin/commands"]
+}

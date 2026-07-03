@@ -1,0 +1,23 @@
+{
+  "spec_version": "1.0",
+  "fixture": "brownfield-api",
+  "fixture_sha": "853c653",
+  "models": {
+    "runner": "claude-opus-4-8",
+    "scorers": "claude-opus-4-8",
+    "collector": "claude-sonnet-5",
+    "calibration": "claude-fable-5"
+  },
+  "date": "2026-07-03",
+  "label": "baseline",
+  "workdir": "<RUN_WORKDIR_1>/l2-runs/brownfield-api",
+  "pre_files": 18,
+  "post_files": 57,
+  "l2_5": {
+    "tokens": 328446,
+    "duration_s": 1137,
+    "turns": null,
+    "method": "orchestration-harness per-agent report (includes per-call system context); injected post-run 2026-07-03",
+    "caveat": "single-run, directional"
+  }
+}

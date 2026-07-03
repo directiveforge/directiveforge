@@ -1,0 +1,11 @@
+{
+  "source_slug": "pydantic-ai",
+  "url": "https://github.com/pydantic/pydantic-ai/releases.atom",
+  "fetch_strategy": "rss",
+  "last_fetched_utc": "2026-07-03T04:02:00Z",
+  "last_seen_cursor": "2026-07-03T01:24:57Z",
+  "last_seen_item_hash": "v2.4.0-geval-span-based-evaluators-preserve-file-data-split",
+  "consecutive_empty_scans": 0,
+  "consecutive_failures": 0,
+  "notes": "v2.4.0 (2026-07-03T01:24:57Z, release-label '2026-07-02') ships new evaluator primitives: (1) GEval evaluator ports the GEval pattern (G-Eval: NLG evaluation using LLM with chain-of-thought / form-filling paradigm — evaluator LLM scores generation against rubric with reasoning trace) into pydantic-ai evaluator interface; (2) agentic span-based evaluators consume OpenTelemetry-style spans emitted by agent runs (not only final output), allowing evaluation of intermediate steps + tool calls + reasoning traces. Additionally: preserve_file_data split into security and UI components — security-relevant separation of previously-conflated flag (file-data preservation for security vs UI purposes now distinct config surfaces). Bug fixes span xAI provider, Mistral tool-call, streaming edge cases. Pydantic AI now at 4 releases in 4 days (v2.1.0 06-29, v2.2.0 07-01, v2.3.0 07-02, v2.4.0 07-03) — evaluator-surface evolution acceleration. Kit-recommended pin: pydantic-ai>=2.4.0 for integrators using evaluators; pydantic-ai>=2.0 still fine for non-evaluator paths. Yesterday's belatedly-caught v2.2.0 log-accuracy issue remains flagged; today's v2.4.0 surfaces cleanly — the 07-01 issue was a one-off log-parsing accuracy hiccup, not systemic drift."
+}

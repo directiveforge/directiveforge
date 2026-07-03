@@ -1,0 +1,219 @@
+{
+ "spec_version": "1.1",
+ "layer": 1,
+ "kind": "l1-delta",
+ "date": "2026-07-03",
+ "label": "delta",
+ "out_dir": "<KIT_ROOT>/harness/results/2026-07-03-delta/l1",
+ "channel": "v1.0-single",
+ "batch_k": null,
+ "models": {
+  "author": "none (pre-authored sets reused verbatim)",
+  "router": "claude-haiku-4-5"
+ },
+ "wilson_ci_note": "exact-coverage single-call channel",
+ "equivalence_controls": null,
+ "packs": [
+  {
+   "pack": "decision",
+   "catalog_provided": true,
+   "l12": {
+    "metric": "L1.2",
+    "channel": "v1.0-single",
+    "per_skill": [
+     {
+      "skill": "anti-sycophancy-meta",
+      "TP": 4,
+      "FP": 0,
+      "FN": 1,
+      "positives": 5,
+      "precision": 1,
+      "recall": 0.8,
+      "f1": 0.8889,
+      "confusion": [
+       {
+        "prompt": "anti-sycophancy-meta-p3",
+        "expected": "target",
+        "fired": "steelman"
+       }
+      ]
+     },
+     {
+      "skill": "inversion",
+      "TP": 3,
+      "FP": 0,
+      "FN": 2,
+      "positives": 5,
+      "precision": 1,
+      "recall": 0.6,
+      "f1": 0.75,
+      "confusion": [
+       {
+        "prompt": "inversion-p1",
+        "expected": "target",
+        "fired": "pre-mortem"
+       },
+       {
+        "prompt": "inversion-p2",
+        "expected": "target",
+        "fired": "steelman"
+       }
+      ]
+     }
+    ],
+    "pack_micro": {
+     "TP": 7,
+     "FP": 0,
+     "FN": 3,
+     "precision": 1,
+     "recall": 0.7,
+     "f1": 0.8235
+    },
+    "raw_router_outputs": [
+     {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-p1",
+      "text": "I put together a plan to move our whole team off Jira onto Linear next sprint. Here it is \u2014 tell me honestly, is it any good?",
+      "expected": "target",
+      "fired": "anti-sycophancy-meta"
+     },
+     {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-p2",
+      "text": "Drafted a cold outreach email to a potential investor. Can you look it over and give me your take on whether it lands?",
+      "expected": "target",
+      "fired": "anti-sycophancy-meta"
+     },
+     {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-p3",
+      "text": "I've decided we should drop the free tier entirely and go paid-only. Convince me I'm not making a mistake here.",
+      "expected": "target",
+      "fired": "steelman"
+     },
+     {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-p4",
+      "text": "Thinking of rewriting our billing service in Rust for the performance win. Sound like a smart move to you?",
+      "expected": "target",
+      "fired": "anti-sycophancy-meta"
+     },
+     {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-p5",
+      "text": "Here's my argument for why we should skip a Series A and bootstrap to profitability instead. What's your honest read on it?",
+      "expected": "target",
+      "fired": "anti-sycophancy-meta"
+     },
+     {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-n1",
+      "text": "We're about to launch the new checkout flow Friday. Before we ship, walk me through every way this could blow up on us.",
+      "expected": "other",
+      "fired": "pre-mortem"
+     },
+     {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-n2",
+      "text": "We're at a fork: commit to a multi-year AWS reserved-instance contract, or stay on-demand. Is this the kind of call we can walk back later, and how big a deal is it if we're wrong?",
+      "expected": "other",
+      "fired": "reversibility-check"
+     },
+     {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-n3",
+      "text": "Can you help me figure out the regex to capture everything between two curly braces in a config file, non-greedy?",
+      "expected": "none",
+      "fired": "none"
+     },
+     {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-n4",
+      "text": "What's the population of Yerevan and roughly how far is it from Tbilisi by car?",
+      "expected": "none",
+      "fired": "none"
+     },
+     {
+      "skill": "anti-sycophancy-meta",
+      "id": "anti-sycophancy-meta-n5",
+      "text": "Honestly I'm just feeling stuck and burned out on this project and could use someone to talk it through with \u2014 not looking for anyone to poke holes in it.",
+      "expected": "none",
+      "fired": "none"
+     },
+     {
+      "skill": "inversion",
+      "id": "inversion-p1",
+      "text": "I've decided to bundle onboarding and support into one paid tier for my SaaS. Tell me straight \u2014 does this hold up, or am I about to walk into a wall?",
+      "expected": "target",
+      "fired": "pre-mortem"
+     },
+     {
+      "skill": "inversion",
+      "id": "inversion-p2",
+      "text": "Talk me into shutting down our free plan and going paid-only. I want to hear the case for it before I pull the trigger.",
+      "expected": "target",
+      "fired": "steelman"
+     },
+     {
+      "skill": "inversion",
+      "id": "inversion-p3",
+      "text": "My plan is to migrate the whole team off Slack to a self-hosted chat server this quarter. Poke holes in it and turn every hole into something the plan has to handle.",
+      "expected": "target",
+      "fired": "inversion"
+     },
+     {
+      "skill": "inversion",
+      "id": "inversion-p4",
+      "text": "I'm set on raising our seed round at a $12M cap. Give me the list of what would have to be true for this to blow up, so I can make sure I've closed each one off.",
+      "expected": "target",
+      "fired": "inversion"
+     },
+     {
+      "skill": "inversion",
+      "id": "inversion-p5",
+      "text": "We're going to open a second warehouse in Poland to cut EU shipping times. Assume you were trying to sabotage this \u2014 what would you exploit, and what does that tell me I need to lock down?",
+      "expected": "target",
+      "fired": "inversion"
+     },
+     {
+      "skill": "inversion",
+      "id": "inversion-n1",
+      "text": "We ship the new checkout flow to production Friday. Before it goes live, walk me through the ways this ends up as a disaster three months from now and how likely each one is.",
+      "expected": "other",
+      "fired": "pre-mortem"
+     },
+     {
+      "skill": "inversion",
+      "id": "inversion-n2",
+      "text": "I believe remote-first is strictly better than hybrid for our engineering org. Build the strongest possible argument for the opposite view and hold it against me even if I push back.",
+      "expected": "other",
+      "fired": "steelman"
+     },
+     {
+      "skill": "inversion",
+      "id": "inversion-n3",
+      "text": "My Postgres query that joins orders to line_items runs fine on staging but times out in prod. Can you help me figure out why and rewrite it?",
+      "expected": "none",
+      "fired": "none"
+     },
+     {
+      "skill": "inversion",
+      "id": "inversion-n4",
+      "text": "Can you give me a weeknight recipe for salmon that uses miso and takes under thirty minutes?",
+      "expected": "none",
+      "fired": "none"
+     },
+     {
+      "skill": "inversion",
+      "id": "inversion-n5",
+      "text": "I'm still figuring out how to grow our newsletter \u2014 spin up a bunch of different directions we could take, from referral loops to niche partnerships, so I have options to look at.",
+      "expected": "none",
+      "fired": "none"
+     }
+    ],
+    "pack": "decision",
+    "spec_version": "1.1"
+   }
+  }
+ ]
+}

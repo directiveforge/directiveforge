@@ -1,0 +1,108 @@
+{
+  "metric": "L1.4",
+  "pack": "design",
+  "spec_version": "1.0",
+  "judge": "claude-opus-4-8",
+  "n": 4,
+  "per_dimension_mean": {
+    "actionability": 5,
+    "scope_calibration": 4.5,
+    "failure_content_quality": 5,
+    "constraint_explicitness": 5
+  },
+  "overall_mean": 4.875,
+  "artifacts": [
+    {
+      "artifact": "design/design-architect",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "3. **Fan out critics** — one per section of the surface + cross-cutting critics (typography/rhythm, motion, CRO, a11y, perf). **Batch ≤3-4 agents at a time**, sequential batches — a large parallel burst trips server-side rate limits."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "6. **Hand off**: the list goes to `design-engineer` verbatim; the merge-gate is `design-reviewer`. Scale rigor to the ask — \"find issues\" → few critics; \"best-in-world / exhaustive\" → larger pool + synthesis + adversarial verify."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **Critics not told the locks propose lock-breaking changes** — then the whole pass gets discarded at the gate. Locks go in every critic prompt, not just the synthesis."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "- **No decision spine exists** — author `docs/design/DESIGN-SPINE.md` from the kit template first; a critique without locks produces lock-breaking findings."
+        }
+      },
+      "notes": "Score-5 across all 4 dims: concrete numbered Procedure with checkable batch/rate-limit constraints; produces its own implementNow list (not an orchestrator-style skill despite naming sibling skills); 3 Gotchas + 3 Anti-patterns each with specific failure+fix; explicit When-NOT with named routes (author spine first / normal fix loop). Not generic — the \"competent is a failure\" and \"Batch ≤3-4 agents\" specifics exceed the score-3 well-formed-but-generic bar."
+    },
+    {
+      "artifact": "design/design-engineer",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "1. **Take the list verbatim.** Each finding is a work item; nothing outside the list gets touched."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "Chain: `design-architect` → `design-engineer` → `design-reviewer`, orchestrated by `elevation-workflow`"
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **The ≥2× extraction rule cuts both ways**: extracting a primitive for a one-off job adds abstraction cost with no reuse payoff — wait for the second occurrence."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "- **No implementNow list exists** — run `design-architect` first; implementing from a raw critique or a verbal wish re-opens the taste-poll failure mode."
+        }
+      },
+      "notes": "Genuine doer-skill: 6 concrete numbered steps, single crisp job routing out to design-architect (not an orchestrator), 3 specific Anti-patterns + 3 specific Gotchas, and a named-route When-NOT. Non-generic on every dimension; 5s justified under no-inflation rule."
+    },
+    {
+      "artifact": "design/design-reviewer",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "1. **Motion claims → measure the transform.** Read the actual `transform` (or a `getBoundingClientRect` delta) across scroll positions in the REAL browser."
+        },
+        "scope_calibration": {
+          "score": 5,
+          "evidence": "- **Non-visual changes** (pure logic, data, docs) — the generic reviewer + verifier cover those; this gate adds nothing."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **The pre-scroll-frame trap**: devtools reads taken synchronously after a programmatic scroll return the previous frame — always rAF×2 + timeout before reading."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "## When NOT to use\n\n- **Non-visual changes** (pure logic, data, docs) — the generic reviewer + verifier cover those; this gate adds nothing."
+        }
+      },
+      "notes": "Every Procedure step is a concrete measurable DO/DON'T with checkable outcome; distinct Anti-patterns and Gotchas sections each name a specific failure+fix; numbered Procedure plus explicit When-NOT with named sibling routes. Does the measuring itself (not orchestrator-style); the chain reference at the tail is a pointer, not a dispatch."
+    },
+    {
+      "artifact": "design/elevation-workflow",
+      "class": "skill",
+      "scores": {
+        "actionability": {
+          "score": 5,
+          "evidence": "5. **Gate** — run `design-reviewer`: the measuring gate (transforms, computed styles at breakpoints, CLS, axe + Lighthouse on the prod build, reduced-motion, lock-literal grep) + the generic correctness reviewer."
+        },
+        "scope_calibration": {
+          "score": 3,
+          "evidence": "One complete, evidence-grounded elevation pass over a named surface: critique → synthesis → implementation → measured gate — ending with the measured live outcome presented for owner sign-off."
+        },
+        "failure_content_quality": {
+          "score": 5,
+          "evidence": "- **Rate-limit messages ≠ your quota** — \"temporarily limiting requests\" is server-side pressure from the burst pattern; the fix is batching, not waiting."
+        },
+        "constraint_explicitness": {
+          "score": 5,
+          "evidence": "- **A single finding or bug** — use the fix loop or `design-reviewer` alone; the full workflow is overhead."
+        }
+      },
+      "notes": "Scope calibration held at 3 (not 1): the \"Orchestrator-style skill\" defect fits on its face — the Procedure dispatches design-architect (step 2), design-engineer (step 4), design-reviewer (step 5), i.e. ≥2 sibling skills — but it is NOT a score-1 pure orchestrator because it does substantive first-party work itself (step 3 synthesis: dedupe/rank into implementNow; step 6 honest coverage declaration; step 7 DECISIONS lock + spine gotchas). It bleeds into siblings' territory (the score-3 anchor: \"Does one job but bleeds into a sibling's territory\"). When-NOT (l.56-59) routes out cleanly to design-reviewer and names back-end surfaces, supporting constraint_explicitness=5 alongside the numbered Procedure (l.22-31)."
+    }
+  ]
+}

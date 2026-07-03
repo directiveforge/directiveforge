@@ -1,0 +1,382 @@
+{
+  "manifest_version": 1,
+  "origin": "generated",
+  "kit_version": "0.18.0-H",
+  "kit_path": "<KIT_ROOT>",
+  "generated_date": "2026-07-03T13:19:23Z",
+  "project_name": "Trailhead Collective \u2014 Operations Repository",
+  "maturity_tier": "Intermediate",
+  "ide_scope": [
+    "claude-code"
+  ],
+  "presets": [
+    "docs-ops"
+  ],
+  "packs": [
+    "kb-04",
+    "kb-05-blocker",
+    "kb-05-high"
+  ],
+  "placeholders": {
+    "PROJECT_NAME": "Trailhead Collective \u2014 Operations Repository",
+    "AI_KIT_PATH": "<KIT_ROOT>",
+    "PRESET_FILE": "docs-ops.md",
+    "DECISIONS_LEDGER": "governance/DECISIONS.md",
+    "DECISIONS_ENTRY_REGEX": "^## D",
+    "BASE_BRANCH": "n/a (no git)",
+    "MAX_THINKING_TOKENS": "10000",
+    "AUTOCOMPACT_PCT": "50"
+  },
+  "files": [
+    {
+      "path": "CLAUDE.md",
+      "sha256": "2e4257fff4906ff7cdaa37eacd60b3ab1f3a0faf6895a528df59aeece6bcf6ae",
+      "class": "context",
+      "disposition": "merged-existing",
+      "template": null,
+      "template_sha256": null,
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "16a9cbb524ad1a9b728fb30a01f49a89f4274c76495ad1ac065ed475fef59bc4",
+      "class": "context",
+      "disposition": "created",
+      "template": "templates/shared/AGENTS.md.template",
+      "template_sha256": "44097f1d343d3250d1c341b99db9f8eec46528205088962411f69c75b0adb3d0",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": "governance/DECISIONS.md",
+      "sha256": "2bc6ea9ee20d62477042e4e0c24c71736c7f35260824c1eec1cc45cc557c10e0",
+      "class": "ledger",
+      "disposition": "merged-existing",
+      "template": null,
+      "template_sha256": null,
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": "PRE-EXISTING-MODIFIED.txt",
+      "sha256": "2a87fc16b9a42526a00ff676a10552b3e1355d1c4424f4b73d7c766062171a27",
+      "class": "doc",
+      "disposition": "created",
+      "template": null,
+      "template_sha256": null,
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".mcp.json",
+      "sha256": "d8e397af03b5b032f21d0aa967086f0c78b33c87b76f2e9898ae0a144df7de02",
+      "class": "mcp-config",
+      "disposition": "created",
+      "template": "templates/claude-code/mcp.json.template",
+      "template_sha256": "c4187e9f50df5d94fbc1c1b80dd7a92e8e27b9b53309d823bdce96429f37cfbd",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".mcp.annotations.md",
+      "sha256": "0a1c19f1adbe736cf628bda7145459029a059cef420bfeba8bc6da558cff79d3",
+      "class": "mcp-config",
+      "disposition": "created",
+      "template": "templates/shared/mcp-annotations.md.template",
+      "template_sha256": "f493c26302f273b7e9fc3e632a86a8eaeea4c0e2da698d884362745a81541c77",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/settings.json",
+      "sha256": "adc3984621c4033e14fc327ce8d5f5eae8499c662f56ecc2b1ce9f304e95ec50",
+      "class": "config",
+      "disposition": "created",
+      "template": "templates/claude-code/settings.json.template",
+      "template_sha256": "2ef1a153e7cdf8572c4709646a33183ed86601d150142875a476f8552bf2179a",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/rules/base.md",
+      "sha256": "46db6c62135b2669eb60a03e68bdea8741ae2af786d7d66084e9bf51895c9724",
+      "class": "rule",
+      "disposition": "created",
+      "template": "templates/claude-code/rules/base.md.template",
+      "template_sha256": "cf61fc942049bfbcc62e00ca9726b409856342e3f5f363eeb395930368d72b79",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/rules/quality-gates.md",
+      "sha256": "e5552d0d5d0653d507e373dc64dd41584154b02193ce247a7c285a102159aaaf",
+      "class": "rule",
+      "disposition": "created",
+      "template": "templates/claude-code/rules/quality-gates.md.template",
+      "template_sha256": "33618e151b4e8b17eb6e39e339937a5f3fa23b12bc518234d4557f509118fa3f",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/rules/corpus-conventions.md",
+      "sha256": "b3641bac91f283b4b85f3c40081f13d8afae782e0a0328189a8338dcd2f13c81",
+      "class": "rule",
+      "disposition": "created",
+      "template": null,
+      "template_sha256": null,
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/rules/decision-skills.md",
+      "sha256": "6844a173881bcbc23871dac2e699bcbdbd8520ac3a2be9bcdd9cfa2b386712a5",
+      "class": "rule",
+      "disposition": "created",
+      "template": null,
+      "template_sha256": null,
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/rules/research.md",
+      "sha256": "b5b9a40b371cbd56adb727bbb8468140992dccffa38a16f8fe40d394bb391c40",
+      "class": "rule",
+      "disposition": "created",
+      "template": "templates/claude-code/rules/research.md.template",
+      "template_sha256": "e31e4ca4f328674050d84f9c04ba9586b45f5ee9524305bf05df003317ba7fb7",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/rules/orchestrator-dispatch.md",
+      "sha256": "2fdc5780afa3b9dcc7e34a1adffb4617cc481ba0d205909f63761c8696f8b215",
+      "class": "rule",
+      "disposition": "created",
+      "template": "templates/claude-code/rules/orchestrator-dispatch.md.template",
+      "template_sha256": "21b84dda9a5ac165f59a87f802a4dae9b9e4a2100455c342b9e352468bf573b3",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/scripts/check-links.py",
+      "sha256": "58cf1af84d508d440f0c4c64a94656d3eff6c7b50059d537ab82ac5cb95d47e4",
+      "class": "config",
+      "disposition": "created",
+      "template": null,
+      "template_sha256": null,
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/agents/reviewer.md",
+      "sha256": "07b3f0b8dd7d01e1f667212b49e3e3e74e75987f0f9617693698fb83578c8df0",
+      "class": "agent",
+      "disposition": "created",
+      "template": "templates/claude-code/agents/reviewer.md.template",
+      "template_sha256": "0dab36310fda6d37427224478887aa4ad6b215f47227f36bba54bbf6fce7116d",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/agents/simplifier.md",
+      "sha256": "ffeeea886b1f4c6a87c470acd16c78bdfdca8579a0c07f0702f64122fc74bece",
+      "class": "agent",
+      "disposition": "created",
+      "template": "templates/claude-code/agents/simplifier.md.template",
+      "template_sha256": "83c00c594d1d071bea13d7f3633cef832a41017390de9ea0fe11d066b16ef1b1",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/agents/verifier.md",
+      "sha256": "19d74efbf708a8ed92e468aa60187f06b3f97b2ea3c8f7965c636c6022b917bd",
+      "class": "agent",
+      "disposition": "created",
+      "template": "templates/claude-code/agents/verifier.md.template",
+      "template_sha256": "0bcc3b8b44ed45b876ade3851d6dcdaf279ab62525cfc5b0bf750c3887963133",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/commands/review-pr.md",
+      "sha256": "b38bd5cac97c0ec26939a1e62ba54d4c3cc305bfb5bf957ae8e7e2c251ffe9d3",
+      "class": "command",
+      "disposition": "created",
+      "template": "templates/claude-code/commands/review-pr.md.template",
+      "template_sha256": "c5b2fcf7668c9f3f9913f0313cae45afcf015ab0aa6acbfc43813756fe05ec9b",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/commands/update-context.md",
+      "sha256": "606af9a27b63ec1d8a4e86b9750616e1f70faaf4c872333347be4fb369e9346e",
+      "class": "command",
+      "disposition": "created",
+      "template": "templates/claude-code/commands/update-context.md.template",
+      "template_sha256": "d643ab05253ef0c5495d2f50fde96ca49986f98b6ac8bb8fedaa43fe6e187d27",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/commands/discover-mcp.md",
+      "sha256": "4496db68f3944904820320dd629a5fe770efe29b52c27aee605d33aff6834984",
+      "class": "command",
+      "disposition": "created",
+      "template": "templates/claude-code/commands/discover-mcp.md.template",
+      "template_sha256": "a5eb5d8ac62ef132d767b3a64236dd6a2214b891e205163fd918e242b9388316",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/commands/security-review.md",
+      "sha256": "f6e0f43fe881a2d98408b5f89f8a65644b0d50692c5e0410c46d7ae6d7550b0c",
+      "class": "command",
+      "disposition": "created",
+      "template": "templates/claude-code/commands/security-review.md.template",
+      "template_sha256": "0ba50d4abc4c63843bac834e4efe72f110eb1bd306b46730f8d57e77643d56e1",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/commands/tech-debt.md",
+      "sha256": "8fede659e1b9924f3544d877d21bb35011f197abe8751e96009483a491786236",
+      "class": "command",
+      "disposition": "created",
+      "template": "templates/claude-code/commands/tech-debt.md.template",
+      "template_sha256": "164ae80e68f367835c504da7e494f7ccb6d9db3a9e7867debb9bf4928f75d1d4",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/commands/workflow-help.md",
+      "sha256": "1ae21f8cb48e4dd2b510ffac5856c1081dfed3858e8b31a5c62f15d0130dc483",
+      "class": "command",
+      "disposition": "created",
+      "template": "templates/claude-code/commands/workflow-help.md.template",
+      "template_sha256": "170fb6cf9b4dcee918945fe9dc1d3354d0de04d800f26b9385c3371aa3d8256b",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/commands/status.md",
+      "sha256": "891a47364acb749613c61cfda0cf6bff5b8a1f45ccbe6cc6607fca1e072bbab9",
+      "class": "command",
+      "disposition": "created",
+      "template": "templates/claude-code/commands/status.md.template",
+      "template_sha256": "1d0d2c6cd630e63448e71bd84f6b4cfd4b3b2396491ae646fb0e30847725b413",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/skills/decision/pre-mortem/SKILL.md",
+      "sha256": "16c055783955111b776ad512b6cad7f24e6bdf130e766cbe5aae69b576fb66ea",
+      "class": "skill",
+      "disposition": "created",
+      "template": "templates/skills/decision/pre-mortem/SKILL.md",
+      "template_sha256": "232de935dae2edc4eea476efe9e69592655eb85f07dc7e699448b9a87d90d8d0",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/skills/decision/steelman/SKILL.md",
+      "sha256": "92c7b70513e8c88089966b546aea1e4483b84d6ce7985463d52a1483669dfbe1",
+      "class": "skill",
+      "disposition": "created",
+      "template": "templates/skills/decision/steelman/SKILL.md",
+      "template_sha256": "92c7b70513e8c88089966b546aea1e4483b84d6ce7985463d52a1483669dfbe1",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/skills/decision/confidence-calibration/SKILL.md",
+      "sha256": "a3476dc341832425196a9d3035b55f788ca77d304e2aa0684dc43a5bf7c06245",
+      "class": "skill",
+      "disposition": "created",
+      "template": "templates/skills/decision/confidence-calibration/SKILL.md",
+      "template_sha256": "bf736f2dd1a5e1badf0e8e39a059d53a46b830448bb4ac55190fe5ffd5ddb7d6",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/skills/decision/reversibility-check/SKILL.md",
+      "sha256": "7f6162d5ea647dc285e08ebe59b63373c9a0094997c424aad314eea7142fcc28",
+      "class": "skill",
+      "disposition": "created",
+      "template": "templates/skills/decision/reversibility-check/SKILL.md",
+      "template_sha256": "d0639603c4d20243cb6aa09922545f57ff5cfeeb5ae50f627c3067616787e7a6",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/skills/decision/anti-sycophancy-meta/SKILL.md",
+      "sha256": "484ab5df9c07273d7aeba0973377cece816fa79bf29f4ed0d7a95acd5fc51684",
+      "class": "skill",
+      "disposition": "created",
+      "template": "templates/skills/decision/anti-sycophancy-meta/SKILL.md",
+      "template_sha256": "3b544e50da4b2e5eb019a4344fc328ee18adab4edbd2cbeb9fad26b5a4766241",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/skills/decision/inversion/SKILL.md",
+      "sha256": "b85ea48345dae10c8a3051239888da6c25930bb6b3d7fa17b7f1b3ac1feb5af0",
+      "class": "skill",
+      "disposition": "created",
+      "template": "templates/skills/decision/inversion/SKILL.md",
+      "template_sha256": "ebb94f1e10a474b615674d47ce2c3642deaeedb9e286c3fc16df93bd9db062e3",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/skills/decision/second-order-thinking/SKILL.md",
+      "sha256": "5d5ff8aec33dbc700a28c7f84599dfea4d4349f58f1518b5051cbd2d7f6ea383",
+      "class": "skill",
+      "disposition": "created",
+      "template": "templates/skills/decision/second-order-thinking/SKILL.md",
+      "template_sha256": "054ad6a2b2d765dc92bf6d8699f295d3495e7765c532779acc8bd12e67f13244",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/skills/decision/disconfirming-evidence-first/SKILL.md",
+      "sha256": "535b508c0b6f56d277892076b92fad0fc407c543af52f0eb18efe5d449ac99c1",
+      "class": "skill",
+      "disposition": "created",
+      "template": "templates/skills/decision/disconfirming-evidence-first/SKILL.md",
+      "template_sha256": "fd8d3d07c8535630f891d9effee372062cef443843373d3976d584b9e14d7d2a",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/skills/research-prompt-writer/SKILL.md",
+      "sha256": "6b585694be92f09df6c6bb5bcd1f074afd07ca9ec74f98c6aa160383263e9360",
+      "class": "skill",
+      "disposition": "created",
+      "template": "templates/cursor/skills/research-prompt-writer.SKILL.md.template",
+      "template_sha256": "1d2239d488d7cfd5c4662b4c87184f53f6b23f80606d78e0dd73bf07c9bb30d7",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": ".claude/skills/research-synthesizer/SKILL.md",
+      "sha256": "0a8ad000f438e7fed1b6fa001ea879ea07d24130840b36b7063a5ca3e6d38308",
+      "class": "skill",
+      "disposition": "created",
+      "template": "templates/cursor/skills/research-synthesizer.SKILL.md.template",
+      "template_sha256": "ff2b2015871e733fc00cd40b37b2500890e0bec62b3c3a528176cb291518cb99",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    },
+    {
+      "path": "docs/prompts/ARCHITECT_PROMPT.template.md",
+      "sha256": "9ddc62faf083176c7b6e3ad4718c0a469e81e12ad1f1865a45152cb1fc1c27cb",
+      "class": "doc",
+      "disposition": "created",
+      "template": "templates/shared/ARCHITECT_PROMPT.md.template",
+      "template_sha256": "b91faa2a1274b5d5a0919cd9fe3a83224169122b2a144c8b5a51d9ef2e079684",
+      "kit_version": "0.18.0-H",
+      "owner_customized": false
+    }
+  ]
+}

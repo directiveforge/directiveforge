@@ -1,0 +1,66 @@
+# MCP & Config Annotations — {{PROJECT_NAME}}
+
+> Companion to `.mcp.json` and `.cursor/mcp.json` (and `.claude/settings.json`).
+> Strict JSON cannot carry comments — JSONC `//` comments break MCP loading in both
+> Claude Code and Cursor (field-confirmed across 2 validation runs). Every server's
+> security posture and rationale lives HERE instead of inline. VALIDATION_CHECKLIST §7
+> accepts an entry in this file in place of an inline comment.
+
+## Active servers
+
+### github — remote HTTP (`https://api.githubcopilot.com/mcp/`)
+
+- **Posture**: RW (repos, issues, PRs, code search — 51 tools) via OAuth browser consent; no PAT env var to manage; lockdown mode available against prompt injection
+- **Add when**: project is on GitHub and agents need PR/issue access
+- **Skip when**: air-gapped (fall back to `gh` CLI via Bash) — see `{{AI_KIT_PATH}}/knowledge-base/MCP-SERVER-REGISTRY.md`
+
+### context7 — `@upstash/context7-mcp@{{CONTEXT7_MCP_VERSION}}` (npm, pinned)
+
+- **Posture**: RO — fetches public documentation only; no credentials
+- **Add when**: always — prevents outdated-API hallucinations for {{PRIMARY_FRAMEWORK}} and deps
+- **Skip when**: fully offline environments
+
+## Optional servers (copy-ready — paste into BOTH configs if Cursor is in scope, then annotate here)
+
+### Database ({{DB_TYPE}})
+
+- **Posture**: read-only preferred; credentials via `${{{DB_URL_ENV_VAR}}}` — never literal values
+- **Add when**: agents need schema inspection or query debugging
+
+```json
+"{{DB_MCP_SERVER_NAME}}": {
+  "command": "npx",
+  "args": ["-y", "{{DB_MCP_PACKAGE}}@{{DB_MCP_VERSION}}"],
+  "env": {
+    "{{DB_URL_ENV_VAR}}": "${{{DB_URL_ENV_VAR}}}"
+  }
+}
+```
+
+### Playwright (E2E / browser automation)
+
+- **Posture**: RW, local browser only, no credentials
+- **Add when**: project has E2E tests or requires browser automation
+
+```json
+"playwright": {
+  "command": "npx",
+  "args": ["-y", "@playwright/mcp@{{PLAYWRIGHT_MCP_VERSION}}"]
+}
+```
+
+## Security protocol
+
+- Pin npm/stdio server versions (`@x.y.z`, never `@latest`); remote HTTP servers are version-managed upstream
+- `${ENV_VAR}` for every credential — literal values in config are a checklist §5 failure
+- After any MCP config change: `uvx snyk-agent-scan@latest` (full verdict needs `SNYK_TOKEN`)
+- Registry of vetted servers + postures: `{{AI_KIT_PATH}}/knowledge-base/MCP-SERVER-REGISTRY.md`
+
+## Appendix — `.claude/settings.json` levers
+
+Semantics per `{{AI_KIT_PATH}}/workflows/WORKFLOW-CLAUDE-CODE.md` §7.4 / §7.5 / §11.3 (env vars verified 2026-07-02):
+
+- `MAX_THINKING_TOKENS` — cap ~10000 for routine work; `0` disables thinking entirely
+- `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` — `50` for long sessions; compacts before the quality cliff
+- `CLAUDE_CODE_SUBAGENT_MODEL` — `haiku` routes mechanical subagents cheap; **omit the key** for inherit (v2.1.196+)
+- Hook `PostToolUse Write|Edit` → format-on-write ({{FORMAT_ON_WRITE_CMD}}); permissions: pre-allow safe (git reads, build, lint, test), deny destructive (force-push, hard reset, `.env` reads)

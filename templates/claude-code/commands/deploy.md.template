@@ -1,0 +1,71 @@
+# Deploy
+
+Run pre-deployment checks and deploy {{PROJECT_NAME}} to the specified environment.
+
+## Usage
+
+```
+/deploy [staging|production]
+```
+
+Default: `staging`
+
+## Pre-flight Checks
+
+Run ALL of these. Stop and report if any fail — do not proceed to deploy.
+
+```bash
+{{CMD_TEST}}         # All tests must pass
+{{CMD_TYPECHECK}}    # No type errors
+{{CMD_LINT}}         # No lint errors
+{{CMD_BUILD}}        # Build must succeed
+```
+
+{{EXTRA_PREFLIGHT}}
+<!-- EXTRA_PREFLIGHT example: "Also run: pnpm migrate:check # verify no pending migrations" -->
+
+## Deploy to Staging
+
+```bash
+{{CMD_DEPLOY_STAGING}}
+```
+
+Wait for: {{STAGING_SUCCESS_SIGNAL}}
+<!-- Example: "Vercel deployment URL in output — open and verify /api/health returns 200" -->
+
+Verify: `curl {{STAGING_HEALTH_URL}}`
+
+## Deploy to Production
+
+**Requires confirmation before proceeding.**
+
+Confirm: "I want to deploy to production" before running:
+
+```bash
+{{CMD_DEPLOY_PROD}}
+```
+
+Wait for: {{PROD_SUCCESS_SIGNAL}}
+
+Verify: `curl {{PROD_HEALTH_URL}}`
+
+## Rollback
+
+If production verify fails:
+
+```bash
+{{CMD_ROLLBACK}}
+```
+
+{{ROLLBACK_NOTE}}
+<!-- Example: "Rollback reverts code only — if migration ran, contact DBA for manual rollback" -->
+
+## Report
+
+After deployment, output:
+```
+Deployed: {{PROJECT_NAME}} → [environment]
+Version: [git SHA or tag]
+Status: [healthy / degraded]
+URL: [environment URL]
+```

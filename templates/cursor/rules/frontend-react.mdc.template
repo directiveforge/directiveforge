@@ -1,0 +1,36 @@
+---
+description: "React/Next.js component and styling conventions"
+globs: ["{{FRONTEND_GLOB}}", "!**/*.test.*", "!**/*.spec.*"]
+alwaysApply: false
+---
+# Frontend — React / {{FRAMEWORK_VERSION}}
+
+## COMPONENT RULES
+- DO: Functional components with hooks only — NEVER class components
+- DO: Place components in `{{COMPONENTS_DIR}}/` — one component per file
+- DO: {{EXPORT_PATTERN}} — `export {{EXPORT_STYLE}} function ComponentName`
+- DO NOT: Use `any` type — define explicit prop interfaces
+
+## ROUTING ({{ROUTING_PATTERN}})
+- Routes live in `{{ROUTES_DIR}}/`
+- {{ROUTING_NOTE}}
+<!-- ROUTING_NOTE example: "Use server components by default; add 'use client' only when needing interactivity" -->
+
+## STYLING ({{STYLING_SYSTEM}})
+- DO: {{STYLING_RULE}}
+<!-- STYLING_RULE example for Tailwind: "Use Tailwind utility classes — no inline styles, no CSS Modules for new components" -->
+- DO: Follow existing class ordering: {{CLASS_ORDER}}
+<!-- CLASS_ORDER example: "layout → spacing → typography → color → state" -->
+
+## DATA FETCHING
+- Pattern: {{DATA_FETCH_PATTERN}}
+<!-- DATA_FETCH_PATTERN example: "Server components for static data; React Query for client-side mutations" -->
+- NEVER fetch in deeply nested components — lift to route level or use {{STATE_LIBRARY}}
+
+## STATE MANAGEMENT
+- Local state: `useState` / `useReducer`
+- Global/shared state: {{STATE_LIBRARY}}
+- Server state: {{SERVER_STATE_LIBRARY}}
+
+## AFTER EVERY CHANGE
+Run: `{{CMD_TYPECHECK}}` then `{{CMD_LINT}}`
