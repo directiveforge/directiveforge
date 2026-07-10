@@ -2,10 +2,10 @@
   "source_slug": "anthropic-cookbook",
   "url": "https://github.com/anthropics/anthropic-cookbook/commits/main.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-03T04:02:00Z",
-  "last_seen_cursor": "2026-07-02T15:45:30Z",
-  "last_seen_item_hash": "3393bdae-rag-classification-usage-tier-naming",
-  "consecutive_empty_scans": 0,
+  "last_fetched_utc": "2026-07-10T04:00:00Z",
+  "last_seen_cursor": "2026-07-06T19:51:59Z",
+  "last_seen_item_hash": "7aaa17fa-merge-pr754-coordinator-pattern-cost-plan-big-execute-small",
+  "consecutive_empty_scans": 3,
   "consecutive_failures": 0,
-  "notes": "Commit 3393bdae fix(rag,classification): update rate-limit tier references to usage-tier naming (PR #752). Rename-only cleanup follow-on to Anthropic platform-side rename of 'rate-limit tier' to 'usage tier'. Not currently kit-named. Cadence-normal follow-on to 06-30 roadtrip_planner + agentic-search benchmark spike."
+  "notes": "Third empty day. ~78 hours since PR #754 merge (07-06 19:51:59Z coordinator-pattern cost cookbook). Coordinator-with-tier-decomposition citation slots remain open. Contextually reinforced by 07-08 UST-Anthropic enterprise partnership + 07-10 Bernanke LTBT Anthropic-organizational-legitimacy-and-oversight-adjacent Enterprise-adoption arc."
 }

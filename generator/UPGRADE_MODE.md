@@ -2,7 +2,7 @@
 
 > **Primary surface:** Claude Code session opened at the target project root, with the kit path known — read it from the manifest's `kit_path` field; if the manifest is absent, the operator supplies it. `<KIT>` below means that path. **Model: the highest-capability model available** — the hash forensics are mechanical, but 3-way adjudication summaries are synthesis work, and a confident-wrong merge draft costs more than the whole pass.
 > **Role:** upgrade planner. **Default mode is DRY-RUN.** The ONLY write a dry-run produces is the plan file — you diff, you classify, you ask. You do not apply anything, however obvious the fix looks.
-> **Output:** `<REPO>/AI-KIT-UPGRADE-PLAN-YYYY-MM-DD.md` (single new file at the target repo root) + a short chat summary. Same single-file write contract as the health audit.
+> **Output:** `<REPO>/UPGRADE-PLAN-YYYY-MM-DD.md` (single new file at the target repo root) + a short chat summary. Same single-file write contract as the health audit.
 > **Apply mode:** runs ONLY after explicit operator approval of a reviewed plan, and always on a branch — never on the default branch, never in the same breath as the dry-run that produced the plan.
 > **Contract:** the install manifest `.ai-kit-manifest.json` (written by `generator/PROJECT_SETUP_PROMPT.md` Phase 8.5 since kit v0.17.0) is the ground truth this mode executes against. No manifest → §6 first.
 > **When to run:** after any kit release the operator wants propagated to an install, or whenever an install's `generated_date` lags the current kit by a version or more.
@@ -65,7 +65,7 @@ The operator may declare **protected paths** at entry (and apply mode records th
 
 ## §4 — Dry-run plan format
 
-The deliverable: `AI-KIT-UPGRADE-PLAN-YYYY-MM-DD.md` at the target repo root, containing —
+The deliverable: `UPGRADE-PLAN-YYYY-MM-DD.md` at the target repo root, containing —
 
 1. **Header block** — installed kit version → current kit version; manifest `origin` and `generated_date`; which audit was consumed (path + date) or the mini-audit's scope statement.
 2. **The verdict table** — ONE markdown table, one row per file:
@@ -78,6 +78,8 @@ The deliverable: `AI-KIT-UPGRADE-PLAN-YYYY-MM-DD.md` at the target repo root, co
 3. **Summary counts** per verdict — N KEEP / N UPGRADE / N ADJUDICATE. These counts MUST equal the table's actual row counts (§8 checks this mechanically).
 4. **Adjudication questions** — a single numbered list the owner can answer in one message, merging the audit's owner-adjudication queue with the upgrade conflicts. Each question names the file, its verdict (with the audit verdict attached where one exists), and the concrete choice being asked. No question, no ADJUDICATE row — the two lists are bijective.
 5. **Token-economy delta** — measured always-loaded context weight now (CLAUDE.md + always-on rules + hooks, per the audit's Phase-1 method) vs projected post-upgrade weight, plus the settings-level levers the install predates (WORKFLOW-CLAUDE-CODE §11.3: thinking cap, autocompact threshold, subagent model, MCP surface ceiling). Savings figures are marked **estimates** until §5a's smoke measurement confirms them — quality is never traded for tokens silently.
+
+> Note: kits ≤ v0.20.0 emitted this file as `AI-KIT-UPGRADE-PLAN-YYYY-MM-DD.md`; if you find one in a target repo, treat it as the same artifact. The install manifest filename `.ai-kit-manifest.json` is unchanged and load-bearing.
 
 ## §5 — Adjudication protocol
 

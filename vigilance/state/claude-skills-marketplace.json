@@ -1,10 +1,10 @@
 {
   "source_slug": "claude-skills-marketplace",
   "fetch_strategy": "scrape (verify URL at first scan)",
-  "last_fetched_utc": "2026-07-03T04:02:00Z",
+  "last_fetched_utc": "2026-07-10T04:00:00Z",
   "last_seen_cursor": null,
   "last_seen_item_hash": null,
   "consecutive_empty_scans": 0,
-  "consecutive_failures": 31,
+  "consecutive_failures": 37,
   "note": "JS-rendered SPA shell after 301 redirect; demoted status persists"
 }

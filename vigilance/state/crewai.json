@@ -2,10 +2,10 @@
   "source_slug": "crewai",
   "url": "https://github.com/crewAIInc/crewAI/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-03T04:02:00Z",
-  "last_seen_cursor": "2026-07-01T22:15:05Z",
-  "last_seen_item_hash": "1.15.2a2-bedrock-async-flow-agent-docs",
-  "consecutive_empty_scans": 1,
+  "last_fetched_utc": "2026-07-10T04:00:00Z",
+  "last_seen_cursor": "2026-07-08T02:05:22Z",
+  "last_seen_item_hash": "1.15.2-ga-flow-inline-skill-model-catalog-security",
+  "consecutive_empty_scans": 2,
   "consecutive_failures": 0,
-  "notes": "1.15.2a2 alpha continues the 1.15.2a track (a1 06-30, a2 07-01). Adds Bedrock async support (parallels today's Claude Code v2.1.198 AWS-gateway signal — cross-framework AWS momentum in 24-hour window) + flow-agent documentation + self-listening-method fixes. Production-vs-paper filter: alpha; kit-recommended pin stays at crewai>=1.15.1 until 1.15.2 GA. Aggregation candidate for Weekly Synthesis 2026-27."
+  "notes": "Second empty day post-1.15.2 GA. ~50 hours since 1.15.2 GA (07-08 02:05:22Z). Kit-recommended pin locked at crewai>=1.15.2."
 }

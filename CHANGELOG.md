@@ -39,6 +39,13 @@ The Public Launch Release. Executes the v0.20.0 launch architect prompt (private
 - **Budgets held**: measured subagent spend **≈1.62M tokens** across 17 subagent runs / 15 orchestration invocations (caps: ≤5M / ≤80); naming web-research **224k** (≤1M). Per-tier (measured): Opus-designated ≈1.05M, Haiku smokes ≈0.11M, default-routed exploration/design ≈0.46M. Main-loop (Fable) tokens not separately metered by the session harness — reported as unmeasured, not estimated. No 2× STOP triggered.
 - Residual for v0.20.1: N2–N6, fixture regen retiring the 3 withheld bridge rows; post-launch: public harness round 2 (declared in README), operator launch steps in the private launch-ops checklist.
 
+### Errata — 2026-07-10 (pre-launch hardening; self-caught, ships as public commit #2)
+
+- **Truth-debt sweep:** deleted the unmeasured "2-3x quality" multiplier from KB-01 §11.7, KB-02 §6.6, WORKFLOW-CLAUDE-CODE §15, VALIDATION_CHECKLIST §11, and the unmeasured "40-60% / ~50% / 25x" cost figures from PROJECT_SETUP_PROMPT + WORKFLOW-CLAUDE-CODE §9/§11 — kit-voice numbers now hold to the README's "measured, not claimed" rule. `research/` retains third-party reported figures as attributed source material; frozen harness artifacts are untouched (historical records).
+- **Model-state refresh** (weekly-synthesis candidates #1/#4 pulled forward pre-HN): Fable 5 restored 2026-07-01 (classifier-gated) with usage-credits-only billing since 2026-07-07; Sonnet 5 GA routing economics ($2/$10 promotional through 2026-08-31). Routing-default doctrine updated in CLAUDE-SURFACE-ROUTING §1a/§1b, KB-02 §4.8, KB-04 §4.1, KB-06. The full kit-wide routing rewrite remains queued for the 2026-08-01 monthly integration.
+- **Upgrade-plan output rename:** `AI-KIT-UPGRADE-PLAN-*.md` → `UPGRADE-PLAN-*.md` (post-rename sweep gap, caught by a live field upgrade). `.ai-kit-manifest.json` unchanged — load-bearing for existing installs.
+- Accounting: `feedback/2026-07-10-pre-hn-hardening.md`.
+
 ---
 
 ## [0.19.0] — 2026-07-03

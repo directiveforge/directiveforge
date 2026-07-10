@@ -2,10 +2,10 @@
   "source_slug": "mcp-servers-official",
   "url": "https://github.com/modelcontextprotocol/servers/commits/main.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-03T04:02:00Z",
-  "last_seen_cursor": "2026-06-29T07:13:57Z",
-  "last_seen_item_hash": "b2a94a21-dep-bump-python-multipart-cryptography-pyjwt",
+  "last_fetched_utc": "2026-07-10T04:00:00Z",
+  "last_seen_cursor": "2026-07-06T17:15:49Z",
+  "last_seen_item_hash": "d31124c-fix-filesystem-declare-openworldhint-all-tools-4480",
   "consecutive_empty_scans": 3,
   "consecutive_failures": 0,
-  "notes": "4 days since b2a94a21 dep-bump commit (06-29). Per-server-min-safe-version table architect-prompt slot manifested in vigilance/feed/monthly/2026-07.md."
+  "notes": "Third empty day. ~83 hours since 07-06 filesystem-hygiene batch tail (d31124c openWorldHint on all tools). MCP supply-chain hardening 2026-07 arc extends via 07-08 pydantic-ai v2.6.0 torch CVE-2025-3000 + transformers CVE-2026-4372 patches into broader ML-and-MCP supply-chain hygiene 2026-07 arc."
 }

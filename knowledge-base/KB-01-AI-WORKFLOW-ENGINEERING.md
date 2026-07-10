@@ -847,7 +847,7 @@ Code → Docs: 60-80% correct on first pass. AI's strongest use case — well-de
 
 ### 11.7 Feedback Loop Engineering
 
-**The single highest-ROI pattern**: An agent with feedback loops (build, lint, test, visual check) self-corrects to 2-3x quality vs an agent without.
+**The single highest-ROI pattern**: An agent with feedback loops (build, lint, test, visual check) self-corrects — it catches its own compile errors, convention drift, and logic misses before a human ever reviews. An agent without them ships its first draft.
 
 **Design principles for verification chains**:
 1. **Mechanical first**: build + lint + test can be automated via hooks — zero agent reasoning needed

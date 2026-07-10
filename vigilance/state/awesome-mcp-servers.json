@@ -2,10 +2,10 @@
   "source_slug": "awesome-mcp-servers",
   "url": "https://github.com/punkpeye/awesome-mcp-servers/commits/main.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-03T04:02:00Z",
-  "last_seen_cursor": "2026-06-26T06:26:58Z",
-  "last_seen_item_hash": "8725-keymem-add-batch",
-  "consecutive_empty_scans": 6,
+  "last_fetched_utc": "2026-07-10T04:00:00Z",
+  "last_seen_cursor": "2026-07-04T12:53:14Z",
+  "last_seen_item_hash": "040b77d-add-pincushion",
+  "consecutive_empty_scans": 5,
   "consecutive_failures": 0,
-  "notes": "7 days since 06-26 16-merge batch. Cadence-normal."
+  "notes": "Fifth empty day. ~136 hours since last commit 040b77d (2026-07-04T12:53:14Z, 20+-server community-curated batch tail)."
 }

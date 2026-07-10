@@ -977,9 +977,9 @@ Output a structured summary:
 [pass/fail per checklist section]
 
 ### Cost Optimization Tips
-- Recommend `opusplan` alias for 40-60% cost reduction on planning
+- Recommend `opusplan` alias — the premium model plans, the cheaper model implements; savings track the per-token price gap between the tiers
 - Recommend `ccusage` tool for monitoring token spend
-- Recommend Plan mode for complex tasks (50% token reduction)
+- Recommend Plan mode for complex tasks — mapping the work first cuts correction cycles
 
 ### Post-Setup Recommendations
 - Create 5-10 evaluation tasks (real bugs, features) to measure workflow quality

@@ -566,7 +566,7 @@ Halves token consumption by mapping work before executing. **Start every non-tri
 
 **When to use**: any task touching 3+ files, any architectural change, any feature involving multiple concerns (data + API + UI). The only tasks that skip planning are single-file fixes with obvious scope.
 
-**Why it works**: Planning uses ~50% fewer tokens than blind implementation + correction cycles. The plan itself becomes a checklist that prevents drift mid-implementation.
+**Why it works**: Planning front-loads the thinking, so execution burns fewer correction cycles. The plan itself becomes a checklist that prevents drift mid-implementation.
 
 ---
 
@@ -695,22 +695,22 @@ Default to **Opus with thinking** for implementation tasks — it's slower per-t
 | Multi-file implementation | Opus + thinking | Better tool use, less steering needed |
 | Architecture planning | Opus + thinking | Deeper reasoning, catches edge cases |
 | Quick code reads/audits | Sonnet | Fast enough, saves cost |
-| Simple lookups, linting | Haiku (subagent) | Mechanical tasks, 25x cheaper |
+| Simple lookups, linting | Haiku (subagent) | Mechanical tasks at the lowest per-token price tier |
 | Exploratory research | Sonnet (subagent) | Good enough for search + summarize |
 
 **Heuristic**: If you'd need to correct Sonnet's output, Opus was cheaper. The cost of one correction cycle > the cost difference between models.
 
-**Resilience lever (2026-06)**: declare a `fallbackModel` chain (Claude Code v2.1.166 — up to 3 models tried in order) so overload/unavailability degrades gracefully instead of failing, and so a model going *administratively unavailable* (as Fable 5 did on 2026-06-12) doesn't strand the run. Pin to a model **class + chain, never a single ID** (`CLAUDE-SURFACE-ROUTING.md` §1b).
+**Resilience lever (2026-06)**: declare a `fallbackModel` chain (Claude Code v2.1.166 — up to 3 models tried in order) so overload/unavailability degrades gracefully instead of failing, and so a model going *administratively unavailable* (as Fable 5 did on 2026-06-12) — restored 2026-07-01; the full recall-restore cycle took 19 days — doesn't strand the run. Pin to a model **class + chain, never a single ID** (`CLAUDE-SURFACE-ROUTING.md` §1b).
 
 ### 11.3 Cost Levers
 
 | Strategy | Savings | How |
 |----------|---------|-----|
-| Plan mode | ~50% tokens | Map before executing |
+| Plan mode | fewer correction cycles | Map before executing |
 | Fresh sessions | Eliminates waste | No stale context accumulation |
 | Concise CLAUDE.md | Reduces per-call overhead | 80-150 lines, not 500 |
-| Context editing | 84% reduction | Automatic stale output clearing |
-| `opusplan` alias | 40-60% | Opus for planning, Sonnet for implementation |
+| Context editing | up to 84% (Anthropic-published eval) | Automatic stale output clearing |
+| `opusplan` alias | tracks the tier price gap | Premium model plans, cheaper model implements |
 | Subagents with cheaper models | Variable | Mechanical tasks on Sonnet/Haiku |
 
 **Settings-level numeric levers** (env vars verified against the official env-vars docs 2026-07-02; effect figures are field reports from large public config catalogs — directional, not benchmarked):
@@ -854,7 +854,7 @@ git add CLAUDE.md AGENTS.md .claude/commands/ .claude/rules/ .mcp.json
 
 ## 15. Feedback Loops — The Quality Multiplier
 
-An agent without feedback loops produces mediocre work. An agent WITH feedback loops self-corrects to **2-3x quality**. This is the single highest-ROI pattern in AI-assisted development.
+An agent without feedback loops ships its first draft, errors included. An agent WITH feedback loops self-corrects before a human ever reviews. This is the single highest-ROI pattern in AI-assisted development.
 
 ### 15.1 The Verification Chain
 

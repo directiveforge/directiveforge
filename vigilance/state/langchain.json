@@ -2,10 +2,10 @@
   "source_slug": "langchain",
   "url": "https://github.com/langchain-ai/langchain/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-03T04:02:00Z",
-  "last_seen_cursor": "2026-06-29T19:47:29Z",
-  "last_seen_item_hash": "langchain-openrouter-0.2.5-finish-meta-dedup",
-  "consecutive_empty_scans": 3,
+  "last_fetched_utc": "2026-07-10T04:00:00Z",
+  "last_seen_cursor": "2026-07-09T17:56:51Z",
+  "last_seen_item_hash": "langchain-fireworks==1.4.4-cached-prompt-token-langsmith-0-8-18-to-0-9-5",
+  "consecutive_empty_scans": 0,
   "consecutive_failures": 0,
-  "notes": "4 days since langchain-openrouter 0.2.5 (06-29). Cadence-normal."
+  "notes": "langchain-fireworks==1.4.4 (2026-07-09T17:56:51Z) provider-specific patch ~18h after 07-08 3-package wave tail. Load-bearing bits: (a) cached prompt token usage reporting fix (#38751); (b) LangSmith 0.8.18 → 0.9.5 major-minor bump — fresh LangSmith 0.9 minor-version-wave signal 24h after 07-08 LangSmith 0.8.0 → 0.8.18 bump; (c) pytest 9.1.0 → 9.1.1; (d) prompt-cache session-affinity docs clarification; (e) request-level extra-headers test coverage. Severity 🟡 (borderline ⚠/🟡 → down per doctrine because fireworks-adapter fix on its own is provider-specific patch-level not kit-load-bearing; LangSmith 0.9 minor-version-wave signal is worth watching but not yet aggregation-worthy on its own). Watch for follow-on package-cascades in Cat 2 langchain-* / langchain-openai / langchain-core over 07-10 → 07-12 for LangSmith 0.9-wave signal aggregation. Not a Weekly Synthesis 2026-28 promotion candidate on its own."
 }

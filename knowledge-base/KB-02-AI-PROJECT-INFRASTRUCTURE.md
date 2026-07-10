@@ -399,7 +399,7 @@ Use cases: automated PR review on push, scheduled security scanning, dependency 
 
 **SWE-bench Pro** (harder): GPT-5.3 Codex: 56.8%, Gemini 3.1 Pro: 54.2%, Opus 4.5: 45.89%.
 
-**Model-class update (2026-06-09)**: the table above predates the **Mythos-class tier** — Anthropic's new class *above* Opus. **Claude Fable 5** (`claude-fable-5`) is the first generally available Mythos-class model: state-of-the-art on nearly all tested capability benchmarks, with the lead growing on longer/more complex tasks; $10/M in + $50/M out (≈2× Opus-class); 1M context; cyber/bio-chem/distillation requests answered via **Opus 4.8 fallback** (<5% of sessions, user informed, billed at Opus prices). Sibling **Mythos 5** = same weights, safeguards lifted, restricted access (Project Glasswing / trusted-access programs). Agent-harness implication: "newest Opus = default" rubrics need an explicit Fable gate — see `CLAUDE-SURFACE-ROUTING.md` §1a/§1b. **NOTE (2026-06-12): Fable 5 + Mythos 5 are SUSPENDED under a US export-control directive — administratively unavailable, no restoration date; do not pin to them.** Re-run benchmark comparisons if/when access is restored and post-Fable SWE-bench numbers publish.
+**Model-class update (2026-06-09)**: the table above predates the **Mythos-class tier** — Anthropic's new class *above* Opus. **Claude Fable 5** (`claude-fable-5`) is the first generally available Mythos-class model: state-of-the-art on nearly all tested capability benchmarks, with the lead growing on longer/more complex tasks; $10/M in + $50/M out (≈2× Opus-class); 1M context; cyber/bio-chem/distillation requests answered via **Opus 4.8 fallback** (<5% of sessions, user informed, billed at Opus prices). Sibling **Mythos 5** = same weights, safeguards lifted, restricted access (Project Glasswing / trusted-access programs). Agent-harness implication: "newest Opus = default" rubrics need an explicit Fable gate — see `CLAUDE-SURFACE-ROUTING.md` §1a/§1b. **NOTE (updated 2026-07-10): Fable 5 restored 2026-07-01 behind a new safety classifier (Mythos 5 remains Glasswing-restricted); since 2026-07-07 Fable is usage-credits-only — not included in subscription limits. Claude Sonnet 5 GA'd 2026-06-30 (native 1M context, $2/$10 promotional through 2026-08-31, Claude Code CLI default since v2.1.197).** Re-run benchmark comparisons when post-restore Fable and Sonnet-5 SWE-bench rows publish.
 
 ### 4.9 Production Agent Implementation Patterns
 
@@ -680,7 +680,7 @@ NEVER guess at import paths, API signatures, or function parameters.
 
 ### 6.6 Feedback Loop Configuration
 
-An agent with feedback loops produces 2-3x quality vs one without. Configure at the project level:
+An agent with feedback loops self-corrects; one without ships its first draft. Configure at the project level:
 
 1. **PostToolUse hooks** (mechanical): auto-format after Write/Edit, budget checks after edits
 2. **Slash command suffixes**: every implementation command ends with "run build + lint + test"
