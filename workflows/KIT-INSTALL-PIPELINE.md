@@ -316,7 +316,7 @@ claude plugin marketplace add directiveforge/directiveforge
 claude plugin install directiveforge          # add --scope project to share with a team
 ```
 
-Ships the 22 measured skills (decision / naming / design packs) and the workflow commands — including `/report-friction` — namespaced `/directiveforge:<skill>`, self-triggering on the right prompts. **Global** by default (available in every project on the machine); `--scope project` commits the plugin reference into the repo. Updates land via a version bump upstream, absorbed with `/plugin marketplace update` + `claude plugin update directiveforge`.
+Ships the 22 measured skills (decision / naming / design packs) and the workflow commands — including `/report-friction` (invoked as `/directiveforge:report-friction` when installed as the plugin — plugin commands, like skills, are namespaced by plugin name). The skills self-trigger on the right prompts. **Global** by default (available in every project on the machine); `--scope project` commits the plugin reference into the repo. Updates land via a version bump upstream, absorbed with `/plugin marketplace update` + `claude plugin update directiveforge`.
 
 **Use when.** You want the reasoning skills and commands fast, without a per-project workflow build. No rules, no agents, no router, no manifest — that is by design.
 

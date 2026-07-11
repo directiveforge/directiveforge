@@ -45,7 +45,7 @@ claude plugin marketplace add directiveforge/directiveforge
 claude plugin install directiveforge
 ```
 
-This installs the 22 measured skills (decision / naming / design packs) and the workflow commands, including `/report-friction`.
+This installs the 22 measured skills (decision / naming / design packs) and the workflow commands, including `/report-friction` (invoked as `/directiveforge:report-friction` when installed as the plugin).
 
 **2 — Generate a project-specific workflow** (Claude Code or Cursor): open a session at the root of your target project and paste [`generator/PROJECT_SETUP_PROMPT.md`](generator/PROJECT_SETUP_PROMPT.md). The generator reads your codebase, asks you a short profile of questions, and writes your `CLAUDE.md`, `.cursor/rules/*.mdc`, `.claude/commands/`, agents, and MCP config — tailored to your stack.
 
@@ -144,7 +144,7 @@ Specific, not boilerplate. These are the things we know are not settled, each wi
 
 ## Feedback
 
-Found friction? Run **`/report-friction`** in a session. It harvests the defect (file:line, expected vs actual, severity), buckets your project profile without naming it, runs a mechanical sanitization pass over paths/names/emails, and renders the report in the feedback taxonomy — then stops at a **review gate**. Nothing is submitted until you approve it. On approval it opens a labelled GitHub issue (or falls back to a paste URL).
+Found friction? Run **`/directiveforge:report-friction`** in a session. It harvests the defect (file:line, expected vs actual, severity), buckets your project profile without naming it, runs a mechanical sanitization pass over paths/names/emails, and renders the report in the feedback taxonomy — then stops at a **review gate**. Nothing is submitted until you approve it. On approval it opens a labelled GitHub issue (or falls back to a paste URL).
 
 **The disposition guarantee:** every report is answered in a public `DISPOSITIONS` file with an explicit disposition — fixed, deferred-with-reason, or rejected-with-reason. **Zero silent drops.** See [`feedback/`](feedback/) and, for the shape of the accounting, [`feedback/DISPOSITIONS-v0.19.0.md`](feedback/DISPOSITIONS-v0.19.0.md).
 

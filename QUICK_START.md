@@ -17,7 +17,7 @@ claude plugin marketplace add directiveforge/directiveforge
 claude plugin install directiveforge
 ```
 
-This ships the 22 measured skills (decision / naming / design packs) and the workflow commands — including `/report-friction`. Skills are namespaced `/directiveforge:<skill>` and self-trigger on the right prompts. Add `--scope project` to `claude plugin install` to commit the plugin reference into the repo and share it with a team.
+This ships the 22 measured skills (decision / naming / design packs) and the workflow commands — including `/report-friction` (invoked as `/directiveforge:report-friction`). Both skills and commands are namespaced under `/directiveforge:` — the skills self-trigger on the right prompts, and commands are typed with the namespace prefix. Add `--scope project` to `claude plugin install` to commit the plugin reference into the repo and share it with a team.
 
 Working from a local clone instead of GitHub? The marketplace add accepts a path: `claude plugin marketplace add /path/to/directiveforge`.
 
