@@ -2,10 +2,10 @@
   "source_slug": "simon-willison",
   "url": "https://simonwillison.net/atom/everything/",
   "fetch_strategy": "tier2-websearch (tier1 often 403-blocked)",
-  "last_fetched_utc": "2026-07-10T04:00:00Z",
+  "last_fetched_utc": "2026-07-11T04:00:00Z",
   "last_seen_cursor": null,
   "last_seen_item_hash": null,
   "consecutive_empty_scans": 0,
-  "consecutive_failures": 18,
-  "note": "Tier-1 hard-blocked (personal-blog anti-bot). Per WATCHLIST Tier-2 discipline #3, cursor NOT advanced on Tier-2 recovery. 07-10 Tier-2 WebSearch confirmed 2 fresh 07-09 posts: gpt-5-6 (OpenAI GPT-5.6 Luna/Terra/Sol GA; Fable 5 crushed SWE-Bench Pro 80% vs Sol 64.6%; OpenAI disputes benchmark ~30% broken) + muse-spark-1-1 (Meta first-API Spark model). Both surfaced as today's 🟡 #5 double-note finding. consecutive_failures incremented per Tier-2 discipline #4."
+  "consecutive_failures": 19,
+  "note": "Tier-1 hard-blocked (personal-blog anti-bot; 403 Forbidden confirmed 07-11). Per WATCHLIST Tier-2 discipline #3, cursor NOT advanced on Tier-2 recovery. 07-11 Tier-2 WebSearch returned NO fresh 07-10/07-11 posts (only 07-04 + 07-06 + 07-09 posts already surfaced in prior digests). consecutive_failures incremented per Tier-2 discipline #4 (18 → 19)."
 }

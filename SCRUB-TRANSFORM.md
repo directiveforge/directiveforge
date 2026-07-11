@@ -29,8 +29,8 @@ privacy rule protecting clients overrides reproducibility for exactly these rows
 Their forward hash (public_sha256) and their original_sha256 anchor in the run's
 post-manifest.txt remain verifiable; the inverse recomputation is operator-attested.
 
-Private-repo release commit: `984b8e4f6dccfc999fe87364e4e7d0115a902180`
-Generated: 2026-07-10
+Private-repo release commit: `c58b7bba9ee51859fb5cb281c970370c265882aa`
+Generated: 2026-07-11
 
 ## Bridged files
 

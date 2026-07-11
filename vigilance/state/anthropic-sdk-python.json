@@ -2,10 +2,10 @@
   "source_slug": "anthropic-sdk-python",
   "url": "https://github.com/anthropics/anthropic-sdk-python/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-10T04:00:00Z",
+  "last_fetched_utc": "2026-07-11T04:00:00Z",
   "last_seen_cursor": "2026-07-02T19:07:55Z",
   "last_seen_item_hash": "v0.116.0-agent-memory-2026-07-22-beta-header",
-  "consecutive_empty_scans": 7,
+  "consecutive_empty_scans": 8,
   "consecutive_failures": 0,
-  "notes": "Seventh empty day. 8 days since v0.116.0 (07-02 19:07:55Z agent-memory-2026-07-22 beta header). Kit-recommended pin anthropic>=0.116.0 for memory-beta consumers. Contextually reinforced by 07-10 Reflect dashboard memory-on-gating (Reflect requires memory-on; the memory-beta consumer surface widens with Reflect on the Claude-consumer axis)."
+  "notes": "Eighth empty day. 9 days since v0.116.0 (07-02 19:07:55Z agent-memory-2026-07-22 beta header). Kit-recommended pin anthropic>=0.116.0 for memory-beta consumers. Contextually reinforced by 07-10 Reflect dashboard memory-on-gating (Reflect requires memory-on; the memory-beta consumer surface widens with Reflect on the Claude-consumer axis) + 07-11 Team/Enterprise individual-usage-analytics activation."
 }

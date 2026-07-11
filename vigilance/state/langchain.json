@@ -2,10 +2,10 @@
   "source_slug": "langchain",
   "url": "https://github.com/langchain-ai/langchain/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-10T04:00:00Z",
-  "last_seen_cursor": "2026-07-09T17:56:51Z",
-  "last_seen_item_hash": "langchain-fireworks==1.4.4-cached-prompt-token-langsmith-0-8-18-to-0-9-5",
+  "last_fetched_utc": "2026-07-11T04:00:00Z",
+  "last_seen_cursor": "2026-07-10T23:06:21Z",
+  "last_seen_item_hash": "langchain==1.3.13-plus-langchain-openai==1.3.5-langchain-meta-explicit-prompt-caching",
   "consecutive_empty_scans": 0,
   "consecutive_failures": 0,
-  "notes": "langchain-fireworks==1.4.4 (2026-07-09T17:56:51Z) provider-specific patch ~18h after 07-08 3-package wave tail. Load-bearing bits: (a) cached prompt token usage reporting fix (#38751); (b) LangSmith 0.8.18 → 0.9.5 major-minor bump — fresh LangSmith 0.9 minor-version-wave signal 24h after 07-08 LangSmith 0.8.0 → 0.8.18 bump; (c) pytest 9.1.0 → 9.1.1; (d) prompt-cache session-affinity docs clarification; (e) request-level extra-headers test coverage. Severity 🟡 (borderline ⚠/🟡 → down per doctrine because fireworks-adapter fix on its own is provider-specific patch-level not kit-load-bearing; LangSmith 0.9 minor-version-wave signal is worth watching but not yet aggregation-worthy on its own). Watch for follow-on package-cascades in Cat 2 langchain-* / langchain-openai / langchain-core over 07-10 → 07-12 for LangSmith 0.9-wave signal aggregation. Not a Weekly Synthesis 2026-28 promotion candidate on its own."
+  "notes": "07-10 3-package wave: langchain-openai==1.3.5 (2026-07-10T18:58:48Z) + langchain==1.3.13 (2026-07-10T23:06:21Z) ~30h after 07-09 langchain-fireworks==1.4.4 tail. Load-bearing bits: (a) langchain==1.3.13 meta extra + langchain-meta in init_chat_model — FIRST Meta (Facebook AI) LangChain provider-adapter package landing in init_chat_model; provider-integration coverage widens on Meta-Llama axis; (b) Explicit prompt caching support across langchain==1.3.13 + langchain-openai==1.3.5 (was previously implicit); complements 07-09 langchain-fireworks==1.4.4 cached prompt token usage reporting fix into widening 07-09/07-10 prompt-caching-hygiene arc across Cat 2 langchain-* / langchain-openai / langchain-fireworks; (c) Model profile refreshes across langchain-openai. Severity 🟡 (borderline ⚠/🟡 → down per doctrine because three-package wave is individually non-kit-load-bearing provider-adapter+CLI patches; the langchain-meta package landing + the prompt-caching-hygiene 07-09/07-10 arc are worth watching but not yet aggregation-worthy on their own). Monthly Integration slot candidate for KB-01 §prompt-caching if pattern surfaces in >=2 Cat 4 practitioner blogs or extends across 3+ Cat 2 langchain-provider-adapter patches within 14 days."
 }

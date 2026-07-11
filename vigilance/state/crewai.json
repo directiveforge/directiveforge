@@ -2,10 +2,10 @@
   "source_slug": "crewai",
   "url": "https://github.com/crewAIInc/crewAI/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-10T04:00:00Z",
+  "last_fetched_utc": "2026-07-11T04:00:00Z",
   "last_seen_cursor": "2026-07-08T02:05:22Z",
   "last_seen_item_hash": "1.15.2-ga-flow-inline-skill-model-catalog-security",
-  "consecutive_empty_scans": 2,
+  "consecutive_empty_scans": 3,
   "consecutive_failures": 0,
-  "notes": "Second empty day post-1.15.2 GA. ~50 hours since 1.15.2 GA (07-08 02:05:22Z). Kit-recommended pin locked at crewai>=1.15.2."
+  "notes": "Third empty day post-1.15.2 GA. ~74 hours since 1.15.2 GA (07-08 02:05:22Z). Kit-recommended pin locked at crewai>=1.15.2."
 }

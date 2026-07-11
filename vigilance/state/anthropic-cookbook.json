@@ -2,10 +2,10 @@
   "source_slug": "anthropic-cookbook",
   "url": "https://github.com/anthropics/anthropic-cookbook/commits/main.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-10T04:00:00Z",
-  "last_seen_cursor": "2026-07-06T19:51:59Z",
-  "last_seen_item_hash": "7aaa17fa-merge-pr754-coordinator-pattern-cost-plan-big-execute-small",
-  "consecutive_empty_scans": 3,
+  "last_fetched_utc": "2026-07-11T04:00:00Z",
+  "last_seen_cursor": "2026-07-10T15:32:47Z",
+  "last_seen_item_hash": "5772b37e-ci-fail-notebook-tests-when-changed-notebook-execute-fails-issue-375",
+  "consecutive_empty_scans": 0,
   "consecutive_failures": 0,
-  "notes": "Third empty day. ~78 hours since PR #754 merge (07-06 19:51:59Z coordinator-pattern cost cookbook). Coordinator-with-tier-decomposition citation slots remain open. Contextually reinforced by 07-08 UST-Anthropic enterprise partnership + 07-10 Bernanke LTBT Anthropic-organizational-legitimacy-and-oversight-adjacent Enterprise-adoption arc."
+  "notes": "5772b37e (2026-07-10T15:32:47Z) CI hygiene commit #772 — fail notebook-tests job when a changed notebook fails to execute. Response to issue #375 (metaprompt notebook that failed first API call for every user, shipped to production undetected). Changes: (a) execution step always writes exec_failures count as output (previously only when non-zero); (b) Final status check fails the job when exec_failures > 0; (c) Final status check fails when execution step itself errors under continue-on-error. Severity 🟡 (Cat 6 default ⚠ possible; borderline ⚠/🟡 → down per doctrine because CI-hygiene commit for notebook-test infrastructure is not kit-integration-load-bearing on its own; underlying #375 metaprompt-notebook-first-API-call-failure-shipped-to-production-undetected pattern is worth naming as CI-hygiene-vs-notebook-example-quality primitive in KB-02 §template-quality-gates if surfaces in Cat 4 practitioner blog or extends across Cat 6 cookbook commits within 14 days). Reset consecutive_empty_scans from 3 → 0."
 }

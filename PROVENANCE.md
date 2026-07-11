@@ -4,8 +4,8 @@ This public repository is a **fresh-init snapshot** of a private research lab re
 The lab's full git history is private (it contains client work the privacy rules
 protect); everything measurable ships here.
 
-- Private-repo release commit for this snapshot: `984b8e4f6dccfc999fe87364e4e7d0115a902180`
-- Snapshot built: 2026-07-10T16:19:09Z
+- Private-repo release commit for this snapshot: `c58b7bba9ee51859fb5cb281c970370c265882aa`
+- Snapshot built: 2026-07-11T16:51:47Z
 - `fixture_sha` values inside `harness/results/**/run-metadata.json` (e.g.
   `853c653`) are PRIVATE-repo commit SHAs — they order pre-registration
   vs. measurement inside the lab history and are attested by the operator, not
@@ -20,6 +20,6 @@ protect); everything measurable ships here.
   `.ai-kit-manifest.json` filename — historical fidelity, not a second brand
   (see `NAMING-DECISION.md` §5).
 - Attestation: the operator attests this snapshot content equals the lab tree at
-  `984b8e4f6dccfc999fe87364e4e7d0115a902180` modulo exactly (a) the exclusions listed in the lab's snapshot
+  `c58b7bba9ee51859fb5cb281c970370c265882aa` modulo exactly (a) the exclusions listed in the lab's snapshot
   manifest (private client material and launch-ops files) and (b) the disclosed
   transforms. Bound to the annotated tag `v0.20.0-public`.

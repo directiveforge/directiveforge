@@ -2,10 +2,10 @@
   "source_slug": "dspy",
   "url": "https://github.com/stanfordnlp/dspy/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-10T04:00:00Z",
+  "last_fetched_utc": "2026-07-11T04:00:00Z",
   "last_seen_cursor": "2026-05-28T01:11:39Z",
   "last_seen_item_hash": "3.3.0b1",
-  "consecutive_empty_scans": 42,
+  "consecutive_empty_scans": 43,
   "consecutive_failures": 0,
-  "notes": "43 days since 3.3.0b1 (2026-05-28). 13 days past 30-day soft dormancy threshold. Monitor-status disposition landed in vigilance/feed/monthly/2026-07.md."
+  "notes": "44 days since 3.3.0b1 (2026-05-28). 14 days past 30-day soft dormancy threshold. Monitor-status disposition landed in vigilance/feed/monthly/2026-07.md."
 }

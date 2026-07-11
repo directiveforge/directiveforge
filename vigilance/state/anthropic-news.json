@@ -1,10 +1,10 @@
 {
   "source_slug": "anthropic-news",
   "fetch_strategy": "tier2-websearch (tier1 blocked or JS-rendered)",
-  "last_fetched_utc": "2026-07-10T04:00:00Z",
+  "last_fetched_utc": "2026-07-11T04:00:00Z",
   "last_seen_cursor": null,
   "last_seen_item_hash": null,
   "consecutive_empty_scans": 0,
-  "consecutive_failures": 42,
-  "note": "Tier-1 demoted at 5/26 cluster; cursor not advanced on Tier-2 recovery per WATCHLIST Tier-2 discipline #3. 07-10: Tier-2 WebSearch confirmed 3 fresh self-published anthropic.com/news posts in 24h window (all 07-09): reflect-with-claude (Reflect dashboard beta → today's ⚠ #2 finding), hard-questions (Inviting hard questions governance/policy essay → today's 🟡 #4 finding), ben-bernanke (Ben Bernanke appointed to Long-Term Benefit Trust → today's 🟡 #3 finding). First 3-post day in the 07-01 → 07-10 arc. consecutive_failures incremented per Tier-2 discipline #4."
+  "consecutive_failures": 43,
+  "note": "Tier-1 demoted at 5/26 cluster; cursor not advanced on Tier-2 recovery per WATCHLIST Tier-2 discipline #3. 07-11: Tier-2 WebSearch returned NO fresh self-published anthropic.com/news posts in 24h window (only 07-09 posts already surfaced yesterday: reflect-with-claude, hard-questions, ben-bernanke). consecutive_failures incremented per Tier-2 discipline #4 (42 → 43)."
 }

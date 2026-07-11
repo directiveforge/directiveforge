@@ -2,10 +2,10 @@
   "source_slug": "langgraph",
   "url": "https://github.com/langchain-ai/langgraph/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-10T04:00:00Z",
-  "last_seen_cursor": "2026-07-10T01:30:24Z",
-  "last_seen_item_hash": "1.2.9-updateState-metadata-counters-delta-channel-fix",
+  "last_fetched_utc": "2026-07-11T04:00:00Z",
+  "last_seen_cursor": "2026-07-10T22:58:04Z",
+  "last_seen_item_hash": "langgraph-cli==0.4.31-allow-langgraph-api-up-to-1.0.0",
   "consecutive_empty_scans": 0,
   "consecutive_failures": 0,
-  "notes": "1.2.9 (2026-07-10T01:30:24Z) patch release ~3 days after 1.2.8 (07-06). updateState metadata/counters delta-channel fix (#8315). Third DeltaChannel-related fix in ~10 days: 06-30 1.2.7 DeltaChannel snapshot-overwrite-supersteps + 07-06 1.2.8 updateState-on-fresh-thread + 07-09/10 1.2.9 updateState-metadata/counters-delta-channel. Release-notes body brief; no breaking change; specific technical detail beyond PR title not in release notes summary. Severity 🟡 (borderline ⚠/🟡 → down per doctrine because release-notes-body-technical-detail is minimal and the fix is a third-fix-in-arc without a clear widening pattern). Three-fix DeltaChannel arc (06-30 + 07-06 + 07-09) is a Monthly Integration slot candidate for KB-06 §hosted-agent-observability if cadence continues into 07-15+ or pattern surfaces in a Cat-4 practitioner blog."
+  "notes": "langgraph-cli==0.4.31 (2026-07-10T22:58:04Z) CLI release ~21h after 1.2.9. Allow langgraph-api versions up to 1.0.0 + bundled dependency updates including Starlette + LangSmith. Load-bearing bit: langgraph-api-major-version compatibility widening on CLI-and-API-version-fidelity axis; hints at forthcoming langgraph-api 1.0.0 major version. Severity 🟡 (Cat 2 default ⚠ possible; borderline ⚠/🟡 → down per doctrine because CLI patch is non-kit-load-bearing on its own; langgraph-api-1.0.0-compatibility signal is worth watching for forthcoming major version). Three-fix DeltaChannel arc (06-30 1.2.7 + 07-06 1.2.8 + 07-09/10 1.2.9) remains Monthly Integration slot candidate for KB-06 §hosted-agent-observability."
 }
