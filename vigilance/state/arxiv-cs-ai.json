@@ -1,10 +1,10 @@
 {
   "source_slug": "arxiv-cs-ai",
   "fetch_strategy": "tier2-websearch (tier1 blocked or JS-rendered)",
-  "last_fetched_utc": "2026-07-11T04:00:00Z",
+  "last_fetched_utc": "2026-07-12T04:00:00Z",
   "last_seen_cursor": null,
   "last_seen_item_hash": null,
   "consecutive_empty_scans": 0,
-  "consecutive_failures": 40,
+  "consecutive_failures": 41,
   "note": "Tier-1 demoted at 5/26 cluster; untouched this run (Tier-2 budget conserved); cursor not advanced"
 }

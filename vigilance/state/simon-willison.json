@@ -2,10 +2,10 @@
   "source_slug": "simon-willison",
   "url": "https://simonwillison.net/atom/everything/",
   "fetch_strategy": "tier2-websearch (tier1 often 403-blocked)",
-  "last_fetched_utc": "2026-07-11T04:00:00Z",
+  "last_fetched_utc": "2026-07-13T04:00:00Z",
   "last_seen_cursor": null,
   "last_seen_item_hash": null,
   "consecutive_empty_scans": 0,
-  "consecutive_failures": 19,
-  "note": "Tier-1 hard-blocked (personal-blog anti-bot; 403 Forbidden confirmed 07-11). Per WATCHLIST Tier-2 discipline #3, cursor NOT advanced on Tier-2 recovery. 07-11 Tier-2 WebSearch returned NO fresh 07-10/07-11 posts (only 07-04 + 07-06 + 07-09 posts already surfaced in prior digests). consecutive_failures incremented per Tier-2 discipline #4 (18 → 19)."
+  "consecutive_failures": 21,
+  "note": "Tier-1 hard-blocked (personal-blog anti-bot; 403 Forbidden expected). Per WATCHLIST Tier-2 discipline #3, cursor NOT advanced on Tier-2 recovery. 07-13 Tier-2 WebSearch returned NO fresh 07-12/07-13 posts (only prior-week archive listings). consecutive_failures incremented per Tier-2 discipline #4 (20 → 21)."
 }

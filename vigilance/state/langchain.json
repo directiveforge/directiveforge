@@ -2,10 +2,10 @@
   "source_slug": "langchain",
   "url": "https://github.com/langchain-ai/langchain/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-11T04:00:00Z",
+  "last_fetched_utc": "2026-07-13T04:00:00Z",
   "last_seen_cursor": "2026-07-10T23:06:21Z",
   "last_seen_item_hash": "langchain==1.3.13-plus-langchain-openai==1.3.5-langchain-meta-explicit-prompt-caching",
-  "consecutive_empty_scans": 0,
+  "consecutive_empty_scans": 2,
   "consecutive_failures": 0,
-  "notes": "07-10 3-package wave: langchain-openai==1.3.5 (2026-07-10T18:58:48Z) + langchain==1.3.13 (2026-07-10T23:06:21Z) ~30h after 07-09 langchain-fireworks==1.4.4 tail. Load-bearing bits: (a) langchain==1.3.13 meta extra + langchain-meta in init_chat_model — FIRST Meta (Facebook AI) LangChain provider-adapter package landing in init_chat_model; provider-integration coverage widens on Meta-Llama axis; (b) Explicit prompt caching support across langchain==1.3.13 + langchain-openai==1.3.5 (was previously implicit); complements 07-09 langchain-fireworks==1.4.4 cached prompt token usage reporting fix into widening 07-09/07-10 prompt-caching-hygiene arc across Cat 2 langchain-* / langchain-openai / langchain-fireworks; (c) Model profile refreshes across langchain-openai. Severity 🟡 (borderline ⚠/🟡 → down per doctrine because three-package wave is individually non-kit-load-bearing provider-adapter+CLI patches; the langchain-meta package landing + the prompt-caching-hygiene 07-09/07-10 arc are worth watching but not yet aggregation-worthy on their own). Monthly Integration slot candidate for KB-01 §prompt-caching if pattern surfaces in >=2 Cat 4 practitioner blogs or extends across 3+ Cat 2 langchain-provider-adapter patches within 14 days."
+  "notes": "2nd empty day. ~53h since 07-10 3-package wave tail (langchain==1.3.13 + langchain-openai==1.3.5 + langgraph-cli 0.4.31). langchain-meta-provider-adapter landing + prompt-caching-hygiene 07-09/07-10 arc + langgraph-api-1.0.0-compatibility signal remain Monthly Integration slot candidates."
 }

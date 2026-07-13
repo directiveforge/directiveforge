@@ -2,9 +2,10 @@
   "source_slug": "github-advisory-db-mcp",
   "url": "https://github.com/advisories?query=mcp",
   "fetch_strategy": "scrape",
-  "last_fetched_utc": "2026-07-11T04:00:00Z",
-  "last_seen_cursor": "2026-06-28T04:30:00Z",
-  "last_seen_item_hash": "2026-06-28-no-kit-recommended-impact-cve-2026-49257-mcp-pinot-baseline",
+  "last_fetched_utc": "2026-07-13T04:00:00Z",
+  "last_seen_cursor": "2026-07-10T15:00:00Z",
+  "last_seen_item_hash": "2026-07-10-ghsa-wmg3-h8mf-wgvr-mcp-server-kubernetes-critical-argument-injection-plus-12-advisory-backlog",
   "consecutive_empty_scans": 0,
-  "consecutive_failures": 9
+  "consecutive_failures": 0,
+  "notes": "Opportunistic Tier-1 re-query 07-13 returned 0 fresh MCP-related advisories after 07-10 cursor. Yesterday's 12-advisory batch (07-03 → 07-10) remains the tail. Next opportunistic re-query per weekly cadence set at 07-12: 07-19 (or sooner on live-signal trigger). Cursor unchanged; consecutive_empty_scans unchanged (yesterday's substantive batch already reset it)."
 }

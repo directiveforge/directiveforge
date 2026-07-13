@@ -1,10 +1,10 @@
 {
   "source_slug": "anthropic-news",
   "fetch_strategy": "tier2-websearch (tier1 blocked or JS-rendered)",
-  "last_fetched_utc": "2026-07-11T04:00:00Z",
+  "last_fetched_utc": "2026-07-13T04:00:00Z",
   "last_seen_cursor": null,
   "last_seen_item_hash": null,
   "consecutive_empty_scans": 0,
-  "consecutive_failures": 43,
-  "note": "Tier-1 demoted at 5/26 cluster; cursor not advanced on Tier-2 recovery per WATCHLIST Tier-2 discipline #3. 07-11: Tier-2 WebSearch returned NO fresh self-published anthropic.com/news posts in 24h window (only 07-09 posts already surfaced yesterday: reflect-with-claude, hard-questions, ben-bernanke). consecutive_failures incremented per Tier-2 discipline #4 (42 → 43)."
+  "consecutive_failures": 45,
+  "note": "Tier-1 demoted at 5/26 cluster; cursor not advanced on Tier-2 recovery per WATCHLIST Tier-2 discipline #3. 07-13: Tier-2 WebSearch returned NO fresh self-published anthropic.com/news posts in the 24h window (only prior-week posts already surfaced: Claude Corps 06-11, Public Record results 06-12, AI-enabled cyber threats 06-03, Anthropic Labs, Paris/Munich offices). consecutive_failures incremented per Tier-2 discipline #4 (44 → 45)."
 }

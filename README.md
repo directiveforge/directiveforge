@@ -49,7 +49,7 @@ This installs the 22 measured skills (decision / naming / design packs) and the 
 
 **2 — Generate a project-specific workflow** (Claude Code or Cursor): open a session at the root of your target project and paste [`generator/PROJECT_SETUP_PROMPT.md`](generator/PROJECT_SETUP_PROMPT.md). The generator reads your codebase, asks you a short profile of questions, and writes your `CLAUDE.md`, `.cursor/rules/*.mdc`, `.claude/commands/`, agents, and MCP config — tailored to your stack.
 
-Heads-up: the three recorded generator runs took ~18–21 min and ~270–330k tokens each (larger repos can take longer); the plugin install above is instant.
+Heads-up: the three recorded baseline runs took ~18–21 min and ~270–330k tokens each on the harness's internal generation clock — and one clean end-to-end run measured **~27.5 min wall-clock and ~367k tokens** once orchestration overhead (KB reads, dispatch) is counted (`feedback/2026-07-13-uxd5-clean-run-timing.md`, n=1). Budget for the wall-clock figure; larger repos can take longer. The plugin install above is instant.
 
 **3 — Cursor skills:** Cursor consumes skills as files. Copy `templates/skills/<pack>/` into your project per [`workflows/WORKFLOW-CURSOR.md`](workflows/WORKFLOW-CURSOR.md).
 

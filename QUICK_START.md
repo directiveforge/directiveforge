@@ -2,7 +2,7 @@
 
 **What this does**: drops production-grade AI-assisted development discipline into any codebase. A single generator-prompt session reads the kit's knowledge base, classifies your project's maturity tier, and installs the right surface area — from baseline rules + skills + MCP scaffolding (Starter) all the way to decision-engineering skills + vigilance discipline + surface routing + mission-dispatch pattern (Advanced).
 
-**Time & cost:** the three recorded runs took **~18–21 minutes and ~270–330k tokens** each (`harness/results/2026-07-03-baseline/`); larger repos can take longer. Few questions: the recorded runs needed zero live questions (the project profile was answered up front) — expect roughly one if your repo is ambiguous. Every file written is listed in the run report and the manifest.
+**Time & cost:** two measurement bases, both published. The three recorded baseline runs took **~18–21 minutes / ~270–330k tokens** on the harness's internal generation clock (`harness/results/2026-07-03-baseline/`); one clean end-to-end run measured **27m28s wall-clock / ~367k tokens** including orchestration overhead the internal clock never sees (`feedback/2026-07-13-uxd5-clean-run-timing.md`, n=1). Budget for the wall-clock figure; larger repos can take longer. Few questions: the recorded runs needed zero live questions (the project profile was answered up front) — expect roughly one if your repo is ambiguous. Every file written is listed in the run report and the manifest.
 
 **Requirements**: Cursor or Claude Code with file-system access to both this kit and the target project. For Advanced-tier features (Claude Code Routines for vigilance discipline), Pro/Max/Team/Enterprise plan.
 

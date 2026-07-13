@@ -2,10 +2,10 @@
   "source_slug": "baml",
   "url": "https://github.com/BoundaryML/baml/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-11T04:00:00Z",
-  "last_seen_cursor": "2026-07-10T23:46:59Z",
-  "last_seen_item_hash": "baml-language-0.14.2-nightly.20260710.f",
+  "last_fetched_utc": "2026-07-13T04:00:00Z",
+  "last_seen_cursor": "2026-07-12T21:43:53Z",
+  "last_seen_item_hash": "baml-language-0.14.2-nightly.20260712.d",
   "consecutive_empty_scans": 0,
   "consecutive_failures": 0,
-  "notes": "07-10 six additional 0.14.2 nightlies: 20260710.a at 19:48:56Z + .b at 20:32:20Z + .c at 20:59:26Z + .d at 22:01:55Z + .e at 23:02:17Z + .f at 23:46:59Z UTC. Continuing 0.14.2-nightly cadence post-0.14.0/0.14.1 GA-pair convergence; no new GA, no new major/minor bump; folded into Source health per doctrine (not kit-integration-load-bearing on their own but the cadence-signal continuation extends the ~two-month-major-version-cycle-window from May 0.13.0 → July 0.14.0/0.14.1 pattern; 0.14.2 GA is next likely cut). Severity 🟡 nightly-cadence extension. 0.14.0 GA + 0.14.1 GA release-notes bodies remain UNFETCHABLE at 07-11 scan time (GitHub display errors persist); fact-of-GA verified via atom feed but headline-feature-details still TBD."
+  "notes": "07-12 additional three 0.14.2 nightlies (20260712.b at 04:49:33Z + .c at 18:14:23Z + .d at 21:43:53Z UTC). 0.14.2-nightly cadence extends to 4-day density (11 nightlies across four days: 07-10 six + 07-11 one + 07-12 four = 11 total). Yesterday's 07-12 nightly-cadence 🟡 slot extended today; 5-day-density escalation trigger closer to activation (would fire on 07-13 UTC-day continuation of nightly cadence). No new GA. 0.14.0/0.14.1 GA release-notes bodies remain UNFETCHABLE. Monthly Integration 2026-07 backlog-note candidate for BAML §release-cadence-hygiene if pattern extends beyond 5 days."
 }
