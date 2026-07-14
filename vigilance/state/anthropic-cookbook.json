@@ -2,10 +2,10 @@
   "source_slug": "anthropic-cookbook",
   "url": "https://github.com/anthropics/anthropic-cookbook/commits/main.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-13T04:00:00Z",
-  "last_seen_cursor": "2026-07-10T15:32:47Z",
-  "last_seen_item_hash": "5772b37e-ci-fail-notebook-tests-when-changed-notebook-execute-fails-issue-375",
-  "consecutive_empty_scans": 2,
+  "last_fetched_utc": "2026-07-14T04:00:00Z",
+  "last_seen_cursor": "2026-07-13T17:54:29Z",
+  "last_seen_item_hash": "67ce644d-merge-pr-771-fix-metaprompt-prefill-plus-470dd66-cleanup",
+  "consecutive_empty_scans": 0,
   "consecutive_failures": 0,
-  "notes": "~61h since 5772b37e CI hygiene commit (07-10 15:32:47Z). 48h post-Weekly-Synthesis-2026-28 breath-hold. Folded into Weekly Synthesis 2026-28 action candidate #1 (ML-and-MCP supply-chain hygiene) as fix-shipped-then-regression-slipped-through pattern anchor alongside GHSA-489g-7rxv-6c8q mcp-atlassian DNS-rebinding TOCTOU bypass."
+  "notes": "07-13 metaprompt notebook fix (PR #771 nikblanchet/fix-metaprompt-prefill): 67ce644d merge (07-13 17:54:29Z; remove assistant prefill causing 400 on current models) + 470dd66 cleanup (07-13 17:29:43Z; clear outputs, rename CLIENT->client per Python naming convention, read API key from env, re-enable pretty_print). Companion 218ccc7 (07-10 16:08:34Z; Address review findings; catchup finding not surfaced in 07-11/07-12/07-13 dailies due to feed-window cursor-slip) folded into same PR #771 arc. First anthropic-cookbook activity since 5772b37e CI hygiene commit on 07-10. LIKELY first regression caught by the 07-10 CI hardening gate — extends fix-shipped-then-regression-slipped-through pattern to include prompt-drift-against-current-model-outputs failure mode."
 }

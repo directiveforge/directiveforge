@@ -29,8 +29,16 @@ privacy rule protecting clients overrides reproducibility for exactly these rows
 Their forward hash (public_sha256) and their original_sha256 anchor in the run's
 post-manifest.txt remain verifiable; the inverse recomputation is operator-attested.
 
-Private-repo release commit: `930492055f9e0e963e88c62d14ab01ed54f24c8d`
-Generated: 2026-07-13
+**Rows without a run-manifest cross-check** (17 of 84):
+`verify-transform.sh` prints `manifest=n/a` for these — either the path isn't under a
+`.../generated/` tree at all (the manifest-anchor check only ever applies there), or it
+is, but that run's evidence directory has no file literally named `post-manifest.txt`
+(a different manifest file anchors that run instead). Forward and inverse hash
+verification still runs and must still pass for these rows regardless; only the extra
+cross-check against a run manifest is skipped. Not a failure — see the printed row list.
+
+Private-repo release commit: `f4fd1d942768757c6520108fbc2b7bd8c1b0c65f`
+Generated: 2026-07-14
 
 ## Bridged files
 
@@ -103,4 +111,21 @@ harness/results/2026-07-03-delta/brownfield-docs/generated/AGENTS.md	16a9cbb524a
 harness/results/2026-07-03-delta/brownfield-docs/generated/CLAUDE.md	2e4257fff4906ff7cdaa37eacd60b3ab1f3a0faf6895a528df59aeece6bcf6ae	6578ad4795f44cef1d4a00ebc281340cd1f054efa2bf1cf29eece2ef26ecd3f4	full
 harness/results/2026-07-03-delta/brownfield-docs/generated/PHASE9-REPORT.md	cb3fd7263279f1a6bcef9f81d5b48d8d95a7524d5bad548feeac6cd8f5d82c4f	f53a3db801a4443d6d9309817bc5769989e2a14f4058b81bd82058b9810695d8	full
 harness/results/2026-07-03-delta/brownfield-docs/generated/docs/prompts/ARCHITECT_PROMPT.template.md	9ddc62faf083176c7b6e3ad4718c0a469e81e12ad1f1865a45152cb1fc1c27cb	7794daf0e1d4fb60e788cfd017d454f96d6804849eb5f2c75406bf467fb53365	withheld
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.ai-kit-manifest.json	d2d5d57507f361b484f7c27ad2878d5d597497f3d2967a8aa2b77cd334b9986a	10b6fe9dc34bde5cb05a97aae59da329d7e3eabba0bc09559066588dac95ec6f	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.claude/commands/discover-mcp.md	170e6d88644d2e79e0bab3b4a62cc4faf9b72167387571f04f5a198add258890	926d17a206cbdf59ba25fd59f0d8bafcdd3765b930b525818f69e06cca638eb3	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.claude/commands/status.md	51ced7d7a81465101ec6ac01e7a939d91e508e79e0852b8c3fad3353021d49a8	cf7c8ec45b22433deaf2a628600273aebd5690b68f732432eeaf46bf00fdb330	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.claude/commands/update-context.md	f1fda874526407abef7a7fbc47d6841710c9dff17ee1d69b85bc12aebc95ad2a	9adeef21518010f6dfcce290f7454ebeaee625efeeccaae267be55ae83f02f7b	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.claude/commands/workflow-help.md	45ca3c7bb07201ec077293ba55d252925483a6f5eef65dcbca65d3c5f0abccbd	e95dc6f719d66967d0445c43d3dd10cf997b4b7e079e1d5dbf1a42771eb282de	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.claude/rules/decision-skills.md	e28dc990f9684d1a8242218bba6aa89e7cb98fa47c9f76012489cf24048659d7	dfb456c5d216cd9ac2b864ff76c39ec6a8fe352d1b6053f5d19d91a7012f9abf	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.claude/skills/decision/anti-sycophancy-meta/SKILL.md	74db19b3835b2d52f1e60160c71c35870e3b07dca6bf8df913b060e09bf2c97d	7414ab5e440ff7936a1eb28c9c2f701115cfb5fa78be15cfa336a4cb298210d5	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.claude/skills/decision/confidence-calibration/SKILL.md	68fb2a87d361248915d61aa1ce90f54ddbee56d868ccaed2f302458f8fd786c9	1db14372a1931ede0c3ee54ccdf5d8613fc54b79d7b3c20cf7f247313a3a053b	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.claude/skills/decision/pre-mortem/SKILL.md	ed00fbfc339c837e3d64b28c3f956aef0dceb1e431286e5c02eb873e01edf793	d98185ed71899972fef056f1f6b5bb96b3b04e769e5a5da851aa33bee0376b9e	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.claude/skills/decision/reversibility-check/SKILL.md	6db6c9d80de58f298011b63e7f0d022b57cef0f93b327c2ed51b3db0c5e67737	db46580e0a5bab8909b50f6ac5c7e07524ed4dc7d379a5d6670eda7ec932ab65	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.claude/skills/decision/steelman/SKILL.md	f4dc943d3626f56445d3c4039b7e3ca56fb08739eb67de765e3296d7754a6a0d	6dce31dab525c89d418160d40906dc353479bd7187feea13fd77926b1c9412cb	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/.mcp.annotations.md	3b97b1ce85b534ddc08bc399dd6ade8315e94d1870172e9772cd45735f8a95b4	fff5cb05aa46f2014153f24040d9225ecd498dd44d19794956dfd08e9a24cf81	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/AGENTS.md	e26f8ffb94ead716caa5ec7b7bd9d44ac9074829729a683ce99933574a59addb	17baaa2e47bc687ec933b5a173da07a89120e60df65f76ca7a52a348b295ba93	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/CLAUDE.md	d10bb3c2f47f355c6301b6e1ea6b0d2c010f42528e820e812f7c894cf575c05b	81b12804e17c3b80a396d390be8677d7932423abab3bac8e902e9e77a6ff3cde	full
+harness/results/2026-07-12-ux-verify/rehearsal/generated/DECISIONS.md	eafadeb6559f8f67b19a3aef9201a7d44c8b7ac12e212cae09fdd38cb3ab7e99	01436c32262f89c5534501726a5ad6437702506c18b0168bc28a644b6d7579d9	full
+harness/results/2026-07-12-upgrade-survival/post-apply-ai-kit-manifest.json	950c19a3b8612aa4de0df5223f19f0bd75bfc7e19633b6cbf81b4cd75cc555b0	88358f0322fb9d7ac2d546388922f09de5aef6a310092a3110d5b8ca9222931a	full
+harness/results/2026-07-12-ux-verify/survival-rerun/post-apply-ai-kit-manifest.json	79ce1620da39dc365352c4bb66e67a7a2cb94a79f2ce144477ac566261d8ab7e	a202f3749fe39c7a8283704f7cc7aaf6c7135b775d78f684faa1e50462c572b2	full
 ```

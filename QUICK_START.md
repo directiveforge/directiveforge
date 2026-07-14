@@ -38,6 +38,23 @@ cd /path/to/your/project
 claude   # or: cursor .
 ```
 
+While that session opens — the contract for the run you are about to start (the generator prints this same block, scope filled in, as its first output):
+
+<!-- DF-RUN-CONTRACT v1 — keep this block byte-identical across generator/PROJECT_SETUP_PROMPT.md, QUICK_START.md, README.md (drift is a defect: extract between the sentinel comments and hash) -->
+**What this run does**
+
+- **Time & tokens:** two measurement bases, both published — ~18–21 min / ~270–330k tokens on the harness's internal clock (`harness/results/2026-07-03-baseline/`, n=3); one clean end-to-end run measured 27m28s wall-clock / ~367k tokens including orchestration overhead (`feedback/2026-07-13-uxd5-clean-run-timing.md`, n=1). Budget for the wall-clock figure; larger repos take longer.
+- **Writes:** 29–44 files in the recorded runs, tier- and scope-dependent — context docs, rules, skills, agents, commands, MCP config, decision ledger — every one listed in `.ai-kit-manifest.json`.
+- **Questions:** at most 1 in a typical run; conditional pack proposals appear only when your repo triggers them.
+- **Building for:** `<detected scope>` (detected: `<evidence>`). Reply "both" or "cursor" to change — the veto stays open until Phase 3 generation starts.
+- **First artifact:** the codebase brief (`docs/AI-WORKFLOW-BRIEF.md`) lands as soon as Phase 1 analysis completes — early in the run, and it stands alone if you stop there.
+- **Resume:** if the session dies, paste the same prompt again — the `.df-setup-state.json` checkpoint offers resume-from-where-it-stopped or a clean restart. A resumed run re-reads context, so it costs more than the single-pass figures above.
+- **Uninstall:** `.ai-kit-manifest.json` maps everything the kit wrote; removal recipe in `QUICK_START.md` § Uninstall.
+- **Abort any time.** Until the Phase 1 brief, the only writes are the checkpoint file and — in revival runs only (Phase 0.5 gate) — `OWNER_BRIEF.md` (+ `docs/REVIVAL-ASSESSMENT.md`). Everything written so far is always listed in the checkpoint.
+<!-- /DF-RUN-CONTRACT v1 -->
+
+Built for one IDE and adopting the other later? Adding the second surface is a supported recipe: `workflows/MIGRATION-CURSOR-CLAUDE.md`.
+
 ## Step 3: Paste this prompt
 
 Copy everything below the line and paste as the first message of a fresh session:
@@ -50,7 +67,7 @@ You are about to set up a production-grade AI workflow for this project. Before 
 
 Read these files from the DirectiveForge kit at `~/Documents/GitHub/AI` (adjust path if cloned elsewhere):
 
-1. `~/Documents/GitHub/AI/generator/PROJECT_SETUP_PROMPT.md` — your MASTER INSTRUCTION. Read it fully. It has 9 phases (0-8 + summary) that you MUST follow in order.
+1. `~/Documents/GitHub/AI/generator/PROJECT_SETUP_PROMPT.md` — your MASTER INSTRUCTION. Read it fully. It has 14 phases — numbered 0-9 with half-steps 0.5, 2.5, 4.5 and 8.5 — that you MUST follow in order.
 2. Set `{{KIT_PATH}}` = `~/Documents/GitHub/AI`.
 3. Follow every phase in `PROJECT_SETUP_PROMPT.md` exactly.
 
@@ -69,6 +86,14 @@ Read these files from the DirectiveForge kit at `~/Documents/GitHub/AI` (adjust 
 Start now. Begin with Phase 0.
 
 ---
+
+## If a run fails
+
+Three realistic failure modes, one-line recoveries — all rest on the checkpoint file the generator appends after every phase (`.df-setup-state.json` at the project root, deleted on successful completion):
+
+1. **Session died mid-run** (window closed, laptop slept, context exhausted): open a fresh session in the same directory, paste the same prompt — the generator detects the checkpoint and offers resume-from-where-it-stopped (it re-reads what it already wrote; it never regenerates it).
+2. **Rate limit / model unavailable**: wait it out or switch models, then resume as above. For unattended resilience, declare a `fallbackModel` chain before long runs — pin a model class + chain, never a single ID (doctrine: `workflows/WORKFLOW-CLAUDE-CODE.md`, resilience lever).
+3. **You aborted deliberately**: everything written so far is listed in the checkpoint. Re-paste the prompt and pick **clean restart** to have it removed — or keep `docs/AI-WORKFLOW-BRIEF.md`; the Phase 1 brief stands alone.
 
 ## What You Get (by maturity tier)
 
@@ -142,6 +167,17 @@ The kit at `github.com/directiveforge/directiveforge` evolves continuously. To k
 
 An Advanced-tier project typically spends ~30 min/quarter absorbing kit updates. The vigilance discipline catches most of the load-bearing changes automatically.
 
+## Uninstall
+
+The install manifest is the uninstall map — every file the kit wrote is listed in `.ai-kit-manifest.json` at your project root.
+
+1. Entries with `owner_customized: false` AND `disposition: created` — delete the file.
+2. Entries with `disposition: merged-existing` / `kept-existing`, or `owner_customized: true` — review before touching: they carry your content or your edits (`PRE-EXISTING-MODIFIED.txt` and the `docs/archive/` backups from install/upgrade time show what changed).
+3. Delete `.ai-kit-manifest.json` LAST — while it exists, it still correctly describes what remains.
+4. Installed the plugin instead of (or alongside) the generator? `claude plugin uninstall directiveforge`.
+
+**What uninstall does NOT touch:** your own files (anything absent from the manifest), your git history, and pre-existing files the kit merged into — those get a review, never a blind delete. For a planned, adjudicated removal run, see `generator/UPGRADE_MODE.md` §9.
+
 ## Advanced topics
 
 - **Per-project skills + agents**: the generator creates the foundation. For project-specific needs, ask the agent to create additional skills (`.claude/skills/<name>/SKILL.md` or `.cursor/skills/<name>.SKILL.md`) or agents (`.cursor/agents/<name>.md`) following the patterns in `~/Documents/GitHub/AI/knowledge-base/KB-02-AI-PROJECT-INFRASTRUCTURE.md` §3 (skills) and §4 (agents).
@@ -153,8 +189,8 @@ An Advanced-tier project typically spends ~30 min/quarter absorbing kit updates.
 ## Cross-references
 
 - `workflows/KIT-INSTALL-PIPELINE.md` — full feature map + tier-selection guide + maintenance cadence (the planning companion to this quick-start)
-- `generator/PROJECT_SETUP_PROMPT.md` — the master generator prompt (9 phases)
-- `generator/VALIDATION_CHECKLIST.md` — post-install verification (11 categories)
+- `generator/PROJECT_SETUP_PROMPT.md` — the master generator prompt (14 phases: 0-9 + half-steps 0.5, 2.5, 4.5, 8.5)
+- `generator/VALIDATION_CHECKLIST.md` — post-install verification (§0-§23)
 - All 6 KB docs in `knowledge-base/`
 - `workflows/KIT-VIGILANCE.md` — vigilance discipline doctrine
 - `workflows/CROSS-SURFACE-ROUTING-BEHAVIOR.md` — per-surface routing behavior

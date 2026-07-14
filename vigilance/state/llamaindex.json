@@ -2,10 +2,10 @@
   "source_slug": "llamaindex",
   "url": "https://github.com/run-llama/llama_index/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-13T04:00:00Z",
+  "last_fetched_utc": "2026-07-14T04:00:00Z",
   "last_seen_cursor": "2026-06-24T23:59:59Z",
   "last_seen_item_hash": "v0.14.23-multimodal-qe",
-  "consecutive_empty_scans": 18,
+  "consecutive_empty_scans": 19,
   "consecutive_failures": 0,
-  "notes": "18 empty days. 19 days since v0.14.23 (06-24). Cadence-normal for post-major-release quiet windows."
+  "notes": "19 empty days. 20 days since v0.14.23 (06-24). Cadence-normal for post-major-release quiet windows."
 }

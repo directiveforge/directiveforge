@@ -1,0 +1,38 @@
+{
+ "run": "2026-07-12-upgrade-survival",
+ "orchestration": "main session (Fable 5) + 3 sequential subagents",
+ "workdir": "<SCRATCH>/upgrade-survival/copy-a",
+ "substrate_commits": {
+  "install_state": "dc92819",
+  "owner_customizations": "72761da",
+  "apply_branch": "kit-upgrade-2026-07-12 @ 4c457e5"
+ },
+ "agents": [
+  {
+   "role": "health-audit (read-only)",
+   "model": "sonnet",
+   "tokens": 207511,
+   "duration_s": 947,
+   "estimate_tokens": 120000
+  },
+  {
+   "role": "upgrade dry-run",
+   "model": "sonnet",
+   "tokens": 160776,
+   "duration_s": 558,
+   "estimate_tokens": 100000
+  },
+  {
+   "role": "apply + \u00a75a",
+   "model": "sonnet",
+   "tokens": 181567,
+   "duration_s": 710,
+   "estimate_tokens": 80000
+  }
+ ],
+ "tokens_total": 549854,
+ "estimate_total": 300000,
+ "estimate_note": "aggregate 1.83x estimate \u2014 under the 2x circuit breaker, driven by the audit's adversarial re-derivation subpass; recorded honestly",
+ "token_method": "orchestration-harness per-agent report (includes per-call system context); injected post-run 2026-07-12",
+ "caveat": "single-run, directional"
+}

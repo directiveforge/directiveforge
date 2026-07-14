@@ -1,0 +1,14 @@
+{
+ "resume_offer_made": true,
+ "resume_offer_text": "Interrupted run detected \u2014 .df-setup-state.json found (no .ai-kit-manifest.json, so this is a genuine resume, not a completed install). Checkpoint shows phases 0 -> 0.5 -> 1 -> 2 -> 2.5 -> 3 complete: 28 files written, all present on disk and verified intact. Recorded decisions: ide_scope=claude-code, MATURITY_TIER=Starter, preset none, Phase 4 flagged skippable. Choose: 1. Resume \u2014 re-read the 28 written files (never regenerate), rejoin at Phase 4. 2. Clean restart \u2014 delete the outputs + the checkpoint, begin fresh at Phase 0. Which? (resume / clean-restart)",
+ "choice_taken": "resume",
+ "rejoined_at_phase": "4",
+ "regenerated_any_prior_output": false,
+ "operator_consultations": [
+  {
+   "question": "Resume the interrupted run vs clean restart? (resume / clean-restart)",
+   "blocking": true
+  }
+ ],
+ "orchestrator_correction": "the run-control wrapper's segment-1 stop condition was carried verbatim into segment 2 and wrongly halted the agent at the Phase 3->4 boundary; the orchestrator lifted it in a continuation message. Run-control error, not a generator defect."
+}

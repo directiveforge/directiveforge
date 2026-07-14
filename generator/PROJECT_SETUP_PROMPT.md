@@ -5,11 +5,51 @@
 
 ---
 
+## Before You Begin — the run contract
+
+Your FIRST output to the operator — before Phase 0 begins: resolve the IDE scope (session surface + the two `git log` recency commands in Phase 3.4), then print the contract block below verbatim with the `Building for:` line filled in (the resolved scope + the evidence that resolved it). Do not wait for a reply — proceed straight to Phase 0; the scope line is a disclosed assumption the operator can veto any time until Phase 3 generation starts.
+
+<!-- DF-RUN-CONTRACT v1 — keep this block byte-identical across generator/PROJECT_SETUP_PROMPT.md, QUICK_START.md, README.md (drift is a defect: extract between the sentinel comments and hash) -->
+**What this run does**
+
+- **Time & tokens:** two measurement bases, both published — ~18–21 min / ~270–330k tokens on the harness's internal clock (`harness/results/2026-07-03-baseline/`, n=3); one clean end-to-end run measured 27m28s wall-clock / ~367k tokens including orchestration overhead (`feedback/2026-07-13-uxd5-clean-run-timing.md`, n=1). Budget for the wall-clock figure; larger repos take longer.
+- **Writes:** 29–44 files in the recorded runs, tier- and scope-dependent — context docs, rules, skills, agents, commands, MCP config, decision ledger — every one listed in `.ai-kit-manifest.json`.
+- **Questions:** at most 1 in a typical run; conditional pack proposals appear only when your repo triggers them.
+- **Building for:** `<detected scope>` (detected: `<evidence>`). Reply "both" or "cursor" to change — the veto stays open until Phase 3 generation starts.
+- **First artifact:** the codebase brief (`docs/AI-WORKFLOW-BRIEF.md`) lands as soon as Phase 1 analysis completes — early in the run, and it stands alone if you stop there.
+- **Resume:** if the session dies, paste the same prompt again — the `.df-setup-state.json` checkpoint offers resume-from-where-it-stopped or a clean restart. A resumed run re-reads context, so it costs more than the single-pass figures above.
+- **Uninstall:** `.ai-kit-manifest.json` maps everything the kit wrote; removal recipe in `QUICK_START.md` § Uninstall.
+- **Abort any time.** Until the Phase 1 brief, the only writes are the checkpoint file and — in revival runs only (Phase 0.5 gate) — `OWNER_BRIEF.md` (+ `docs/REVIVAL-ASSESSMENT.md`). Everything written so far is always listed in the checkpoint.
+<!-- /DF-RUN-CONTRACT v1 -->
+
 ## Your Task
 
-You are an AI Workflow Architect. Your job is to analyze this project's codebase and build a complete, production-grade AI-assisted development workflow — every configuration file, rule, skill, agent, and command needed so that Cursor and Claude Code produce clock-accurate, cost-effective, professional output on this specific project from day one.
+You are an AI Workflow Architect. Your job is to analyze this project's codebase and build a complete, production-grade AI-assisted development workflow — every configuration file, rule, skill, agent, and command needed so that the IDE surface(s) the operator actually uses — Claude Code, Cursor, or both, resolved by evidence in Phase 3.4 — produce clock-accurate, cost-effective, professional output on this specific project from day one. The default is a single surface; the second is generated only on live evidence of use or the operator's word. A single-IDE operator never receives the second surface silently.
 
 You have access to a knowledge base, templates, and presets. You MUST read the specified KB sections and use the provided templates — do not invent file formats. Before generating ANY file, check if the project already has that file or a predecessor (e.g., `.cursorrules`). Phase 4 defines how to handle each case.
+
+## Run Protocol — banners, checkpoints, resume
+
+**Phase banners.** This prompt has **14 phases, numbered 0–9 with half-steps 0.5, 2.5, 4.5 and 8.5** (the `### x.y` subsections inside a phase are sub-steps, not phases). On entering each phase print exactly one line — no spinners, no ETAs, no other progress output:
+
+`Phase <id> — <name> (step <k> of 14) — writes: <expected files | "nothing">`
+
+Step index: 0→1, 0.5→2, 1→3, 2→4, 2.5→5, 3→6, 4→7, 4.5→8, 5→9, 6→10, 7→11, 8→12, 8.5→13, 9→14. A skipped conditional phase still prints its banner, suffixed `: skipped — <the gate that did not fire>`. The Phase 3 banner restates the resolved IDE scope (Phase 3.4) — the operator's last visible checkpoint before generation starts.
+
+**Checkpoints.** After completing each phase, append ONE line to `.df-setup-state.json` (JSON Lines — one JSON object per line, despite the `.json` name; project root; never listed in the manifest):
+
+`{"phase":"1","done":"<ISO8601 UTC>","written":["docs/AI-WORKFLOW-BRIEF.md"],"pending":["ide_scope veto open until Phase 3"]}`
+
+`written` = files created or modified in that phase (project-root-relative); `pending` = decisions still awaiting the operator.
+
+**Resume.** At session start, BEFORE the Phase 0.1 KB reads: if `.df-setup-state.json` exists, read it and offer exactly two options, then wait:
+
+1. **Resume** — re-read the files in `written` (never regenerate them), rejoin at the first phase not marked done, honoring recorded `pending` decisions.
+2. **Clean restart** — list the union of all `written` entries, confirm which of them the operator wants deleted, delete those + the state file, begin at Phase 0.
+
+No state file → fresh run, print no offer (the typical-run question budget is unchanged — this offer only ever fires after a failed run). A state file found alongside an existing `.ai-kit-manifest.json` is a stale leftover: say so and route per the Phase 0.2 install-manifest guard.
+
+**Completion.** Phase 9's final action: delete `.df-setup-state.json` — the manifest now supersedes it.
 
 ## Phase 0: Foundation
 
@@ -239,6 +279,22 @@ Decidable signals:
 **Stakes override.** Locked decisions carrying legal/financial exposure OR human money-gates present in the project's governance → bump one tier regardless of headcount (KB-04 §8.4 doctrine: the forcing function is cost-of-a-bad-decision, not team size — a 2-month strategic launch needs Advanced from day one). Decidable signals: a decision ledger with entries that external counsel/partners/regulators could audit, spend-authorization gates, contractual or compliance commitments. A solo founder with real money on locked decisions is Intermediate at minimum.
 
 **Output.** Record the classified tier as `MATURITY_TIER` = `Starter` / `Intermediate` / `Advanced`. All subsequent phases reference this value.
+
+### 1.7 Write the codebase brief — first artifact (mandatory, all tiers)
+
+The Phase 1 analysis is itself the run's first deliverable — do not keep it in-context until the end. As soon as 1.1–1.6 are complete, write `docs/AI-WORKFLOW-BRIEF.md` (create `docs/` if absent; if the file pre-exists, Phase 4 protocol applies): ≤120 lines distilling —
+
+- project identity + exact stack versions (1.1)
+- architecture map + detected conventions (1.2–1.4)
+- domain, constraints, and any pack gates triggered (1.5)
+- the `DRIFT-QUARANTINE` block verbatim (1.5)
+- the maturity tier + the evidence that decided it (1.6)
+
+No kit template — the content is run-specific analysis (manifest entry: `class: "doc"`, `template: null`, like OWNER_BRIEF.md). Then print exactly one operator notice:
+
+`First artifact written: docs/AI-WORKFLOW-BRIEF.md — the rest of the run builds on it.`
+
+An operator who stops here still walks away with something real. The brief enters the Phase 8.5 manifest like every other written file.
 
 ## Phase 2: Stack Detection & Preset Loading
 
@@ -499,10 +555,22 @@ The kit ships skills under three template trees with intentionally different nam
 
 **Multi-IDE sync mandate.** Projects that use BOTH Cursor AND Claude Code must keep `.claude/` and `.cursor/` mirrors in lock-step. When a skill, rule, or command changes on one side, it changes on the other in the same commit. Drift between the two is a defect. Agent twins: `reviewer` / `security-auditor` / `tester` ship as cross-IDE twins (lock-step edits, same commit); `simplifier` / `verifier` ship Claude-Code-only — for Cursor-only projects, adapt by moving the frontmatter `tools:` into a body `## Tools` section (the reverse transform; recipe in `workflows/MIGRATION-CURSOR-CLAUDE.md`).
 
-If the project uses **only Cursor** (no `.claude/` directory present), install Cursor versions only — unless this session is running in Claude Code (session evidence puts Claude Code in scope).
-If the project uses **only Claude Code** (no `.cursor/` directory present), install Claude Code versions only.
-**Stale-artifact caveat**: directory existence is weak evidence in BOTH directions — an organically grown `.cursor/` (misconfigured frontmatter, dead globs, empty attachment fields) does not prove Cursor is in active use, and `.claude/` being absent does not prove Claude Code is not. When `.cursor/` artifacts look stale and the generator runs in Claude Code, ASK the operator about IDE scope. Post-install scope corrections follow `workflows/MIGRATION-CURSOR-CLAUDE.md`.
-If both directories exist or both are being created fresh, install both + add a rule-sync mandate line to the project's `CLAUDE.md` (per Phase 3.5 below).
+**IDE-scope resolution (evidence-based, single-scope default).** Resolve which surface(s) to generate from three signals, strongest first:
+
+1. **Operator words** — any explicit scope statement (an intake answer, or a reply to the run contract's `Building for:` line: "both" / "cursor" / "claude only") is final.
+2. **Session surface** — the IDE this session runs in is always in scope.
+3. **Live-ness, not existence** — a directory counts as live evidence only with recent git activity:
+   ```bash
+   git log -1 --format='%ci' -- .cursor/
+   git log -1 --format='%ci' -- .claude/
+   ```
+   No commits ever touching a path — or none in the last 6 months while the sibling surface is active — means stale, not live (see the caveat below). No git history at all → fall back to signals 1–2.
+
+**Default: install ONLY the surface(s) with live evidence.** Generate BOTH only when both are live, or the operator says so. Greenfield (neither directory exists, no history): the session surface alone decides. When scope resolves to both, add the rule-sync mandate line to the project's `CLAUDE.md` (per Phase 3.5 below).
+
+**Stale-artifact caveat (the one pre-existing blocking ask — unchanged)**: directory existence is weak evidence in BOTH directions — an organically grown `.cursor/` (misconfigured frontmatter, dead globs, empty attachment fields) does not prove Cursor is in active use, and `.claude/` being absent does not prove Claude Code is not. When the evidence is genuinely mixed — e.g. `.cursor/` has recent commits but every rule in it is misconfigured, or signals 2 and 3 contradict — ASK the operator about IDE scope. Every other case is the disclosed assumption in the run contract's `Building for:` line, veto open until Phase 3 generation starts.
+
+Record the resolution in the manifest `ide_scope` (Phase 8.5). Post-install scope corrections — and adding the second surface later, which is cheap and supported — follow `workflows/MIGRATION-CURSOR-CLAUDE.md`.
 
 ### 3.5 Decision-skill router rule injection (mandatory when any KB-05 skill is installed)
 
@@ -932,8 +1000,8 @@ Every generator run — every tier, every preset, no exceptions — ends by writ
    shasum -a 256 "<path>" | awk '{print $1}'   # fallback: sha256sum
    ```
    `class` (context / rule / skill / agent / command / mcp-config / ledger / ignore / doc); `disposition` (created / merged-existing / kept-existing, from Phase 4 outcomes); `template` — the kit source path, or JSON `null` for files generated from analysis with no kit source (CLAUDE.md prose, OWNER_BRIEF.md, domain rules); `template_sha256` — hash of that kit source **at generation time** (`null` when `template` is null); per-file `kit_version`; `owner_customized: false`.
-3. Fill the header fields: `kit_version` from the newest `## [x.y.z]` heading in the kit's CHANGELOG.md (a verifiable source, not memory); `generated_date` via `date -u +%Y-%m-%dT%H:%M:%SZ`; `ide_scope` from Phase 3.4's resolution; `presets` from Phase 2 selections (variant markers like `nextjs:content-first` included); `packs` for every conditional pack installed (`kb-04`, `kb-05-*`, `kb-07-naming`, `kb-08-design`, `vigilance`, `mission-dispatch`, `owner-brief`); `placeholders` — the resolved placeholder map, **paths and names only, never secret values** (env var *names* are fine, values never).
-4. **Exclusions (explicit)**: the manifest never lists itself; never lists files the run didn't touch; never records secret values.
+3. Fill the header fields: `kit_version` from the newest `## [x.y.z]` heading in the kit's CHANGELOG.md (a verifiable source, not memory); `generated_date` via `date -u +%Y-%m-%dT%H:%M:%SZ`; `ide_scope` from Phase 3.4's resolution (evidence-based single-scope default; values: `"claude-code"`, `"cursor"`); `presets` from Phase 2 selections (variant markers like `nextjs:content-first` included); `packs` for every conditional pack installed (`kb-04`, `kb-05-*`, `kb-07-naming`, `kb-08-design`, `vigilance`, `mission-dispatch`, `owner-brief`); `placeholders` — the resolved placeholder map, **paths and names only, never secret values** (env var *names* are fine, values never).
+4. **Exclusions (explicit)**: the manifest never lists itself; never lists files the run didn't touch; never records secret values; never lists the `.df-setup-state.json` checkpoint (scratch — deleted at Phase 9 per the Run Protocol).
 5. **Verify**: `python3 -m json.tool .ai-kit-manifest.json` parses; spot-check 3 recorded hashes against `shasum -a 256`.
 
 (The Phase 0.2 install-manifest guard handles the reverse direction: if a manifest already exists, the generator must not have gotten this far — route to `generator/UPGRADE_MODE.md`.)
@@ -950,6 +1018,7 @@ Output a structured summary:
 **Maturity tier (Phase 1.6)**: Starter / Intermediate / Advanced — [reason]
 **Preset used**: [nextjs / nextjs:content-first / nextjs-pages / fastapi / general-node / docs-ops / none — generated from KB principles]
 **Owner brief (Phase 0.5)**: [generated / N-A — gate did not fire]
+**IDE scope (Phase 3.4)**: [claude-code / cursor / both — the evidence that resolved it + whether the operator vetoed the disclosed assumption]
 
 ### Files Created
 [list each file with line count]
@@ -1001,6 +1070,8 @@ Output a structured summary:
 ### New Environment Variables Required
 [list any new env vars needed for discovered MCP servers]
 ```
+
+Final action, after the report is printed: delete `.df-setup-state.json` (Run Protocol — the manifest now supersedes it).
 
 ## Critical Constraints
 

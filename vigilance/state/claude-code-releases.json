@@ -2,10 +2,10 @@
   "source_slug": "claude-code-releases",
   "url": "https://github.com/anthropics/claude-code/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-13T04:00:00Z",
-  "last_seen_cursor": "2026-07-11T00:52:10Z",
-  "last_seen_item_hash": "v2.1.207-automode-default-bedrock-vertex-foundry-plugin-shell-injection-fix-opus-4-8-default",
-  "consecutive_empty_scans": 2,
+  "last_fetched_utc": "2026-07-14T04:00:00Z",
+  "last_seen_cursor": "2026-07-14T01:10:42Z",
+  "last_seen_item_hash": "v2.1.208-40-improvements-fixes-screen-reader-corporate-process-wrapper-memory-leak-fixes-7x-tool-rounds-79x-transcripts",
+  "consecutive_empty_scans": 0,
   "consecutive_failures": 0,
-  "notes": "48h-post-Weekly-Synthesis-2026-28 breath-hold. No new release since v2.1.207 (07-11 00:52:10Z). Promoted at Weekly Synthesis 2026-28 as action candidate #3 (Claude Code v2.1.202 → v2.1.207 release cluster; 6 releases in 6 days; 7th consecutive week; 15 workstream rows if promoted at 2026-08-01 Monthly Integration). Kit-side response is doctrine-refresh + primitives-citation (none of v2.1.207's 3 BREAKING CHANGES hit locked kit patterns)."
+  "notes": "v2.1.208 07-14 01:10:42Z lands with 40+ improvements/fixes: --ax-screen-reader accessibility, CLAUDE_CODE_PROCESS_WRAPPER corporate proxy, vim insert mode remaps (jj->Escape), mouse-click multi-select, 3 memory leak fixes (MCP + LSP + async hooks), 7x faster tool rounds, 79x smaller edit-session transcripts, HTTP/2 connection crash fix, Bedrock streaming proxy transformation error fix, background agent replies loss on delivery failure fix, /release-notes context injection fix, scientific notation parsing bug (1e6->1), large markdown table pagination (200+ rows), fast mode auto-restore fix, context window reset after CLI auto-updates fix. NO BREAKING CHANGES. 7th release in 9 days (v2.1.202->v2.1.208). Extends Weekly Synthesis 2026-28 action candidate #3 architect-prompt slot from 15 workstream rows -> 17."
 }

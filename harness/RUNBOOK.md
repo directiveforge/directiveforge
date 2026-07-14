@@ -235,6 +235,23 @@ non-clobber guard. The baseline scripts stay as the frozen record; this one is p
   committing (`git status --porcelain` clean; `git ls-files harness/results/<dir> | wc -l` matches
   `find harness/results/<dir> -type f | wc -l`).
 
+## 3bis. Lifecycle protocols (LC-1..LC-3, spec v1.2)
+
+The lifecycle metrics run off two pre-registered instruments in `harness/lifecycle/` — manual
+briefs, no runner script yet (deliberately: the survival flow has a mid-pass human gate the
+batch runners don't model; scripting is deferred until the protocol survives two runs):
+
+- `harness/lifecycle/UPGRADE-SURVIVAL-PROTOCOL.md` — LC-3: customize a manifest-backed install,
+  run `generator/UPGRADE_MODE.md` end-to-end, measure customization survival (silent-overwrite
+  hard gate = 0). Substrate is COPIED out of the frozen baseline by the orchestrator; results
+  land only in a new dated dir (never `*baseline*`).
+- `harness/lifecycle/UX-REHEARSAL-PROTOCOL.md` — LC-1/LC-2 + the fresh-context lifecycle
+  verification (cold PSP paste on a synthetic non-fixture repo, boundary-stop + resume,
+  firewalled verifier).
+
+Same discipline as §3: retain + commit every raw artifact the published numbers need
+(spec §2.2), checkpoint between agents (§6bis), circuit breakers (§7) apply unchanged.
+
 ## 4. Model-routing table (as run — frozen per spec §3)
 
 | Role | Model | Notes |

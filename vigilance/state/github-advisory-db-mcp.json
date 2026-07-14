@@ -2,10 +2,10 @@
   "source_slug": "github-advisory-db-mcp",
   "url": "https://github.com/advisories?query=mcp",
   "fetch_strategy": "scrape",
-  "last_fetched_utc": "2026-07-13T04:00:00Z",
-  "last_seen_cursor": "2026-07-10T15:00:00Z",
-  "last_seen_item_hash": "2026-07-10-ghsa-wmg3-h8mf-wgvr-mcp-server-kubernetes-critical-argument-injection-plus-12-advisory-backlog",
+  "last_fetched_utc": "2026-07-14T04:00:00Z",
+  "last_seen_cursor": "2026-07-14T00:00:00Z",
+  "last_seen_item_hash": "2026-07-14-ghsa-5pr8-xjq5-2wrc-openclaw-high-authorization-bypass-plus-6-advisory-drip-batch",
   "consecutive_empty_scans": 0,
   "consecutive_failures": 0,
-  "notes": "Opportunistic Tier-1 re-query 07-13 returned 0 fresh MCP-related advisories after 07-10 cursor. Yesterday's 12-advisory batch (07-03 → 07-10) remains the tail. Next opportunistic re-query per weekly cadence set at 07-12: 07-19 (or sooner on live-signal trigger). Cursor unchanged; consecutive_empty_scans unchanged (yesterday's substantive batch already reset it)."
+  "notes": "Opportunistic Tier-1 re-query 07-14 returned 7 new advisories 07-12 -> 07-14: (a) GHSA-5383-j2p9-qfg3 mcp-gitlab Critical 07-13 path traversal in job_id parameter; (b) GHSA-5pr8-xjq5-2wrc OpenClaw High 07-14 authorization bypass; (c) GHSA-c7fc-wmwf-cvvh kicad-mcp Low 07-13; (d) GHSA-v62x-f943-965f augments-mcp-server Low 07-13; (e) GHSA-9cqv-qvmj-xrc4 godot-mcp Low 07-13; (f) GHSA-xj39-q498-f3c8 memory-bank-mcp Low 07-13; (g) GHSA-hhgm-hv3h-m233 AstrBot Low 07-12. None affect kit-recommended servers (grep-verified 0 kit hits across all 7 packages). ⚠ hygiene note per WATCHLIST §Cat 7 auto-triage. Extends Weekly Synthesis 2026-28 action candidate #1 (ML-and-MCP supply-chain hygiene 2026-07 arc) to 5 cluster-anchor drips; confidence advance 0.90 -> 0.93. Adds path-traversal + authorization-bypass failure modes to arc's already-mapped list. Next opportunistic re-query per weekly cadence: 07-21 (or sooner on live-signal trigger)."
 }

@@ -2,10 +2,10 @@
   "source_slug": "langgraph",
   "url": "https://github.com/langchain-ai/langgraph/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-13T04:00:00Z",
+  "last_fetched_utc": "2026-07-14T04:00:00Z",
   "last_seen_cursor": "2026-07-10T22:58:04Z",
   "last_seen_item_hash": "langgraph-cli==0.4.31-allow-langgraph-api-up-to-1.0.0",
-  "consecutive_empty_scans": 2,
+  "consecutive_empty_scans": 3,
   "consecutive_failures": 0,
-  "notes": "2nd empty day. ~53h since langgraph-cli==0.4.31 (07-10 22:58:04Z). langgraph-api-1.0.0-compatibility signal continues to await forthcoming major version. Three-fix DeltaChannel arc (06-30 1.2.7 + 07-06 1.2.8 + 07-09/10 1.2.9) remains Monthly Integration slot candidate for KB-06 §hosted-agent-observability."
+  "notes": "3rd empty day. ~77h since langgraph-cli==0.4.31 (07-10 22:58:04Z). langgraph-api-1.0.0-compatibility signal continues to await forthcoming major version. Three-fix DeltaChannel arc (06-30 1.2.7 + 07-06 1.2.8 + 07-09/10 1.2.9) remains Monthly Integration slot candidate for KB-06 §hosted-agent-observability."
 }

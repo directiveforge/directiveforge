@@ -2,7 +2,7 @@
 
 > Run after every execution of `PROJECT_SETUP_PROMPT.md`. All items must pass before the generated workflow is committed to the target project.
 >
-> Version: v0.19.0 (§18–§23 added — HD-1..HD-8 gates). Last updated 2026-07-03.
+> Version: v0.19.0 (§18–§23 added — HD-1..HD-8 gates) + ux-lifecycle §10 additions (lifecycle gates, mirrored as static-checks family T). Last updated 2026-07-12.
 >
 > Source references: KB-02 §1 (token budgets), §2 (rules quality), §3 (skills), §4 (agents), §5 (no redundancy)
 
@@ -186,6 +186,9 @@ Cursor-side items apply only **if Cursor is in scope** (generator Phase 3.4); ma
 - [ ] `.cursorindexingignore` created (prevents junk indexing) (if Cursor in scope)
 - [ ] `.cursorignore` created (hides secrets from context) (if Cursor in scope)
 - [ ] At least 3 `.claude/commands/` slash commands created (review-pr, update-context + one project-appropriate command; `deploy` only if the project is deployable)
+- [ ] **Scope purity (Phase 3.4)**: no `.cursor/**` files exist when the manifest's `ide_scope` excludes `"cursor"`, and no `.claude/**` files when it excludes `"claude-code"` — a single-IDE operator never receives the second surface silently
+- [ ] **First artifact (Phase 1.7)**: `docs/AI-WORKFLOW-BRIEF.md` exists, is non-empty, and appears in the manifest (`class: "doc"`, `template: null`)
+- [ ] **Checkpoint cleanup (Run Protocol)**: `.df-setup-state.json` is ABSENT — Phase 9 deletes it; a leftover means the run did not complete (note: the file is JSON Lines while it lives — do not gate it on `json.tool`)
 
 ---
 

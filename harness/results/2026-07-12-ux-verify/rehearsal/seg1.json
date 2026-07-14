@@ -1,0 +1,17 @@
+{
+ "stopped_after": "3",
+ "run_contract_printed": true,
+ "building_for_line": "- **Building for:** `claude-code` (detected: this generator session runs in Claude Code, which is always in scope; neither `.cursor/` nor `.claude/` exists and neither has any git history \u2014 greenfield, so the session surface alone decides). Reply \"both\" or \"cursor\" to change \u2014 the veto stays open until Phase 3 generation starts.",
+ "brief_written_ts": "2026-07-11T22:07:09Z",
+ "banners_printed": [
+  "Phase 0 \u2014 Foundation (step 1 of 14) \u2014 writes: .df-setup-state.json",
+  "Phase 0.5 \u2014 Owner Brief / Revival Intake (step 2 of 14) \u2014 writes: nothing: skipped \u2014 none of the 3 gates fired (no revival/brief-driven declaration; last commit 2026-07-12 = not dormant; README consistent with code, no HANDOFF/git discontinuity)",
+  "Phase 1 \u2014 Deep Codebase Analysis (step 3 of 14) \u2014 writes: docs/AI-WORKFLOW-BRIEF.md",
+  "Phase 2 \u2014 Stack Detection & Preset Loading (step 4 of 14) \u2014 writes: nothing",
+  "Phase 2.5 \u2014 MCP Discovery (step 5 of 14) \u2014 writes: nothing (config written in Phase 3)",
+  "Phase 3 \u2014 Generate AI Workflow Files (step 6 of 14) \u2014 IDE scope: claude-code (greenfield, session surface; veto now closed) \u2014 writes: CLAUDE.md, AGENTS.md, DECISIONS.md, .mcp.json, .mcp.annotations.md, .claude/settings.json, .claude/rules/{base,quality-gates,decision-skills}.md, .claude/commands/{review-pr,update-context,discover-mcp,security-review,tech-debt,workflow-help,status,report-friction}.md, .claude/agents/{simplifier,reviewer,verifier,tester}.md, .claude/skills/decision/{pre-mortem,steelman,confidence-calibration,reversibility-check,anti-sycophancy-meta}/SKILL.md, HANDOFF.md"
+ ],
+ "operator_consultations": [],
+ "checkpoint_rows": 6,
+ "notes": "Starter tier; claude-code single-surface (greenfield); no preset; MCP=Context7 only; 0 operator questions; no pack gates triggered; stopped after Phase 3 checkpoint per wrapper."
+}

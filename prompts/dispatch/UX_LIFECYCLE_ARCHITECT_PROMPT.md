@@ -11,7 +11,7 @@
 The pain map's densest cluster is first-run/lifecycle UX, not artifact quality: devs decide on a
 tool in ~minutes and abandon over setup friction (map §UX-cut; the 68% abandonment row); 4 of 5
 rival repos carry open day-one install crashes (raw 2b); and our own factual audit (raw 1b) found:
-no cost/time disclosure before a 15–45-min run, no visible value until the very end, no
+no cost/time disclosure before an ~18–21-min run (measured, `harness/results/2026-07-03-baseline/`), no visible value until the very end, no
 resume-after-failure story, "9 phases" documented vs 14 real, uninstall undocumented. All of it is
 entirely in our control — none of it waits on models. Counter-intuitive but evidence-backed: the
 question budget (0–1 in a typical run) is ALREADY excellent — praised onboardings REMOVE steps.

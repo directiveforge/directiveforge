@@ -80,30 +80,30 @@ Generator Phase 1.6 classifies the project from codebase evidence. The signals b
 
 ---
 
-## 3. Install flow walk-through (9 phases)
+## 3. Install flow walk-through (14 phases — numbered 0–9 with half-steps 0.5, 2.5, 4.5 and 8.5)
 
 ```
 Phase 0:   Foundation (read KB sections + inventory existing files)
               ↓
-Phase 1:   Deep codebase analysis (stack, versions, architecture, conventions, domain)
+Phase 0.5: Owner brief / revival intake       (conditional — dormancy/revival gate; writes OWNER_BRIEF.md when it fires)
               ↓
-Phase 1.6: Maturity-tier classification (Starter / Intermediate / Advanced)
+Phase 1:   Deep codebase analysis (stack, versions, architecture, conventions, domain)
+              1.6 (sub-step): maturity-tier classification (Starter / Intermediate / Advanced)
+              1.7 (sub-step): first artifact — docs/AI-WORKFLOW-BRIEF.md written as soon as analysis completes
               ↓
 Phase 2:   Stack detection + preset loading (nextjs / fastapi / general-node / none)
               ↓
 Phase 2.5: MCP discovery (scan dependencies + .env.example, 5-gate quality check)
               ↓
 Phase 3:   File generation (templates → tier-aware install of rules / skills / agents / commands)
-              ↓
-Phase 3.4: Multi-IDE path conventions (.claude/ + .cursor/ mirror sync mandate)
-              ↓
-Phase 3.5: Decision-skill router rule injection (decision-skills.md documenting which skill fires when)
+              3.4 (sub-step): IDE-scope resolution + path conventions (evidence-based single-scope default)
+              3.5 (sub-step): decision-skill router rule injection (decision-skills.md documenting which skill fires when)
               ↓
 Phase 4:   Existing file handling (merge, never overwrite; archive, never delete)
               ↓
 Phase 4.5: Surface routing integration         (Intermediate+ only — Cowork handoff)
               ↓
-Phase 5:   Validation (run generator/VALIDATION_CHECKLIST.md sections 1-10)
+Phase 5:   Validation (run every generator/VALIDATION_CHECKLIST.md section; 14-16 may be N/A by tier)
               ↓
 Phase 6:   Cost & session optimization (CLAUDE.md session-management additions)
               ↓
@@ -111,10 +111,12 @@ Phase 7:   Vigilance discipline bootstrap     (Advanced only — opt-in)
               ↓
 Phase 8:   Mission-dispatch pattern           (Advanced only — opt-in)
               ↓
+Phase 8.5: Install manifest (.ai-kit-manifest.json — mandatory; the upgrade/uninstall contract)
+              ↓
 Phase 9:   Summary report (files created, MCP servers, decisions seeded, validation results)
 ```
 
-The generator pauses for operator input at three points: Phase 1.6 if tier signals are ambiguous, Phase 7 if Advanced and offering vigilance, Phase 8 if Advanced and offering mission-dispatch. Every other phase runs without prompting.
+The generator pauses for operator input at three points: Phase 1.6 if tier signals are ambiguous, Phase 7 if Advanced and offering vigilance, Phase 8 if Advanced and offering mission-dispatch — plus, on a restart after a failed run, the Phase 0 resume offer (Run Protocol). Every other phase runs without prompting.
 
 ---
 
@@ -322,7 +324,7 @@ Ships the 22 measured skills (decision / naming / design packs) and the workflow
 
 ### (2) Generator dispatch — full per-project workflow
 
-The 9-phase generator (QUICK_START.md → `generator/PROJECT_SETUP_PROMPT.md`) reads the codebase, classifies the maturity tier, and installs the tier-appropriate surface: `CLAUDE.md` / `AGENTS.md` / `DECISIONS.md`, rules, agents, the decision-skill router, `.mcp.json`, and the `.ai-kit-manifest.json` that upgrades run against. Upgrades go through `generator/UPGRADE_MODE.md`, which diffs the installed surface against the current kit using the manifest.
+The 14-phase generator (QUICK_START.md → `generator/PROJECT_SETUP_PROMPT.md`) reads the codebase, classifies the maturity tier, and installs the tier-appropriate surface: `CLAUDE.md` / `AGENTS.md` / `DECISIONS.md`, rules, agents, the decision-skill router, `.mcp.json`, and the `.ai-kit-manifest.json` that upgrades run against. Upgrades go through `generator/UPGRADE_MODE.md`, which diffs the installed surface against the current kit using the manifest.
 
 **Use when.** The project needs the whole discipline — project-specific rules, review/verify/test agents, surface routing, and a manifest-tracked upgrade path. This is the recommended route for any project past a side-project.
 
@@ -352,7 +354,7 @@ cp -R ~/kit/templates/skills/{decision,naming,design} .cursor/skills/
 
 Front door and invocation:
 - `QUICK_START.md` — how to invoke the generator against a target project
-- `generator/PROJECT_SETUP_PROMPT.md` — the master 9-phase generator prompt
+- `generator/PROJECT_SETUP_PROMPT.md` — the master 14-phase generator prompt (0–9 + half-steps 0.5, 2.5, 4.5, 8.5)
 - `generator/VALIDATION_CHECKLIST.md` — post-install verification (Phase 5)
 - `generator/presets/` — stack-specific generator additions (Next.js, FastAPI, general Node)
 

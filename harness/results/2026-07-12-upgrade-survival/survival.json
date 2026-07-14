@@ -1,0 +1,102 @@
+{
+ "metric": "LC-3",
+ "spec_version": "1.2",
+ "protocol": "harness/lifecycle/UPGRADE-SURVIVAL-PROTOCOL.md",
+ "protocol_commit": "274cd0d",
+ "kit_branch_sha": "274cd0d",
+ "run_date": "2026-07-12",
+ "run_kind": "first controlled run (W5)",
+ "substrate": "copy of harness/results/2026-07-03-baseline/greenfield-next/generated (kit 0.17.0, 44 manifest entries) at <SCRATCH>/upgrade-survival/copy-a",
+ "kit_under_test": "kit checkout at branch ux-lifecycle (templates unchanged since v0.20.0 -> real 0.17->0.20 drift)",
+ "pre_scan": {
+  "kit_drifted": 11,
+  "kit_same": 30,
+  "template_null": 3,
+  "template_missing": 0
+ },
+ "n": {
+  "owner_modified_manifest_files": 3,
+  "operator_own_non_manifest_files": 1,
+  "untouched_sentinels": 2,
+  "protected_paths": 1
+ },
+ "lc3": {
+  "a_survival_rate": {
+   "value": 1.0,
+   "aggregate": "15/15 owner-changed lines survived",
+   "per_file": {
+    "CLAUDE.md": {
+     "owner_lines": 6,
+     "survived": 6,
+     "outcome": "keep-mine via \u00a75.3 default (question deliberately unanswered)",
+     "byte_identical": true
+    },
+    ".claude/rules/base.md": {
+     "owner_lines": 8,
+     "survived": 8,
+     "outcome": "keep-mine (explicit answer)",
+     "byte_identical": true
+    },
+    ".claude/commands/update-context.md": {
+     "owner_lines": 1,
+     "survived": 1,
+     "outcome": "3-way merge (kit Quality-Reference delta folded in, owner step 8 preserved)",
+     "byte_identical": false
+    }
+   }
+  },
+  "b_adjudication_flagging_correctness": {
+   "value": 1.0,
+   "detail": "3/3 owner-modified files classified owner-preserving (all ADJUDICATE this run); owner_customized:true recorded on all 3 post-apply"
+  },
+  "c_silent_overwrite_count": {
+   "value": 0,
+   "hard_gate": "PASS"
+  }
+ },
+ "invariants": {
+  "non_manifest_untouched_7_4": {
+   "pass": true,
+   "detail": "19 app/report files + operator-own git-hygiene skill byte-identical (exclusions: plan file, audit report)"
+  },
+  "protected_path_byte_identical_3a": {
+   "pass": true,
+   "detail": ".claude/rules/quality-gates.md identical while unprotected twin .cursor/rules/quality-gates.mdc upgraded"
+  },
+  "nothing_deleted": {
+   "pass": true
+  },
+  "manifest_rewritten_last": {
+   "pass": true,
+   "detail": "kit_version->0.20.0; sha256==disk on all touched+adjudicated rows; kit_version bumped on all 8 UPGRADE rows; git-hygiene not registered; declined ADD rows not landed (44 rows unchanged count)"
+  },
+  "frozen_baseline_untouched": {
+   "pass": true,
+   "detail": "git status --porcelain harness/results/2026-07-03-baseline empty post-run"
+  },
+  "dry_run_single_write_7_1": {
+   "pass": true
+  }
+ },
+ "answer_key_deviations": [
+  {
+   "file": ".claude/rules/base.md",
+   "expected": "KEEP + owner_customized (differ/match)",
+   "actual": "ADJUDICATE (audit owner-queue merge, \u00a72.2)",
+   "assessment": "conservative direction \u2014 costs one question, loses nothing; outcome identical (keep-mine, flag set). Not a gate breach."
+  },
+  {
+   "file": ".claude/skills/git-hygiene/SKILL.md",
+   "expected": "no verdict row (outside manifest)",
+   "actual": "ADJUDICATE row via audit F1/F7 queue",
+   "assessment": "conservative; scripted 'no action' honored \u2014 file untouched, not registered. Not a gate breach."
+  }
+ ],
+ "models": {
+  "audit": "sonnet",
+  "dry_run": "sonnet",
+  "apply": "sonnet",
+  "threat_to_validity": "UPGRADE_MODE header recommends highest-capability model; Sonnet-class used this run; Opus-class covered by the independent W7 re-run"
+ },
+ "caveat": "single-run, directional"
+}

@@ -38,7 +38,7 @@ AI/  (public name: DirectiveForge — NAMING-DECISION.md)
 ├── generator/
 │   ├── PROJECT_SETUP_PROMPT.md            # Master prompt — drop into any project
 │   ├── UPGRADE_MODE.md                    # Kit-aware upgrade planner (manifest-driven, dry-run default)
-│   ├── VALIDATION_CHECKLIST.md            # Post-generation verification checklist (17 sections)
+│   ├── VALIDATION_CHECKLIST.md            # Post-generation verification checklist (§0-§23)
 │   └── presets/                           # Stack-specific generator additions
 │       ├── nextjs.md                      # Next.js App Router (+ content-first/headless variant)
 │       ├── nextjs-pages.md                # Next.js Pages Router (anti-App-Router-hallucination)

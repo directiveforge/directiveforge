@@ -2,10 +2,10 @@
   "source_slug": "awesome-mcp-servers",
   "url": "https://github.com/punkpeye/awesome-mcp-servers/commits/main.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-13T04:00:00Z",
-  "last_seen_cursor": "2026-07-13T02:42:32Z",
-  "last_seen_item_hash": "9931ecb-merge-pr-9943-add-substack-publisher-mcp",
+  "last_fetched_utc": "2026-07-14T04:00:00Z",
+  "last_seen_cursor": "2026-07-13T11:04:02Z",
+  "last_seen_item_hash": "79cca3e-merge-pr-9293-add-memeboat-mcp",
   "consecutive_empty_scans": 0,
   "consecutive_failures": 0,
-  "notes": "20+-server community-curated batch across 07-12T19:02:28Z → 07-13T02:42:32Z (~8-day gap since the 07-04 20+-server community batch tail 040b77d-add-pincushion). Additions span Cloud Platforms (proximo + plori), Legal (fyi-cli), Research (zotio), Security (AperionAI/shield), Art & Culture (spotify-mcp + New Mexico Literacy Project), Travel & Transportation (HemmaBo), Multi-agent/task-bus (Trinity Lite), Contracts/Agreements (Shodai), AI trust (Hlido), Product demo videographer (AIOProductOS Studio), Publishing (substack-publisher-mcp + tiktok-agent-publisher), Compliance (AOS validator), Receptionist (Lobby AI), Hosting (Hostodo), Misc dev tool (delx-mcp-server). Cadence-normal — awesome-list batches typically land 15-30 servers every 5-10 days. Grep-verified 0 kit hits across all 20+ added server names. Per-server integration path deferred to Monthly Integration. Severity 🟡 (Cat 7 default ⚠ possible; borderline ⚠/🟡 → down per doctrine — coverage-widening on awesome-list not shipped-capability-change; batch-density alone not integration-load-bearing). Reset consecutive_empty_scans from 7 → 0."
+  "notes": "20+-server community-curated batch across 07-13T10:30:46Z -> 11:04:02Z (memeboat-mcp + Project Telos + fastCRW + Kadenzo + engram + Toolport-conduit-aggregator + rustchain-mcp + Flash Props + arcgis-mcp-bridge + setell-mcp + SignWell + tossinvest-mcp + Kinocut + linksee-memory + bolthub + DataNexus). Second consecutive-day 20+-server batch — cadence normalizing into daily rhythm during 2026-07 vendor-surge arc. Grep-verified 0 kit hits across all 20+ added server names. Per-server integration path deferred to Monthly Integration. Severity 🟡 (Cat 7 default ⚠ possible; borderline ⚠/🟡 -> down per doctrine — coverage-widening on awesome-list not shipped-capability-change)."
 }

@@ -1,0 +1,39 @@
+{
+ "note": "RAW measurements only \u2014 no verdicts; the verifier judges",
+ "disclosed_block_source": "the DF-RUN-CONTRACT block printed by the run (identical to the three surfaces)",
+ "timestamps": {
+  "seg1_dispatch": "2026-07-11T22:00:35Z",
+  "brief_written_echo": "2026-07-11T22:07:09Z",
+  "seg1_phase3_checkpoint": "2026-07-11T22:24:41Z",
+  "seg2_dispatch": "2026-07-11T22:26:30Z",
+  "seg2_part1_duration_s": 324,
+  "seg2_continuation_duration_s": 778,
+  "seg1_duration_s": 1468
+ },
+ "tokens": {
+  "seg1": 327331,
+  "seg2_part1": 119358,
+  "seg2_continuation": 189449,
+  "rehearsal_total": 636138,
+  "method": "orchestration-harness per-agent report (includes per-call system context); same method+caveat as the recorded baseline runs (L2.5)"
+ },
+ "lc1_raw_seconds": 394,
+ "wall_time_raw": {
+  "seg1_s": 1468,
+  "seg2_total_s": 1102,
+  "sum_s": 2570,
+  "confound_note_from_protocol": "protocol pre-registered summing both segments; a resumed run re-reads kit context twice and the continuation added a third context load \u2014 the recorded baseline runs were single continuous sessions"
+ },
+ "survival_rerun": {
+  "copy_b": "<SCRATCH>/upgrade-survival/copy-b",
+  "commits": {
+   "install": "912b2e1",
+   "customized": "009c4e6",
+   "apply_branch": "kit-upgrade-2026-07-12 @ 2078c72"
+  },
+  "tokens": {
+   "dry_run_opus": 127594,
+   "apply_opus": 163869
+  }
+ }
+}

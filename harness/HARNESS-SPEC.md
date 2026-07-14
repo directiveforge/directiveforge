@@ -226,6 +226,62 @@ overhead, not measurement content. Batching is a cost fix, not a redefinition.
 5. Wilson CIs computed from batched trials are flagged **nominal** (trial independence is weakened
    by batching even with rule 2) — treat as directional bounds, not exact coverage.
 
+### v1.2 (2026-07-12) — first-run + upgrade lifecycle metrics (LC-1..LC-3)
+
+**What changes:** three NEW metrics are defined, measured forward from this date on controlled
+fixture/scratch-repo runs. **What does not change:** every L1.*/L2.* definition, scale, rubric,
+answer key, band, the worst-of overall-grade rule (SCORECARD-FORMAT §3b) and the §3c hard F-cap.
+**No re-grading of old runs** — runs dated before this addendum have no LC values and none are
+imputed. Bands stated below are presentation-only (§2.4 doctrine).
+
+**Namespace note:** the `L3.*` family is reserved by the field-evidence program
+(`prompts/dispatch/L3_FIELD_EVIDENCE_ARCHITECT_PROMPT.md`); LC-* are the controlled-fixture
+counterparts its L3.3/L3.4 will cite. Cross-reference, never duplicate.
+
+- **LC-1 time-to-first-artifact.** Wall-clock seconds from generator dispatch to the Phase 1.7
+  brief (`docs/AI-WORKFLOW-BRIEF.md`) existing on disk with non-empty content. Source of truth:
+  orchestrating-session UTC timestamps (`date -u`) captured immediately before dispatch, paired
+  with (a) the runner's echoed post-write timestamp (instructed in the run-control wrapper, not
+  in the PSP) and (b) the artifact's filesystem timestamps — recorded raw in run metadata. The
+  value is an UPPER bound (includes dispatch overhead) and is reported as such. On
+  interrupted-then-resumed runs, LC-1 is measured on the initial segment only. Scale: seconds;
+  single-run, directional. Presentation band: ≤180 s meets the "first artifact early in the run"
+  disclosure at the strictest reading of the design target.
+
+- **LC-2 disclosed-vs-actual cost delta.** For each quantity the run's own preamble disclosed
+  (wall-time; tokens), the signed difference between the actual and the nearest bound of the
+  range AS WRITTEN in the DF-RUN-CONTRACT block that run displayed; 0 if within range. Actual
+  tokens: orchestration-harness per-agent report, injected post-run (same method and caveat as
+  L2.5). Actual wall-time: orchestrating-session timestamps. Verdict per quantity: TRUE iff
+  actual ≤ disclosed ceiling — an under-run below the floor reports its negative delta but is
+  not a false disclosure (the promise is an at-most bound); actual > ceiling = FALSE disclosure,
+  a blocking finding under the honest-numbers doctrine (§2). n stated; single-run, directional.
+
+- **LC-3 upgrade customization-survival rate.** Measured by the pre-registered protocol
+  `harness/lifecycle/UPGRADE-SURVIVAL-PROTOCOL.md` (committed before any run) against a
+  manifest-backed install. Three published numbers, n stated per run:
+  (a) **survival rate** = owner-changed lines still present post-apply / total owner-changed
+  lines across all owner-modified files (per-file table + aggregate; KEEP and keep-mine
+  outcomes must be byte-identical = all lines survive; merge outcomes scored per owner hunk);
+  (b) **adjudication-flagging correctness** = owner-modified files classified into an
+  owner-preserving verdict class (KEEP + `owner_customized` or ADJUDICATE) / owner-modified
+  files — must be 1.0;
+  (c) **silent-overwrite count** = owner-modified files whose post-apply content lost owner
+  lines without a recorded (or §5.3-defaulted) owner answer — **HARD GATE = 0**; any >0 files a
+  defect (gate local to this metric; §3c and worst-of are unchanged).
+  Reported alongside, same gate spirit: non-manifest files touched (UPGRADE_MODE §7.4) = 0;
+  protected paths (UPGRADE_MODE §3a) byte-identical = required. Scale: proportion + counts;
+  single-run, directional.
+
+**Related forward-only change, recorded for L1.1's denominator:** the static-check pack gained
+family T (T1 scope purity, T2 first artifact, T3 checkpoint cleanup) on 2026-07-12, mirroring
+the VALIDATION_CHECKLIST §10 lifecycle gates — check-pack growth per the §18–§23 precedent, not
+a redefinition of L1.1; runs scored before that date are not re-graded.
+
+**Serialization:** LC values ship in dated result files under `harness/results/<date>-<label>/`
+(RESULT.md + machine-readable JSON), recomputable per §2.2. They enter scorecards only under a
+future spec version — SCORECARD-FORMAT is untouched by this addendum.
+
 ## Spec version history
 
 - **1.0 (2026-07-03)** — initial pre-registration, committed before any measurement run.
@@ -234,3 +290,10 @@ overhead, not measurement content. Batching is a cost fix, not a redefinition.
   rule, nominal-CI flag). No definition, scale, rubric, answer key, or grading change. Reason:
   ADJ-3 per-call-overhead cost incident. Numbers measured under 1.0 remain valid and comparable
   per addendum rules.
+- **1.2 (2026-07-12)** — Method addendum only: three new lifecycle metrics LC-1
+  (time-to-first-artifact), LC-2 (disclosed-vs-actual cost delta), LC-3 (upgrade
+  customization-survival; silent-overwrite hard gate = 0), measured forward only, shipped in
+  dated result files. No L1.*/L2.* definition, scale, rubric, answer key, band, or grading
+  change; no re-grading of old runs; static-check family T recorded as forward-only check-pack
+  growth. Reason: lifecycle UX overhaul W6 (first-run/upgrade evidence, pain-map 2026-07-11);
+  LC-3 instrument pre-registered at `harness/lifecycle/UPGRADE-SURVIVAL-PROTOCOL.md`.

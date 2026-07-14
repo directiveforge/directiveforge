@@ -137,3 +137,15 @@ Before handing the plan to the operator, verify mechanically:
 - [ ] Summary counts equal the actual table row counts per verdict.
 
 If any check fails, fix the plan — not the project — and re-run the checks.
+
+## §9 — Uninstall (manifest-driven removal)
+
+Uninstall is the diff engine run in reverse, under the same contract: the manifest enumerates the kit's entire footprint; nothing outside it is ever touched.
+
+1. **Plan first (dry-run, §4 format):** one row per manifest `files` entry with a verdict — `DELETE` (`owner_customized: false` AND `disposition: created` AND current `sha256` == recorded `sha256`) or `REVIEW` (hash mismatch, `owner_customized: true`, or disposition `merged-existing` / `kept-existing`). Nothing is silent.
+2. **Every REVIEW row goes through the §5 adjudication protocol** — keep / extract-owner-content / delete, decided per file by the operator.
+3. **Order:** listed files, then now-empty kit-created directories, then `.ai-kit-manifest.json` LAST (§7.5 mirrored: the manifest must outlive everything it describes).
+4. **Out of scope by construction:** files absent from the manifest, git history, `docs/archive/` backups (the operator's escape hatch, not the kit's property), protected paths (§3a).
+5. **No-manifest installs:** reconstruct per §6 first; `origin: "reconstructed"` downgrades every DELETE to REVIEW (the §6 hard conservative rule).
+
+**Relation to §7:** the §7 invariants govern uninstall too, with one sanctioned exception — §7.3's nothing-is-ever-deleted yields to the operator-approved DELETE verdict, because deletion IS the deliverable here. Everything else holds unchanged: the dry-run writes exactly one file (the plan), apply runs only after explicit operator approval and on a branch, REVIEW rows resolve to archive-not-delete unless the operator says otherwise, and §3a protected paths are untouchable.

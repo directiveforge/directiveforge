@@ -2,10 +2,10 @@
   "source_slug": "langchain",
   "url": "https://github.com/langchain-ai/langchain/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-13T04:00:00Z",
+  "last_fetched_utc": "2026-07-14T04:00:00Z",
   "last_seen_cursor": "2026-07-10T23:06:21Z",
   "last_seen_item_hash": "langchain==1.3.13-plus-langchain-openai==1.3.5-langchain-meta-explicit-prompt-caching",
-  "consecutive_empty_scans": 2,
+  "consecutive_empty_scans": 3,
   "consecutive_failures": 0,
-  "notes": "2nd empty day. ~53h since 07-10 3-package wave tail (langchain==1.3.13 + langchain-openai==1.3.5 + langgraph-cli 0.4.31). langchain-meta-provider-adapter landing + prompt-caching-hygiene 07-09/07-10 arc + langgraph-api-1.0.0-compatibility signal remain Monthly Integration slot candidates."
+  "notes": "3rd empty day. ~77h since 07-10 3-package wave tail (langchain==1.3.13 + langchain-openai==1.3.5 + langgraph-cli 0.4.31). langchain-meta-provider-adapter landing + prompt-caching-hygiene 07-09/07-10 arc + langgraph-api-1.0.0-compatibility signal remain Monthly Integration slot candidates."
 }

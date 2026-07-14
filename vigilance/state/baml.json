@@ -2,10 +2,10 @@
   "source_slug": "baml",
   "url": "https://github.com/BoundaryML/baml/releases.atom",
   "fetch_strategy": "rss",
-  "last_fetched_utc": "2026-07-13T04:00:00Z",
-  "last_seen_cursor": "2026-07-12T21:43:53Z",
-  "last_seen_item_hash": "baml-language-0.14.2-nightly.20260712.d",
+  "last_fetched_utc": "2026-07-14T04:00:00Z",
+  "last_seen_cursor": "2026-07-14T01:32:04Z",
+  "last_seen_item_hash": "baml-language-0.14.2-nightly.20260714.c",
   "consecutive_empty_scans": 0,
   "consecutive_failures": 0,
-  "notes": "07-12 additional three 0.14.2 nightlies (20260712.b at 04:49:33Z + .c at 18:14:23Z + .d at 21:43:53Z UTC). 0.14.2-nightly cadence extends to 4-day density (11 nightlies across four days: 07-10 six + 07-11 one + 07-12 four = 11 total). Yesterday's 07-12 nightly-cadence 🟡 slot extended today; 5-day-density escalation trigger closer to activation (would fire on 07-13 UTC-day continuation of nightly cadence). No new GA. 0.14.0/0.14.1 GA release-notes bodies remain UNFETCHABLE. Monthly Integration 2026-07 backlog-note candidate for BAML §release-cadence-hygiene if pattern extends beyond 5 days."
+  "notes": "07-13/07-14 additional eight 0.14.2 nightlies (07-13 five a/b/c/d/e at 05:36:32Z + 21:26:03Z + 21:58:15Z + 22:53:24Z + 23:55:58Z UTC; 07-14 three-through-window-close a/b/c at 00:27:25Z + 01:11:33Z + 01:32:04Z UTC). 0.14.2-nightly cadence extends to 5-day density (19 nightlies across five days: 07-10 six + 07-11 one + 07-12 four + 07-13 five + 07-14 three-through-window-close = 19 total). ACTIVATES the 5-day-density escalation trigger flagged at 07-13 digest — Monthly Integration 2026-07 backlog-note candidate for BAML §release-cadence-hygiene now on the queue. No new GA. 0.14.0/0.14.1 GA release-notes bodies remain UNFETCHABLE."
 }

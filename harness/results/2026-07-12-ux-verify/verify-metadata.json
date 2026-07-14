@@ -1,0 +1,90 @@
+{
+ "run": "2026-07-12-ux-verify",
+ "spec_version": "1.2",
+ "protocols": [
+  "harness/lifecycle/UX-REHEARSAL-PROTOCOL.md",
+  "harness/lifecycle/UPGRADE-SURVIVAL-PROTOCOL.md"
+ ],
+ "kit_branch": "ux-lifecycle",
+ "surfaces_verified_at": "pre-fix tree (see drift-grep.md); doc fixes applied post-verification in cd74a8b",
+ "lc1": {
+  "value_s": 394,
+  "evidence": "dispatch 2026-07-11T22:00:35Z (timing-log) -> BRIEF-WRITTEN echo 2026-07-11T22:07:09Z (seg1.json + state-file phase-1 row)",
+  "upper_bound_note": "includes dispatch overhead per definition",
+  "presentation_band_leq_180s": "MISSED (394 > 180)",
+  "contract_promise": "MET \u2014 the printed block promises 'lands as soon as Phase 1 analysis completes \u2014 early in the run' (no numeric promise); brief landed exactly at Phase 1 completion, ~27% into segment 1"
+ },
+ "lc2": {
+  "wall_time": {
+   "disclosed_as_printed": "~18\u201321 min ... each (single-run, directional)",
+   "ceiling_s": 1260,
+   "actual_s": 2570,
+   "delta_s": 1310,
+   "verdict_as_written": "FALSE",
+   "confound": "pre-registered both-segments sum on a deliberately interrupted-and-resumed instrumented run; kit context read 2x + a run-control continuation added a 3rd load; baseline figures are single continuous sessions. Verifier: 'not a product defect'."
+  },
+  "tokens": {
+   "disclosed_as_printed": "~270\u2013330k tokens each",
+   "ceiling": 330000,
+   "actual": 636138,
+   "delta": 306138,
+   "verdict_as_written": "FALSE",
+   "segment1_alone": 327331,
+   "segment1_within_range": true,
+   "confound": "same resume confound; seg1 (phases 0-3 only) already near ceiling \u2014 directional warning recorded (F2)"
+  },
+  "questions": {
+   "disclosed": "at most 1 in a typical run",
+   "blocking_total_both_segments": 1,
+   "classification": "the 1 blocking question is the resume offer, which the docs place outside the typical-run budget ('fires only after a failed run'); generation questions = 0",
+   "verdict": "TRUE"
+  }
+ },
+ "lc3_rerun": {
+  "survival_rate": "41/41 = 1.0 (verifier's own recomputation, incl. the owner-created skill's 26 lines)",
+  "silent_overwrites": 0,
+  "adjudication_flagging": "3/3 = 1.0",
+  "notable_divergence_from_first_run": ".cursor/rules/quality-gates.mdc HELD (coupling with protected twin) vs UPGRADED in the first run \u2014 legitimate judgment split, logged F-row"
+ },
+ "agents": [
+  {
+   "role": "rehearsal segment 1 (cold paste, boundary stop)",
+   "model": "opus",
+   "tokens": 327331,
+   "duration_s": 1468
+  },
+  {
+   "role": "rehearsal segment 2 (resume offer + halt at carried-over stop)",
+   "model": "opus",
+   "tokens": 119358,
+   "duration_s": 324
+  },
+  {
+   "role": "rehearsal segment 2 continuation (stop lifted -> Phase 9)",
+   "model": "opus",
+   "tokens": 189449,
+   "duration_s": 778
+  },
+  {
+   "role": "survival re-run dry-run",
+   "model": "opus",
+   "tokens": 127594,
+   "duration_s": 562
+  },
+  {
+   "role": "survival re-run apply + \u00a75a",
+   "model": "opus",
+   "tokens": 163869,
+   "duration_s": 900
+  },
+  {
+   "role": "verifier synthesis (firewalled)",
+   "model": "opus",
+   "tokens": 165201,
+   "duration_s": 637
+  }
+ ],
+ "tokens_total_w7": 1092802,
+ "token_method": "orchestration-harness per-agent report (includes per-call system context); injected post-run 2026-07-12",
+ "caveat": "single-run, directional"
+}

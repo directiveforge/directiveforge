@@ -47,9 +47,24 @@ claude plugin install directiveforge
 
 This installs the 22 measured skills (decision / naming / design packs) and the workflow commands, including `/report-friction` (invoked as `/directiveforge:report-friction` when installed as the plugin).
 
-**2 — Generate a project-specific workflow** (Claude Code or Cursor): open a session at the root of your target project and paste [`generator/PROJECT_SETUP_PROMPT.md`](generator/PROJECT_SETUP_PROMPT.md). The generator reads your codebase, asks you a short profile of questions, and writes your `CLAUDE.md`, `.cursor/rules/*.mdc`, `.claude/commands/`, agents, and MCP config — tailored to your stack.
+**2 — Generate a project-specific workflow** (Claude Code or Cursor): open a session at the root of your target project and paste [`generator/PROJECT_SETUP_PROMPT.md`](generator/PROJECT_SETUP_PROMPT.md). The generator reads your codebase, asks at most one question in a typical run, and writes your `CLAUDE.md`, `.cursor/rules/*.mdc`, `.claude/commands/`, agents, and MCP config — tailored to your stack.
 
-Heads-up: the three recorded baseline runs took ~18–21 min and ~270–330k tokens each on the harness's internal generation clock — and one clean end-to-end run measured **~27.5 min wall-clock and ~367k tokens** once orchestration overhead (KB reads, dispatch) is counted (`feedback/2026-07-13-uxd5-clean-run-timing.md`, n=1). Budget for the wall-clock figure; larger repos can take longer. The plugin install above is instant.
+<!-- DF-RUN-CONTRACT v1 — keep this block byte-identical across generator/PROJECT_SETUP_PROMPT.md, QUICK_START.md, README.md (drift is a defect: extract between the sentinel comments and hash) -->
+**What this run does**
+
+- **Time & tokens:** two measurement bases, both published — ~18–21 min / ~270–330k tokens on the harness's internal clock (`harness/results/2026-07-03-baseline/`, n=3); one clean end-to-end run measured 27m28s wall-clock / ~367k tokens including orchestration overhead (`feedback/2026-07-13-uxd5-clean-run-timing.md`, n=1). Budget for the wall-clock figure; larger repos take longer.
+- **Writes:** 29–44 files in the recorded runs, tier- and scope-dependent — context docs, rules, skills, agents, commands, MCP config, decision ledger — every one listed in `.ai-kit-manifest.json`.
+- **Questions:** at most 1 in a typical run; conditional pack proposals appear only when your repo triggers them.
+- **Building for:** `<detected scope>` (detected: `<evidence>`). Reply "both" or "cursor" to change — the veto stays open until Phase 3 generation starts.
+- **First artifact:** the codebase brief (`docs/AI-WORKFLOW-BRIEF.md`) lands as soon as Phase 1 analysis completes — early in the run, and it stands alone if you stop there.
+- **Resume:** if the session dies, paste the same prompt again — the `.df-setup-state.json` checkpoint offers resume-from-where-it-stopped or a clean restart. A resumed run re-reads context, so it costs more than the single-pass figures above.
+- **Uninstall:** `.ai-kit-manifest.json` maps everything the kit wrote; removal recipe in `QUICK_START.md` § Uninstall.
+- **Abort any time.** Until the Phase 1 brief, the only writes are the checkpoint file and — in revival runs only (Phase 0.5 gate) — `OWNER_BRIEF.md` (+ `docs/REVIVAL-ASSESSMENT.md`). Everything written so far is always listed in the checkpoint.
+<!-- /DF-RUN-CONTRACT v1 -->
+
+The plugin install above is instant.
+
+Heads-up: the three recorded baseline runs took ~18–21 min and ~270–330k tokens each on the harness's internal generation clock — and one clean end-to-end run measured **~27.5 min wall-clock and ~367k tokens** once orchestration overhead (KB reads, dispatch) is counted (`feedback/2026-07-13-uxd5-clean-run-timing.md`, n=1). Budget for the wall-clock figure; larger repos can take longer.
 
 **3 — Cursor skills:** Cursor consumes skills as files. Copy `templates/skills/<pack>/` into your project per [`workflows/WORKFLOW-CURSOR.md`](workflows/WORKFLOW-CURSOR.md).
 

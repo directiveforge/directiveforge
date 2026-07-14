@@ -142,6 +142,18 @@ with open(out, 'w') as f:
     f.write("privacy rule protecting clients overrides reproducibility for exactly these rows).\n")
     f.write("Their forward hash (public_sha256) and their original_sha256 anchor in the run's\n")
     f.write("post-manifest.txt remain verifiable; the inverse recomputation is operator-attested.\n\n")
+    def has_manifest_anchor(path):
+        m = re.match(r'(harness/results/[^/]+/[^/]+)/generated/', path)
+        return bool(m) and os.path.isfile(os.path.join(kit, m.group(1), 'post-manifest.txt'))
+    no_manifest_n = sum(1 for r in rows if not has_manifest_anchor(r[0]))
+    if no_manifest_n:
+        f.write(f"**Rows without a run-manifest cross-check** ({no_manifest_n} of {len(rows)}):\n")
+        f.write("`verify-transform.sh` prints `manifest=n/a` for these — either the path isn't under a\n")
+        f.write("`.../generated/` tree at all (the manifest-anchor check only ever applies there), or it\n")
+        f.write("is, but that run's evidence directory has no file literally named `post-manifest.txt`\n")
+        f.write("(a different manifest file anchors that run instead). Forward and inverse hash\n")
+        f.write("verification still runs and must still pass for these rows regardless; only the extra\n")
+        f.write("cross-check against a run manifest is skipped. Not a failure — see the printed row list.\n\n")
     f.write(f"Private-repo release commit: `{head}`\n")
     f.write(f"Generated: {datetime.date.today().isoformat()}\n\n")
     f.write("## Bridged files\n\n```tsv-bridge\n")

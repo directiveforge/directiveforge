@@ -6,6 +6,79 @@ Format: `## [version or milestone] — YYYY-MM-DD`
 
 ---
 
+## [Unreleased — ux-lifecycle branch] — 2026-07-12
+
+The Lifecycle UX Overhaul. Executes `prompts/dispatch/UX_LIFECYCLE_ARCHITECT_PROMPT.md` (W0–W7,
+evidence-ranked #1 from `research/2026-07-11-user-pain-map.md`) on branch `ux-lifecycle`,
+unpushed — merge is the operator's action (default Wed 2026-07-15 post-launch; this section folds
+into the next release heading at merge). Fable 5 main session (operator-dispatched); Sonnet-class
+subagents for the W5 run, Opus 4.8 for all W7 legs. Commits: W0 `bded354` (plan-first lock
+honored) → W1.5 `a4bc4c5` → W2 `1906830` → W3 `73872cf` → W4 `8faf979` → W1 `7430b62` (contract
+committed last of the doc workstreams so every claim is true at its commit) → W6 `78c943d` (spec
+BEFORE measurement) → W5 instrument `274cd0d` → W5 results `e831703` → W7 fixes `cd74a8b` → W7
+results `545447f` → wrap (this commit).
+
+### Run contract + single-IDE scope (W1, W1.5)
+
+- **DF-RUN-CONTRACT v1**: one sentinel-wrapped disclosure block, byte-identical across PSP /
+  QUICK_START / README (hash-verified; drift is mechanically greppable). Discloses measured
+  time/tokens with source + caveat, files-written range across recorded runs, the ≤1-question
+  promise, IDE scope with veto, first artifact, resume, uninstall, and the TRUE abort boundary
+  (Phase 0.5 revival exception stated).
+- **Evidence-based single-IDE scope** (Phase 3.4): operator words > session surface >
+  git-recency live-ness; BOTH surfaces only on live evidence of both or the operator's word — a
+  single-IDE operator never receives the second surface silently. The one pre-existing blocking
+  ask (mixed evidence) unchanged. Scope-split cost disclosure deferred on evidence (UXD-1).
+
+### First win, resume, truth-in-docs (W2, W3, W4)
+
+- **Phase 1.7**: the codebase brief (`docs/AI-WORKFLOW-BRIEF.md`) lands the moment analysis
+  completes — an aborted run still leaves something real. 14-step phase banners, honest count.
+- **Checkpoint/resume**: one JSON-Lines row per phase in `.df-setup-state.json`; restart offers
+  resume (never regenerate) or confirmed clean restart; Phase 9 deletes the file; QUICK_START
+  documents the three failure modes. No new questions in a typical run.
+- **Truth-in-docs**: "9 phases" → the real 14 everywhere (PSP IDs unchanged — frozen runners
+  hard-code them); uninstall documented twice (QUICK_START recipe + UPGRADE_MODE §9,
+  manifest-driven, with the §7-invariant relation stated); stale descriptors fixed.
+- VALIDATION_CHECKLIST §10 lifecycle gates + static-checks **family T** (T1 scope purity, T2
+  first artifact, T3 checkpoint cleanup) — same-commit sync, forward-only.
+
+### Lifecycle metrics + proof (W6, W5, W7)
+
+- **HARNESS-SPEC v1.2** (dated, append-only, committed before any measurement): LC-1
+  time-to-first-artifact, LC-2 disclosed-vs-actual cost delta, LC-3 upgrade
+  customization-survival (silent-overwrite hard gate = 0). L1.*/L2.* untouched; no re-grading.
+- **Upgrade customization-survival, measured twice** (pre-registered protocol, real 0.17→0.20
+  template drift, 2×2 fully covered): W5 Sonnet-class run — survival 15/15 = 1.0, flagging 3/3,
+  **silent overwrites = 0**, incl. the §5.3 silence-preserves edge (unanswered adjudication →
+  keep-mine, byte-identical, flag set); W7 independent Opus-class re-run — verifier-recomputed
+  **41/41 = 1.0, silent overwrites = 0**, protected path byte-identical both runs. The
+  spec-kit-#1191-class failure (upgrade eats customization) did not reproduce against this mode.
+- **W7 fresh-context rehearsal** (cold PSP paste, synthetic non-fixture TS-CLI repo, no
+  `.cursor/`): scope purity clean (`ide_scope: ["claude-code"]`, zero `.cursor/**`), 14/14
+  banners, uninstall recipe correct against the run's 29-file manifest, resume hash-proof
+  (offer → resume → Phase 9, zero regeneration), 1 blocking question total (the post-failure
+  resume offer; generation questions 0). LC-1 394 s — contract promise met, ≤180 s band missed
+  (UXD-7). **LC-2 cost verdicts FALSE-as-written** under the pre-registered both-segments sum on
+  a deliberately interrupted run — shipped as recorded with the confound analysis; the spec was
+  NOT amended post-hoc (UXD-4); the contract text was made more truthful instead (`cd74a8b`:
+  writes range spans all recorded runs incl. the 29-file Starter install; resumed-run cost
+  disclosed). Verifier verdict: **GO**.
+
+### Dispositions & spend
+
+All W7 findings (F1–F8) dispositioned in `harness/results/2026-07-12-ux-verify/RESULT.md`
+(3 fixed, 4 deferred, 1 accepted); deferrals ledgered as UXD-1..UXD-11 in
+`feedback/2026-07-12-ux-lifecycle-deferrals.md` — roll-up owed at the next release close (no
+DISPOSITIONS-vX.Y.Z.md here by design: that file is a release-close artifact; this is a branch
+milestone, and the omission is stated so it is visible, not silent). Budgets: execution
+subagents 8 of ≤10 (3 Sonnet + 5 Opus incl. one same-agent continuation), **1,642,656 measured
+subagent tokens of ≤3M** (W5 549,854 + W7 1,092,802; orchestration-harness per-agent method,
+L2.5 caveat); the W0 plan-mode phase additionally used 3 Explore + 2 Plan agents whose tokens
+the harness does not report — stated, not hidden.
+
+---
+
 ## [0.20.0] — 2026-07-03
 
 The Public Launch Release. Executes the v0.20.0 launch architect prompt (private dispatch instance; W0–W6): the kit becomes **DirectiveForge** and ships as a leak-clean public snapshot + one-command Claude Code plugin, with a numbers-first README built around the v0.19.0 delta story. Model routing per §4: Fable 5 main (W0 decisions, naming adjudication, snapshot strategy, voice-pass, verification dispositions, wrap); Opus 4.8 subagents (naming screens, scrub implementation, packaging, launch drafts, W5 verifiers); Haiku smokes. Commits: W0 `66819ea` (plan FIRST — the v0.19.0 lock honored) → W1 `50ac443` → W2 `815bdea..03331b4` → W3 `54663da` → W4 `dfe5cb0` → W5 `87282ad` → W6 wrap (this commit).

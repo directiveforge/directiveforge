@@ -20,7 +20,7 @@ denominator** and recorded in the run's `na_families` list (it is not a FAIL).
 | Rule set (`.claude/rules/` or `templates/claude-code/rules/`) | dir holds `*.md`/`*.mdc`/`*.template` rule files | R (rules), J |
 | Agent set (`.claude/agents/` or `templates/claude-code/agents/`) | dir holds agent `*.md`/`*.template` with `tools:` frontmatter | A (agents), J |
 | Command set (`.claude/commands/`) | dir holds command `*.md` | C (commands), J |
-| Generated install tree (`.claude/`) | contains ≥2 of the above subdirs | all present families, per-subdir |
+| Generated install tree (`.claude/`) | contains ≥2 of the above subdirs | all present families, per-subdir, + T (tree-level, run from the project root holding `.ai-kit-manifest.json`) |
 
 **Template vs install rule (governs the placeholder checks S6/R-null/A-null):** if the target
 path contains `templates/`, `{{PLACEHOLDER}}` tokens are EXPECTED (this is source) — the
@@ -150,6 +150,39 @@ CLINES() { if head -1 "$1" | grep -qE '^---'; then CONTENT "$1"; else grep -cvE 
   ```
   Fails on a duplicated step number or out-of-order numbering. Commands with prose-only steps
   (no numbered list) are N/A for C1 — record in `na_families`.
+
+## Family T — Install-tree lifecycle checks (one row per install tree)
+
+Applies ONLY to the "Generated install tree" target type. `ROOT` = the project root containing
+`.ai-kit-manifest.json` (checks are N/A — recorded, not scored — when no manifest exists).
+Added forward-only on 2026-07-12 (ux-lifecycle; see the dated HARNESS-SPEC addendum) — check-pack
+growth per the §18–§23 precedent, no re-grading of runs scored before that date.
+
+- **T1 — IDE-scope purity.** PASS iff every surface directory present in the tree is licensed by
+  the manifest's `ide_scope` (Phase 3.4 single-scope default: the second surface is never
+  installed silently).
+  ```bash
+  python3 - "$ROOT" <<'EOF'
+  import json, os, sys
+  root = sys.argv[1]
+  scope = json.load(open(os.path.join(root, '.ai-kit-manifest.json'))).get('ide_scope', [])
+  for ide, d in (('cursor', '.cursor'), ('claude-code', '.claude')):
+      p = os.path.join(root, d)
+      if ide not in scope and os.path.isdir(p) and any(fs for _, _, fs in os.walk(p)):
+          print(f'FAIL T1 {d} present but "{ide}" not in ide_scope')
+  EOF
+  ```
+  PASS = no output.
+
+- **T2 — first artifact present.** PASS iff the Phase 1.7 codebase brief exists non-empty.
+  ```bash
+  [ -s "$ROOT/docs/AI-WORKFLOW-BRIEF.md" ] || echo "FAIL T2 missing-or-empty brief"
+  ```
+- **T3 — checkpoint cleaned up.** PASS iff the Run Protocol scratch file is absent after a
+  completed run (it is JSON Lines while it lives — never gate it on `json.tool`).
+  ```bash
+  [ ! -f "$ROOT/.df-setup-state.json" ] || echo "FAIL T3 stale checkpoint"
+  ```
 
 ## Family J — JSON artifacts (one row per `.json`)
 

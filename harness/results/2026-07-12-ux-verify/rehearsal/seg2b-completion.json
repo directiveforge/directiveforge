@@ -1,0 +1,25 @@
+{
+ "banners_printed": [
+  "Phase 4 \u2014 Existing File Handling (step 7 of 14) \u2014 writes: PRE-EXISTING-MODIFIED.txt (empty): skipped \u2014 Phase 0.2 inventory found no pre-existing AI workflow files",
+  "Phase 4.5 \u2014 Per-project surface routing integration (step 8 of 14) \u2014 writes: nothing: skipped \u2014 Intermediate+ only gate did not fire (MATURITY_TIER=Starter)",
+  "Phase 5 \u2014 Validation (step 9 of 14) \u2014 writes: nothing (fixes only if checks fail)",
+  "Phase 6 \u2014 Cost & Session Optimization (step 10 of 14) \u2014 writes: nothing (all Phase 6 content already present in generated CLAUDE.md)",
+  "Phase 7 \u2014 Vigilance discipline bootstrap (step 11 of 14) \u2014 writes: nothing: skipped \u2014 Advanced-tier-only gate did not fire (MATURITY_TIER=Starter)",
+  "Phase 8 \u2014 Mission-dispatch pattern setup (step 12 of 14) \u2014 writes: nothing: skipped \u2014 Advanced-tier-only gate did not fire (MATURITY_TIER=Starter)",
+  "Phase 8.5 \u2014 Write the Install Manifest (step 13 of 14) \u2014 writes: .ai-kit-manifest.json",
+  "Phase 9 \u2014 Summary Report (step 14 of 14) \u2014 writes: nothing (deletes .df-setup-state.json as final action)"
+ ],
+ "operator_consultations": [],
+ "run_completed": true,
+ "state_file_deleted_at_phase9": true,
+ "validation_summary": "All applicable sections PASS; 2 FAILs found and fixed in-run (S21: 14 phantom routes missing the canonical 'at this tier' marker across all 5 skills, HD-7 class; S22: description 4-gram collision confidence-calibration<->reversibility-check, present verbatim in kit templates too); files edited by Phase 5 fixes: the 5 decision-skill SKILL.md copies.",
+ "manifest": {
+  "written": true,
+  "file_count": 29,
+  "ide_scope": [
+   "claude-code"
+  ]
+ },
+ "phase9_report_printed": true,
+ "pack_gate_decisions": "KB-03 not-triggered, KB-07 not-triggered, KB-08 not-triggered"
+}

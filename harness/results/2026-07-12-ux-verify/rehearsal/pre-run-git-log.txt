@@ -1,0 +1,4 @@
+016109d Fixture Operator docs: README with usage + roadmap note on temperature
+9f7c934 Fixture Operator feat: CLI entry (unitkit <value> <from> in <to>)
+d2d01da Fixture Operator feat: unit table + factor-based conversion with dimension guard
+37371d5 Fixture Operator chore: scaffold unitkit (tsc strict + eslint)
